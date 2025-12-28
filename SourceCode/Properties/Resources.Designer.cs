@@ -243,6 +243,16 @@ namespace TMCAnalyzer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Pulse {
+            get {
+                object obj = ResourceManager.GetObject("Pulse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SwitchOff {
             get {
                 object obj = ResourceManager.GetObject("SwitchOff", resourceCulture);
@@ -296,6 +306,16 @@ namespace TMCAnalyzer.Properties {
         internal static System.Drawing.Bitmap SwitchOnYellow_0_30 {
             get {
                 object obj = ResourceManager.GetObject("SwitchOnYellow_0_30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tuning_c256 {
+            get {
+                object obj = ResourceManager.GetObject("Tuning_c256", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
