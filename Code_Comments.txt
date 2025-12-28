@@ -1,0 +1,35 @@
+
+2019-02-12 MR
+  Fixed:
+  - It was found that Scope C# applications allow only one UDP connection
+    This problem was solved by capturing the exception on Scope - UDP connect, and then displaying a message explaining the error condition, 
+    with a recommendation to uncheck the UDB box in the Scope form.
+
+2018-04-19
+Zipped current state of analyzer
+
+2018-01-19
+moved some form files from root folder to "Forms" folder, fixed colors of the left panel buttons
+
+2018-01-11
+Igor adjusted TableLayoutPanel_Main and how it changed          private void PageControl_Main_SelectedIndexChanged(object sender, EventArgs e)
+(still does not work for performance panel - the top raw height is set to zero, so on left panel too. Logo disappears, Panel_menu jumps up.
+
+
+2017-05-30
+Amit Kamat from Ametek India converted VB6 to C#
+
+2017-02-08
+Modified formFilters - added NI numeric controls replacing textbox place holders
+IK: LOOK FOR COMMENT "//-!-" - I commented line temporarely to compile (for example function call, and function is not transfered to C# yet)
+>>>TO DO>>> Program.Init_sys_data might need to be replaced with Program.IsReadingControllerSettings
+>>>TO DO>>> remove namespace Microsoft.VisualBasic, replace VB-like calls with C# calls, i.e. "Strings.Mid(response, sep_pos + 1)" with "response.Substring(sep_pos + 1)"
+
+2017-01-01
+Using Win XP TOSHIBA laptop,
+Imported VB6 project.
+It imports into VS 2003 and SHOWS all controls, including NI.ComponetWorks (did not attempt to debug)
+It imports into VS 2008 and SHOWS controls, NOT including NI.ComponetWorks. Forms with NI controls cannot be open in designer.
+Created C# project and added forms (manually). Renamed them as if for MAg-NEtX_NET project.
+From VS 2008 imported VB files on the forms which CAN be open (without NI controls) copied "design" - open "form view" in VB.NET project, copy to clipboard,
+open "form view" in C#, pasted to C# form. IT GREATLY SPEEDS UP LAYOUT TRANSFER!
