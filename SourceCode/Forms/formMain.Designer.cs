@@ -403,24 +403,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.TabPageFirmware = new System.Windows.Forms.TabPage();
 			this.frmFWupgrade = new System.Windows.Forms.GroupBox();
-			this.FramePositionFeedBack = new System.Windows.Forms.GroupBox();
-			this.pane_SoftDock = new System.Windows.Forms.Panel();
-			this.label18 = new System.Windows.Forms.Label();
-			this.label_SoftDock = new System.Windows.Forms.Label();
-			this._lblAxis_2 = new System.Windows.Forms.Label();
-			this._Label1_35 = new System.Windows.Forms.Label();
-			this._Label1_34 = new System.Windows.Forms.Label();
-			this._Label1_33 = new System.Windows.Forms.Label();
-			this._Label1_32 = new System.Windows.Forms.Label();
-			this._Label1_31 = new System.Windows.Forms.Label();
-			this._Label1_30 = new System.Windows.Forms.Label();
-			this._Label1_29 = new System.Windows.Forms.Label();
-			this._Label1_26 = new System.Windows.Forms.Label();
-			this._Label1_25 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
-			this.label12 = new System.Windows.Forms.Label();
-			this.label13 = new System.Windows.Forms.Label();
 			this.ListShadow = new System.Windows.Forms.ListBox();
 			this.ListParams = new System.Windows.Forms.ListBox();
 			this.ListParamsErrors = new System.Windows.Forms.ListBox();
@@ -482,6 +464,24 @@
 			this.txtStatus = new System.Windows.Forms.TextBox();
 			this.panel7 = new System.Windows.Forms.Panel();
 			this.LblCONNparams = new System.Windows.Forms.Label();
+			this.FramePositionFeedBack = new System.Windows.Forms.GroupBox();
+			this.pane_SoftDock = new System.Windows.Forms.Panel();
+			this.label18 = new System.Windows.Forms.Label();
+			this.label_SoftDock = new System.Windows.Forms.Label();
+			this._lblAxis_2 = new System.Windows.Forms.Label();
+			this._Label1_35 = new System.Windows.Forms.Label();
+			this._Label1_34 = new System.Windows.Forms.Label();
+			this._Label1_33 = new System.Windows.Forms.Label();
+			this._Label1_32 = new System.Windows.Forms.Label();
+			this._Label1_31 = new System.Windows.Forms.Label();
+			this._Label1_30 = new System.Windows.Forms.Label();
+			this._Label1_29 = new System.Windows.Forms.Label();
+			this._Label1_26 = new System.Windows.Forms.Label();
+			this._Label1_25 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
 			this.FramePneumFB = new System.Windows.Forms.GroupBox();
 			this.panel_BasicCMD_0 = new System.Windows.Forms.Panel();
 			this.label_BasicCMD2_0 = new System.Windows.Forms.Label();
@@ -626,8 +626,6 @@
 			this.splitContainerPerformance.SuspendLayout();
 			this.TabPageFirmware.SuspendLayout();
 			this.frmFWupgrade.SuspendLayout();
-			this.FramePositionFeedBack.SuspendLayout();
-			this.pane_SoftDock.SuspendLayout();
 			this.FrameSaveParamsIntoFile.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ImageParam)).BeginInit();
 			this.TabPageAbout.SuspendLayout();
@@ -643,6 +641,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.panel7.SuspendLayout();
+			this.FramePositionFeedBack.SuspendLayout();
+			this.pane_SoftDock.SuspendLayout();
 			this.FramePneumFB.SuspendLayout();
 			this.panel_BasicCMD_0.SuspendLayout();
 			this.panel_AuxDamoing.SuspendLayout();
@@ -5569,7 +5569,6 @@
 			// 
 			this.frmFWupgrade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(128)))));
 			this.frmFWupgrade.Controls.Add(this.sbAction);
-			this.frmFWupgrade.Controls.Add(this.FramePositionFeedBack);
 			this.frmFWupgrade.Controls.Add(this.ListShadow);
 			this.frmFWupgrade.Controls.Add(this.ListParams);
 			this.frmFWupgrade.Controls.Add(this.CmdClearParamList);
@@ -5591,274 +5590,6 @@
 			this.frmFWupgrade.TabIndex = 120;
 			this.frmFWupgrade.TabStop = false;
 			this.frmFWupgrade.Text = "Firmware Parameters";
-			// 
-			// FramePositionFeedBack
-			// 
-			this.FramePositionFeedBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.FramePositionFeedBack.Controls.Add(this.pane_SoftDock);
-			this.FramePositionFeedBack.Controls.Add(this._lblAxis_2);
-			this.FramePositionFeedBack.Controls.Add(this.NIstatusBitIndicator5);
-			this.FramePositionFeedBack.Controls.Add(this.CmdZeroHorizProx);
-			this.FramePositionFeedBack.Controls.Add(this.NInumFBgain0);
-			this.FramePositionFeedBack.Controls.Add(this.NInumFBgain1);
-			this.FramePositionFeedBack.Controls.Add(this.NInumFBgain2);
-			this.FramePositionFeedBack.Controls.Add(this.NInumHeightAdj0);
-			this.FramePositionFeedBack.Controls.Add(this.NInumHeightAdj1);
-			this.FramePositionFeedBack.Controls.Add(this.NInumHeightAdj2);
-			this.FramePositionFeedBack.Controls.Add(this.NInumGoNoGOwindow0);
-			this.FramePositionFeedBack.Controls.Add(this.NInumGoNoGOwindow1);
-			this.FramePositionFeedBack.Controls.Add(this.NInumGoNoGOwindow2);
-			this.FramePositionFeedBack.Controls.Add(this.NInumGoNoGOtime);
-			this.FramePositionFeedBack.Controls.Add(this._Label1_35);
-			this.FramePositionFeedBack.Controls.Add(this._Label1_34);
-			this.FramePositionFeedBack.Controls.Add(this._Label1_33);
-			this.FramePositionFeedBack.Controls.Add(this._Label1_32);
-			this.FramePositionFeedBack.Controls.Add(this._Label1_31);
-			this.FramePositionFeedBack.Controls.Add(this._Label1_30);
-			this.FramePositionFeedBack.Controls.Add(this._Label1_29);
-			this.FramePositionFeedBack.Controls.Add(this._Label1_26);
-			this.FramePositionFeedBack.Controls.Add(this._Label1_25);
-			this.FramePositionFeedBack.Controls.Add(this.label10);
-			this.FramePositionFeedBack.Controls.Add(this.label11);
-			this.FramePositionFeedBack.Controls.Add(this.label12);
-			this.FramePositionFeedBack.Controls.Add(this.label13);
-			this.FramePositionFeedBack.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.FramePositionFeedBack.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.FramePositionFeedBack.Location = new System.Drawing.Point(402, 75);
-			this.FramePositionFeedBack.Name = "FramePositionFeedBack";
-			this.FramePositionFeedBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.FramePositionFeedBack.Size = new System.Drawing.Size(251, 350);
-			this.FramePositionFeedBack.TabIndex = 269;
-			this.FramePositionFeedBack.TabStop = false;
-			this.FramePositionFeedBack.Visible = false;
-			// 
-			// pane_SoftDock
-			// 
-			this.pane_SoftDock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-			this.pane_SoftDock.Controls.Add(this.label18);
-			this.pane_SoftDock.Controls.Add(this.label_SoftDock);
-			this.pane_SoftDock.Controls.Add(this.ToggleSoftDock);
-			this.pane_SoftDock.Location = new System.Drawing.Point(2, 27);
-			this.pane_SoftDock.Name = "pane_SoftDock";
-			this.pane_SoftDock.Size = new System.Drawing.Size(170, 57);
-			this.pane_SoftDock.TabIndex = 188;
-			// 
-			// label18
-			// 
-			this.label18.AutoSize = true;
-			this.label18.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label18.Location = new System.Drawing.Point(87, 35);
-			this.label18.Name = "label18";
-			this.label18.Size = new System.Drawing.Size(80, 14);
-			this.label18.TabIndex = 185;
-			this.label18.Text = "Click to release";
-			// 
-			// label_SoftDock
-			// 
-			this.label_SoftDock.AutoSize = true;
-			this.label_SoftDock.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label_SoftDock.Location = new System.Drawing.Point(90, 9);
-			this.label_SoftDock.Name = "label_SoftDock";
-			this.label_SoftDock.Size = new System.Drawing.Size(77, 18);
-			this.label_SoftDock.TabIndex = 184;
-			this.label_SoftDock.Text = "Soft Dock";
-			// 
-			// _lblAxis_2
-			// 
-			this._lblAxis_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this._lblAxis_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this._lblAxis_2.Cursor = System.Windows.Forms.Cursors.Default;
-			this._lblAxis_2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this._lblAxis_2.ForeColor = System.Drawing.SystemColors.WindowText;
-			this._lblAxis_2.Location = new System.Drawing.Point(0, 0);
-			this._lblAxis_2.Name = "_lblAxis_2";
-			this._lblAxis_2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._lblAxis_2.Size = new System.Drawing.Size(250, 22);
-			this._lblAxis_2.TabIndex = 126;
-			this._lblAxis_2.Text = "Position";
-			this._lblAxis_2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// _Label1_35
-			// 
-			this._Label1_35.BackColor = System.Drawing.Color.Transparent;
-			this._Label1_35.Cursor = System.Windows.Forms.Cursors.Default;
-			this._Label1_35.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this._Label1_35.ForeColor = System.Drawing.SystemColors.ControlText;
-			this._Label1_35.Location = new System.Drawing.Point(192, 175);
-			this._Label1_35.Name = "_Label1_35";
-			this._Label1_35.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._Label1_35.Size = new System.Drawing.Size(48, 17);
-			this._Label1_35.TabIndex = 179;
-			this._Label1_35.Text = "Time s";
-			this._Label1_35.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// _Label1_34
-			// 
-			this._Label1_34.BackColor = System.Drawing.Color.Transparent;
-			this._Label1_34.Cursor = System.Windows.Forms.Cursors.Default;
-			this._Label1_34.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this._Label1_34.ForeColor = System.Drawing.SystemColors.ControlText;
-			this._Label1_34.Location = new System.Drawing.Point(132, 175);
-			this._Label1_34.Name = "_Label1_34";
-			this._Label1_34.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._Label1_34.Size = new System.Drawing.Size(48, 17);
-			this._Label1_34.TabIndex = 177;
-			this._Label1_34.Text = "Z um";
-			this._Label1_34.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// _Label1_33
-			// 
-			this._Label1_33.BackColor = System.Drawing.Color.Transparent;
-			this._Label1_33.Cursor = System.Windows.Forms.Cursors.Default;
-			this._Label1_33.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this._Label1_33.ForeColor = System.Drawing.SystemColors.ControlText;
-			this._Label1_33.Location = new System.Drawing.Point(72, 175);
-			this._Label1_33.Name = "_Label1_33";
-			this._Label1_33.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._Label1_33.Size = new System.Drawing.Size(48, 17);
-			this._Label1_33.TabIndex = 176;
-			this._Label1_33.Text = "Y um";
-			this._Label1_33.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// _Label1_32
-			// 
-			this._Label1_32.BackColor = System.Drawing.Color.Transparent;
-			this._Label1_32.Cursor = System.Windows.Forms.Cursors.Default;
-			this._Label1_32.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this._Label1_32.ForeColor = System.Drawing.SystemColors.ControlText;
-			this._Label1_32.Location = new System.Drawing.Point(9, 175);
-			this._Label1_32.Name = "_Label1_32";
-			this._Label1_32.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._Label1_32.Size = new System.Drawing.Size(48, 17);
-			this._Label1_32.TabIndex = 173;
-			this._Label1_32.Text = "X um";
-			this._Label1_32.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// _Label1_31
-			// 
-			this._Label1_31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this._Label1_31.Cursor = System.Windows.Forms.Cursors.Default;
-			this._Label1_31.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this._Label1_31.ForeColor = System.Drawing.SystemColors.ControlText;
-			this._Label1_31.Location = new System.Drawing.Point(3, 160);
-			this._Label1_31.Name = "_Label1_31";
-			this._Label1_31.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._Label1_31.Size = new System.Drawing.Size(245, 59);
-			this._Label1_31.TabIndex = 172;
-			this._Label1_31.Text = "Go-NoGo window";
-			this._Label1_31.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// _Label1_30
-			// 
-			this._Label1_30.BackColor = System.Drawing.Color.Transparent;
-			this._Label1_30.Cursor = System.Windows.Forms.Cursors.Default;
-			this._Label1_30.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this._Label1_30.ForeColor = System.Drawing.SystemColors.ControlText;
-			this._Label1_30.Location = new System.Drawing.Point(183, 241);
-			this._Label1_30.Name = "_Label1_30";
-			this._Label1_30.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._Label1_30.Size = new System.Drawing.Size(48, 17);
-			this._Label1_30.TabIndex = 170;
-			this._Label1_30.Text = "Iso 3";
-			this._Label1_30.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// _Label1_29
-			// 
-			this._Label1_29.BackColor = System.Drawing.Color.Transparent;
-			this._Label1_29.Cursor = System.Windows.Forms.Cursors.Default;
-			this._Label1_29.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this._Label1_29.ForeColor = System.Drawing.SystemColors.ControlText;
-			this._Label1_29.Location = new System.Drawing.Point(105, 241);
-			this._Label1_29.Name = "_Label1_29";
-			this._Label1_29.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._Label1_29.Size = new System.Drawing.Size(48, 17);
-			this._Label1_29.TabIndex = 168;
-			this._Label1_29.Text = "Iso 2";
-			this._Label1_29.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// _Label1_26
-			// 
-			this._Label1_26.BackColor = System.Drawing.Color.Transparent;
-			this._Label1_26.Cursor = System.Windows.Forms.Cursors.Default;
-			this._Label1_26.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this._Label1_26.ForeColor = System.Drawing.SystemColors.ControlText;
-			this._Label1_26.Location = new System.Drawing.Point(21, 241);
-			this._Label1_26.Name = "_Label1_26";
-			this._Label1_26.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._Label1_26.Size = new System.Drawing.Size(48, 17);
-			this._Label1_26.TabIndex = 166;
-			this._Label1_26.Text = "Iso 1";
-			this._Label1_26.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// _Label1_25
-			// 
-			this._Label1_25.BackColor = System.Drawing.Color.Transparent;
-			this._Label1_25.Cursor = System.Windows.Forms.Cursors.Default;
-			this._Label1_25.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this._Label1_25.ForeColor = System.Drawing.SystemColors.ControlText;
-			this._Label1_25.Location = new System.Drawing.Point(3, 223);
-			this._Label1_25.Name = "_Label1_25";
-			this._Label1_25.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._Label1_25.Size = new System.Drawing.Size(240, 17);
-			this._Label1_25.TabIndex = 165;
-			this._Label1_25.Text = "Isolators Vertical offset, um";
-			this._Label1_25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// label10
-			// 
-			this.label10.BackColor = System.Drawing.Color.Transparent;
-			this.label10.Cursor = System.Windows.Forms.Cursors.Default;
-			this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label10.Location = new System.Drawing.Point(24, 111);
-			this.label10.Name = "label10";
-			this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.label10.Size = new System.Drawing.Size(48, 17);
-			this.label10.TabIndex = 125;
-			this.label10.Text = "X";
-			this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// label11
-			// 
-			this.label11.BackColor = System.Drawing.Color.Transparent;
-			this.label11.Cursor = System.Windows.Forms.Cursors.Default;
-			this.label11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label11.Location = new System.Drawing.Point(99, 111);
-			this.label11.Name = "label11";
-			this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.label11.Size = new System.Drawing.Size(48, 20);
-			this.label11.TabIndex = 124;
-			this.label11.Text = "Y";
-			this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// label12
-			// 
-			this.label12.BackColor = System.Drawing.Color.Transparent;
-			this.label12.Cursor = System.Windows.Forms.Cursors.Default;
-			this.label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label12.Location = new System.Drawing.Point(177, 111);
-			this.label12.Name = "label12";
-			this.label12.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.label12.Size = new System.Drawing.Size(48, 20);
-			this.label12.TabIndex = 123;
-			this.label12.Text = "tZ";
-			this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// label13
-			// 
-			this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-			this.label13.Cursor = System.Windows.Forms.Cursors.Default;
-			this.label13.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label13.Location = new System.Drawing.Point(3, 96);
-			this.label13.Name = "label13";
-			this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.label13.Size = new System.Drawing.Size(243, 59);
-			this.label13.TabIndex = 163;
-			this.label13.Text = "Soft Dock Gains";
-			this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
 			// ListShadow
 			// 
@@ -6822,6 +6553,274 @@
 			this.LblCONNparams.TabIndex = 63;
 			this.LblCONNparams.Text = " COM15 closed";
 			// 
+			// FramePositionFeedBack
+			// 
+			this.FramePositionFeedBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.FramePositionFeedBack.Controls.Add(this.pane_SoftDock);
+			this.FramePositionFeedBack.Controls.Add(this._lblAxis_2);
+			this.FramePositionFeedBack.Controls.Add(this.NIstatusBitIndicator5);
+			this.FramePositionFeedBack.Controls.Add(this.CmdZeroHorizProx);
+			this.FramePositionFeedBack.Controls.Add(this.NInumFBgain0);
+			this.FramePositionFeedBack.Controls.Add(this.NInumFBgain1);
+			this.FramePositionFeedBack.Controls.Add(this.NInumFBgain2);
+			this.FramePositionFeedBack.Controls.Add(this.NInumHeightAdj0);
+			this.FramePositionFeedBack.Controls.Add(this.NInumHeightAdj1);
+			this.FramePositionFeedBack.Controls.Add(this.NInumHeightAdj2);
+			this.FramePositionFeedBack.Controls.Add(this.NInumGoNoGOwindow0);
+			this.FramePositionFeedBack.Controls.Add(this.NInumGoNoGOwindow1);
+			this.FramePositionFeedBack.Controls.Add(this.NInumGoNoGOwindow2);
+			this.FramePositionFeedBack.Controls.Add(this.NInumGoNoGOtime);
+			this.FramePositionFeedBack.Controls.Add(this._Label1_35);
+			this.FramePositionFeedBack.Controls.Add(this._Label1_34);
+			this.FramePositionFeedBack.Controls.Add(this._Label1_33);
+			this.FramePositionFeedBack.Controls.Add(this._Label1_32);
+			this.FramePositionFeedBack.Controls.Add(this._Label1_31);
+			this.FramePositionFeedBack.Controls.Add(this._Label1_30);
+			this.FramePositionFeedBack.Controls.Add(this._Label1_29);
+			this.FramePositionFeedBack.Controls.Add(this._Label1_26);
+			this.FramePositionFeedBack.Controls.Add(this._Label1_25);
+			this.FramePositionFeedBack.Controls.Add(this.label10);
+			this.FramePositionFeedBack.Controls.Add(this.label11);
+			this.FramePositionFeedBack.Controls.Add(this.label12);
+			this.FramePositionFeedBack.Controls.Add(this.label13);
+			this.FramePositionFeedBack.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.FramePositionFeedBack.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.FramePositionFeedBack.Location = new System.Drawing.Point(215, 230);
+			this.FramePositionFeedBack.Name = "FramePositionFeedBack";
+			this.FramePositionFeedBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.FramePositionFeedBack.Size = new System.Drawing.Size(251, 350);
+			this.FramePositionFeedBack.TabIndex = 269;
+			this.FramePositionFeedBack.TabStop = false;
+			this.FramePositionFeedBack.Visible = false;
+			// 
+			// pane_SoftDock
+			// 
+			this.pane_SoftDock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.pane_SoftDock.Controls.Add(this.label18);
+			this.pane_SoftDock.Controls.Add(this.label_SoftDock);
+			this.pane_SoftDock.Controls.Add(this.ToggleSoftDock);
+			this.pane_SoftDock.Location = new System.Drawing.Point(2, 27);
+			this.pane_SoftDock.Name = "pane_SoftDock";
+			this.pane_SoftDock.Size = new System.Drawing.Size(170, 57);
+			this.pane_SoftDock.TabIndex = 188;
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label18.Location = new System.Drawing.Point(87, 35);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(80, 14);
+			this.label18.TabIndex = 185;
+			this.label18.Text = "Click to release";
+			// 
+			// label_SoftDock
+			// 
+			this.label_SoftDock.AutoSize = true;
+			this.label_SoftDock.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_SoftDock.Location = new System.Drawing.Point(90, 9);
+			this.label_SoftDock.Name = "label_SoftDock";
+			this.label_SoftDock.Size = new System.Drawing.Size(77, 18);
+			this.label_SoftDock.TabIndex = 184;
+			this.label_SoftDock.Text = "Soft Dock";
+			// 
+			// _lblAxis_2
+			// 
+			this._lblAxis_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this._lblAxis_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this._lblAxis_2.Cursor = System.Windows.Forms.Cursors.Default;
+			this._lblAxis_2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this._lblAxis_2.ForeColor = System.Drawing.SystemColors.WindowText;
+			this._lblAxis_2.Location = new System.Drawing.Point(0, 0);
+			this._lblAxis_2.Name = "_lblAxis_2";
+			this._lblAxis_2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this._lblAxis_2.Size = new System.Drawing.Size(250, 22);
+			this._lblAxis_2.TabIndex = 126;
+			this._lblAxis_2.Text = "Position";
+			this._lblAxis_2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// _Label1_35
+			// 
+			this._Label1_35.BackColor = System.Drawing.Color.Transparent;
+			this._Label1_35.Cursor = System.Windows.Forms.Cursors.Default;
+			this._Label1_35.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this._Label1_35.ForeColor = System.Drawing.SystemColors.ControlText;
+			this._Label1_35.Location = new System.Drawing.Point(192, 175);
+			this._Label1_35.Name = "_Label1_35";
+			this._Label1_35.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this._Label1_35.Size = new System.Drawing.Size(48, 17);
+			this._Label1_35.TabIndex = 179;
+			this._Label1_35.Text = "Time s";
+			this._Label1_35.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// _Label1_34
+			// 
+			this._Label1_34.BackColor = System.Drawing.Color.Transparent;
+			this._Label1_34.Cursor = System.Windows.Forms.Cursors.Default;
+			this._Label1_34.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this._Label1_34.ForeColor = System.Drawing.SystemColors.ControlText;
+			this._Label1_34.Location = new System.Drawing.Point(132, 175);
+			this._Label1_34.Name = "_Label1_34";
+			this._Label1_34.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this._Label1_34.Size = new System.Drawing.Size(48, 17);
+			this._Label1_34.TabIndex = 177;
+			this._Label1_34.Text = "Z um";
+			this._Label1_34.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// _Label1_33
+			// 
+			this._Label1_33.BackColor = System.Drawing.Color.Transparent;
+			this._Label1_33.Cursor = System.Windows.Forms.Cursors.Default;
+			this._Label1_33.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this._Label1_33.ForeColor = System.Drawing.SystemColors.ControlText;
+			this._Label1_33.Location = new System.Drawing.Point(72, 175);
+			this._Label1_33.Name = "_Label1_33";
+			this._Label1_33.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this._Label1_33.Size = new System.Drawing.Size(48, 17);
+			this._Label1_33.TabIndex = 176;
+			this._Label1_33.Text = "Y um";
+			this._Label1_33.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// _Label1_32
+			// 
+			this._Label1_32.BackColor = System.Drawing.Color.Transparent;
+			this._Label1_32.Cursor = System.Windows.Forms.Cursors.Default;
+			this._Label1_32.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this._Label1_32.ForeColor = System.Drawing.SystemColors.ControlText;
+			this._Label1_32.Location = new System.Drawing.Point(9, 175);
+			this._Label1_32.Name = "_Label1_32";
+			this._Label1_32.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this._Label1_32.Size = new System.Drawing.Size(48, 17);
+			this._Label1_32.TabIndex = 173;
+			this._Label1_32.Text = "X um";
+			this._Label1_32.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// _Label1_31
+			// 
+			this._Label1_31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this._Label1_31.Cursor = System.Windows.Forms.Cursors.Default;
+			this._Label1_31.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this._Label1_31.ForeColor = System.Drawing.SystemColors.ControlText;
+			this._Label1_31.Location = new System.Drawing.Point(3, 160);
+			this._Label1_31.Name = "_Label1_31";
+			this._Label1_31.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this._Label1_31.Size = new System.Drawing.Size(245, 59);
+			this._Label1_31.TabIndex = 172;
+			this._Label1_31.Text = "Go-NoGo window";
+			this._Label1_31.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// _Label1_30
+			// 
+			this._Label1_30.BackColor = System.Drawing.Color.Transparent;
+			this._Label1_30.Cursor = System.Windows.Forms.Cursors.Default;
+			this._Label1_30.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this._Label1_30.ForeColor = System.Drawing.SystemColors.ControlText;
+			this._Label1_30.Location = new System.Drawing.Point(183, 241);
+			this._Label1_30.Name = "_Label1_30";
+			this._Label1_30.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this._Label1_30.Size = new System.Drawing.Size(48, 17);
+			this._Label1_30.TabIndex = 170;
+			this._Label1_30.Text = "Iso 3";
+			this._Label1_30.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// _Label1_29
+			// 
+			this._Label1_29.BackColor = System.Drawing.Color.Transparent;
+			this._Label1_29.Cursor = System.Windows.Forms.Cursors.Default;
+			this._Label1_29.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this._Label1_29.ForeColor = System.Drawing.SystemColors.ControlText;
+			this._Label1_29.Location = new System.Drawing.Point(105, 241);
+			this._Label1_29.Name = "_Label1_29";
+			this._Label1_29.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this._Label1_29.Size = new System.Drawing.Size(48, 17);
+			this._Label1_29.TabIndex = 168;
+			this._Label1_29.Text = "Iso 2";
+			this._Label1_29.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// _Label1_26
+			// 
+			this._Label1_26.BackColor = System.Drawing.Color.Transparent;
+			this._Label1_26.Cursor = System.Windows.Forms.Cursors.Default;
+			this._Label1_26.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this._Label1_26.ForeColor = System.Drawing.SystemColors.ControlText;
+			this._Label1_26.Location = new System.Drawing.Point(21, 241);
+			this._Label1_26.Name = "_Label1_26";
+			this._Label1_26.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this._Label1_26.Size = new System.Drawing.Size(48, 17);
+			this._Label1_26.TabIndex = 166;
+			this._Label1_26.Text = "Iso 1";
+			this._Label1_26.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// _Label1_25
+			// 
+			this._Label1_25.BackColor = System.Drawing.Color.Transparent;
+			this._Label1_25.Cursor = System.Windows.Forms.Cursors.Default;
+			this._Label1_25.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this._Label1_25.ForeColor = System.Drawing.SystemColors.ControlText;
+			this._Label1_25.Location = new System.Drawing.Point(3, 223);
+			this._Label1_25.Name = "_Label1_25";
+			this._Label1_25.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this._Label1_25.Size = new System.Drawing.Size(240, 17);
+			this._Label1_25.TabIndex = 165;
+			this._Label1_25.Text = "Isolators Vertical offset, um";
+			this._Label1_25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// label10
+			// 
+			this.label10.BackColor = System.Drawing.Color.Transparent;
+			this.label10.Cursor = System.Windows.Forms.Cursors.Default;
+			this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.label10.Location = new System.Drawing.Point(24, 111);
+			this.label10.Name = "label10";
+			this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.label10.Size = new System.Drawing.Size(48, 17);
+			this.label10.TabIndex = 125;
+			this.label10.Text = "X";
+			this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// label11
+			// 
+			this.label11.BackColor = System.Drawing.Color.Transparent;
+			this.label11.Cursor = System.Windows.Forms.Cursors.Default;
+			this.label11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.label11.Location = new System.Drawing.Point(99, 111);
+			this.label11.Name = "label11";
+			this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.label11.Size = new System.Drawing.Size(48, 20);
+			this.label11.TabIndex = 124;
+			this.label11.Text = "Y";
+			this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// label12
+			// 
+			this.label12.BackColor = System.Drawing.Color.Transparent;
+			this.label12.Cursor = System.Windows.Forms.Cursors.Default;
+			this.label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.label12.Location = new System.Drawing.Point(177, 111);
+			this.label12.Name = "label12";
+			this.label12.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.label12.Size = new System.Drawing.Size(48, 20);
+			this.label12.TabIndex = 123;
+			this.label12.Text = "tZ";
+			this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// label13
+			// 
+			this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.label13.Cursor = System.Windows.Forms.Cursors.Default;
+			this.label13.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.label13.Location = new System.Drawing.Point(3, 96);
+			this.label13.Name = "label13";
+			this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.label13.Size = new System.Drawing.Size(243, 59);
+			this.label13.TabIndex = 163;
+			this.label13.Text = "Soft Dock Gains";
+			this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
 			// FramePneumFB
 			// 
 			this.FramePneumFB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -7558,6 +7557,7 @@
 			this.ClientSize = new System.Drawing.Size(1084, 682);
 			this.Controls.Add(this.FrameVelocityFB);
 			this.Controls.Add(this.FramePneumFB);
+			this.Controls.Add(this.FramePositionFeedBack);
 			this.Controls.Add(this.TableLayoutPanel_Main);
 			this.Controls.Add(this.cwBNC1select);
 			this.Controls.Add(this.cwBNC0select);
@@ -7698,9 +7698,6 @@
 			this.splitContainerPerformance.ResumeLayout(false);
 			this.TabPageFirmware.ResumeLayout(false);
 			this.frmFWupgrade.ResumeLayout(false);
-			this.FramePositionFeedBack.ResumeLayout(false);
-			this.pane_SoftDock.ResumeLayout(false);
-			this.pane_SoftDock.PerformLayout();
 			this.FrameSaveParamsIntoFile.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.ImageParam)).EndInit();
 			this.TabPageAbout.ResumeLayout(false);
@@ -7721,6 +7718,9 @@
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.panel7.ResumeLayout(false);
+			this.FramePositionFeedBack.ResumeLayout(false);
+			this.pane_SoftDock.ResumeLayout(false);
+			this.pane_SoftDock.PerformLayout();
 			this.FramePneumFB.ResumeLayout(false);
 			this.panel_BasicCMD_0.ResumeLayout(false);
 			this.panel_BasicCMD_0.PerformLayout();
