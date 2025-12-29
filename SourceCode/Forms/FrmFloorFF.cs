@@ -4,8 +4,8 @@ using NationalInstruments.UI.WindowsForms;
 using System.Windows.Forms;
 
 namespace TMCAnalyzer {
-	public partial class FrmFloorFF:Form {
-		public FrmFloorFF() {
+	public partial class frmFloorFF:Form {
+		public frmFloorFF() {
 			InitializeComponent();
 		}
 		private bool FormLoading = true;
@@ -23,7 +23,7 @@ namespace TMCAnalyzer {
 		/// Constructor
 		/// </summary>
 		/// <param name="handleToMainForm"></param>
-		public FrmFloorFF(formMain handleToMainForm) {
+		public frmFloorFF(formMain handleToMainForm) {
 			FormLoading = true;
 			InitializeComponent();
 			HandleToCallingForm = handleToMainForm;

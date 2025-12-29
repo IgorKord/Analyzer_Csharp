@@ -1,4 +1,20 @@
 20251228 IK
+spent another 5 hours trying to make Grok what I want - replace NumericEdit with ScientificNumericUpDown.
+time and time again, it modifies form designer so all controls look wrong, loosing size and content (ON-OFF images)
+I have to manually add controls
+
+Removed Scope from project for simplicity
+Created FrmFloorFF from formGain.
+Used Grok Super Heavy to help.
+Isked Grok to compare VB6 code which was converted to C# in 2018 with the latest 2025-december code, and update C# accordingly.
+I am not impressed: I failed to generate correct design form by just removing unneeded controls.
+I spent 6 hours trying Grok, but at the end I did form design myself and just asked Grok to re-create event handlers.
+After 5+ iterations and my corrections of hallucinated function names control names, etc, we did it.
+Added event handlers for FB gains in FormGains and FrmFloorFF.
+Updated references for ON-OFF pictures of toggle switches to Project's Resource folder instead of local resx file
+
+
+20251227 IK
 Removed Scope from project for simplicity
 Created FrmFloorFF from formGain.
 Used Grok Super Heavy to help.

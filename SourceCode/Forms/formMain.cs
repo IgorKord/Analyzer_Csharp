@@ -6101,28 +6101,54 @@ end_conv:
 
 		/**********************************************************************************************************************/
 		public void OpenCloseGainsForm(bool isVisible = true) {
-			if (/*form already active?*/ Program.FormGains != null) {
-				if (!Program.FormGains.Visible && !Program.FormGains.FormTerminalVisible) {
+			if (HasFloorFF) {
+				if (/*form already active?*/ Program.FrmFloorFF != null) {
+					if (!Program.FrmFloorFF.Visible && !Program.FrmFloorFF.FormTerminalVisible) {
+						LblFB_FF_Gains.Font = new Font("Tahoma", 9.0F, FontStyle.Bold);
+						LblFB_FF_Gains.ForeColor = Color.Maroon;
+						Program.FrmFloorFF.Show();
+						Program.FrmFloorFF.Visible = true;
+						Program.FrmFloorFF.FormTerminalVisible = true;
+						//Program.FormGains.Refresh_gains();
+						return;
+					} else {
+						LblFB_FF_Gains.Font = new Font("Tahoma", 9.0F, FontStyle.Bold);
+						LblFB_FF_Gains.ForeColor = Color.Black;
+						Program.FrmFloorFF.Hide();
+						Program.FrmFloorFF.FormTerminalVisible = false;
+					}
+				} else {
 					LblFB_FF_Gains.Font = new Font("Tahoma", 9.0F, FontStyle.Bold);
 					LblFB_FF_Gains.ForeColor = Color.Maroon;
+					Program.FrmFloorFF = new frmFloorFF(this);
+					Program.FrmFloorFF.Show();
+					Program.FrmFloorFF.Visible = true;
+					Program.FrmFloorFF.FormTerminalVisible = true;
+				}
+				} else {
+				if (/*form already active?*/ Program.FormGains != null) {
+					if (!Program.FormGains.Visible && !Program.FormGains.FormTerminalVisible) {
+						LblFB_FF_Gains.Font = new Font("Tahoma", 9.0F, FontStyle.Bold);
+						LblFB_FF_Gains.ForeColor = Color.Maroon;
+						Program.FormGains.Show();
+						Program.FormGains.Visible = true;
+						Program.FormGains.FormTerminalVisible = true;
+						//Program.FormGains.Refresh_gains();
+						return;
+					} else {
+						LblFB_FF_Gains.Font = new Font("Tahoma", 9.0F, FontStyle.Bold);
+						LblFB_FF_Gains.ForeColor = Color.Black;
+						Program.FormGains.Hide();
+						Program.FormGains.FormTerminalVisible = false;
+					}
+				} else {
+					LblFB_FF_Gains.Font = new Font("Tahoma", 9.0F, FontStyle.Bold);
+					LblFB_FF_Gains.ForeColor = Color.Maroon;
+					Program.FormGains = new formGains(this);
 					Program.FormGains.Show();
 					Program.FormGains.Visible = true;
 					Program.FormGains.FormTerminalVisible = true;
-					//Program.FormGains.Refresh_gains();
-					return;
-				} else {
-					LblFB_FF_Gains.Font = new Font("Tahoma", 9.0F, FontStyle.Bold);
-					LblFB_FF_Gains.ForeColor = Color.Black;
-					Program.FormGains.Hide();
-					Program.FormGains.FormTerminalVisible = false;
 				}
-			} else {
-				LblFB_FF_Gains.Font = new Font("Tahoma", 9.0F, FontStyle.Bold);
-				LblFB_FF_Gains.ForeColor = Color.Maroon;
-				Program.FormGains = new formGains(this);
-				Program.FormGains.Show();
-				Program.FormGains.Visible = true;
-				Program.FormGains.FormTerminalVisible = true;
 			}
 		}
 

@@ -63,6 +63,7 @@ namespace TMCAnalyzer {
 		public static Terminal formTerminal = null;
 		public static frmSplash FormSplash = null;
 		public static formGains FormGains = null;
+		public static frmFloorFF FrmFloorFF = null;
 		public static FrmValveTestResult FormValveTestResult = null;
 
 		public const int MaxScopeChannels = 16;      // Maximum simultaneous channels
