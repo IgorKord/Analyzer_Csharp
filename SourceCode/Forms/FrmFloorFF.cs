@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TMCAnalyzer {
-	public partial class FormFloorFF:Form {
-		public FormFloorFF() {
+	public partial class FrmFloorFF:Form {
+		public FrmFloorFF() {
 			InitializeComponent();
 		}
         private bool FormLoading = true;
@@ -29,7 +29,7 @@ namespace TMCAnalyzer {
         /// Constructor
         /// </summary>
         /// <param name="handleToMainForm"></param>
-        public FormFloorFF(formMain handleToMainForm) {
+        public FrmFloorFF(formMain handleToMainForm) {
             FormLoading = true;
             InitializeComponent();
             HandleToCallingForm = handleToMainForm;
@@ -313,10 +313,26 @@ namespace TMCAnalyzer {
                     numFFgain.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateScientificMode(3, true);
             }
         }
+        private void AxisFBgain_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e) {
+            var num_gain = (NumericEdit)sender;
+            // IK20220102 these simply do not have this event: if ((numFFgain.Name != "FF_CoM_Xpos") || (numFFgain.Name != "FF_CoM_Ypos")) 
+            {
+                if (num_gain.Value == 0) // show zero as "0", not as "0.000E+000"
+                    num_gain.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(0);
+                else
+                    num_gain.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateScientificMode(3, true);
+            }
+        }
 
         private void FFgain_KeyPress(object sender, KeyPressEventArgs e) {
             if (e.KeyChar == (char)13) { // Then Enter key was pressed
                 FFgain_ValueChanged(sender, null);
+                e.Handled = true; // suppress "ding" sound
+            }
+        }
+        private void AxisFBgain_KeyPress(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar == (char)13) { // Then Enter key was pressed
+                AxisFBgain_ValueChanged(sender, null);
                 e.Handled = true; // suppress "ding" sound
             }
         }
