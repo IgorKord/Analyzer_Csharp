@@ -25,7 +25,6 @@ namespace TMCAnalyzer {
 		/// </summary>
 		private void InitializeComponent() {
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFloorFF));
 			this.FrameVelocityFB = new System.Windows.Forms.GroupBox();
 			this.ToggleAllFBaxes = new TMCAnalyzer.StateButton();
 			this.AxisEn5 = new TMCAnalyzer.StateButton();
@@ -84,7 +83,6 @@ namespace TMCAnalyzer {
 			this._Label1_18 = new System.Windows.Forms.Label();
 			this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.cmdPulse = new System.Windows.Forms.Button();
-			this.numFFgain0 = new System.Windows.Forms.NumericUpDown();
 			this.FrameVelocityFB.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_4)).BeginInit();
@@ -98,7 +96,6 @@ namespace TMCAnalyzer {
 			((System.ComponentModel.ISupportInitialize)(this.FFgain2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ImageGains)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain0)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// FrameVelocityFB
@@ -622,7 +619,6 @@ namespace TMCAnalyzer {
 			// FrameFF
 			// 
 			this.FrameFF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.FrameFF.Controls.Add(this.numFFgain0);
 			this.FrameFF.Controls.Add(this.FFgain1);
 			this.FrameFF.Controls.Add(this.label12);
 			this.FrameFF.Controls.Add(this.label10);
@@ -757,7 +753,7 @@ namespace TMCAnalyzer {
 			// ToggleFFmotors
 			// 
 			this.ToggleFFmotors.Appearance = System.Windows.Forms.Appearance.Button;
-			this.ToggleFFmotors.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToggleFFmotors.BackgroundImage")));
+			this.ToggleFFmotors.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.ToggleFFmotors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ToggleFFmotors.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.ToggleFFmotors.Cursor = System.Windows.Forms.Cursors.Default;
@@ -766,12 +762,12 @@ namespace TMCAnalyzer {
 			this.ToggleFFmotors.Name = "ToggleFFmotors";
 			this.ToggleFFmotors.OffColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotors.OffImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ToggleFFmotors.OffPicture = ((System.Drawing.Image)(resources.GetObject("ToggleFFmotors.OffPicture")));
+			this.ToggleFFmotors.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.ToggleFFmotors.OffText = null;
 			this.ToggleFFmotors.OffTextColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotors.OnColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotors.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ToggleFFmotors.OnPicture = ((System.Drawing.Image)(resources.GetObject("ToggleFFmotors.OnPicture")));
+			this.ToggleFFmotors.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
 			this.ToggleFFmotors.OnText = null;
 			this.ToggleFFmotors.OnTextColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotors.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -801,7 +797,7 @@ namespace TMCAnalyzer {
 			// ToggleFFmotAdaptive
 			// 
 			this.ToggleFFmotAdaptive.Appearance = System.Windows.Forms.Appearance.Button;
-			this.ToggleFFmotAdaptive.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToggleFFmotAdaptive.BackgroundImage")));
+			this.ToggleFFmotAdaptive.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.ToggleFFmotAdaptive.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.ToggleFFmotAdaptive.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.ToggleFFmotAdaptive.Cursor = System.Windows.Forms.Cursors.Default;
@@ -810,12 +806,12 @@ namespace TMCAnalyzer {
 			this.ToggleFFmotAdaptive.Name = "ToggleFFmotAdaptive";
 			this.ToggleFFmotAdaptive.OffColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotAdaptive.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ToggleFFmotAdaptive.OffPicture = ((System.Drawing.Image)(resources.GetObject("ToggleFFmotAdaptive.OffPicture")));
+			this.ToggleFFmotAdaptive.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.ToggleFFmotAdaptive.OffText = null;
 			this.ToggleFFmotAdaptive.OffTextColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotAdaptive.OnColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotAdaptive.OnImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ToggleFFmotAdaptive.OnPicture = ((System.Drawing.Image)(resources.GetObject("ToggleFFmotAdaptive.OnPicture")));
+			this.ToggleFFmotAdaptive.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
 			this.ToggleFFmotAdaptive.OnText = null;
 			this.ToggleFFmotAdaptive.OnTextColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotAdaptive.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1395,29 +1391,6 @@ namespace TMCAnalyzer {
 			this.cmdPulse.UseVisualStyleBackColor = false;
 			this.cmdPulse.Click += new System.EventHandler(this.cmdPulse_Click);
 			// 
-			// numFFgain0
-			// 
-			this.numFFgain0.DecimalPlaces = 3;
-			this.numFFgain0.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numFFgain0.Location = new System.Drawing.Point(49, 117);
-			this.numFFgain0.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-			this.numFFgain0.Name = "numFFgain0";
-			this.numFFgain0.Size = new System.Drawing.Size(87, 26);
-			this.numFFgain0.TabIndex = 341;
-			this.numFFgain0.Tag = "g_fff0";
-			this.ToolTip1.SetToolTip(this.numFFgain0, "Feed Forward Input to Axis Coupling Gain");
-			this.numFFgain0.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numFFgain0.Value = new decimal(new int[] {
-            7777,
-            0,
-            0,
-            131072});
-			this.numFFgain0.ValueChanged += new System.EventHandler(this.numFFgain0_ValueChanged);
-			// 
 			// FrmFloorFF
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1446,7 +1419,6 @@ namespace TMCAnalyzer {
 			((System.ComponentModel.ISupportInitialize)(this.FFgain2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.ImageGains)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain0)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -1511,6 +1483,5 @@ namespace TMCAnalyzer {
 		public System.Windows.Forms.Label label12;
 		public System.Windows.Forms.Label label10;
 		public NationalInstruments.UI.WindowsForms.NumericEdit FFgain1;
-		private System.Windows.Forms.NumericUpDown numFFgain0;
 	}
 }

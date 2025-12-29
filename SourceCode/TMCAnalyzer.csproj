@@ -131,6 +131,9 @@
     <Compile Include="CustomClasses\LEDindicator.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomClasses\ScientificNumericUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomDialogBox.cs">
       <SubType>UserControl</SubType>
     </Compile>

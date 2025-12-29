@@ -1,9 +1,19 @@
+20251228 IK
+Removed Scope from project for simplicity
+Created FrmFloorFF from formGain.
+Used Grok Super Heavy to help.
+Isked Grok to compare VB6 code which was converted to C# in 2018 with the latest 2025-december code, and update C# accordingly.
+I am not impressed: I failed to generate correct design form by just removing unneeded controls.
+I sent 6 hours trying Grok, but at the end I did form design myself and just asked Grok to re-create event handlers.
+After 5+ iterations and my corrections of hallucinated function names control names, etc, we did it.
+Added event handlers for FB gains in FormGains and FrmFloorFF.
+Updated references for ON-OFF pictures of toggle switches to Project's Resource folder instead of local resx file
 
 2019-02-12 MR
   Fixed:
   - It was found that Scope C# applications allow only one UDP connection
-    This problem was solved by capturing the exception on Scope - UDP connect, and then displaying a message explaining the error condition, 
-    with a recommendation to uncheck the UDB box in the Scope form.
+	This problem was solved by capturing the exception on Scope - UDP connect, and then displaying a message explaining the error condition,
+	with a recommendation to uncheck the UDB box in the Scope form.
 
 2018-04-19
 Zipped current state of analyzer

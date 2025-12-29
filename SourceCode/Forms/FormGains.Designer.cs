@@ -518,7 +518,8 @@
 			this.AxisFBgain_0.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
 			this.AxisFBgain_0.Value = 1.11D;
 			this.AxisFBgain_0.ValueChanged += new System.EventHandler(this.AxisFBgain_ValueChanged);
-			this.AxisFBgain_0.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.AxisFBgain_0_AfterChangeValue);
+			this.AxisFBgain_0.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.AxisFBgain_AfterChangeValue);
+			this.AxisFBgain_0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FBgain_KeyPress);
 			// 
 			// label1
 			// 
@@ -569,6 +570,8 @@
 			this.AxisFBgain_1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
 			this.AxisFBgain_1.Value = 2.22D;
 			this.AxisFBgain_1.ValueChanged += new System.EventHandler(this.AxisFBgain_ValueChanged);
+			this.AxisFBgain_1.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.AxisFBgain_AfterChangeValue);
+			this.AxisFBgain_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FBgain_KeyPress);
 			// 
 			// label2
 			// 
@@ -603,6 +606,8 @@
 			this.AxisFBgain_3.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
 			this.AxisFBgain_3.Value = 4.44D;
 			this.AxisFBgain_3.ValueChanged += new System.EventHandler(this.AxisFBgain_ValueChanged);
+			this.AxisFBgain_3.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.AxisFBgain_AfterChangeValue);
+			this.AxisFBgain_3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FBgain_KeyPress);
 			// 
 			// label3
 			// 
@@ -637,6 +642,8 @@
 			this.AxisFBgain_2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
 			this.AxisFBgain_2.Value = 3.33D;
 			this.AxisFBgain_2.ValueChanged += new System.EventHandler(this.AxisFBgain_ValueChanged);
+			this.AxisFBgain_2.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.AxisFBgain_AfterChangeValue);
+			this.AxisFBgain_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FBgain_KeyPress);
 			// 
 			// label4
 			// 
@@ -671,6 +678,8 @@
 			this.AxisFBgain_5.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
 			this.AxisFBgain_5.Value = 6.66D;
 			this.AxisFBgain_5.ValueChanged += new System.EventHandler(this.AxisFBgain_ValueChanged);
+			this.AxisFBgain_5.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.AxisFBgain_AfterChangeValue);
+			this.AxisFBgain_5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FBgain_KeyPress);
 			// 
 			// label5
 			// 
@@ -705,6 +714,8 @@
 			this.AxisFBgain_4.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
 			this.AxisFBgain_4.Value = 5.55D;
 			this.AxisFBgain_4.ValueChanged += new System.EventHandler(this.AxisFBgain_ValueChanged);
+			this.AxisFBgain_4.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.AxisFBgain_AfterChangeValue);
+			this.AxisFBgain_4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FBgain_KeyPress);
 			// 
 			// label6
 			// 
@@ -1668,7 +1679,7 @@
 			// ToggleFFvalves
 			// 
 			this.ToggleFFvalves.Appearance = System.Windows.Forms.Appearance.Button;
-			this.ToggleFFvalves.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToggleFFvalves.BackgroundImage")));
+			this.ToggleFFvalves.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.ToggleFFvalves.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ToggleFFvalves.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.ToggleFFvalves.Cursor = System.Windows.Forms.Cursors.Default;
@@ -1677,12 +1688,12 @@
 			this.ToggleFFvalves.Name = "ToggleFFvalves";
 			this.ToggleFFvalves.OffColor = System.Drawing.Color.Empty;
 			this.ToggleFFvalves.OffImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ToggleFFvalves.OffPicture = ((System.Drawing.Image)(resources.GetObject("ToggleFFvalves.OffPicture")));
+			this.ToggleFFvalves.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.ToggleFFvalves.OffText = null;
 			this.ToggleFFvalves.OffTextColor = System.Drawing.Color.Empty;
 			this.ToggleFFvalves.OnColor = System.Drawing.Color.Empty;
 			this.ToggleFFvalves.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ToggleFFvalves.OnPicture = ((System.Drawing.Image)(resources.GetObject("ToggleFFvalves.OnPicture")));
+			this.ToggleFFvalves.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
 			this.ToggleFFvalves.OnText = null;
 			this.ToggleFFvalves.OnTextColor = System.Drawing.Color.Empty;
 			this.ToggleFFvalves.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1697,7 +1708,7 @@
 			// ToggleFFmotors
 			// 
 			this.ToggleFFmotors.Appearance = System.Windows.Forms.Appearance.Button;
-			this.ToggleFFmotors.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToggleFFmotors.BackgroundImage")));
+			this.ToggleFFmotors.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.ToggleFFmotors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ToggleFFmotors.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.ToggleFFmotors.Cursor = System.Windows.Forms.Cursors.Default;
@@ -1706,12 +1717,12 @@
 			this.ToggleFFmotors.Name = "ToggleFFmotors";
 			this.ToggleFFmotors.OffColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotors.OffImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ToggleFFmotors.OffPicture = ((System.Drawing.Image)(resources.GetObject("ToggleFFmotors.OffPicture")));
+			this.ToggleFFmotors.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.ToggleFFmotors.OffText = null;
 			this.ToggleFFmotors.OffTextColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotors.OnColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotors.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ToggleFFmotors.OnPicture = ((System.Drawing.Image)(resources.GetObject("ToggleFFmotors.OnPicture")));
+			this.ToggleFFmotors.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
 			this.ToggleFFmotors.OnText = null;
 			this.ToggleFFmotors.OnTextColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotors.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1726,7 +1737,7 @@
 			// ToggleFFmotAdaptive
 			// 
 			this.ToggleFFmotAdaptive.Appearance = System.Windows.Forms.Appearance.Button;
-			this.ToggleFFmotAdaptive.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToggleFFmotAdaptive.BackgroundImage")));
+			this.ToggleFFmotAdaptive.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.ToggleFFmotAdaptive.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.ToggleFFmotAdaptive.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.ToggleFFmotAdaptive.Cursor = System.Windows.Forms.Cursors.Default;
@@ -1735,12 +1746,12 @@
 			this.ToggleFFmotAdaptive.Name = "ToggleFFmotAdaptive";
 			this.ToggleFFmotAdaptive.OffColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotAdaptive.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ToggleFFmotAdaptive.OffPicture = ((System.Drawing.Image)(resources.GetObject("ToggleFFmotAdaptive.OffPicture")));
+			this.ToggleFFmotAdaptive.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.ToggleFFmotAdaptive.OffText = null;
 			this.ToggleFFmotAdaptive.OffTextColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotAdaptive.OnColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotAdaptive.OnImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ToggleFFmotAdaptive.OnPicture = ((System.Drawing.Image)(resources.GetObject("ToggleFFmotAdaptive.OnPicture")));
+			this.ToggleFFmotAdaptive.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
 			this.ToggleFFmotAdaptive.OnText = null;
 			this.ToggleFFmotAdaptive.OnTextColor = System.Drawing.Color.Empty;
 			this.ToggleFFmotAdaptive.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2694,7 +2705,7 @@
 			// AxisEn5
 			// 
 			this.AxisEn5.Appearance = System.Windows.Forms.Appearance.Button;
-			this.AxisEn5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AxisEn5.BackgroundImage")));
+			this.AxisEn5.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.AxisEn5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.AxisEn5.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.AxisEn5.Cursor = System.Windows.Forms.Cursors.Default;
@@ -2703,12 +2714,12 @@
 			this.AxisEn5.Name = "AxisEn5";
 			this.AxisEn5.OffColor = System.Drawing.Color.Empty;
 			this.AxisEn5.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn5.OffPicture = ((System.Drawing.Image)(resources.GetObject("AxisEn5.OffPicture")));
+			this.AxisEn5.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.AxisEn5.OffText = null;
 			this.AxisEn5.OffTextColor = System.Drawing.Color.Empty;
 			this.AxisEn5.OnColor = System.Drawing.Color.Empty;
 			this.AxisEn5.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.AxisEn5.OnPicture = ((System.Drawing.Image)(resources.GetObject("AxisEn5.OnPicture")));
+			this.AxisEn5.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
 			this.AxisEn5.OnText = null;
 			this.AxisEn5.OnTextColor = System.Drawing.Color.Empty;
 			this.AxisEn5.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2723,7 +2734,7 @@
 			// AxisEn4
 			// 
 			this.AxisEn4.Appearance = System.Windows.Forms.Appearance.Button;
-			this.AxisEn4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AxisEn4.BackgroundImage")));
+			this.AxisEn4.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.AxisEn4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.AxisEn4.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.AxisEn4.Cursor = System.Windows.Forms.Cursors.Default;
@@ -2732,12 +2743,12 @@
 			this.AxisEn4.Name = "AxisEn4";
 			this.AxisEn4.OffColor = System.Drawing.Color.Empty;
 			this.AxisEn4.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn4.OffPicture = ((System.Drawing.Image)(resources.GetObject("AxisEn4.OffPicture")));
+			this.AxisEn4.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.AxisEn4.OffText = null;
 			this.AxisEn4.OffTextColor = System.Drawing.Color.Empty;
 			this.AxisEn4.OnColor = System.Drawing.Color.Empty;
 			this.AxisEn4.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.AxisEn4.OnPicture = ((System.Drawing.Image)(resources.GetObject("AxisEn4.OnPicture")));
+			this.AxisEn4.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
 			this.AxisEn4.OnText = null;
 			this.AxisEn4.OnTextColor = System.Drawing.Color.Empty;
 			this.AxisEn4.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2752,7 +2763,7 @@
 			// AxisEn3
 			// 
 			this.AxisEn3.Appearance = System.Windows.Forms.Appearance.Button;
-			this.AxisEn3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AxisEn3.BackgroundImage")));
+			this.AxisEn3.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.AxisEn3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.AxisEn3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.AxisEn3.Cursor = System.Windows.Forms.Cursors.Default;
@@ -2761,12 +2772,12 @@
 			this.AxisEn3.Name = "AxisEn3";
 			this.AxisEn3.OffColor = System.Drawing.Color.Empty;
 			this.AxisEn3.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn3.OffPicture = ((System.Drawing.Image)(resources.GetObject("AxisEn3.OffPicture")));
+			this.AxisEn3.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.AxisEn3.OffText = null;
 			this.AxisEn3.OffTextColor = System.Drawing.Color.Empty;
 			this.AxisEn3.OnColor = System.Drawing.Color.Empty;
 			this.AxisEn3.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.AxisEn3.OnPicture = ((System.Drawing.Image)(resources.GetObject("AxisEn3.OnPicture")));
+			this.AxisEn3.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
 			this.AxisEn3.OnText = null;
 			this.AxisEn3.OnTextColor = System.Drawing.Color.Empty;
 			this.AxisEn3.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2781,7 +2792,7 @@
 			// AxisEn2
 			// 
 			this.AxisEn2.Appearance = System.Windows.Forms.Appearance.Button;
-			this.AxisEn2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AxisEn2.BackgroundImage")));
+			this.AxisEn2.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.AxisEn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.AxisEn2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.AxisEn2.Cursor = System.Windows.Forms.Cursors.Default;
@@ -2790,12 +2801,12 @@
 			this.AxisEn2.Name = "AxisEn2";
 			this.AxisEn2.OffColor = System.Drawing.Color.Empty;
 			this.AxisEn2.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn2.OffPicture = ((System.Drawing.Image)(resources.GetObject("AxisEn2.OffPicture")));
+			this.AxisEn2.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.AxisEn2.OffText = null;
 			this.AxisEn2.OffTextColor = System.Drawing.Color.Empty;
 			this.AxisEn2.OnColor = System.Drawing.Color.Empty;
 			this.AxisEn2.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.AxisEn2.OnPicture = ((System.Drawing.Image)(resources.GetObject("AxisEn2.OnPicture")));
+			this.AxisEn2.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
 			this.AxisEn2.OnText = null;
 			this.AxisEn2.OnTextColor = System.Drawing.Color.Empty;
 			this.AxisEn2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2810,7 +2821,7 @@
 			// AxisEn1
 			// 
 			this.AxisEn1.Appearance = System.Windows.Forms.Appearance.Button;
-			this.AxisEn1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AxisEn1.BackgroundImage")));
+			this.AxisEn1.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.AxisEn1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.AxisEn1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.AxisEn1.Cursor = System.Windows.Forms.Cursors.Default;
@@ -2819,12 +2830,12 @@
 			this.AxisEn1.Name = "AxisEn1";
 			this.AxisEn1.OffColor = System.Drawing.Color.Empty;
 			this.AxisEn1.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn1.OffPicture = ((System.Drawing.Image)(resources.GetObject("AxisEn1.OffPicture")));
+			this.AxisEn1.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.AxisEn1.OffText = null;
 			this.AxisEn1.OffTextColor = System.Drawing.Color.Empty;
 			this.AxisEn1.OnColor = System.Drawing.Color.Empty;
 			this.AxisEn1.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.AxisEn1.OnPicture = ((System.Drawing.Image)(resources.GetObject("AxisEn1.OnPicture")));
+			this.AxisEn1.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
 			this.AxisEn1.OnText = null;
 			this.AxisEn1.OnTextColor = System.Drawing.Color.Empty;
 			this.AxisEn1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2839,7 +2850,7 @@
 			// AxisEn0
 			// 
 			this.AxisEn0.Appearance = System.Windows.Forms.Appearance.Button;
-			this.AxisEn0.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AxisEn0.BackgroundImage")));
+			this.AxisEn0.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.AxisEn0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.AxisEn0.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.AxisEn0.Cursor = System.Windows.Forms.Cursors.Default;
@@ -2848,12 +2859,12 @@
 			this.AxisEn0.Name = "AxisEn0";
 			this.AxisEn0.OffColor = System.Drawing.Color.Empty;
 			this.AxisEn0.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn0.OffPicture = ((System.Drawing.Image)(resources.GetObject("AxisEn0.OffPicture")));
+			this.AxisEn0.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
 			this.AxisEn0.OffText = null;
 			this.AxisEn0.OffTextColor = System.Drawing.Color.Empty;
 			this.AxisEn0.OnColor = System.Drawing.Color.Empty;
 			this.AxisEn0.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.AxisEn0.OnPicture = ((System.Drawing.Image)(resources.GetObject("AxisEn0.OnPicture")));
+			this.AxisEn0.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
 			this.AxisEn0.OnText = null;
 			this.AxisEn0.OnTextColor = System.Drawing.Color.Empty;
 			this.AxisEn0.RightToLeft = System.Windows.Forms.RightToLeft.No;
