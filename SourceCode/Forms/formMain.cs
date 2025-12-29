@@ -67,6 +67,7 @@ namespace TMCAnalyzer {
 		public bool Test_in_progress = false;
 		public string Buffer;
 		private int BNC_0_index;
+		public bool HasFloorFF;
 
 		frmDrivingOutput frmDrivingOutput = new frmDrivingOutput();
 		frmSensorInput frmSensorInput = new frmSensorInput();

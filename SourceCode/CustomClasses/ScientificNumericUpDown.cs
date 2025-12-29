@@ -3,20 +3,20 @@ using System.Windows.Forms;
 
 namespace TMCAnalyzer.CustomClasses {
     public class ScientificNumericUpDown:NumericUpDown {
-        protected override void UpdateEditText() {
+        public new void UpdateEditText()  // Made public by shadowing the protected method
+        {
             if (Value == 0) {
-                this.Text = "0";
+                Text = "0";
             } else {
-                this.Text = Value.ToString("0.000E+000");
+                Text = Value.ToString("0.000E+000");
             }
         }
 
-        // Override to handle parsing from scientific input
         protected override void ValidateEditText() {
             try {
-                Value = Decimal.Parse(Text, System.Globalization.NumberStyles.Float | System.Globalization.NumberStyles.AllowExponent);
+                Value = decimal.Parse(Text, System.Globalization.NumberStyles.Any);
             } catch {
-                // Revert to previous value if invalid
+                // Revert to previous if invalid
                 UpdateEditText();
             }
             base.ValidateEditText();
