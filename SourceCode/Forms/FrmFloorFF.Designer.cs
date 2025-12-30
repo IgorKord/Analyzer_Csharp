@@ -65,6 +65,12 @@ namespace TMCAnalyzer {
 			this._Label1_18 = new System.Windows.Forms.Label();
 			this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.cmdPulse = new System.Windows.Forms.Button();
+			this.numAxisFBgain_5 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numAxisFBgain_4 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numAxisFBgain_3 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numAxisFBgain_2 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numAxisFBgain_1 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numAxisFBgain_0 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
 			this.ToggleAllFBaxes = new TMCAnalyzer.StateButton();
 			this.AxisEn5 = new TMCAnalyzer.StateButton();
 			this.AxisEn4 = new TMCAnalyzer.StateButton();
@@ -72,6 +78,9 @@ namespace TMCAnalyzer {
 			this.AxisEn2 = new TMCAnalyzer.StateButton();
 			this.AxisEn1 = new TMCAnalyzer.StateButton();
 			this.AxisEn0 = new TMCAnalyzer.StateButton();
+			this.numFFgain3 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numFFgain1 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numFFgain2 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
 			this.numFFgain0 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
 			this.ToggleFFmotors = new TMCAnalyzer.StateButton();
 			this.ToggleFFmotAdaptive = new TMCAnalyzer.StateButton();
@@ -84,15 +93,6 @@ namespace TMCAnalyzer {
 			this.Working1 = new TMCAnalyzer.StateButton();
 			this.Adaptive3 = new TMCAnalyzer.StateButton();
 			this.Working3 = new TMCAnalyzer.StateButton();
-			this.numFFgain2 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numFFgain1 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numFFgain3 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numAxisFBgain_0 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numAxisFBgain_1 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numAxisFBgain_3 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numAxisFBgain_2 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numAxisFBgain_4 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numAxisFBgain_5 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
 			this.FrameVelocityFB.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_4)).BeginInit();
@@ -106,16 +106,16 @@ namespace TMCAnalyzer {
 			((System.ComponentModel.ISupportInitialize)(this.FFgain2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ImageGains)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain0)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_0)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_0)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain0)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// FrameVelocityFB
@@ -878,6 +878,150 @@ namespace TMCAnalyzer {
 			this.cmdPulse.UseVisualStyleBackColor = false;
 			this.cmdPulse.Click += new System.EventHandler(this.cmdPulse_Click);
 			// 
+			// numAxisFBgain_5
+			// 
+			this.numAxisFBgain_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.numAxisFBgain_5.DecimalPlaces = 2;
+			this.numAxisFBgain_5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numAxisFBgain_5.Location = new System.Drawing.Point(701, 1);
+			this.numAxisFBgain_5.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_5.Name = "numAxisFBgain_5";
+			this.numAxisFBgain_5.Size = new System.Drawing.Size(88, 26);
+			this.numAxisFBgain_5.TabIndex = 347;
+			this.numAxisFBgain_5.Tag = "gain0B";
+			this.numAxisFBgain_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ToolTip1.SetToolTip(this.numAxisFBgain_5, "Gain of the tY velocity FB axis");
+			this.numAxisFBgain_5.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numAxisFBgain_5.Value = new decimal(new int[] {
+            666,
+            0,
+            0,
+            131072});
+			// 
+			// numAxisFBgain_4
+			// 
+			this.numAxisFBgain_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.numAxisFBgain_4.DecimalPlaces = 2;
+			this.numAxisFBgain_4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numAxisFBgain_4.Location = new System.Drawing.Point(602, 1);
+			this.numAxisFBgain_4.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_4.Name = "numAxisFBgain_4";
+			this.numAxisFBgain_4.Size = new System.Drawing.Size(88, 26);
+			this.numAxisFBgain_4.TabIndex = 346;
+			this.numAxisFBgain_4.Tag = "gain0A";
+			this.numAxisFBgain_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ToolTip1.SetToolTip(this.numAxisFBgain_4, "Gain of the tX velocity FB axis");
+			this.numAxisFBgain_4.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numAxisFBgain_4.Value = new decimal(new int[] {
+            555,
+            0,
+            0,
+            131072});
+			// 
+			// numAxisFBgain_3
+			// 
+			this.numAxisFBgain_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.numAxisFBgain_3.DecimalPlaces = 2;
+			this.numAxisFBgain_3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numAxisFBgain_3.Location = new System.Drawing.Point(502, 1);
+			this.numAxisFBgain_3.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_3.Name = "numAxisFBgain_3";
+			this.numAxisFBgain_3.Size = new System.Drawing.Size(88, 26);
+			this.numAxisFBgain_3.TabIndex = 345;
+			this.numAxisFBgain_3.Tag = "gain09";
+			this.numAxisFBgain_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ToolTip1.SetToolTip(this.numAxisFBgain_3, "Gain of the Z velocity FB axis");
+			this.numAxisFBgain_3.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numAxisFBgain_3.Value = new decimal(new int[] {
+            444,
+            0,
+            0,
+            131072});
+			// 
+			// numAxisFBgain_2
+			// 
+			this.numAxisFBgain_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.numAxisFBgain_2.DecimalPlaces = 2;
+			this.numAxisFBgain_2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numAxisFBgain_2.Location = new System.Drawing.Point(402, 1);
+			this.numAxisFBgain_2.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_2.Name = "numAxisFBgain_2";
+			this.numAxisFBgain_2.Size = new System.Drawing.Size(88, 26);
+			this.numAxisFBgain_2.TabIndex = 344;
+			this.numAxisFBgain_2.Tag = "gain08";
+			this.numAxisFBgain_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ToolTip1.SetToolTip(this.numAxisFBgain_2, "Gain of the tZ velocity FB axis");
+			this.numAxisFBgain_2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numAxisFBgain_2.Value = new decimal(new int[] {
+            333,
+            0,
+            0,
+            131072});
+			// 
+			// numAxisFBgain_1
+			// 
+			this.numAxisFBgain_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.numAxisFBgain_1.DecimalPlaces = 2;
+			this.numAxisFBgain_1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numAxisFBgain_1.Location = new System.Drawing.Point(301, 1);
+			this.numAxisFBgain_1.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_1.Name = "numAxisFBgain_1";
+			this.numAxisFBgain_1.Size = new System.Drawing.Size(88, 26);
+			this.numAxisFBgain_1.TabIndex = 343;
+			this.numAxisFBgain_1.Tag = "gain07";
+			this.numAxisFBgain_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ToolTip1.SetToolTip(this.numAxisFBgain_1, "Gain of the Y velocity FB axis");
+			this.numAxisFBgain_1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numAxisFBgain_1.Value = new decimal(new int[] {
+            222,
+            0,
+            0,
+            131072});
+			// 
+			// numAxisFBgain_0
+			// 
+			this.numAxisFBgain_0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.numAxisFBgain_0.DecimalPlaces = 2;
+			this.numAxisFBgain_0.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numAxisFBgain_0.Location = new System.Drawing.Point(201, 1);
+			this.numAxisFBgain_0.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_0.Name = "numAxisFBgain_0";
+			this.numAxisFBgain_0.Size = new System.Drawing.Size(88, 26);
+			this.numAxisFBgain_0.TabIndex = 342;
+			this.numAxisFBgain_0.Tag = "gain06";
+			this.numAxisFBgain_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ToolTip1.SetToolTip(this.numAxisFBgain_0, "Gain of the X velocity FB axis");
+			this.numAxisFBgain_0.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numAxisFBgain_0.Value = new decimal(new int[] {
+            111,
+            0,
+            0,
+            131072});
+			// 
 			// ToggleAllFBaxes
 			// 
 			this.ToggleAllFBaxes.Appearance = System.Windows.Forms.Appearance.Button;
@@ -1082,6 +1226,78 @@ namespace TMCAnalyzer {
 			this.ToolTip1.SetToolTip(this.AxisEn0, "Individual axis ON/OFF, when ALL AXES switch is ON");
 			this.AxisEn0.UseVisualStyleBackColor = false;
 			this.AxisEn0.CheckedChanged += new System.EventHandler(this.AxisEn_CheckedChanged);
+			// 
+			// numFFgain3
+			// 
+			this.numFFgain3.DecimalPlaces = 4;
+			this.numFFgain3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numFFgain3.Location = new System.Drawing.Point(64, 25);
+			this.numFFgain3.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numFFgain3.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+			this.numFFgain3.Name = "numFFgain3";
+			this.numFFgain3.Size = new System.Drawing.Size(80, 26);
+			this.numFFgain3.TabIndex = 344;
+			this.numFFgain3.Tag = "g_ff40";
+			this.ToolTip1.SetToolTip(this.numFFgain3, "Adaptive Learning Rate");
+			this.numFFgain3.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numFFgain3.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            196608});
+			this.numFFgain3.ValueChanged += new System.EventHandler(this.numFFgain_ValueChanged);
+			// 
+			// numFFgain1
+			// 
+			this.numFFgain1.DecimalPlaces = 4;
+			this.numFFgain1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numFFgain1.Location = new System.Drawing.Point(64, 56);
+			this.numFFgain1.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+			this.numFFgain1.Name = "numFFgain1";
+			this.numFFgain1.Size = new System.Drawing.Size(80, 26);
+			this.numFFgain1.TabIndex = 343;
+			this.numFFgain1.Tag = "g_fff1";
+			this.ToolTip1.SetToolTip(this.numFFgain1, "Feed Forward Input to Axis Coupling Gain");
+			this.numFFgain1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numFFgain1.Value = new decimal(new int[] {
+            77777,
+            0,
+            0,
+            196608});
+			// 
+			// numFFgain2
+			// 
+			this.numFFgain2.DecimalPlaces = 4;
+			this.numFFgain2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numFFgain2.Location = new System.Drawing.Point(64, 87);
+			this.numFFgain2.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+			this.numFFgain2.Name = "numFFgain2";
+			this.numFFgain2.Size = new System.Drawing.Size(80, 26);
+			this.numFFgain2.TabIndex = 342;
+			this.numFFgain2.Tag = "g_fff2";
+			this.ToolTip1.SetToolTip(this.numFFgain2, "Feed Forward Input to Axis Coupling Gain");
+			this.numFFgain2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numFFgain2.Value = new decimal(new int[] {
+            77777,
+            0,
+            0,
+            196608});
 			// 
 			// numFFgain0
 			// 
@@ -1439,221 +1655,6 @@ namespace TMCAnalyzer {
 			this.Working3.UseVisualStyleBackColor = false;
 			this.Working3.CheckedChanged += new System.EventHandler(this.Working_CheckedChanged);
 			// 
-			// numFFgain2
-			// 
-			this.numFFgain2.DecimalPlaces = 4;
-			this.numFFgain2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numFFgain2.Location = new System.Drawing.Point(64, 87);
-			this.numFFgain2.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-			this.numFFgain2.Name = "numFFgain2";
-			this.numFFgain2.Size = new System.Drawing.Size(80, 26);
-			this.numFFgain2.TabIndex = 342;
-			this.numFFgain2.Tag = "g_fff2";
-			this.ToolTip1.SetToolTip(this.numFFgain2, "Feed Forward Input to Axis Coupling Gain");
-			this.numFFgain2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numFFgain2.Value = new decimal(new int[] {
-            77777,
-            0,
-            0,
-            196608});
-			// 
-			// numFFgain1
-			// 
-			this.numFFgain1.DecimalPlaces = 4;
-			this.numFFgain1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numFFgain1.Location = new System.Drawing.Point(64, 56);
-			this.numFFgain1.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-			this.numFFgain1.Name = "numFFgain1";
-			this.numFFgain1.Size = new System.Drawing.Size(80, 26);
-			this.numFFgain1.TabIndex = 343;
-			this.numFFgain1.Tag = "g_fff1";
-			this.ToolTip1.SetToolTip(this.numFFgain1, "Feed Forward Input to Axis Coupling Gain");
-			this.numFFgain1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numFFgain1.Value = new decimal(new int[] {
-            77777,
-            0,
-            0,
-            196608});
-			// 
-			// numFFgain3
-			// 
-			this.numFFgain3.DecimalPlaces = 4;
-			this.numFFgain3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numFFgain3.Location = new System.Drawing.Point(64, 25);
-			this.numFFgain3.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.numFFgain3.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-			this.numFFgain3.Name = "numFFgain3";
-			this.numFFgain3.Size = new System.Drawing.Size(80, 26);
-			this.numFFgain3.TabIndex = 344;
-			this.numFFgain3.Tag = "g_ff40";
-			this.ToolTip1.SetToolTip(this.numFFgain3, "Adaptive Learning Rate");
-			this.numFFgain3.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numFFgain3.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            196608});
-			// 
-			// numAxisFBgain_0
-			// 
-			this.numAxisFBgain_0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.numAxisFBgain_0.DecimalPlaces = 2;
-			this.numAxisFBgain_0.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numAxisFBgain_0.Location = new System.Drawing.Point(201, 1);
-			this.numAxisFBgain_0.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-			this.numAxisFBgain_0.Name = "numAxisFBgain_0";
-			this.numAxisFBgain_0.Size = new System.Drawing.Size(88, 26);
-			this.numAxisFBgain_0.TabIndex = 342;
-			this.numAxisFBgain_0.Tag = "gain06";
-			this.numAxisFBgain_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.ToolTip1.SetToolTip(this.numAxisFBgain_0, "Gain of the X velocity FB axis");
-			this.numAxisFBgain_0.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numAxisFBgain_0.Value = new decimal(new int[] {
-            111,
-            0,
-            0,
-            131072});
-			// 
-			// numAxisFBgain_1
-			// 
-			this.numAxisFBgain_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.numAxisFBgain_1.DecimalPlaces = 2;
-			this.numAxisFBgain_1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numAxisFBgain_1.Location = new System.Drawing.Point(301, 1);
-			this.numAxisFBgain_1.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-			this.numAxisFBgain_1.Name = "numAxisFBgain_1";
-			this.numAxisFBgain_1.Size = new System.Drawing.Size(88, 26);
-			this.numAxisFBgain_1.TabIndex = 343;
-			this.numAxisFBgain_1.Tag = "gain07";
-			this.numAxisFBgain_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.ToolTip1.SetToolTip(this.numAxisFBgain_1, "Gain of the Y velocity FB axis");
-			this.numAxisFBgain_1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numAxisFBgain_1.Value = new decimal(new int[] {
-            222,
-            0,
-            0,
-            131072});
-			// 
-			// numAxisFBgain_3
-			// 
-			this.numAxisFBgain_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.numAxisFBgain_3.DecimalPlaces = 2;
-			this.numAxisFBgain_3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numAxisFBgain_3.Location = new System.Drawing.Point(502, 1);
-			this.numAxisFBgain_3.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-			this.numAxisFBgain_3.Name = "numAxisFBgain_3";
-			this.numAxisFBgain_3.Size = new System.Drawing.Size(88, 26);
-			this.numAxisFBgain_3.TabIndex = 345;
-			this.numAxisFBgain_3.Tag = "gain09";
-			this.numAxisFBgain_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.ToolTip1.SetToolTip(this.numAxisFBgain_3, "Gain of the Z velocity FB axis");
-			this.numAxisFBgain_3.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numAxisFBgain_3.Value = new decimal(new int[] {
-            444,
-            0,
-            0,
-            131072});
-			// 
-			// numAxisFBgain_2
-			// 
-			this.numAxisFBgain_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.numAxisFBgain_2.DecimalPlaces = 2;
-			this.numAxisFBgain_2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numAxisFBgain_2.Location = new System.Drawing.Point(402, 1);
-			this.numAxisFBgain_2.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-			this.numAxisFBgain_2.Name = "numAxisFBgain_2";
-			this.numAxisFBgain_2.Size = new System.Drawing.Size(88, 26);
-			this.numAxisFBgain_2.TabIndex = 344;
-			this.numAxisFBgain_2.Tag = "gain08";
-			this.numAxisFBgain_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.ToolTip1.SetToolTip(this.numAxisFBgain_2, "Gain of the tZ velocity FB axis");
-			this.numAxisFBgain_2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numAxisFBgain_2.Value = new decimal(new int[] {
-            333,
-            0,
-            0,
-            131072});
-			// 
-			// numAxisFBgain_4
-			// 
-			this.numAxisFBgain_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.numAxisFBgain_4.DecimalPlaces = 2;
-			this.numAxisFBgain_4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numAxisFBgain_4.Location = new System.Drawing.Point(602, 1);
-			this.numAxisFBgain_4.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-			this.numAxisFBgain_4.Name = "numAxisFBgain_4";
-			this.numAxisFBgain_4.Size = new System.Drawing.Size(88, 26);
-			this.numAxisFBgain_4.TabIndex = 346;
-			this.numAxisFBgain_4.Tag = "gain0A";
-			this.numAxisFBgain_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.ToolTip1.SetToolTip(this.numAxisFBgain_4, "Gain of the tX velocity FB axis");
-			this.numAxisFBgain_4.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numAxisFBgain_4.Value = new decimal(new int[] {
-            555,
-            0,
-            0,
-            131072});
-			// 
-			// numAxisFBgain_5
-			// 
-			this.numAxisFBgain_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.numAxisFBgain_5.DecimalPlaces = 2;
-			this.numAxisFBgain_5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numAxisFBgain_5.Location = new System.Drawing.Point(701, 1);
-			this.numAxisFBgain_5.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-			this.numAxisFBgain_5.Name = "numAxisFBgain_5";
-			this.numAxisFBgain_5.Size = new System.Drawing.Size(88, 26);
-			this.numAxisFBgain_5.TabIndex = 347;
-			this.numAxisFBgain_5.Tag = "gain0B";
-			this.numAxisFBgain_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.ToolTip1.SetToolTip(this.numAxisFBgain_5, "Gain of the tY velocity FB axis");
-			this.numAxisFBgain_5.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numAxisFBgain_5.Value = new decimal(new int[] {
-            666,
-            0,
-            0,
-            131072});
-			// 
 			// frmFloorFF
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1682,16 +1683,16 @@ namespace TMCAnalyzer {
 			((System.ComponentModel.ISupportInitialize)(this.FFgain2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.ImageGains)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain0)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_0)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_4)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_0)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain0)).EndInit();
 			this.ResumeLayout(false);
 
 		}

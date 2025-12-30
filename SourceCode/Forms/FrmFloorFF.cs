@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NationalInstruments.UI.WindowsForms;
 using System.Windows.Forms;
-
+using TMCAnalyzer.CustomClasses;
 namespace TMCAnalyzer {
 	public partial class frmFloorFF:Form {
 		public frmFloorFF() {
@@ -15,6 +15,8 @@ namespace TMCAnalyzer {
 
 		List<NumericEdit> axisFBgain = new List<NumericEdit>();
 		List<NumericEdit> numericFFgain = new List<NumericEdit>();
+		List<ScientificNumericUpDown> numUD_axisFBgain = new List<ScientificNumericUpDown>();
+		List<ScientificNumericUpDown> numUD_FFgain = new List<ScientificNumericUpDown>();
 		List<StateButton> sbWorking = new List<StateButton>();
 		List<StateButton> sbAdaptive = new List<StateButton>();
 		List<StateButton> cbAxisEn = new List<StateButton>();
@@ -35,14 +37,23 @@ namespace TMCAnalyzer {
 		/// Initialize the variables and lists
 		/// </summary>
 		private void Initialize_Controls() {
-			//FB gains
+			//FB gains - NI
 			axisFBgain.Clear();
 			axisFBgain.Add(AxisFBgain_0); axisFBgain.Add(AxisFBgain_1); axisFBgain.Add(AxisFBgain_2);
 			axisFBgain.Add(AxisFBgain_3); axisFBgain.Add(AxisFBgain_4); axisFBgain.Add(AxisFBgain_5);
 
-			//FF gains
+			//FF gains - NI
 			numericFFgain.Clear();
 			numericFFgain.Add(FFgain0); numericFFgain.Add(FFgain1); numericFFgain.Add(FFgain2); numericFFgain.Add(FFgain3);
+
+			//FB gains - MS
+			numUD_axisFBgain.Clear();
+			numUD_axisFBgain.Add(numAxisFBgain_0); numUD_axisFBgain.Add(numAxisFBgain_1); numUD_axisFBgain.Add(numAxisFBgain_2);
+			numUD_axisFBgain.Add(numAxisFBgain_3); numUD_axisFBgain.Add(numAxisFBgain_4); numUD_axisFBgain.Add(numAxisFBgain_5);
+
+			//FF gains - MS
+			numUD_FFgain.Clear();
+			numUD_FFgain.Add(numFFgain0); numUD_FFgain.Add(numFFgain1); numUD_FFgain.Add(numFFgain2); numUD_FFgain.Add(numFFgain3);
 
 			//Working state buttons
 			sbWorking.Clear();
@@ -52,7 +63,7 @@ namespace TMCAnalyzer {
 			sbAdaptive.Clear();
 			sbAdaptive.Add(Adaptive0); sbAdaptive.Add(Adaptive1); sbAdaptive.Add(Adaptive2); sbAdaptive.Add(Adaptive3);
 
-			// FB Axis enable
+			//FB Axis enable
 			cbAxisEn.Clear();
 			cbAxisEn.Add(ToggleAllFBaxes);
 			cbAxisEn.Add(AxisEn0); cbAxisEn.Add(AxisEn1); cbAxisEn.Add(AxisEn2);
@@ -64,12 +75,15 @@ namespace TMCAnalyzer {
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void formGains_Load(object sender, EventArgs e) {
-			FormLoading = true;
+		private void frmFloorFF_Load(object sender, EventArgs e)
+		{
 			Application.DoEvents();
 			this.Show();
 
-			Refresh_gains();
+			if (formMain.HasFloorFF)
+			{
+				Refresh_gains();
+			}
 			this.Text = "FB & FF Gains";
 		}
 
@@ -99,32 +113,39 @@ namespace TMCAnalyzer {
 			FormLoading = true; // prevent sending commands back to controller
 
 			#region Read FB gains
+			// NI
 			max_indx = axisFBgain.Count;
 			for (int i = 0; i < max_indx; i++) {
 				HandleToCallingForm.SendInternal(axisFBgain[i].Tag.ToString(), CommandTypes.ResponseExpected, out controller_param, CommandAckTypes.AckExpected);
 				if (Tools.UpdateValueFromResponse(controller_param, out paramValue))
 					axisFBgain[i].Value = paramValue;
 			}
+			// MS
+			max_indx = numUD_axisFBgain.Count;
+			for (int i = 0; i < max_indx; i++)
+			{
+				HandleToCallingForm.SendInternal(numUD_axisFBgain[i].Tag.ToString(), CommandTypes.ResponseExpected, out controller_param, CommandAckTypes.AckExpected);
+				if (Tools.UpdateValueFromResponse(controller_param, out paramValue))
+					numUD_axisFBgain[i].Value = (decimal)paramValue;
+			}
+
 			#endregion
 
 			#region Read axis enable
 			max_indx = cbAxisEn.Count;
-			for (int i = 0; i < max_indx; i++) {
+			for (int i = 0; i < max_indx; i++)
+			{
 				HandleToCallingForm.SendInternal(cbAxisEn[i].Tag.ToString(), CommandTypes.ResponseExpected, out controller_param, CommandAckTypes.AckExpected);
 				sep_pos = controller_param.IndexOf(">");
 				if (sep_pos != -1) {
 					retval = controller_param.Substring(sep_pos + 1, 4).ToLower();
-					if (retval == "acti") {
-						cbAxisEn[i].Checked = true;
-					}
-					if (retval == "pass") {
-						cbAxisEn[i].Checked = false;
-					}
+					cbAxisEn[i].Checked = retval == "acti";
 				}
 			}
 			#endregion
 
 			#region Read FF gains
+			// NI
 			max_indx = numericFFgain.Count;
 			for (int i = 0; i < max_indx; i++) {
 				HandleToCallingForm.SendInternal((numericFFgain[i].Tag.ToString() + "?"), CommandTypes.ResponseExpected, out controller_param, CommandAckTypes.AckExpected);
@@ -157,6 +178,32 @@ namespace TMCAnalyzer {
 					}
 				}
 			}
+			// MS
+						max_indx = numUD_FFgain.Count;
+			for (int i = 0; i < max_indx; i++)
+			{
+				HandleToCallingForm.SendInternal((numUD_FFgain[i].Tag.ToString() + "?"), CommandTypes.ResponseExpected, out controller_param, CommandAckTypes.AckExpected);
+				sep_pos = controller_param.IndexOf("=");
+				if (sep_pos != -1)
+				{
+					retval = controller_param.Substring(sep_pos + 1);
+					if (sep_pos < 3) sep_pos = 3; // to prevent errors
+
+					sbAdaptive[i].Checked = controller_param.Substring(sep_pos - 1, 1).ToLower() == "a";
+					sbWorking[i].Checked = controller_param.Substring(sep_pos - 2, 1).ToLower() == "w";
+
+					sep_pos = retval.IndexOf("//");  // if verbose response
+					if (sep_pos != -1)
+					{
+						retval = retval.Substring(0, sep_pos - 1);
+					}
+					if (double.TryParse(retval, out paramValue))
+					{
+						numUD_FFgain[i].Value = (decimal)paramValue;
+					}
+				}
+			}
+
 			#endregion
 
 			#region Read FF all
@@ -164,11 +211,7 @@ namespace TMCAnalyzer {
 			sep_pos = controller_param.IndexOf(">");
 			if (sep_pos != -1) {
 				retval = controller_param.Substring(sep_pos + 1, 4).ToLower();
-				if (retval == "acti") {
-					ToggleFFall.Checked = true;
-				} else { //pass
-					ToggleFFall.Checked = false;
-				}
+				ToggleFFall.Checked = retval == "acti";
 			}
 			#endregion
 
@@ -177,11 +220,7 @@ namespace TMCAnalyzer {
 			sep_pos = controller_param.IndexOf(">");
 			if (sep_pos != -1) {
 				retval = controller_param.Substring(sep_pos + 1, 4).ToLower();
-				if (retval == "acti") {
-					ToggleFFmotors.Checked = true;
-				} else { //pass
-					ToggleFFmotors.Checked = false;
-				}
+				ToggleFFmotors.Checked = retval == "acti";
 			}
 			#endregion
 
@@ -406,6 +445,46 @@ namespace TMCAnalyzer {
 			HandleToCallingForm.SendInternal(command_Renamed, CommandTypes.ResponseExpected, out response, CommandAckTypes.AckExpected);
 		}
 
+		private void numFFgain_ValueChanged(object sender, EventArgs e) {
+			if (FormLoading) return;
+			ScientificNumericUpDown numFFgain = (ScientificNumericUpDown)sender;
+			int index = numUD_FFgain.IndexOf(numFFgain);
+			string gain_cmd = numFFgain.Tag.ToString() + sbWorking[index].Tag.ToString() + sbAdaptive[index].Tag.ToString()
+				+ "=" + numFFgain.Value.ToString("E3");
+			HandleToCallingForm.SendInternal(gain_cmd, CommandTypes.ResponseExpected, out _, CommandAckTypes.AckExpected);
+		}
+
+		private void NumericFFgain_AfterChangeValue(object sender, EventArgs e) {
+			ScientificNumericUpDown numFFgain = (ScientificNumericUpDown)sender;
+			numFFgain.UpdateEditText();
+		}
+
+		private void numFFgain_KeyPress(object sender, KeyPressEventArgs e) {
+			if (e.KeyChar == (char)13) {
+				numFFgain_ValueChanged(sender, e);
+				e.Handled = true;
+			}
+		}
+
+		private void numAxisFBgain_ValueChanged(object sender, EventArgs e) {
+			if (FormLoading) return;
+
+			ScientificNumericUpDown numFBgain = (ScientificNumericUpDown)sender;
+			string gain_cmd = numFBgain.Tag.ToString() + "=" + numFBgain.Value.ToString("0.00");
+			HandleToCallingForm.SendInternal(gain_cmd, CommandTypes.ResponseExpected, out _, CommandAckTypes.AckExpected);
+		}
+
+		private void numAxisFBgain_AfterChangeValue(object sender, EventArgs e) {
+			ScientificNumericUpDown numFBgain = (ScientificNumericUpDown)sender;
+			numFBgain.UpdateEditText();
+		}
+
+		private void numAxisFBgain_KeyPress(object sender, KeyPressEventArgs e) {
+			if (e.KeyChar == (char)13) {
+				numAxisFBgain_ValueChanged(sender, e);
+				e.Handled = true;
+			}
+		}
 		private void formGains_FormClosed(object sender, FormClosedEventArgs e) {
 			//HandleToCallingForm.Toggle_FB_FFgains_Controls() 'changes FormGainsVisible = not FormGainsVisible
 		}
