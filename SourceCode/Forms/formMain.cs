@@ -67,7 +67,8 @@ namespace TMCAnalyzer {
 		public bool Test_in_progress = false;
 		public string Buffer;
 		private int BNC_0_index;
-		public bool HasFloorFF;
+		public static bool HasFloorFF;
+		public static bool AirIsoPresent;
 
 		frmDrivingOutput frmDrivingOutput = new frmDrivingOutput();
 		frmSensorInput frmSensorInput = new frmSensorInput();
@@ -221,6 +222,9 @@ namespace TMCAnalyzer {
 			NInumFBgain.Add(NInumFBgain16);
 			NInumFBgain.Add(NInumFBgain17);
 			NInumFBgain.Add(NInumFBgain18);
+			NInumFBgain.Add(NInumFBgain19);
+			NInumFBgain.Add(NInumFBgain20);
+			NInumFBgain.Add(NInumFBgain21);
 
 			NInumGoNoGOwindow.Clear();
 			NInumGoNoGOwindow.Add(NInumGoNoGOwindow0);
@@ -2861,6 +2865,34 @@ Program.ConnectedController.Open();
 			for (ch = 0; (ch <= 255); ch++) {
 				CmbBNC0.Items.Add(ChName[ch]);
 				CmbBNC1.Items.Add(ChName[ch]);
+			}
+		}
+		private void ChkAirIsolatorsPresent_CheckedChanged(object sender, EventArgs e) {
+			if (ChkAirIsolatorsPresent.Checked) {
+				AirIsoPresent = true;
+				ChkAirIsolatorsPresent.BackColor = Color.FromArgb(192, 255, 255);
+				ChkAirIsolatorsPresent.Text = "Air Isolators";
+				FramePneumFB.Visible = true;
+				FrmVertPosToMotGains.Visible = false;
+
+				var frmFilters = Application.OpenForms["frmFilters"] as frmFilters;
+				if (frmFilters != null) {
+					frmFilters.FramePneumatic.Text = "Air Isolators";
+					frmFilters.FramePneumatic.Enabled = true;
+				}
+			} else {
+				AirIsoPresent = false;
+				FramePneumFB.Visible = false;
+				FrmVertPosToMotGains.Visible = true;
+
+				var frmFilters = Application.OpenForms["frmFilters"] as frmFilters;
+				if (frmFilters != null) {
+					frmFilters.FramePneumatic.Text = "NO AIR Isolators";
+					frmFilters.FramePneumatic.Enabled = false;
+				}
+
+				ChkAirIsolatorsPresent.BackColor = Color.FromArgb(255, 128, 0);
+				ChkAirIsolatorsPresent.Text = "NO Air Isolators";
 			}
 		}
 
@@ -5622,6 +5654,11 @@ end_conv:
 			SendInternal("z", CommandTypes.ResponseExpected, out resp, CommandAckTypes.AckExpected);
 		}
 
+		private void CmdResetGeoOffsets_Click(object sender, EventArgs e) {
+			SendInternal("zero", CommandTypes.ResponseExpected, out _, CommandAckTypes.AckExpected);
+		}
+
+
 		/**********************************************************************************************************************/
 		private void cwBut_AxisEn_ValueChanged(object sender, EventArgs e) {
 			CheckBox cwBut_AxisEn = (CheckBox)sender;
@@ -6247,6 +6284,15 @@ end_conv:
 			else
 				txtFW_Version.Text = "No or not valid response";
 			SystemFWversion = txtFW_Version.Text;
+			if (SystemFWversion.ToUpper().Contains("PONG")) {
+				HasFloorFF = true;
+				ChkAirIsolatorsPresent.Checked = false;    //' IK20251112 NO AIR auto set based on the presence of "PONG" in version string
+			} else {
+				HasFloorFF = false;
+				ChkAirIsolatorsPresent.Checked = true;    //' IK20251112 NO AIR auto set based on the presence of "PONG" in version string
+			}
+
+
 			txtFW_Version.Update();
 			return getID;
 		}
@@ -6292,6 +6338,11 @@ end_conv:
 		private void CmdSetPressurePoints_Click(object sender, EventArgs e) {
 			CmdSetPressurePoints();
 		}
+
+		private void NInumFBgain0_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e) {
+
+		}
+
 
 #if (false) // for ELDAMP
 		//=== ALARMS
