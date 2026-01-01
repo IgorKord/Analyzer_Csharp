@@ -105,6 +105,8 @@ namespace TMCAnalyzer {
 		private void frmFilters_Load(object sender, EventArgs e) {
 			ComboFilterAxis.SelectedIndex = 0;
 			ComboFilterTYPE.SelectedIndex = 0;
+			TxtFreq.Text = "1.0";
+			CheckPneumFilters.Checked = true;
 			fill_Freq_array();
 		}
 
@@ -759,6 +761,7 @@ namespace TMCAnalyzer {
 				Lbl_PC_b0.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 8]);
 				Lbl_PC_b1.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 7]);
 				Lbl_PC_b2.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 6]);
+				UpdateCoefficientDiffs(Filt_Number);
 			}
 		}
 
@@ -1232,6 +1235,39 @@ namespace TMCAnalyzer {
 			Lbl_b1.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, 7]);
 			Lbl_b2.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, 6]);
 
+			UpdateCoefficientDiffs(filter_num);
+		}
+
+		void UpdateCoefficientDiffs(int filterIndex) {
+			// Coefficient indices in arrays: a1=10, a2=9, b0=8, b1=7, b2=6
+			// PPM formula: ppm = 100000 * (PC_coeff - Controller_coeff) / PC_coeff
+
+			// Use Controls.Find for null-safety in case labels don't exist
+			Control[] diffLabels = new Control[5];
+			diffLabels[0] = FrameFiltCoefficients.Controls.Find("Lbl_a1_diff", true).FirstOrDefault();
+			diffLabels[1] = FrameFiltCoefficients.Controls.Find("Lbl_a2_diff", true).FirstOrDefault();
+			diffLabels[2] = FrameFiltCoefficients.Controls.Find("Lbl_b0_diff", true).FirstOrDefault();
+			diffLabels[3] = FrameFiltCoefficients.Controls.Find("Lbl_b1_diff", true).FirstOrDefault();
+			diffLabels[4] = FrameFiltCoefficients.Controls.Find("Lbl_b2_diff", true).FirstOrDefault();
+
+			int[] coeffIndices = { 10, 9, 8, 7, 6 }; // a1, a2, b0, b1, b2
+
+			for (int i = 0; i < 5; i++) {
+				if (diffLabels[i] != null && diffLabels[i] is Label) {
+					Label diffLabel = (Label)diffLabels[i];
+					int coeffIndex = coeffIndices[i];
+
+					double pcCoeff = CHANGED_FilterParamArray[filterIndex, coeffIndex];
+					double ctrlCoeff = OriginalFilterParamArray[filterIndex, coeffIndex];
+
+					if (pcCoeff == 0) {
+						diffLabel.Text = "N/A";
+					} else {
+						double ppm = 100000.0 * (pcCoeff - ctrlCoeff) / pcCoeff;
+						diffLabel.Text = ppm.ToString("+0;-0;0");
+					}
+				}
+			}
 		}
 
 
