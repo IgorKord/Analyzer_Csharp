@@ -105,6 +105,8 @@ namespace TMCAnalyzer {
 		private void frmFilters_Load(object sender, EventArgs e) {
 			ComboFilterAxis.SelectedIndex = 0;
 			ComboFilterTYPE.SelectedIndex = 0;
+			TxtFreq.Text = "1.0";
+			CheckPneumFilters.Checked = true;
 			fill_Freq_array();
 		}
 
@@ -759,6 +761,8 @@ namespace TMCAnalyzer {
 				Lbl_PC_b0.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 8]);
 				Lbl_PC_b1.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 7]);
 				Lbl_PC_b2.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 6]);
+				
+				UpdateCoefficientDiffs(Filt_Number);
 			}
 		}
 
@@ -1176,6 +1180,41 @@ namespace TMCAnalyzer {
 			fp.a2 = -fp.a2;
 		}
 
+		void UpdateCoefficientDiffs(int filterIndex)
+		{
+			// Coefficient mapping: a1=10, a2=9, b0=8, b1=7, b2=6
+			// PPM formula: ppm = 100000 * (PC_coeff - Controller_coeff) / PC_coeff
+			
+			UpdateDiffLabel("Lbl_a1_diff", filterIndex, 10);
+			UpdateDiffLabel("Lbl_a2_diff", filterIndex, 9);
+			UpdateDiffLabel("Lbl_b0_diff", filterIndex, 8);
+			UpdateDiffLabel("Lbl_b1_diff", filterIndex, 7);
+			UpdateDiffLabel("Lbl_b2_diff", filterIndex, 6);
+		}
+
+		void UpdateDiffLabel(string labelName, int filterIndex, int coeffIndex)
+		{
+			// Use Controls.Find with null check for robustness
+			Control[] controls = this.Controls.Find(labelName, true);
+			if (controls.Length > 0 && controls[0] is Label)
+			{
+				Label diffLabel = (Label)controls[0];
+				
+				double ctrlCoeff = OriginalFilterParamArray[filterIndex, coeffIndex];
+				double pcCoeff = CHANGED_FilterParamArray[filterIndex, coeffIndex];
+				
+				if (Math.Abs(pcCoeff) < 1e-10)
+				{
+					diffLabel.Text = "N/A";
+				}
+				else
+				{
+					double ppm = 100000.0 * (pcCoeff - ctrlCoeff) / pcCoeff;
+					diffLabel.Text = ppm.ToString("+0;-0;0");
+				}
+			}
+		}
+
 		void Copy_Params_for_Edit(int filter_num)  //???
 		{
 			float paramValue;
@@ -1231,6 +1270,8 @@ namespace TMCAnalyzer {
 			Lbl_b0.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, 8]);
 			Lbl_b1.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, 7]);
 			Lbl_b2.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, 6]);
+			
+			UpdateCoefficientDiffs(filter_num);
 
 		}
 

@@ -31,6 +31,11 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFilters));
 			this.FrameFiltCoefficients = new System.Windows.Forms.GroupBox();
+			this.Lbl_a1_diff = new System.Windows.Forms.Label();
+			this.Lbl_a2_diff = new System.Windows.Forms.Label();
+			this.Lbl_b0_diff = new System.Windows.Forms.Label();
+			this.Lbl_b1_diff = new System.Windows.Forms.Label();
+			this.Lbl_b2_diff = new System.Windows.Forms.Label();
 			this.CmdCalcMagPhaseNOW = new System.Windows.Forms.Button();
 			this.TxtFreq = new System.Windows.Forms.TextBox();
 			this.LblPhase = new System.Windows.Forms.Label();
@@ -182,6 +187,11 @@
 			this.FrameFiltCoefficients.Controls.Add(this.Lbl_PC_b0);
 			this.FrameFiltCoefficients.Controls.Add(this.Lbl_PC_b1);
 			this.FrameFiltCoefficients.Controls.Add(this.Lbl_PC_b2);
+			this.FrameFiltCoefficients.Controls.Add(this.Lbl_a1_diff);
+			this.FrameFiltCoefficients.Controls.Add(this.Lbl_a2_diff);
+			this.FrameFiltCoefficients.Controls.Add(this.Lbl_b0_diff);
+			this.FrameFiltCoefficients.Controls.Add(this.Lbl_b1_diff);
+			this.FrameFiltCoefficients.Controls.Add(this.Lbl_b2_diff);
 			this.FrameFiltCoefficients.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FrameFiltCoefficients.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.FrameFiltCoefficients.Location = new System.Drawing.Point(12, 300);
@@ -549,6 +559,86 @@
 			this.Lbl_PC_b2.TabIndex = 65;
 			this.Lbl_PC_b2.Text = "b2";
 			this.Lbl_PC_b2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// Lbl_a1_diff
+			// 
+			this.Lbl_a1_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(224)))));
+			this.Lbl_a1_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_a1_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_a1_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_a1_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_a1_diff.Location = new System.Drawing.Point(102, 50);
+			this.Lbl_a1_diff.Name = "Lbl_a1_diff";
+			this.Lbl_a1_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_a1_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_a1_diff.TabIndex = 87;
+			this.Lbl_a1_diff.Text = "";
+			this.Lbl_a1_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip1.SetToolTip(this.Lbl_a1_diff, "Parts Per Million difference");
+			// 
+			// Lbl_a2_diff
+			// 
+			this.Lbl_a2_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(224)))));
+			this.Lbl_a2_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_a2_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_a2_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_a2_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_a2_diff.Location = new System.Drawing.Point(207, 50);
+			this.Lbl_a2_diff.Name = "Lbl_a2_diff";
+			this.Lbl_a2_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_a2_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_a2_diff.TabIndex = 88;
+			this.Lbl_a2_diff.Text = "";
+			this.Lbl_a2_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip1.SetToolTip(this.Lbl_a2_diff, "Parts Per Million difference");
+			// 
+			// Lbl_b0_diff
+			// 
+			this.Lbl_b0_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(224)))));
+			this.Lbl_b0_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_b0_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_b0_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_b0_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_b0_diff.Location = new System.Drawing.Point(312, 50);
+			this.Lbl_b0_diff.Name = "Lbl_b0_diff";
+			this.Lbl_b0_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_b0_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_b0_diff.TabIndex = 89;
+			this.Lbl_b0_diff.Text = "";
+			this.Lbl_b0_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip1.SetToolTip(this.Lbl_b0_diff, "Parts Per Million difference");
+			// 
+			// Lbl_b1_diff
+			// 
+			this.Lbl_b1_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(224)))));
+			this.Lbl_b1_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_b1_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_b1_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_b1_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_b1_diff.Location = new System.Drawing.Point(417, 50);
+			this.Lbl_b1_diff.Name = "Lbl_b1_diff";
+			this.Lbl_b1_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_b1_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_b1_diff.TabIndex = 90;
+			this.Lbl_b1_diff.Text = "";
+			this.Lbl_b1_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip1.SetToolTip(this.Lbl_b1_diff, "Parts Per Million difference");
+			// 
+			// Lbl_b2_diff
+			// 
+			this.Lbl_b2_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(224)))));
+			this.Lbl_b2_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_b2_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_b2_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_b2_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_b2_diff.Location = new System.Drawing.Point(522, 50);
+			this.Lbl_b2_diff.Name = "Lbl_b2_diff";
+			this.Lbl_b2_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_b2_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_b2_diff.TabIndex = 91;
+			this.Lbl_b2_diff.Text = "";
+			this.Lbl_b2_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip1.SetToolTip(this.Lbl_b2_diff, "Parts Per Million difference");
 			// 
 			// FrameTuning
 			// 
@@ -2097,6 +2187,11 @@
 		public System.Windows.Forms.Label Lbl_PC_b0;
 		public System.Windows.Forms.Label Lbl_PC_b1;
 		public System.Windows.Forms.Label Lbl_PC_b2;
+		public System.Windows.Forms.Label Lbl_a1_diff;
+		public System.Windows.Forms.Label Lbl_a2_diff;
+		public System.Windows.Forms.Label Lbl_b0_diff;
+		public System.Windows.Forms.Label Lbl_b1_diff;
+		public System.Windows.Forms.Label Lbl_b2_diff;
 		public System.Windows.Forms.GroupBox FrameTuning;
 		public System.Windows.Forms.CheckBox ChkRealTimeUpdateTF;
 		public System.Windows.Forms.Button CmdFilterRefresh;
