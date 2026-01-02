@@ -334,6 +334,7 @@
   <ItemGroup>
     <None Include="Properties\Resources\OFF_olive_small_switch.png" />
     <None Include="Properties\Resources\ON_small_switch.png" />
+    <Content Include="Code_Comments.txt" />
     <Content Include="Properties\Resources\ON_green_small_switch.png" />
     <None Include="Properties\Resources\checkmark-small-gray.bmp" />
     <None Include="Properties\Resources\orange_gray_circle.bmp" />

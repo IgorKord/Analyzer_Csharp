@@ -575,7 +575,7 @@ namespace TMCAnalyzer {
 #endif
 
 		public class double_iir {
-			public filt_prec ftyp;
+			public int ftyp;
 			public filt_prec[] par = new filt_prec[USER_PARAM_NUMBER];
 			public filt_prec a1;
 			public filt_prec a2;
@@ -804,17 +804,16 @@ namespace TMCAnalyzer {
 			double_iir FilterParams = new double_iir();
 			long param;
 			float testVar = 0;
-			FilterParams.ftyp = CHANGED_FilterParamArray[Filt_Number, 0];
+			FilterParams.ftyp = (int)CHANGED_FilterParamArray[Filt_Number, 0];
 			// ComboFilterTYPE.ListIndex
 			FilterParams.par[(int)filt_par.FilterGain] = CHANGED_FilterParamArray[Filt_Number, 1];
 			FilterParams.par[(int)filt_par.freq_1] = CHANGED_FilterParamArray[Filt_Number, 2];
 			FilterParams.par[(int)filt_par.freq_2] = CHANGED_FilterParamArray[Filt_Number, 3];
 			FilterParams.par[(int)filt_par.Q_f_1] = CHANGED_FilterParamArray[Filt_Number, 4];
 			FilterParams.par[(int)filt_par.Q_f_2] = CHANGED_FilterParamArray[Filt_Number, 5];
-			for (param = 0; (param
-						<= (USER_PARAM_NUMBER - 1)); param++) {
+			for (param = 0; (param <= (USER_PARAM_NUMBER - 1)); param++) {
 				if ((FilterParams.par[param] != 0)) {
-					testVar = (testVar + 1);
+					testVar ++;
 				}
 			}
 
@@ -852,11 +851,11 @@ namespace TMCAnalyzer {
 
 		public void set_iir(double_iir fp) {
 			// CoPilot 20260101 Translated/updated to match VB6 Analyzer.BAS set_float_iir (latest)
-			try
-			{
+			// Includes debug logging to set_iir_log.txt for intermediate values.
+			try {
 				// local temporaries (use filt_prec for consistent precision in the project)
-					//#define omega_1pole omega_1pole 'alias name: omega_Numenator
-					//#define omega_2zero omega_2zero 'alias name: omega_DEnominator
+				//#define omega_1pole omega_1pole 'alias name: omega_Numenator
+				//#define omega_2zero omega_2zero 'alias name: omega_DEnominator
 				filt_prec h1 = 0;
 				filt_prec h2 = 0;
 				filt_prec t_gain = 0;
@@ -867,34 +866,39 @@ namespace TMCAnalyzer {
 				filt_prec omega_1pole = 0;
 				filt_prec omega_2zero = 0;
 				filt_prec testVar = 0;
+				filt_prec f1 = fp.par[(int)filt_par.freq_1];
+				filt_prec f2 = fp.par[(int)filt_par.freq_2];
+				filt_prec q1 = fp.par[(int)filt_par.Q_f_1];
+				filt_prec q2 = fp.par[(int)filt_par.Q_f_2];
 
 				// compute constant
 				PI_x2_OVER_FREQUENCY = (filt_prec)(Math.PI * 2.0 / LOOP_FREQUENCY);
 
 				// prevent division by zero for Qs
-				if (fp.par[(int)filt_par.Q_f_1] == 0) fp.par[(int)filt_par.Q_f_1] = (filt_prec)0.5;
-				if (fp.par[(int)filt_par.Q_f_2] == 0) fp.par[(int)filt_par.Q_f_2] = (filt_prec)0.5;
+				if (q1 == 0) q1 = (filt_prec)0.5;
+				if (q2 == 0) q2 = (filt_prec)0.5;
 
 				// freq corrections
-				testVar = (filt_prec)(fp.par[(int)filt_par.Q_f_1] * fp.par[(int)filt_par.Q_f_1]);
-				freq_1_correction = (filt_prec)(1.0 / Math.Sqrt(1.0 + 0.25 / (fp.par[(int)filt_par.Q_f_1] * fp.par[(int)filt_par.Q_f_1])));
-				testVar = (filt_prec)(fp.par[(int)filt_par.Q_f_2] * fp.par[(int)filt_par.Q_f_1]);
+				testVar = (filt_prec)(q1 * q1);
+				freq_1_correction = (filt_prec)(1.0 / Math.Sqrt(1.0 + 0.25 / (q1 * q1)));
+				testVar = (filt_prec)(q2 * q2);
 				freq_2_correction = (filt_prec)(1.0 / Math.Sqrt(1.0 + 0.25 / testVar));
 
 				// angular frequencies
-				omega_1pole = (filt_prec)(PI_x2_OVER_FREQUENCY * fp.par[(int)filt_par.freq_1]); //par(1) is filter corner frequency
-				omega_2zero = (filt_prec)(PI_x2_OVER_FREQUENCY * fp.par[(int)filt_par.freq_2]);
+				omega_1pole = (filt_prec)(PI_x2_OVER_FREQUENCY * f1); //par(1) is filter corner frequency
+				omega_2zero = (filt_prec)(PI_x2_OVER_FREQUENCY * f2);
 
 				// choose bigger frequency for gain correction (VB6 logic)
 				if (omega_1pole > omega_2zero)
-					s_freq_gain_corr = (filt_prec)(((double)LOOP_FREQUENCY + (double)fp.par[(int)filt_par.freq_1]) / (double)LOOP_FREQUENCY);
+					s_freq_gain_corr = (filt_prec)(((double)LOOP_FREQUENCY + (double)f1) / (double)LOOP_FREQUENCY);
 				else
-					s_freq_gain_corr = (filt_prec)(((double)LOOP_FREQUENCY + (double)fp.par[(int)filt_par.freq_2]) / (double)LOOP_FREQUENCY);
+					s_freq_gain_corr = (filt_prec)(((double)LOOP_FREQUENCY + (double)f2) / (double)LOOP_FREQUENCY);
 
 				// preliminary computations
 				if (omega_1pole == 0) omega_1pole = (filt_prec)1e-12; // guard
 				h1 = (filt_prec)Math.Tan((double)omega_1pole / 2.0);
-				cotan_of_half_omega_1 = (filt_prec)(1.0 / (double)h1);
+				if ((double)h1 == 0.0) cotan_of_half_omega_1 = (filt_prec)1e12;
+				else cotan_of_half_omega_1 = (filt_prec)(1.0 / (double)h1);
 
 				t_gain = fp.par[(int)filt_par.FilterGain];
 				// set default parameters as GAIN_ONLY for start (needed gains will be replaced)
@@ -904,9 +908,22 @@ namespace TMCAnalyzer {
 				fp.a2 = 0;
 				fp.a1 = 0;
 
+				// --- debug: write header and inputs (timestamped) ---
+				try {
+					string header = string.Format("=== set_iir RUN: {0:O} ===\r\n", DateTime.UtcNow);
+					string inputs = string.Format("ftyp={0}, FilterGain={1:R}, freq1={2:R}, Q1={3:R}, freq2={4:R}, Q2={5:R}\r\n",
+						fp.ftyp,
+						fp.par[(int)filt_par.FilterGain],
+						f1,
+						q1,
+						f2,
+						q2
+					);
+					System.IO.File.AppendAllText("set_iir_log.txt", header + inputs);
+				} catch { /* swallow logging errors */ }
 				// Now handle filter type cases (translated from VB6)
 				// ============== STACIS FILTERS: only 4 types are needed ======================================================================================
-				if (fp.ftyp == (filt_prec)filt_types.LPF_1stOr) //case 1: sharp drop at high freq, notch at Nyquist, phase = -90
+				if (fp.ftyp == (long)filt_types.LPF_1stOr) //case 1: sharp drop at high freq, notch at Nyquist, phase = -90
 				{
 					// first-order LPF
 					h1 = (filt_prec)(1.0 / (1.0 + cotan_of_half_omega_1));
@@ -914,51 +931,47 @@ namespace TMCAnalyzer {
 					fp.b0 = fp.b1;
 					fp.a1 = (filt_prec)((1.0 - cotan_of_half_omega_1) * h1);
 				} //case 2: normalized
-				else if (fp.ftyp == (filt_prec)filt_types.HPF_1stOr)
-				{
+				else if (fp.ftyp == (filt_prec)filt_types.HPF_1stOr) {
 					h1 = (filt_prec)(1.0 / (1.0 + cotan_of_half_omega_1));
 					fp.a1 = (filt_prec)((1.0 - cotan_of_half_omega_1) * h1);
 					fp.b1 = (filt_prec)(-cotan_of_half_omega_1 * h1 * t_gain);
 					fp.b0 = -fp.b1;
 				} //case 3: normalized maximum unity gain at band pass frequency
-				else if (fp.ftyp == (filt_prec)filt_types.LEADLAG_1stOr)
-				{
+				else if (fp.ftyp == (filt_prec)filt_types.LEADLAG_1stOr) {
 					// first-order lead/lag general
 					fp.a1 = (filt_prec)(omega_2zero - 1.0);
 					fp.b0 = t_gain;
 					fp.b1 = (filt_prec)((omega_1pole - 1.0) * t_gain);
 				} //case 4: general form with Q factors (NOT normalized) LEAD or LAG DOES depend on F1,F2: if F1>F2 - it is "-\_LAG, HiFreq, LoFreq"' if F1<F2 - it is "_/-LEAD, LoFreq, HiFreq"'
 				else if (fp.ftyp == (filt_prec)filt_types.LEADLAG_2ndOr_wPk)
-					// Max gain can be bigger than 1 if any of Q is bigger than 0.5, generally max gain approx = Q.
-					// *****!!***** BE CAREFUL WITH Q!!  IT CAN OVERFLOW IN FIXED POINT CALCULATIONS
-					//  Normalized to unity gain at frequencies much bigger/smaller than F1 or F2.
-					//  omega_1pole *= freq_1_correction'  'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
-					//  omega_2zero *= freq_2_correction'  'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
+				// Max gain can be bigger than 1 if any of Q is bigger than 0.5, generally max gain approx = Q.
+				// *****!!***** BE CAREFUL WITH Q!!  IT CAN OVERFLOW IN FIXED POINT CALCULATIONS
+				//  Normalized to unity gain at frequencies much bigger/smaller than F1 or F2.
+				//  omega_1pole *= freq_1_correction'  'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
+				//  omega_2zero *= freq_2_correction'  'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
 				{
 					// second-order lead/lag with peak (general)
-					h2 = (filt_prec)(1.0 - (omega_2zero / (2.0 * fp.par[(int)filt_par.Q_f_2])));
+					h2 = (filt_prec)(1.0 - (omega_2zero / (2.0 * q2)));
 					fp.a1 = (filt_prec)(-2.0 * h2 * Math.Cos((double)omega_2zero));
 					fp.a2 = (filt_prec)(h2 * h2);
 
-					h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * fp.par[(int)filt_par.Q_f_1])));
+					h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * q1)));
 					fp.b0 = t_gain;
 					fp.b1 = (filt_prec)((-2.0 * h1 * Math.Cos((double)omega_1pole)) * (double)t_gain);
 					fp.b2 = (filt_prec)((h1 * h1) * (double)t_gain);
 				} // directly enter 2nd order coeffs (b0+b1*z^-1+b2*z^-2)/(1+a1*z^-1+a2*z^-2)
-				else if (fp.ftyp == (filt_prec)filt_types.DIRECT_COEFF)
-				{
+				else if (fp.ftyp == (filt_prec)filt_types.DIRECT_COEFF) {
 					// direct coefficients: par fields contain coefficients
 					fp.b0 = fp.par[(int)filt_par.FilterGain];
-					fp.b1 = fp.par[(int)filt_par.freq_1];
-					fp.b2 = fp.par[(int)filt_par.freq_2];
-					fp.a1 = fp.par[(int)filt_par.Q_f_1];
-					fp.a2 = fp.par[(int)filt_par.Q_f_2];
+					fp.b1 = f1;
+					fp.b2 = f2;
+					fp.a1 = q1;
+					fp.a2 = q2;
 					// ============== STACIS FILTERS END only 4 needed ============================================================================================
 
 					// ============== ADDITIONAL FILTERS FOR ELECTRODUMP ==========================================================================================
 				} //, LEAD_1stOrSemiNorm     'case 5: __/-- F1<F2' HPF with max gain = param4 above F2, !! CAREFUL with FIX POINT !!gain at F1 can be much bigger than 1!!
-				else if (fp.ftyp == (filt_prec)filt_types.LEAD_1stOrNorm)
-				{
+				else if (fp.ftyp == (filt_prec)filt_types.LEAD_1stOrNorm) {
 					//  Case LEAD_1stOrSemiNorm:  'case 18: --\__ Semi Normalized! potentially high gain at high freq! Gain=1 @ (F1+F2)/2.
 					//  Does not depend on F1<F2 or F1>F2, the lowest of F1,F2 is low corner freq, the highest of F1,F2 - high corner freq
 					// LEAD 1st order normalized
@@ -975,8 +988,7 @@ namespace TMCAnalyzer {
 					fp.b0 = h1;
 					fp.b1 = (filt_prec)(fp.b1 * h1);
 				} //, LAG_1stOrSemiNorm          'case 6: --\__  NOT normalized gain at lowest frequency, at highest frequency gain = 1
-				else if (fp.ftyp == (filt_prec)filt_types.LAG_1stOr)
-				{
+				else if (fp.ftyp == (filt_prec)filt_types.LAG_1stOr) {
 					//  Case LAG_1stOrSemiNorm:   'case 20:--\__ Semi Normalized! potentially high gain at low freq! Gain=1 @ (F1+F2)/2.
 					//  Does not depend on F1<F2 or F1>F2, the lowest of F1,F2 is low corner freq, the highest of F1,F2 - high corner freq
 					// LAG 1st order
@@ -998,19 +1010,19 @@ namespace TMCAnalyzer {
 					//               omega_2zero = PI_x2_OVER_FREQUENCY * fp->par[freq_2];
 
 					// combined lag1 + lead1 (build 2nd-order from two 1st-order blocks)
-					filt_prec omega_2zero_tmp = 0;	// temp a11, b11 for the LEG, b01 is gain ==1 by default
+					filt_prec omega_2zero_tmp = 0;  // temp a11, b11 for the LEG, b01 is gain ==1 by default
 					filt_prec a11 = 0, b11 = 0;
-					filt_prec omega_1pole_tmp = 0; 	// temp a11, b11 for the LEG, b02 is gain ==1 by default
+					filt_prec omega_1pole_tmp = 0;  // temp a11, b11 for the LEG, b02 is gain ==1 by default
 					filt_prec a12 = 0, b12 = 0;
 
-					omega_2zero_tmp = (filt_prec)(PI_x2_OVER_FREQUENCY * fp.par[(int)filt_par.Q_f_1]);
-					a11 = (filt_prec)(omega_1pole - 1.0);		// normally, and here as well, comes from F1
-					b11 = (filt_prec)(omega_2zero_tmp - 1.0);	// from Q1
+					omega_2zero_tmp = (filt_prec)(PI_x2_OVER_FREQUENCY * q1);
+					a11 = (filt_prec)(omega_1pole - 1.0);       // normally, and here as well, comes from F1
+					b11 = (filt_prec)(omega_2zero_tmp - 1.0);   // from Q1
 
 					// alredy known         omega_2zero = PI_x2_OVER_FREQUENCY * fp->par[freq_2];
-					omega_1pole_tmp = (filt_prec)(PI_x2_OVER_FREQUENCY * fp.par[(int)filt_par.Q_f_2]); 	// filter corner 2nd frequency __F2_/-Q2--
-					b12 = (filt_prec)(omega_2zero - 1.0);		// normally, and here as well, comes from F2
-					a12 = (filt_prec)(omega_1pole_tmp - 1.0);	// now comes from Q2
+					omega_1pole_tmp = (filt_prec)(PI_x2_OVER_FREQUENCY * q2);   // filter corner 2nd frequency __F2_/-Q2--
+					b12 = (filt_prec)(omega_2zero - 1.0);       // normally, and here as well, comes from F2
+					a12 = (filt_prec)(omega_1pole_tmp - 1.0);   // now comes from Q2
 
 					fp.b2 = (filt_prec)(b11 * b12 * (double)t_gain);
 					fp.b1 = (filt_prec)((b11 + b12) * (double)t_gain);
@@ -1033,8 +1045,7 @@ namespace TMCAnalyzer {
 					//    fp.b1 = CSng(fp.b1 * h1) '
 
 				} //case 7: par1 = F1 = corner freq, par2,4 not used, par3 = Q factor Q=0.5 - classic, Q=2, peak approximately 2 times over unity
-				else if (fp.ftyp == (filt_prec)filt_types.LPF_2ndOr_wPk)
-				{
+				else if (fp.ftyp == (filt_prec)filt_types.LPF_2ndOr_wPk) {
 					// Updated VB6 logic (IK20210425 fix) for LPF 2nd order with peak
 					// case 7: par1 = F1 = corner freq, par2,4 not used, par3 = Q factor Q=0.5 - classic, Q=2, peak approximately 2 times over unity
 					// gain = (omega_1pole/2)^2    * 1/(4 *(Q_1]^2) +1) * (FilterGain) <<<< WAS
@@ -1044,19 +1055,19 @@ namespace TMCAnalyzer {
 					// omega_1pole ;  //correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
 					//omega_1pole = omega_1pole * freq_1_correction; //  'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
 					h2 = (filt_prec)(omega_1pole * omega_1pole * 0.25);
-					h1 = (filt_prec)((0.25 / (fp.par[(int)filt_par.Q_f_1] * fp.par[(int)filt_par.Q_f_1])) + 1.0);	// IK20210425 fixed, temp use
-					h2 = (filt_prec)(h2 * h1 * (double)t_gain); //overall gain * correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
+					h1 = (filt_prec)((0.25 / (q1 * q1)) + 1.0); // IK20210425 fixed, temp use
+					h2 = (filt_prec)(h2 * h1 * (double)t_gain * (double)freq_1_correction); //overall gain * correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
 
-					h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * fp.par[(int)filt_par.Q_f_1])));
+					h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * q1)));
 					fp.a1 = (filt_prec)(-2.0 * h1 * Math.Cos((double)omega_1pole));
 					fp.a2 = (filt_prec)(h1 * h1);
 					fp.b0 = h2;
 					fp.b1 = (filt_prec)(2.0 * h2);
 					fp.b2 = h2;
 				} //case 8:
-				else if ((fp.ftyp) == (filt_prec)filt_types.HPF_2ndOr_wPk) {
+				else if (fp.ftyp == (filt_prec)filt_types.HPF_2ndOr_wPk) {
 					omega_1pole = (filt_prec)(omega_1pole * freq_1_correction);
-					h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * fp.par[(int)filt_par.Q_f_1])));
+					h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * q1)));
 
 					fp.a1 = (filt_prec)(-2.0 * h1 * Math.Cos((double)omega_1pole));
 					fp.a2 = (filt_prec)(h1 * h1);
@@ -1067,25 +1078,25 @@ namespace TMCAnalyzer {
 				} //case 12:  __/--- , normalized (max gain = Q, can be > 1)
 				else if (fp.ftyp == (filt_prec)filt_types.LEAD_2ndOr_wPk) {
 					//reverse F1 and F2 to maintain LEAD shape
-					omega_1pole = (filt_prec)(omega_1pole * freq_1_correction);		//  correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
+					omega_1pole = (filt_prec)(omega_1pole * freq_1_correction);     //  correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
 					omega_2zero = (filt_prec)(omega_2zero * freq_2_correction);
 
 					if (omega_1pole > omega_2zero) // gain_corr = s_freq_gain_corr * (omega_1pole/omega_2zero)^2
 					{
-						h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * fp.par[(int)filt_par.Q_f_1])));
-						h2 = (filt_prec)(1.0 - (omega_2zero / (2.0 * fp.par[(int)filt_par.Q_f_2])));
+						h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * q1)));
+						h2 = (filt_prec)(1.0 - (omega_2zero / (2.0 * q2)));
 						fp.a1 = (filt_prec)(-2.0 * h1 * Math.Cos((double)omega_1pole));
 						fp.a2 = (filt_prec)(h1 * h1);
 						t_gain = (filt_prec)((double)t_gain / (double)s_freq_gain_corr);
-						h1 = (filt_prec)(Math.Cos((double)omega_2zero));	// temp use of 'h1' for 'b1' calculation
+						h1 = (filt_prec)(Math.Cos((double)omega_2zero));    // temp use of 'h1' for 'b1' calculation
 					} else //omega_1pole <= omega_2zero
-					{
-						h1 = (filt_prec)(1.0 - (omega_2zero / (2.0 * fp.par[(int)filt_par.Q_f_2])));
-						h2 = (filt_prec)(1.0 - (omega_1pole / (2.0 * fp.par[(int)filt_par.Q_f_1])));
+					  {
+						h1 = (filt_prec)(1.0 - (omega_2zero / (2.0 * q2)));
+						h2 = (filt_prec)(1.0 - (omega_1pole / (2.0 * q1)));
 						fp.a1 = (filt_prec)(-2.0 * h1 * Math.Cos((double)omega_2zero));
 						fp.a2 = (filt_prec)(h1 * h1);
 						t_gain = (filt_prec)((double)t_gain / (double)s_freq_gain_corr);
-						h1 = (filt_prec)Math.Cos((double)omega_1pole);	// temp use of 'h1' for 'b1' calculation
+						h1 = (filt_prec)Math.Cos((double)omega_1pole);  // temp use of 'h1' for 'b1' calculation
 					}
 					fp.b0 = t_gain;
 					fp.b1 = (filt_prec)(-2.0 * h2 * h1 * (double)t_gain);
@@ -1093,42 +1104,40 @@ namespace TMCAnalyzer {
 				} //case 13:--\__  normalized (max gain = Q, can be > 1)
 				else if (fp.ftyp == (filt_prec)filt_types.LAG_2ndOr_wPk) {
 					// Q-factor gain correction: =(1+1/(2*Q_1)^2)/(1+1/(2*Q_2)^2)
-					omega_1pole = (filt_prec)(omega_1pole * freq_1_correction);		// correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
+					omega_1pole = (filt_prec)(omega_1pole * freq_1_correction);     // correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
 					omega_2zero = (filt_prec)(omega_2zero * freq_2_correction);
 
 					h1 = (filt_prec)(omega_1pole / omega_2zero);
 					h1 = (filt_prec)(h1 * h1);
-					h2 = (filt_prec)(1.0 + 0.25 / (fp.par[(int)filt_par.Q_f_2] * fp.par[(int)filt_par.Q_f_2]));
-					h2 = (filt_prec)((1.0 + 0.25 / (fp.par[(int)filt_par.Q_f_1] * fp.par[(int)filt_par.Q_f_1])) / (double)h2);
-					h1 = (filt_prec)(h1 * h2);	// h1 includes F2/F1, Q2 and Q1 gain correction
+					h2 = (filt_prec)(1.0 + 0.25 / (q2 * q2));
+					h2 = (filt_prec)((1.0 + 0.25 / (q1 * q1)) / (double)h2);
+					h1 = (filt_prec)(h1 * h2);  // h1 includes F2/F1, Q2 and Q1 gain correction
 
 					//reverse F1 and F2 to maintain LEAD shape
 					if (omega_1pole <= omega_2zero) // gain_corr = s_freq_gain_corr * (omega_1pole/omega_2zero)^2
 					{
-						t_gain = (filt_prec)(s_freq_gain_corr * t_gain * h1);	//' h1 includes F2/F1, Q2 and Q1 gain correction
-						h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * fp.par[(int)filt_par.Q_f_1])));
-						h2 = (filt_prec)(1.0 - (omega_2zero / (2.0 * fp.par[(int)filt_par.Q_f_2])));
+						t_gain = (filt_prec)(s_freq_gain_corr * t_gain * h1);   //' h1 includes F2/F1, Q2 and Q1 gain correction
+						h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * q1)));
+						h2 = (filt_prec)(1.0 - (omega_2zero / (2.0 * q2)));
 						fp.a1 = (filt_prec)(-2.0 * h1 * Math.Cos((double)omega_1pole));
 						fp.a2 = (filt_prec)(h1 * h1);
-						h1 = (filt_prec)Math.Cos((double)omega_2zero);	// temp use of 'h1' for 'b1' calculation
-					}
-					else
-					{
+						h1 = (filt_prec)Math.Cos((double)omega_2zero);  // temp use of 'h1' for 'b1' calculation
+					} else {
 						t_gain = (filt_prec)((double)s_freq_gain_corr * (double)t_gain / (double)h1);
-						h1 = (filt_prec)(1.0 - (omega_2zero / (2.0 * fp.par[(int)filt_par.Q_f_2])));
-						h2 = (filt_prec)(1.0 - (omega_1pole / (2.0 * fp.par[(int)filt_par.Q_f_1])));
+						h1 = (filt_prec)(1.0 - (omega_2zero / (2.0 * q2)));
+						h2 = (filt_prec)(1.0 - (omega_1pole / (2.0 * q1)));
 						fp.a1 = (filt_prec)(-2.0 * h1 * Math.Cos((double)omega_2zero));
 						fp.a2 = (filt_prec)(h1 * h1);
-						h1 = (filt_prec)Math.Cos((double)omega_1pole);	// temp use of 'h1' for 'b1' calculation
+						h1 = (filt_prec)Math.Cos((double)omega_1pole);  // temp use of 'h1' for 'b1' calculation
 					}
 					fp.b0 = t_gain;
 					fp.b1 = (filt_prec)(-2.0 * h2 * h1 * (double)t_gain);
 					fp.b2 = (filt_prec)((h2 * h2) * (double)t_gain);
 				} // made from leadlag
 				else if (fp.ftyp == (filt_prec)filt_types.PEAK_on_FLAT) {
-					h2 = (filt_prec)(0.89 + 0.064 / fp.par[(int)filt_par.Q_f_1]); // Experimental automatic second frequency calculation to have unity gain from both sides of peak
+					h2 = (filt_prec)(0.89 + 0.064 / q1); // Experimental automatic second frequency calculation to have unity gain from both sides of peak
 					omega_2zero = (filt_prec)(omega_1pole * h2);
-					h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * fp.par[(int)filt_par.Q_f_1])));
+					h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * q1)));
 					h2 = (filt_prec)(1.0 - (omega_2zero / 2.0));
 					fp.a1 = (filt_prec)(-2.0 * h1 * Math.Cos((double)omega_1pole));
 					fp.a2 = (filt_prec)(h1 * h1);
@@ -1144,9 +1153,9 @@ namespace TMCAnalyzer {
 					//  omega_2zero = omega_1pole * (1 - h1 * h2)' = (1 - (Q - 1)/((Q + 1)^2))
 
 					//    h2 = 0.89 + 0.064 / fp.par(Q_f_1) '' Experimental automatic second frequency calculation to have unity gain from both sides of peak
-					h2 = (filt_prec)(0.8208 + 0.1673 / fp.par[(int)filt_par.Q_f_1] + 0.009105 * fp.par[(int)filt_par.Q_f_1] + 0.00001825 * fp.par[(int)filt_par.Q_f_1] * fp.par[(int)filt_par.freq_1]);
+					h2 = (filt_prec)(0.8208 + 0.1673 / q1 + 0.009105 * q1 + 0.00001825 * q1 * f1);
 					omega_2zero = (filt_prec)(omega_1pole * h2);
-					h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * fp.par[(int)filt_par.Q_f_1])));
+					h1 = (filt_prec)(1.0 - (omega_1pole / (2.0 * q1)));
 					h2 = (filt_prec)(1.0 - (omega_2zero / 2.0));
 					fp.a1 = (filt_prec)(-2.0 * h2 * Math.Cos((double)omega_2zero));
 					fp.a2 = (filt_prec)(h2 * h2);
@@ -1156,91 +1165,102 @@ namespace TMCAnalyzer {
 					fp.b2 = (filt_prec)((h1 * h1) * (double)t_gain);
 				} //Q regulates "width" of a notch
 				else if (fp.ftyp == (filt_prec)filt_types.NOTCH_Sharp) {
-					h1 = (filt_prec)(1.0 / (1.0 + cotan_of_half_omega_1 / fp.par[(int)filt_par.Q_f_1] + cotan_of_half_omega_1 * cotan_of_half_omega_1));
+					h1 = (filt_prec)(1.0 / (1.0 + cotan_of_half_omega_1 / q1 + cotan_of_half_omega_1 * cotan_of_half_omega_1));
 					h2 = (filt_prec)(2.0 * (1.0 - cotan_of_half_omega_1 * cotan_of_half_omega_1) * (double)h1);
 					fp.a1 = (filt_prec)h2;
-					fp.a2 = (filt_prec)((1.0 - cotan_of_half_omega_1 / fp.par[(int)filt_par.Q_f_1] + cotan_of_half_omega_1 * cotan_of_half_omega_1) * (double)h1);
+					fp.a2 = (filt_prec)((1.0 - cotan_of_half_omega_1 / q1 + cotan_of_half_omega_1 * cotan_of_half_omega_1) * (double)h1);
 					fp.b0 = (filt_prec)(((1.0 + cotan_of_half_omega_1 * cotan_of_half_omega_1) * (double)h1 * (double)t_gain));
 					fp.b1 = (filt_prec)h2;
 					fp.b2 = fp.b0;
 				} //"roof shape BPF" +20dB/dec-peak-20dB/dec' par1=peak freq, par3=Q1=peak mag
 				else if (fp.ftyp == (filt_prec)filt_types.BPF) {
-					h1 = (filt_prec)(1.0 / (1.0 + cotan_of_half_omega_1 / fp.par[(int)filt_par.Q_f_1] + cotan_of_half_omega_1 * cotan_of_half_omega_1));
-					h2 = (filt_prec)((double)t_gain * (double)cotan_of_half_omega_1 * (double)h1 / (double)fp.par[(int)filt_par.Q_f_1]); //= (fp.par(FilterGain)*cotan_of_half_omega_1) / fp.par(Q_f_1) * h1'
+					h1 = (filt_prec)(1.0 / (1.0 + cotan_of_half_omega_1 / q1 + cotan_of_half_omega_1 * cotan_of_half_omega_1));
+					h2 = (filt_prec)((double)t_gain * (double)cotan_of_half_omega_1 * (double)h1 / (double)q1); //= (fp.par(FilterGain)*cotan_of_half_omega_1) / fp.par(Q_f_1) * h1'
 					fp.a1 = (filt_prec)(2.0 * (1.0 - cotan_of_half_omega_1 * cotan_of_half_omega_1) * (double)h1);
-					fp.a2 = (filt_prec)((1.0 - cotan_of_half_omega_1 / fp.par[(int)filt_par.Q_f_1] + cotan_of_half_omega_1 * cotan_of_half_omega_1) * (double)h1);
+					fp.a2 = (filt_prec)((1.0 - cotan_of_half_omega_1 / q1 + cotan_of_half_omega_1 * cotan_of_half_omega_1) * (double)h1);
 					fp.b0 = h2;
 					fp.b1 = 0;
 					fp.b2 = (filt_prec)(-1.0 * (double)h2);
 				} //"leaky" integral
 				else if (fp.ftyp == (filt_prec)filt_types.PID) {
-					h1 = (filt_prec)(fp.par[PID_I_gain] * (1.0 / LOOP_FREQUENCY));		// Integral
-					h2 = (filt_prec)(fp.par[PID_D_gain] * (LOOP_FREQUENCY / 1000.0));	// differential, /1000 because D gain is too big, should be in the range 0.001 then mag bend up happens at 100 Hz
+					h1 = (filt_prec)(fp.par[PID_I_gain] * (1.0 / LOOP_FREQUENCY));      // Integral
+					h2 = (filt_prec)(fp.par[PID_D_gain] * (LOOP_FREQUENCY / 1000.0));   // differential, /1000 because D gain is too big, should be in the range 0.001 then mag bend up happens at 100 Hz
 																						// par(3) is filter Q, here used as frequency of leak
-					fp.a1 = (filt_prec)(PI_x2_OVER_FREQUENCY * fp.par[(int)filt_par.Q_f_1] - 1.0); //slightly more, then -1.0f - "leaky" integral - ALLOWS GRADUALLY PURGE delay buffers
-																					// experimentally found 0.9999 cannot efficiently remove offset at low gain if OP is way too low,
-																					// but too much 0.99998 can overflow filter internal delay buffers and flip over at start, especially if input pressure only 10 psi above max iso pressure.
-																					//IT DEPENDS ON SAMPLE FREQUENCY -same a1, higher freq gives faster purge!!!
+					fp.a1 = (filt_prec)(PI_x2_OVER_FREQUENCY * q1 - 1.0); //slightly more, then -1.0f - "leaky" integral - ALLOWS GRADUALLY PURGE delay buffers
+																		  // experimentally found 0.9999 cannot efficiently remove offset at low gain if OP is way too low,
+																		  // but too much 0.99998 can overflow filter internal delay buffers and flip over at start, especially if input pressure only 10 psi above max iso pressure.
+																		  //IT DEPENDS ON SAMPLE FREQUENCY -same a1, higher freq gives faster purge!!!
 					fp.b0 = (filt_prec)(fp.par[PID_P_gain] + (double)h1 + (double)h2);
 					fp.b1 = (filt_prec)(-(fp.par[PID_P_gain] + (2.0 * (double)h2)));
 					fp.b2 = h2;
 				}
-					//  Case GEO_OPT: 'gain = 1 when f > F2, INTENDED USE: F1=0.2, F2=0.5' it is LEDLAG --2nd order with Q1=Q2~0.1
-					//      '**** CAUTION WITH FIX POINT !!, VERY HIGH GAIN AT LOW FREQUENCY!!!
-					//    h1 = Tan(omega_2zero / 2) 'use as temporary to calculate h2
-					//    h2 = (1 - h1) / (1 + h1) '         ' = (1 - tan(PI*f2/fs) / (1 + tan(PI*f2/fs) approx = exp(-f2* PI_x2_OVER_FREQUENCY), better than 1% when fs/f0 > 63
-					//' Note: (1 - tan(x)) / (1 + tan(x)) = ((cotan(x) - 1) /  ((cotan(x) + 1)
-					//    h1 = (cotan_of_half_omega_1 - 1) / (cotan_of_half_omega_1 + 1) ' = (1 - tan(PI*f1/fs) / (1 + tan(PI*f1/fs)~= exp(-f1* PI_x2_OVER_FREQUENCY)
-					//
-					//    fp.a1 = CSng(-2 * h2) '
-					//    fp.a2 = CSng(h2 * h2) '
-					//    fp.b0 = CSng(t_gain) '
-					//    fp.b1 = CSng(-2 * h1 * t_gain) '
-					//    fp.b2 = CSng(h1 * h1 * t_gain) '
+				//  Case GEO_OPT: 'gain = 1 when f > F2, INTENDED USE: F1=0.2, F2=0.5' it is LEDLAG --2nd order with Q1=Q2~0.1
+				//      '**** CAUTION WITH FIX POINT !!, VERY HIGH GAIN AT LOW FREQUENCY!!!
+				//    h1 = Tan(omega_2zero / 2) 'use as temporary to calculate h2
+				//    h2 = (1 - h1) / (1 + h1) '         ' = (1 - tan(PI*f2/fs) / (1 + tan(PI*f2/fs) approx = exp(-f2* PI_x2_OVER_FREQUENCY), better than 1% when fs/f0 > 63
+				//' Note: (1 - tan(x)) / (1 + tan(x)) = ((cotan(x) - 1) /  ((cotan(x) + 1)
+				//    h1 = (cotan_of_half_omega_1 - 1) / (cotan_of_half_omega_1 + 1) ' = (1 - tan(PI*f1/fs) / (1 + tan(PI*f1/fs)~= exp(-f1* PI_x2_OVER_FREQUENCY)
+				//
+				//    fp.a1 = CSng(-2 * h2) '
+				//    fp.a2 = CSng(h2 * h2) '
+				//    fp.b0 = CSng(t_gain) '
+				//    fp.b1 = CSng(-2 * h1 * t_gain) '
+				//    fp.b2 = CSng(h1 * h1 * t_gain) '
 
 				else if (fp.ftyp == (filt_prec)filt_types.VELOCITY) {
-					h1 = (filt_prec)Math.Tan((double)omega_2zero / 2.0);	//use 'h1' as temporary to calculate 'h2'
-					h2 = (filt_prec)((1.0 - (double)h1) / (1.0 + (double)h1));	//= (1 - Math.Tan(PI*f2/fs) / (1 + Math.Tan(PI*f2/fs) approx = exp(-f2* PI_x2_OVER_FREQUENCY), better than 1% when fs/f0 > 63
-												// Note: (1 - tan(x)) / (1 + tan(x)) = ((cotan(x) - 1) /  ((cotan(x) + 1)
-					h1 = (filt_prec)((cotan_of_half_omega_1 - 1.0) / (cotan_of_half_omega_1 + 1.0));	// = (1 - tan(PI*f1/fs) / (1 + tan(PI*f1/fs)~= exp(-f1* PI_x2_OVER_FREQUENCY)
+					h1 = (filt_prec)Math.Tan((double)omega_2zero / 2.0);    //use 'h1' as temporary to calculate 'h2'
+					h2 = (filt_prec)((1.0 - (double)h1) / (1.0 + (double)h1));  //= (1 - Math.Tan(PI*f2/fs) / (1 + Math.Tan(PI*f2/fs) approx = exp(-f2* PI_x2_OVER_FREQUENCY), better than 1% when fs/f0 > 63
+																				// Note: (1 - tan(x)) / (1 + tan(x)) = ((cotan(x) - 1) /  ((cotan(x) + 1)
+					h1 = (filt_prec)((cotan_of_half_omega_1 - 1.0) / (cotan_of_half_omega_1 + 1.0));    // = (1 - tan(PI*f1/fs) / (1 + tan(PI*f1/fs)~= exp(-f1* PI_x2_OVER_FREQUENCY)
 					fp.a1 = (filt_prec)(-(double)(h1 + h2));
 					fp.a2 = (filt_prec)(h1 * h2);
 
 					if (omega_1pole > omega_2zero)
-						t_gain = (filt_prec)(t_gain * LOOP_FREQUENCY / (double)fp.par[(int)filt_par.freq_2] * 0.08);	// when F2 > F1
+						t_gain = (filt_prec)(t_gain * LOOP_FREQUENCY / (double)f2 * 0.08);  // when F2 > F1
 					else
-						t_gain = (filt_prec)(t_gain * LOOP_FREQUENCY / (double)fp.par[(int)filt_par.freq_1] * 0.08);	// when F2 < F1
+						t_gain = (filt_prec)(t_gain * LOOP_FREQUENCY / (double)f1 * 0.08);  // when F2 < F1
 
-					fp.b0 = (filt_prec)(((1.0 + (double)fp.a1 + (double)fp.a2) * (double)t_gain));	//gain correction '-!- PHASE CORRECTED 2009-25-09
+					fp.b0 = (filt_prec)(((1.0 + (double)fp.a1 + (double)fp.a2) * (double)t_gain));  //gain correction '-!- PHASE CORRECTED 2009-25-09
 					fp.b2 = (filt_prec)(-1.0 * (double)fp.b0);
-				}
-				else if (fp.ftyp == (filt_prec)filt_types.Position) {
-					h1 = (filt_prec)Math.Tan((double)omega_2zero / 2.0);		// use 'h1' as temporary to calculate 'h2'
-					h2 = (filt_prec)((1.0 - (double)h1) / (1.0 + (double)h1));	// = (1 - tan(PI*f2/fs) / (1 + tan(PI*f2/fs) approx = exp(-f2* PI_x2_OVER_FREQUENCY), better than 1% when fs/f0 > 63
-												// Note: (1 - tan(x)) / (1 + tan(x)) = ((cotan(x) - 1) /  ((cotan(x) + 1)
-					h1 = (filt_prec)((cotan_of_half_omega_1 - 1.0) / (cotan_of_half_omega_1 + 1.0));	// = (1 - tan(PI*f1/fs) / (1 + tan(PI*f1/fs)~= exp(-f1* PI_x2_OVER_FREQUENCY)
+				} else if (fp.ftyp == (filt_prec)filt_types.Position) {
+					h1 = (filt_prec)Math.Tan((double)omega_2zero / 2.0);        // use 'h1' as temporary to calculate 'h2'
+					h2 = (filt_prec)((1.0 - (double)h1) / (1.0 + (double)h1));  // = (1 - tan(PI*f2/fs) / (1 + tan(PI*f2/fs) approx = exp(-f2* PI_x2_OVER_FREQUENCY), better than 1% when fs/f0 > 63
+																				// Note: (1 - tan(x)) / (1 + tan(x)) = ((cotan(x) - 1) /  ((cotan(x) + 1)
+					h1 = (filt_prec)((cotan_of_half_omega_1 - 1.0) / (cotan_of_half_omega_1 + 1.0));    // = (1 - tan(PI*f1/fs) / (1 + tan(PI*f1/fs)~= exp(-f1* PI_x2_OVER_FREQUENCY)
 					fp.a1 = (filt_prec)(-(double)(h1 + h2));
 					fp.a2 = (filt_prec)(h1 * h2);
 					fp.b0 = (filt_prec)(0.5 * ((1.0 + (double)fp.a1 + (double)fp.a2) * (double)t_gain)); // 'fp.b0= -(1.0 + fp.a2 + fp.a1)/2''-!- PHASE CORRECTED 09-25-09
 					fp.b1 = fp.b0;
-				}
-				else if (fp.ftyp == (filt_prec)filt_types.GAIN_ONLY)
-				{
+				} else if (fp.ftyp == (filt_prec)filt_types.GAIN_ONLY) {
+					// keep defaults
+				} else {
 					// keep defaults
 				}
-				else
-				{
-					// keep defaults
-				}
+
+				// --- debug: log intermediates and final before negation ---
+				try {
+					string mid = string.Format("omega1={0:R}, omega2={1:R}, freq1_corr={2:R}, freq2_corr={3:R}, s_freq_gain_corr={4:R}, h1={5:R}, h2={6:R}, t_gain={7:R}\r\n",
+						omega_1pole, omega_2zero, freq_1_correction, freq_2_correction, s_freq_gain_corr, h1, h2, t_gain);
+					System.IO.File.AppendAllText("set_iir_log.txt", mid);
+
+					string before = string.Format("FINAL_BEFORE_NEGATION: a1={0:R}, a2={1:R}, b0={2:R}, b1={3:R}, b2={4:R}\r\n",
+						fp.a1, fp.a2, fp.b0, fp.b1, fp.b2);
+					System.IO.File.AppendAllText("set_iir_log.txt", before);
+				} catch { }
 				// Reverse signs of a1,a2 to keep consistent sign convention (VB6: fp.a1 = -fp.a1; fp.a2 = -fp.a2)
 				// Reverse a1, a2 to use only ADD (summing) and do not use SUB (no subtraction)
-				fp.a1 = (filt_prec)(-1.0 * (double)fp.a1);
-				fp.a2 = (filt_prec)(-1.0 * (double)fp.a2);
-			}
-			catch
-			{
+				fp.a1 = (filt_prec)(-fp.a1);
+				fp.a2 = (filt_prec)(-fp.a2);
+
+				// --- debug: final after negation
+				try {
+					string after = string.Format("FINAL_AFTER_NEGATION: a1={0:R}, a2={1:R}, b0={2:R}, b1={3:R}, b2={4:R}\r\n=== set_iir END ===\r\n",
+						fp.a1, fp.a2, fp.b0, fp.b1, fp.b2);
+					System.IO.File.AppendAllText("set_iir_log.txt", after);
+				} catch { }
+			} catch {
 				// VB6 used On Error Resume Next; swallow exceptions to mimic that tolerant behavior.
-				// If you want to see exceptions while debugging, remove the catch block.
+				// If you want visible exceptions while debugging, remove the catch block.
 			}
 		}
 
