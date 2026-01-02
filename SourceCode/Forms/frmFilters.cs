@@ -105,24 +105,110 @@ namespace TMCAnalyzer {
 		private void frmFilters_Load(object sender, EventArgs e) {
 			ComboFilterAxis.SelectedIndex = 0;
 			ComboFilterTYPE.SelectedIndex = 0;
+<<<<<<< Updated upstream
 			TxtFreq.Text = "1.0";
 			CheckPneumFilters.Checked = true;
+=======
+			// Match VB6 2025 default for frequency text
+			try {
+				if (TxtFreq != null) TxtFreq.Text = "1.0";
+			} catch { }
+			// VB6 2025 had Pneumatic filters checkbox defaulted to checked; set if available
+			try {
+				if (CheckPneumFilters != null) CheckPneumFilters.Checked = true;
+			} catch { }
+>>>>>>> Stashed changes
 			fill_Freq_array();
 		}
 
 		private void InitializeLocalControls() {
-			Lbl_FilterType.Add(Lbl_FilterType0); Lbl_FilterType.Add(Lbl_FilterType1); Lbl_FilterType.Add(Lbl_FilterType2); Lbl_FilterType.Add(Lbl_FilterType3); Lbl_FilterType.Add(Lbl_FilterType4); Lbl_FilterType.Add(Lbl_FilterType5);
-			Lbl_FilterFreq1.Add(Lbl_FilterFreq10); Lbl_FilterFreq1.Add(Lbl_FilterFreq11); Lbl_FilterFreq1.Add(Lbl_FilterFreq12); Lbl_FilterFreq1.Add(Lbl_FilterFreq13); Lbl_FilterFreq1.Add(Lbl_FilterFreq14); Lbl_FilterFreq1.Add(Lbl_FilterFreq15);
-			Lbl_FilterQ1.Add(Lbl_FilterQ10); Lbl_FilterQ1.Add(Lbl_FilterQ11); Lbl_FilterQ1.Add(Lbl_FilterQ12); Lbl_FilterQ1.Add(Lbl_FilterQ13); Lbl_FilterQ1.Add(Lbl_FilterQ14); Lbl_FilterQ1.Add(Lbl_FilterQ15);
-			Lbl_FilterFreq2.Add(Lbl_FilterFreq20); Lbl_FilterFreq2.Add(Lbl_FilterFreq21); Lbl_FilterFreq2.Add(Lbl_FilterFreq22); Lbl_FilterFreq2.Add(Lbl_FilterFreq23); Lbl_FilterFreq2.Add(Lbl_FilterFreq24); Lbl_FilterFreq2.Add(Lbl_FilterFreq25);
-			Lbl_FilterQ2.Add(Lbl_FilterQ20); Lbl_FilterQ2.Add(Lbl_FilterQ21); Lbl_FilterQ2.Add(Lbl_FilterQ22); Lbl_FilterQ2.Add(Lbl_FilterQ23); Lbl_FilterQ2.Add(Lbl_FilterQ24); Lbl_FilterQ2.Add(Lbl_FilterQ25);
-			Lbl_FilterGain.Add(Lbl_FilterGain0); Lbl_FilterGain.Add(Lbl_FilterGain1); Lbl_FilterGain.Add(Lbl_FilterGain2); Lbl_FilterGain.Add(Lbl_FilterGain3); Lbl_FilterGain.Add(Lbl_FilterGain4); Lbl_FilterGain.Add(Lbl_FilterGain5);
-			LblFilter.Add(LblFilter0); LblFilter.Add(LblFilter1); LblFilter.Add(LblFilter2); LblFilter.Add(LblFilter3); LblFilter.Add(LblFilter4); LblFilter.Add(LblFilter5);
-			cwNumFilterParam.Add(cwNumFilterParam0); cwNumFilterParam.Add(cwNumFilterParam1); cwNumFilterParam.Add(cwNumFilterParam2); cwNumFilterParam.Add(cwNumFilterParam3); cwNumFilterParam.Add(cwNumFilterParam4);
+			// Filter type labels F0..F5
+			Lbl_FilterType.AddRange(new Label[] {
+				Lbl_FilterType0, Lbl_FilterType1, Lbl_FilterType2,
+				Lbl_FilterType3, Lbl_FilterType4, Lbl_FilterType5
+			});
+
+			// Frequency 1 labels F0..F5
+			Lbl_FilterFreq1.AddRange(new Label[] {
+				Lbl_FilterFreq10, Lbl_FilterFreq11, Lbl_FilterFreq12,
+				Lbl_FilterFreq13, Lbl_FilterFreq14, Lbl_FilterFreq15
+			});
+
+			// Q1 labels F0..F5
+			Lbl_FilterQ1.AddRange(new Label[] {
+				Lbl_FilterQ10, Lbl_FilterQ11, Lbl_FilterQ12,
+				Lbl_FilterQ13, Lbl_FilterQ14, Lbl_FilterQ15
+			});
+
+			// Frequency 2 labels F0..F5
+			Lbl_FilterFreq2.AddRange(new Label[] {
+				Lbl_FilterFreq20, Lbl_FilterFreq21, Lbl_FilterFreq22,
+				Lbl_FilterFreq23, Lbl_FilterFreq24, Lbl_FilterFreq25
+			});
+
+			// Q2 labels F0..F5
+			Lbl_FilterQ2.AddRange(new Label[] {
+				Lbl_FilterQ20, Lbl_FilterQ21, Lbl_FilterQ22,
+				Lbl_FilterQ23, Lbl_FilterQ24, Lbl_FilterQ25
+			});
+
+			// Gain labels F0..F5
+			Lbl_FilterGain.AddRange(new Label[] {
+				Lbl_FilterGain0, Lbl_FilterGain1, Lbl_FilterGain2,
+				Lbl_FilterGain3, Lbl_FilterGain4, Lbl_FilterGain5
+			});
+
+			// The visual filter row labels 0..5
+			LblFilter.AddRange(new Label[] {
+				LblFilter0, LblFilter1, LblFilter2, LblFilter3, LblFilter4, LblFilter5
+			});
+
+			// Numeric edits for current filter params (tags 0..4)
+			cwNumFilterParam.AddRange(new NationalInstruments.UI.WindowsForms.NumericEdit[] {
+				cwNumFilterParam0, cwNumFilterParam1, cwNumFilterParam2,
+				cwNumFilterParam3, cwNumFilterParam4
+			});
+
+			// Any other initialization you'd previously had can follow here.
 			//mdr 010618// enough in frmFilters()//Ready = true;
 		}
 
+		private void UpdateCoefficientDiffs(int filtNum) {
+			try {
+				// mapping per current code: index 10 = a1, 9 = a2, 8 = b0, 7 = b1, 6 = b2
+				var mapping = new Dictionary<string, int>
+				{
+					{"Lbl_a1_diff", 10},
+					{"Lbl_a2_diff", 9},
+					{"Lbl_b0_diff", 8},
+					{"Lbl_b1_diff", 7},
+					{"Lbl_b2_diff", 6}
+				};
 
+				foreach (var kv in mapping) {
+					string lblName = kv.Key;
+					int idx = kv.Value;
+
+					// find control in the form (robust if designer not updated)
+					var ctrls = this.Controls.Find(lblName, true);
+					if (ctrls != null && ctrls.Length > 0 && ctrls[0] is Label lbl) {
+						double pc = CHANGED_FilterParamArray[filtNum, idx];
+						double ctrl = OriginalFilterParamArray[filtNum, idx];
+
+						if (Math.Abs(pc) < 1e-12) {
+							lbl.Text = "N/A";
+						} else {
+							double ppm = 100000.0 * (pc - ctrl) / pc;
+							// Format as integer PPM with sign
+							lbl.Text = string.Format("{0:0}", ppm);
+						}
+					}
+					// else: designer hasn't been updated — do nothing silently
+				}
+			} catch {
+				// keep UI stable if anything goes wrong
+			}
+		}
 		// or it will assume all zeros and Filter_FT will be -100 dB and Axis_TF will be -500 dB
 		public void SetDefaultFiltParams() {
 			int f_num = 0;
@@ -761,7 +847,12 @@ namespace TMCAnalyzer {
 				Lbl_PC_b0.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 8]);
 				Lbl_PC_b1.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 7]);
 				Lbl_PC_b2.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 6]);
+<<<<<<< Updated upstream
 				
+=======
+
+				// update difference labels (PPM) if the controls exist in the designer
+>>>>>>> Stashed changes
 				UpdateCoefficientDiffs(Filt_Number);
 			}
 		}

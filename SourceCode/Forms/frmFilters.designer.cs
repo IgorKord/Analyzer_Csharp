@@ -144,6 +144,12 @@
 			this.cwAuxDampGain = new NationalInstruments.UI.WindowsForms.NumericEdit();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.FramePneumatic = new System.Windows.Forms.GroupBox();
+			this.label1_3 = new System.Windows.Forms.Label();
+			this.Lbl_a1_diff = new System.Windows.Forms.Label();
+			this.Lbl_a2_diff = new System.Windows.Forms.Label();
+			this.Lbl_b0_diff = new System.Windows.Forms.Label();
+			this.Lbl_b1_diff = new System.Windows.Forms.Label();
+			this.Lbl_b2_diff = new System.Windows.Forms.Label();
 			this.FrameFiltCoefficients.SuspendLayout();
 			this.FrameTuning.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -163,6 +169,12 @@
 			// FrameFiltCoefficients
 			// 
 			this.FrameFiltCoefficients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.FrameFiltCoefficients.Controls.Add(this.label1_3);
+			this.FrameFiltCoefficients.Controls.Add(this.Lbl_a1_diff);
+			this.FrameFiltCoefficients.Controls.Add(this.Lbl_a2_diff);
+			this.FrameFiltCoefficients.Controls.Add(this.Lbl_b0_diff);
+			this.FrameFiltCoefficients.Controls.Add(this.Lbl_b1_diff);
+			this.FrameFiltCoefficients.Controls.Add(this.Lbl_b2_diff);
 			this.FrameFiltCoefficients.Controls.Add(this.CmdCalcMagPhaseNOW);
 			this.FrameFiltCoefficients.Controls.Add(this.TxtFreq);
 			this.FrameFiltCoefficients.Controls.Add(this.LblPhase);
@@ -243,7 +255,7 @@
 			this.LblPhase.Cursor = System.Windows.Forms.Cursors.Default;
 			this.LblPhase.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.LblPhase.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.LblPhase.Location = new System.Drawing.Point(710, 72);
+			this.LblPhase.Location = new System.Drawing.Point(710, 78);
 			this.LblPhase.Name = "LblPhase";
 			this.LblPhase.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.LblPhase.Size = new System.Drawing.Size(67, 19);
@@ -259,7 +271,7 @@
 			this.LblMag.Cursor = System.Windows.Forms.Cursors.Default;
 			this.LblMag.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.LblMag.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.LblMag.Location = new System.Drawing.Point(633, 72);
+			this.LblMag.Location = new System.Drawing.Point(633, 78);
 			this.LblMag.Name = "LblMag";
 			this.LblMag.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.LblMag.Size = new System.Drawing.Size(67, 19);
@@ -288,7 +300,7 @@
 			this._Label1_18.Cursor = System.Windows.Forms.Cursors.Default;
 			this._Label1_18.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this._Label1_18.ForeColor = System.Drawing.SystemColors.WindowText;
-			this._Label1_18.Location = new System.Drawing.Point(710, 54);
+			this._Label1_18.Location = new System.Drawing.Point(710, 58);
 			this._Label1_18.Name = "_Label1_18";
 			this._Label1_18.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this._Label1_18.Size = new System.Drawing.Size(67, 19);
@@ -303,7 +315,7 @@
 			this._Label1_17.Cursor = System.Windows.Forms.Cursors.Default;
 			this._Label1_17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this._Label1_17.ForeColor = System.Drawing.SystemColors.WindowText;
-			this._Label1_17.Location = new System.Drawing.Point(633, 54);
+			this._Label1_17.Location = new System.Drawing.Point(633, 58);
 			this._Label1_17.Name = "_Label1_17";
 			this._Label1_17.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this._Label1_17.Size = new System.Drawing.Size(67, 19);
@@ -318,7 +330,7 @@
 			this._Label1_16.Cursor = System.Windows.Forms.Cursors.Default;
 			this._Label1_16.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this._Label1_16.ForeColor = System.Drawing.SystemColors.WindowText;
-			this._Label1_16.Location = new System.Drawing.Point(549, 21);
+			this._Label1_16.Location = new System.Drawing.Point(554, 17);
 			this._Label1_16.Name = "_Label1_16";
 			this._Label1_16.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this._Label1_16.Size = new System.Drawing.Size(46, 16);
@@ -333,7 +345,7 @@
 			this.Lbl_b2.Cursor = System.Windows.Forms.Cursors.Default;
 			this.Lbl_b2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Lbl_b2.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_b2.Location = new System.Drawing.Point(522, 39);
+			this.Lbl_b2.Location = new System.Drawing.Point(527, 33);
 			this.Lbl_b2.Name = "Lbl_b2";
 			this.Lbl_b2.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.Lbl_b2.Size = new System.Drawing.Size(100, 19);
@@ -347,7 +359,7 @@
 			this._Label1_14.Cursor = System.Windows.Forms.Cursors.Default;
 			this._Label1_14.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this._Label1_14.ForeColor = System.Drawing.SystemColors.WindowText;
-			this._Label1_14.Location = new System.Drawing.Point(444, 21);
+			this._Label1_14.Location = new System.Drawing.Point(449, 17);
 			this._Label1_14.Name = "_Label1_14";
 			this._Label1_14.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this._Label1_14.Size = new System.Drawing.Size(46, 16);
@@ -362,7 +374,7 @@
 			this.Lbl_b1.Cursor = System.Windows.Forms.Cursors.Default;
 			this.Lbl_b1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Lbl_b1.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_b1.Location = new System.Drawing.Point(417, 39);
+			this.Lbl_b1.Location = new System.Drawing.Point(422, 33);
 			this.Lbl_b1.Name = "Lbl_b1";
 			this.Lbl_b1.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.Lbl_b1.Size = new System.Drawing.Size(100, 19);
@@ -376,7 +388,7 @@
 			this._Label1_10.Cursor = System.Windows.Forms.Cursors.Default;
 			this._Label1_10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this._Label1_10.ForeColor = System.Drawing.SystemColors.WindowText;
-			this._Label1_10.Location = new System.Drawing.Point(339, 21);
+			this._Label1_10.Location = new System.Drawing.Point(344, 17);
 			this._Label1_10.Name = "_Label1_10";
 			this._Label1_10.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this._Label1_10.Size = new System.Drawing.Size(46, 16);
@@ -391,7 +403,7 @@
 			this.Lbl_b0.Cursor = System.Windows.Forms.Cursors.Default;
 			this.Lbl_b0.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Lbl_b0.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_b0.Location = new System.Drawing.Point(312, 39);
+			this.Lbl_b0.Location = new System.Drawing.Point(317, 33);
 			this.Lbl_b0.Name = "Lbl_b0";
 			this.Lbl_b0.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.Lbl_b0.Size = new System.Drawing.Size(100, 19);
@@ -405,7 +417,7 @@
 			this._Label1_9.Cursor = System.Windows.Forms.Cursors.Default;
 			this._Label1_9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this._Label1_9.ForeColor = System.Drawing.SystemColors.WindowText;
-			this._Label1_9.Location = new System.Drawing.Point(234, 21);
+			this._Label1_9.Location = new System.Drawing.Point(239, 17);
 			this._Label1_9.Name = "_Label1_9";
 			this._Label1_9.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this._Label1_9.Size = new System.Drawing.Size(46, 16);
@@ -420,7 +432,7 @@
 			this.Lbl_a2.Cursor = System.Windows.Forms.Cursors.Default;
 			this.Lbl_a2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Lbl_a2.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_a2.Location = new System.Drawing.Point(207, 39);
+			this.Lbl_a2.Location = new System.Drawing.Point(212, 33);
 			this.Lbl_a2.Name = "Lbl_a2";
 			this.Lbl_a2.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.Lbl_a2.Size = new System.Drawing.Size(100, 19);
@@ -434,7 +446,7 @@
 			this._Label1_8.Cursor = System.Windows.Forms.Cursors.Default;
 			this._Label1_8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this._Label1_8.ForeColor = System.Drawing.SystemColors.WindowText;
-			this._Label1_8.Location = new System.Drawing.Point(129, 21);
+			this._Label1_8.Location = new System.Drawing.Point(134, 17);
 			this._Label1_8.Name = "_Label1_8";
 			this._Label1_8.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this._Label1_8.Size = new System.Drawing.Size(46, 16);
@@ -449,7 +461,7 @@
 			this.Lbl_a1.Cursor = System.Windows.Forms.Cursors.Default;
 			this.Lbl_a1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Lbl_a1.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_a1.Location = new System.Drawing.Point(102, 39);
+			this.Lbl_a1.Location = new System.Drawing.Point(107, 33);
 			this.Lbl_a1.Name = "Lbl_a1";
 			this.Lbl_a1.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.Lbl_a1.Size = new System.Drawing.Size(100, 19);
@@ -461,12 +473,12 @@
 			// 
 			this._Label1_1.BackColor = System.Drawing.SystemColors.Window;
 			this._Label1_1.Cursor = System.Windows.Forms.Cursors.Default;
-			this._Label1_1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this._Label1_1.Font = new System.Drawing.Font("Tahoma", 8.75F, System.Drawing.FontStyle.Bold);
 			this._Label1_1.ForeColor = System.Drawing.SystemColors.WindowText;
-			this._Label1_1.Location = new System.Drawing.Point(6, 21);
+			this._Label1_1.Location = new System.Drawing.Point(6, 18);
 			this._Label1_1.Name = "_Label1_1";
 			this._Label1_1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._Label1_1.Size = new System.Drawing.Size(91, 37);
+			this._Label1_1.Size = new System.Drawing.Size(95, 32);
 			this._Label1_1.TabIndex = 71;
 			this._Label1_1.Text = "From Controller";
 			this._Label1_1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -475,12 +487,12 @@
 			// 
 			this._Label1_2.BackColor = System.Drawing.SystemColors.Window;
 			this._Label1_2.Cursor = System.Windows.Forms.Cursors.Default;
-			this._Label1_2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this._Label1_2.Font = new System.Drawing.Font("Tahoma", 8.75F, System.Drawing.FontStyle.Bold);
 			this._Label1_2.ForeColor = System.Drawing.SystemColors.WindowText;
-			this._Label1_2.Location = new System.Drawing.Point(6, 72);
+			this._Label1_2.Location = new System.Drawing.Point(6, 78);
 			this._Label1_2.Name = "_Label1_2";
 			this._Label1_2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._Label1_2.Size = new System.Drawing.Size(91, 19);
+			this._Label1_2.Size = new System.Drawing.Size(95, 19);
 			this._Label1_2.TabIndex = 70;
 			this._Label1_2.Text = "PC calculated";
 			this._Label1_2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -492,7 +504,7 @@
 			this.Lbl_PC_a1.Cursor = System.Windows.Forms.Cursors.Default;
 			this.Lbl_PC_a1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Lbl_PC_a1.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_PC_a1.Location = new System.Drawing.Point(102, 72);
+			this.Lbl_PC_a1.Location = new System.Drawing.Point(107, 78);
 			this.Lbl_PC_a1.Name = "Lbl_PC_a1";
 			this.Lbl_PC_a1.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.Lbl_PC_a1.Size = new System.Drawing.Size(100, 19);
@@ -507,7 +519,7 @@
 			this.Lbl_PC_a2.Cursor = System.Windows.Forms.Cursors.Default;
 			this.Lbl_PC_a2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Lbl_PC_a2.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_PC_a2.Location = new System.Drawing.Point(207, 72);
+			this.Lbl_PC_a2.Location = new System.Drawing.Point(212, 78);
 			this.Lbl_PC_a2.Name = "Lbl_PC_a2";
 			this.Lbl_PC_a2.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.Lbl_PC_a2.Size = new System.Drawing.Size(100, 19);
@@ -522,7 +534,7 @@
 			this.Lbl_PC_b0.Cursor = System.Windows.Forms.Cursors.Default;
 			this.Lbl_PC_b0.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Lbl_PC_b0.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_PC_b0.Location = new System.Drawing.Point(312, 72);
+			this.Lbl_PC_b0.Location = new System.Drawing.Point(317, 78);
 			this.Lbl_PC_b0.Name = "Lbl_PC_b0";
 			this.Lbl_PC_b0.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.Lbl_PC_b0.Size = new System.Drawing.Size(100, 19);
@@ -537,7 +549,7 @@
 			this.Lbl_PC_b1.Cursor = System.Windows.Forms.Cursors.Default;
 			this.Lbl_PC_b1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Lbl_PC_b1.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_PC_b1.Location = new System.Drawing.Point(417, 72);
+			this.Lbl_PC_b1.Location = new System.Drawing.Point(422, 78);
 			this.Lbl_PC_b1.Name = "Lbl_PC_b1";
 			this.Lbl_PC_b1.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.Lbl_PC_b1.Size = new System.Drawing.Size(100, 19);
@@ -552,7 +564,7 @@
 			this.Lbl_PC_b2.Cursor = System.Windows.Forms.Cursors.Default;
 			this.Lbl_PC_b2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Lbl_PC_b2.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_PC_b2.Location = new System.Drawing.Point(522, 72);
+			this.Lbl_PC_b2.Location = new System.Drawing.Point(527, 78);
 			this.Lbl_PC_b2.Name = "Lbl_PC_b2";
 			this.Lbl_PC_b2.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.Lbl_PC_b2.Size = new System.Drawing.Size(100, 19);
@@ -2128,6 +2140,96 @@
 			this.FramePneumatic.TabStop = false;
 			this.FramePneumatic.Text = "Air Isolators";
 			// 
+			// label1_3
+			// 
+			this.label1_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.label1_3.Cursor = System.Windows.Forms.Cursors.Default;
+			this.label1_3.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+			this.label1_3.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.label1_3.Location = new System.Drawing.Point(6, 56);
+			this.label1_3.Name = "label1_3";
+			this.label1_3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.label1_3.Size = new System.Drawing.Size(95, 19);
+			this.label1_3.TabIndex = 92;
+			this.label1_3.Text = "Difference PPM";
+			this.label1_3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip1.SetToolTip(this.label1_3, "Parts Per Million; =100000*(PC_coeff - DC2020_Coeff)/PC_Coeff");
+			// 
+			// Lbl_a1_diff
+			// 
+			this.Lbl_a1_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.Lbl_a1_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_a1_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_a1_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_a1_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_a1_diff.Location = new System.Drawing.Point(107, 56);
+			this.Lbl_a1_diff.Name = "Lbl_a1_diff";
+			this.Lbl_a1_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_a1_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_a1_diff.TabIndex = 91;
+			this.Lbl_a1_diff.Text = "a1";
+			this.Lbl_a1_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// Lbl_a2_diff
+			// 
+			this.Lbl_a2_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.Lbl_a2_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_a2_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_a2_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_a2_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_a2_diff.Location = new System.Drawing.Point(212, 56);
+			this.Lbl_a2_diff.Name = "Lbl_a2_diff";
+			this.Lbl_a2_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_a2_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_a2_diff.TabIndex = 90;
+			this.Lbl_a2_diff.Text = "a2";
+			this.Lbl_a2_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// Lbl_b0_diff
+			// 
+			this.Lbl_b0_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.Lbl_b0_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_b0_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_b0_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_b0_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_b0_diff.Location = new System.Drawing.Point(317, 56);
+			this.Lbl_b0_diff.Name = "Lbl_b0_diff";
+			this.Lbl_b0_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_b0_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_b0_diff.TabIndex = 89;
+			this.Lbl_b0_diff.Text = "b0";
+			this.Lbl_b0_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// Lbl_b1_diff
+			// 
+			this.Lbl_b1_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.Lbl_b1_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_b1_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_b1_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_b1_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_b1_diff.Location = new System.Drawing.Point(422, 56);
+			this.Lbl_b1_diff.Name = "Lbl_b1_diff";
+			this.Lbl_b1_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_b1_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_b1_diff.TabIndex = 88;
+			this.Lbl_b1_diff.Text = "b1";
+			this.Lbl_b1_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// Lbl_b2_diff
+			// 
+			this.Lbl_b2_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.Lbl_b2_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_b2_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_b2_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_b2_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_b2_diff.Location = new System.Drawing.Point(527, 56);
+			this.Lbl_b2_diff.Name = "Lbl_b2_diff";
+			this.Lbl_b2_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_b2_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_b2_diff.TabIndex = 87;
+			this.Lbl_b2_diff.Text = "b2";
+			this.Lbl_b2_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
 			// frmFilters
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2276,5 +2378,11 @@
 		public System.Windows.Forms.Label LblDampGain;
 		private System.Windows.Forms.ToolTip toolTip1;
 		internal System.Windows.Forms.GroupBox FramePneumatic;
+		public System.Windows.Forms.Label label1_3;
+		public System.Windows.Forms.Label Lbl_a1_diff;
+		public System.Windows.Forms.Label Lbl_a2_diff;
+		public System.Windows.Forms.Label Lbl_b0_diff;
+		public System.Windows.Forms.Label Lbl_b1_diff;
+		public System.Windows.Forms.Label Lbl_b2_diff;
 	}
 }
