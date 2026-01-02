@@ -105,10 +105,7 @@ namespace TMCAnalyzer {
 		private void frmFilters_Load(object sender, EventArgs e) {
 			ComboFilterAxis.SelectedIndex = 0;
 			ComboFilterTYPE.SelectedIndex = 0;
-<<<<<<< Updated upstream
-			TxtFreq.Text = "1.0";
-			CheckPneumFilters.Checked = true;
-=======
+
 			// Match VB6 2025 default for frequency text
 			try {
 				if (TxtFreq != null) TxtFreq.Text = "1.0";
@@ -117,7 +114,6 @@ namespace TMCAnalyzer {
 			try {
 				if (CheckPneumFilters != null) CheckPneumFilters.Checked = true;
 			} catch { }
->>>>>>> Stashed changes
 			fill_Freq_array();
 		}
 
@@ -847,12 +843,8 @@ namespace TMCAnalyzer {
 				Lbl_PC_b0.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 8]);
 				Lbl_PC_b1.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 7]);
 				Lbl_PC_b2.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 6]);
-<<<<<<< Updated upstream
-				
-=======
 
 				// update difference labels (PPM) if the controls exist in the designer
->>>>>>> Stashed changes
 				UpdateCoefficientDiffs(Filt_Number);
 			}
 		}
@@ -1271,17 +1263,17 @@ namespace TMCAnalyzer {
 			fp.a2 = -fp.a2;
 		}
 
-		void UpdateCoefficientDiffs(int filterIndex)
-		{
-			// Coefficient mapping: a1=10, a2=9, b0=8, b1=7, b2=6
-			// PPM formula: ppm = 100000 * (PC_coeff - Controller_coeff) / PC_coeff
+		//void UpdateCoefficientDiffs(int filterIndex)
+		//{
+		//	// Coefficient mapping: a1=10, a2=9, b0=8, b1=7, b2=6
+		//	// PPM formula: ppm = 100000 * (PC_coeff - Controller_coeff) / PC_coeff
 			
-			UpdateDiffLabel("Lbl_a1_diff", filterIndex, 10);
-			UpdateDiffLabel("Lbl_a2_diff", filterIndex, 9);
-			UpdateDiffLabel("Lbl_b0_diff", filterIndex, 8);
-			UpdateDiffLabel("Lbl_b1_diff", filterIndex, 7);
-			UpdateDiffLabel("Lbl_b2_diff", filterIndex, 6);
-		}
+		//	UpdateDiffLabel("Lbl_a1_diff", filterIndex, 10);
+		//	UpdateDiffLabel("Lbl_a2_diff", filterIndex, 9);
+		//	UpdateDiffLabel("Lbl_b0_diff", filterIndex, 8);
+		//	UpdateDiffLabel("Lbl_b1_diff", filterIndex, 7);
+		//	UpdateDiffLabel("Lbl_b2_diff", filterIndex, 6);
+		//}
 
 		void UpdateDiffLabel(string labelName, int filterIndex, int coeffIndex)
 		{

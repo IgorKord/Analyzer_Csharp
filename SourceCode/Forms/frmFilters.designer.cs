@@ -145,11 +145,6 @@
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.FramePneumatic = new System.Windows.Forms.GroupBox();
 			this.label1_3 = new System.Windows.Forms.Label();
-			this.Lbl_a1_diff = new System.Windows.Forms.Label();
-			this.Lbl_a2_diff = new System.Windows.Forms.Label();
-			this.Lbl_b0_diff = new System.Windows.Forms.Label();
-			this.Lbl_b1_diff = new System.Windows.Forms.Label();
-			this.Lbl_b2_diff = new System.Windows.Forms.Label();
 			this.FrameFiltCoefficients.SuspendLayout();
 			this.FrameTuning.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -2379,10 +2374,5 @@
 		private System.Windows.Forms.ToolTip toolTip1;
 		internal System.Windows.Forms.GroupBox FramePneumatic;
 		public System.Windows.Forms.Label label1_3;
-		public System.Windows.Forms.Label Lbl_a1_diff;
-		public System.Windows.Forms.Label Lbl_a2_diff;
-		public System.Windows.Forms.Label Lbl_b0_diff;
-		public System.Windows.Forms.Label Lbl_b1_diff;
-		public System.Windows.Forms.Label Lbl_b2_diff;
 	}
 }
