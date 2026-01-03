@@ -203,6 +203,7 @@ namespace TMCAnalyzer {
 				// keep UI stable if anything goes wrong
 			}
 		}
+
 		// or it will assume all zeros and Filter_FT will be -100 dB and Axis_TF will be -500 dB
 		public void SetDefaultFiltParams() {
 			int f_num = 0;
@@ -403,7 +404,6 @@ namespace TMCAnalyzer {
 				// index=4
 				CheckIfFilterChanged(filter_num);
 			}
-
 			Copy_Params_for_Edit(FilterNumberInChain);
 		}
 
@@ -733,7 +733,8 @@ namespace TMCAnalyzer {
 
 			// we take a Log and it cannot be a zero' 1e-5 means it is an error
 			if ((H.Re != 0)) {
-				retTMag.Phase = ((Math.Atan((H.Im / H.Re)) * (180 / Math.PI)) * -1);
+				// retTMag.Phase = ((Math.Atan((H.Im / H.Re)) * (180 / Math.PI)) * -1); // 20260102Original
+				retTMag.Phase = -(Math.Atan2((double)H.Im, (double)H.Re)) * (180 / Math.PI); // 20260102 CoPilot
 				//  returns between -90 and +90
 			} else {
 				retTMag.Phase = -360;
@@ -749,10 +750,14 @@ namespace TMCAnalyzer {
 			//  multiply the numerator and denominator by the complex conjugate of the denominator,
 			// for example, with z_1=a+bi and z_2=c+di, z=z_1/z_2 is given by
 			// numerator and denomerator  two complex numbers, returns a complex number
-			tComplex Denom_Conj;
-			filt_prec Denom_Mag;
-			Denom_Conj = Complex(arg2.Re, -arg2.Im);
-			Denom_Mag = arg2.Re * arg2.Re + arg2.Im * arg2.Im;
+			tComplex Denom_Conj = Complex(arg2.Re, -arg2.Im);
+			filt_prec Denom_Mag = arg2.Re * arg2.Re + arg2.Im * arg2.Im;
+			const double eps = 1e-18;
+			if (Math.Abs((double)Denom_Mag) < eps) { //20260102 CoPilot
+				// Denominator near zero: return zero complex (or decide an alternate sentinel)
+				Debug.WriteLine("IM_DIV: denominator magnitude near zero, returning (0,0)");
+				return Complex(0, 0);
+			}
 			return Complex((((arg1.Re * arg2.Re)
 							+ (arg1.Im * arg2.Im))
 							/ Denom_Mag), (((arg1.Im * arg2.Re)
@@ -847,8 +852,19 @@ namespace TMCAnalyzer {
 			}
 		}
 
+		private static readonly object s_setIirLogLock = new object();
+		private static string SetIirLogPath => Path.Combine(Application.UserAppDataPath, "set_iir_log.txt");
 
-
+		private static void AppendSetIirLog(string text) {
+			try {
+				lock (s_setIirLogLock) {
+					Directory.CreateDirectory(Path.GetDirectoryName(SetIirLogPath));
+					File.AppendAllText(SetIirLogPath, text);
+				}
+			} catch (Exception ex) {
+				Debug.WriteLine("AppendSetIirLog error: " + ex.Message);
+			}
+		}
 		public void set_iir(double_iir fp) {
 			// CoPilot 20260101 Translated/updated to match VB6 Analyzer.BAS set_float_iir (latest)
 			// Includes debug logging to set_iir_log.txt for intermediate values.
@@ -919,11 +935,11 @@ namespace TMCAnalyzer {
 						f2,
 						q2
 					);
-					System.IO.File.AppendAllText("set_iir_log.txt", header + inputs);
+					AppendSetIirLog( header + inputs);
 				} catch { /* swallow logging errors */ }
 				// Now handle filter type cases (translated from VB6)
 				// ============== STACIS FILTERS: only 4 types are needed ======================================================================================
-				if (fp.ftyp == (long)filt_types.LPF_1stOr) //case 1: sharp drop at high freq, notch at Nyquist, phase = -90
+				if (fp.ftyp == (int)filt_types.LPF_1stOr) //case 1: sharp drop at high freq, notch at Nyquist, phase = -90
 				{
 					// first-order LPF
 					h1 = (filt_prec)(1.0 / (1.0 + cotan_of_half_omega_1));
@@ -965,8 +981,8 @@ namespace TMCAnalyzer {
 					fp.b0 = fp.par[(int)filt_par.FilterGain];
 					fp.b1 = f1;
 					fp.b2 = f2;
-					fp.a1 = q1;
-					fp.a2 = q2;
+					fp.a1 = -q1; // 20260102 fixed bug, need reversion here because a1,a2 are reversed at the end of function
+					fp.a2 = -q2; // 20260102 fixed bug
 					// ============== STACIS FILTERS END only 4 needed ============================================================================================
 
 					// ============== ADDITIONAL FILTERS FOR ELECTRODUMP ==========================================================================================
@@ -1170,7 +1186,7 @@ namespace TMCAnalyzer {
 					fp.a1 = (filt_prec)h2;
 					fp.a2 = (filt_prec)((1.0 - cotan_of_half_omega_1 / q1 + cotan_of_half_omega_1 * cotan_of_half_omega_1) * (double)h1);
 					fp.b0 = (filt_prec)(((1.0 + cotan_of_half_omega_1 * cotan_of_half_omega_1) * (double)h1 * (double)t_gain));
-					fp.b1 = (filt_prec)h2;
+					fp.b1 = (filt_prec)h2 * t_gain; // fix: include t_gain on b1 (controller has b1 *= t_gain)
 					fp.b2 = fp.b0;
 				} //"roof shape BPF" +20dB/dec-peak-20dB/dec' par1=peak freq, par3=Q1=peak mag
 				else if (fp.ftyp == (filt_prec)filt_types.BPF) {
@@ -1256,7 +1272,7 @@ namespace TMCAnalyzer {
 				try {
 					string after = string.Format("FINAL_AFTER_NEGATION: a1={0:R}, a2={1:R}, b0={2:R}, b1={3:R}, b2={4:R}\r\n=== set_iir END ===\r\n",
 						fp.a1, fp.a2, fp.b0, fp.b1, fp.b2);
-					System.IO.File.AppendAllText("set_iir_log.txt", after);
+					AppendSetIirLog( after);
 				} catch { }
 			} catch {
 				// VB6 used On Error Resume Next; swallow exceptions to mimic that tolerant behavior.
