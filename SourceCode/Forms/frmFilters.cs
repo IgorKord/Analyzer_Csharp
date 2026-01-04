@@ -17,9 +17,6 @@ namespace TMCAnalyzer {
 	using filt_prec = System.Double;
 
 	public partial class frmFilters:Form {
-		const int PID_P_gain = (int)filt_par.FilterGain;
-		const int PID_I_gain = (int)filt_par.freq_1;
-		const int PID_D_gain = (int)filt_par.freq_2;
 		public filt_prec PI_x2_OVER_FREQUENCY;
 		const int TEST_LTF_ARRAY_LENGTH = formMain.LTFarrayCount;
 		const double LOOP_FREQUENCY = Program.ControllerSampleFrequency;// 5000 for ElDamp, 10000 for STACIS
@@ -33,8 +30,8 @@ namespace TMCAnalyzer {
 		filt_prec[] Axis_Phase = new filt_prec[TEST_LTF_ARRAY_LENGTH];
 		public filt_prec[] Predicted_Mag = new filt_prec[TEST_LTF_ARRAY_LENGTH];
 		public filt_prec[] Predicted_Phase = new filt_prec[TEST_LTF_ARRAY_LENGTH];
-		filt_prec[] Reference_Gain_data = new filt_prec[TEST_LTF_ARRAY_LENGTH];
-		filt_prec[] Reference_Phase_data = new filt_prec[TEST_LTF_ARRAY_LENGTH];
+		//filt_prec[] Reference_Gain_data = new filt_prec[TEST_LTF_ARRAY_LENGTH];
+		//filt_prec[] Reference_Phase_data = new filt_prec[TEST_LTF_ARRAY_LENGTH];
 
 		const int CurrentPlot_Num = 0;
 		const int PreviousPlot_Num = 1;
@@ -50,25 +47,62 @@ namespace TMCAnalyzer {
 		filt_prec Prev_Phase;
 
 		//filt type, 5 params, 5 coefficients
-		const int FILTER_PARAMS_TOTAL = 11;
+		//const int PID_P_gain = fGi;	//#define PID_P_gain FilterGain
+		//const int PID_I_gain = f1i;	//#define PID_I_gain freq_1
+		//const int PID_D_gain = f2i;	//#define PID_D_gain freq_2
+		const int PID_P_gain = (int)filt_par.FilterGain;
+		const int PID_I_gain = (int)filt_par.freq_1;
+		const int PID_D_gain = (int)filt_par.freq_2;
+
+		// 10 parameters;
+		// 0 to 5 user accessible: Ftype=0, F1=1, Q1=2, F2=3, Q2=4, Fgain=5,
+		// 6 to 10 accessible only via advanced functions 6=a1, 7=a2, 8=b0, 9=b1, 0xA=b2
+
+		//IK20260103 indexes of fpar[] exactly as in firmware C
+		public enum filt_par {
+			FilterGain = 0,
+			freq_1 = 1,
+			freq_2 = 2,
+			Q_f_1 = 3,
+			Q_f_2 = 4,
+		}
+
+		// Indexes for OriginalFilterParamArray, CHANGED_FilterParamArray
+		const int fTi = 0;	// FilterType = 0
+		const int fGi = 0;	// #define FilterGain 0
+		const int f1i = 1;	// #define freq_1 1
+		const int f2i = 2;	// #define freq_2 2
+		const int q1i = 3;	// #define Q_f_1  3
+		const int q2i = 4;  // #define Q_f_2  4
+		// filter coefficients indexes
+		const int b2i = 6;
+		const int b1i = 7;
+		const int b0i = 8;
+		const int a2i = 9;
+		const int a1i = 10;
+
 		//#define PID_P_gain FilterGain
 		//#define PID_I_gain freq_1
 		//#define PID_D_gain freq_2
-		const int MAX_FILTERS_IN_AXIS = 6;
+
+		const int FILTER_PARAMS_TOTAL = 11; // Indexes 0 to 10
 		const int MAX_PARAMS_IN_FILTER = 6;  // Type F1,F2,Q1,Q2 = 6;
-		const int USER_PARAM_NUMBER = 5;//USER_PARAM_NUMBER As Long = 5
+		//const int USER_PARAM_NUMBER = 5;//USER_PARAM_NUMBER As Long = 5
 										//7 filters (0 to 6) in Axis chain, 10 parameters (0 to 5)-user, 6=a1,7=a2,8=b0,9=b1,0xA=b2
 										//0 to 5 for STACIS
-		const int FB_FILTERS_IN_AXIS = MAX_FILTERS_IN_AXIS - 1;
-		//#5
-		const int FF_ADAPTIVE_FILT_NUM = MAX_FILTERS_IN_AXIS - 1;
+		const int MAX_FILTERS_IN_AXIS = 6;
 
-		// (0-5, 0-9) red from controller filters
+#if true //IK20260103
+		const int FB_FILTERS_IN_AXIS = MAX_FILTERS_IN_AXIS - 1;
+		const int FB_error_filter_stage_to_adapt_FF = MAX_FILTERS_IN_AXIS - 1; // this is index [5] for SysData.filter[axis][FB_error_filter_stage_to_adapt_FF]
+#else
+#endif
+		// [0-5, 0-9] read from controller filters
 		filt_prec[,] OriginalFilterParamArray = new filt_prec[MAX_FILTERS_IN_AXIS, FILTER_PARAMS_TOTAL]; //mdr// float -> double
 																										 //editing copy of filters
 		filt_prec[,] CHANGED_FilterParamArray = new filt_prec[MAX_FILTERS_IN_AXIS, FILTER_PARAMS_TOTAL]; //mdr// float -> double
 																										 //check change of 5 params AND FILTER TYPE
-		bool[,] Filter_CHANGED = new bool[MAX_FILTERS_IN_AXIS, USER_PARAM_NUMBER + 1];
+		bool[,] Filter_CHANGED = new bool[MAX_FILTERS_IN_AXIS, MAX_PARAMS_IN_FILTER];
 
 		//graphical Y coordinate
 		//mdr// int FrameFilterTop;
@@ -76,7 +110,7 @@ namespace TMCAnalyzer {
 		bool demoMode;                          //artem 060518
 		AxisData currentAxis = new AxisData();  //artem 060518
 		bool setAllAxes;
-
+		//IK20260103 lists hold 6 labels each, per 6 filters
 		List<Label> Lbl_FilterType = new List<Label>();
 		List<Label> Lbl_FilterFreq1 = new List<Label>();
 		List<Label> Lbl_FilterQ1 = new List<Label>();
@@ -152,15 +186,19 @@ namespace TMCAnalyzer {
 				Lbl_FilterGain3, Lbl_FilterGain4, Lbl_FilterGain5
 			});
 
-			// The visual filter row labels 0..5
+			// The visible filter row labels 0..5
 			LblFilter.AddRange(new Label[] {
 				LblFilter0, LblFilter1, LblFilter2, LblFilter3, LblFilter4, LblFilter5
 			});
 
+			// Be careful with  the ORDER of adding to the range!
 			// Numeric edits for current filter params (tags 0..4)
 			cwNumFilterParam.AddRange(new NationalInstruments.UI.WindowsForms.NumericEdit[] {
-				cwNumFilterParam0, cwNumFilterParam1, cwNumFilterParam2,
-				cwNumFilterParam3, cwNumFilterParam4
+				cwNumFilterParam0, // Filter gain
+				cwNumFilterParam1, // F1
+				cwNumFilterParam2, // F2
+				cwNumFilterParam3, // Q1
+				cwNumFilterParam4  // Q2
 			});
 
 			// Any other initialization you'd previously had can follow here.
@@ -407,27 +445,18 @@ namespace TMCAnalyzer {
 			Copy_Params_for_Edit(FilterNumberInChain);
 		}
 
-		public enum filt_par {
-
-			FilterGain = 0,
-			freq_1 = 1,
-			freq_2 = 2,
-			Q_f_1 = 3,
-			Q_f_2 = 4,
-		}
-
 
 		// '''''''''changes color of control and set/clear Boolean Filter_CHANGED(filt_NUM,, FilterParamNum)
 		void CheckIfFilterChanged(int Filt_num) {
 			int NN;
 			bool FilterChanged;
 			FilterChanged = false;
-			for (NN = 0; (NN <= (USER_PARAM_NUMBER - 1)); NN++) {
+			for (NN = 0; (NN < (MAX_PARAMS_IN_FILTER - 1)); NN++) {
 				// check params change
 				Filter_CHANGED[Filt_num, NN] = false;
 			}
 
-			for (NN = 0; (NN <= USER_PARAM_NUMBER); NN++) {
+			for (NN = 0; (NN < MAX_PARAMS_IN_FILTER); NN++) {
 				// check 5 params change AND FILTER TYPE
 				if ((CHANGED_FilterParamArray[Filt_num, NN] != OriginalFilterParamArray[Filt_num, NN])) {
 					Filter_CHANGED[Filt_num, NN] = true;
@@ -576,7 +605,7 @@ namespace TMCAnalyzer {
 
 		public class double_iir {
 			public int ftyp;
-			public filt_prec[] par = new filt_prec[USER_PARAM_NUMBER];
+			public filt_prec[] par = new filt_prec[MAX_PARAMS_IN_FILTER - 1]; // because ftyp is int, rest is filt_prec: 1 + (6 - 1) = 6 == Max parameters
 			public filt_prec a1;
 			public filt_prec a2;
 			public filt_prec b0;
@@ -816,7 +845,7 @@ namespace TMCAnalyzer {
 			FilterParams.par[(int)filt_par.freq_2] = CHANGED_FilterParamArray[Filt_Number, 3];
 			FilterParams.par[(int)filt_par.Q_f_1] = CHANGED_FilterParamArray[Filt_Number, 4];
 			FilterParams.par[(int)filt_par.Q_f_2] = CHANGED_FilterParamArray[Filt_Number, 5];
-			for (param = 0; (param <= (USER_PARAM_NUMBER - 1)); param++) {
+			for (param = 0; (param < (MAX_PARAMS_IN_FILTER - 1)); param++) {
 				if ((FilterParams.par[param] != 0)) {
 					testVar ++;
 				}
@@ -1421,7 +1450,7 @@ namespace TMCAnalyzer {
 						// filter parameter as float[0 to 4], coefficient [5 to 9]
 						CHANGED_FilterParamArray[filter_num, i] = paramValue;
 						// make a copy for editing
-						if ((i < USER_PARAM_NUMBER)) {
+						if (i < MAX_PARAMS_IN_FILTER - 1) {
 							Filter_CHANGED[filter_num, i] = false;
 						}
 					}
@@ -1541,7 +1570,7 @@ namespace TMCAnalyzer {
 			} else {
 				if (!demoMode) {
 					for (Fnum = 0; (Fnum <= (MAX_FILTERS_IN_AXIS - 1)); Fnum++) {
-						for (Fpar = 0; (Fpar <= USER_PARAM_NUMBER); Fpar++) {
+						for (Fpar = 0; (Fpar < MAX_PARAMS_IN_FILTER); Fpar++) {
 							// check change of 5 params AND FILTER TYPE
 							if ((Opt_ALLfilters_or_ChangedOnly1.Checked == true)) {
 								//  update only changed filters
@@ -1920,7 +1949,7 @@ namespace TMCAnalyzer {
 			for (curIdx = startIdx; curIdx < stopIdx; curIdx++) {
 				filter_params.Add("//// Axis " + currentAxis.axisOptions[curIdx]);
 				for (Fnum = 0; (Fnum <= (MAX_FILTERS_IN_AXIS - 1)); Fnum++) {
-					for (Fpar = 0; (Fpar <= USER_PARAM_NUMBER); Fpar++) {
+					for (Fpar = 0; (Fpar < MAX_PARAMS_IN_FILTER); Fpar++) {
 						//if no filter selected, break out of inner for loop and continue to next filter in array
 						if (CHANGED_FilterParamArray[Fnum, 0] == 0) { break; }
 

@@ -76,7 +76,7 @@ namespace TMCAnalyzer {
 		/**********************************************************************************************************************/
 		//*** FIRES WHEN FORM-INSTANCE IS CREATED
 		public formMain() {
-
+			Program.IsReadingControllerSettings = true; // prevent sending SET commands to controller
 			frmFilters = new frmFilters(this);
 
 		//	_timerforFixedFreq = new System.Timers.Timer(10);
@@ -115,7 +115,6 @@ namespace TMCAnalyzer {
 			/* mdr 053118 */
 			LTFIsRunning = false;
 
-			Program.IsReadingControllerSettings = true; // prevent sending SET commands to controller
 
 			// Standard code added by visual studio...what is in formMain.Designer.cs
 			// It creates all the controls on the form and sets their relations
