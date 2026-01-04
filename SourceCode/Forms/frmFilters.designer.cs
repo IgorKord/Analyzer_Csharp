@@ -32,11 +32,6 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFilters));
 			this.FrameFiltCoefficients = new System.Windows.Forms.GroupBox();
 			this.label1_3 = new System.Windows.Forms.Label();
-			this.Lbl_a1_diff = new System.Windows.Forms.Label();
-			this.Lbl_a2_diff = new System.Windows.Forms.Label();
-			this.Lbl_b0_diff = new System.Windows.Forms.Label();
-			this.Lbl_b1_diff = new System.Windows.Forms.Label();
-			this.Lbl_b2_diff = new System.Windows.Forms.Label();
 			this.CmdCalcMagPhaseNOW = new System.Windows.Forms.Button();
 			this.TxtFreq = new System.Windows.Forms.TextBox();
 			this.LblPhase = new System.Windows.Forms.Label();
@@ -61,6 +56,11 @@
 			this.Lbl_PC_b0 = new System.Windows.Forms.Label();
 			this.Lbl_PC_b1 = new System.Windows.Forms.Label();
 			this.Lbl_PC_b2 = new System.Windows.Forms.Label();
+			this.Lbl_a1_diff = new System.Windows.Forms.Label();
+			this.Lbl_a2_diff = new System.Windows.Forms.Label();
+			this.Lbl_b0_diff = new System.Windows.Forms.Label();
+			this.Lbl_b1_diff = new System.Windows.Forms.Label();
+			this.Lbl_b2_diff = new System.Windows.Forms.Label();
 			this.FrameTuning = new System.Windows.Forms.GroupBox();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.Opt_ALLfilters_or_ChangedOnly1 = new System.Windows.Forms.RadioButton();
@@ -219,86 +219,6 @@
 			this.label1_3.Text = "Difference PPM";
 			this.label1_3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.toolTip1.SetToolTip(this.label1_3, "Parts Per Million; =100000*(PC_coeff - DC2020_Coeff)/PC_Coeff");
-			// 
-			// Lbl_a1_diff
-			// 
-			this.Lbl_a1_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.Lbl_a1_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.Lbl_a1_diff.Cursor = System.Windows.Forms.Cursors.Default;
-			this.Lbl_a1_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Lbl_a1_diff.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_a1_diff.Location = new System.Drawing.Point(107, 56);
-			this.Lbl_a1_diff.Name = "Lbl_a1_diff";
-			this.Lbl_a1_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.Lbl_a1_diff.Size = new System.Drawing.Size(100, 19);
-			this.Lbl_a1_diff.TabIndex = 91;
-			this.Lbl_a1_diff.Text = "a1";
-			this.Lbl_a1_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.toolTip1.SetToolTip(this.Lbl_a1_diff, "Parts Per Million difference");
-			// 
-			// Lbl_a2_diff
-			// 
-			this.Lbl_a2_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.Lbl_a2_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.Lbl_a2_diff.Cursor = System.Windows.Forms.Cursors.Default;
-			this.Lbl_a2_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Lbl_a2_diff.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_a2_diff.Location = new System.Drawing.Point(212, 56);
-			this.Lbl_a2_diff.Name = "Lbl_a2_diff";
-			this.Lbl_a2_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.Lbl_a2_diff.Size = new System.Drawing.Size(100, 19);
-			this.Lbl_a2_diff.TabIndex = 90;
-			this.Lbl_a2_diff.Text = "a2";
-			this.Lbl_a2_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.toolTip1.SetToolTip(this.Lbl_a2_diff, "Parts Per Million difference");
-			// 
-			// Lbl_b0_diff
-			// 
-			this.Lbl_b0_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.Lbl_b0_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.Lbl_b0_diff.Cursor = System.Windows.Forms.Cursors.Default;
-			this.Lbl_b0_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Lbl_b0_diff.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_b0_diff.Location = new System.Drawing.Point(317, 56);
-			this.Lbl_b0_diff.Name = "Lbl_b0_diff";
-			this.Lbl_b0_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.Lbl_b0_diff.Size = new System.Drawing.Size(100, 19);
-			this.Lbl_b0_diff.TabIndex = 89;
-			this.Lbl_b0_diff.Text = "b0";
-			this.Lbl_b0_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.toolTip1.SetToolTip(this.Lbl_b0_diff, "Parts Per Million difference");
-			// 
-			// Lbl_b1_diff
-			// 
-			this.Lbl_b1_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.Lbl_b1_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.Lbl_b1_diff.Cursor = System.Windows.Forms.Cursors.Default;
-			this.Lbl_b1_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Lbl_b1_diff.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_b1_diff.Location = new System.Drawing.Point(422, 56);
-			this.Lbl_b1_diff.Name = "Lbl_b1_diff";
-			this.Lbl_b1_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.Lbl_b1_diff.Size = new System.Drawing.Size(100, 19);
-			this.Lbl_b1_diff.TabIndex = 88;
-			this.Lbl_b1_diff.Text = "b1";
-			this.Lbl_b1_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.toolTip1.SetToolTip(this.Lbl_b1_diff, "Parts Per Million difference");
-			// 
-			// Lbl_b2_diff
-			// 
-			this.Lbl_b2_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.Lbl_b2_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.Lbl_b2_diff.Cursor = System.Windows.Forms.Cursors.Default;
-			this.Lbl_b2_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Lbl_b2_diff.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.Lbl_b2_diff.Location = new System.Drawing.Point(527, 56);
-			this.Lbl_b2_diff.Name = "Lbl_b2_diff";
-			this.Lbl_b2_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.Lbl_b2_diff.Size = new System.Drawing.Size(100, 19);
-			this.Lbl_b2_diff.TabIndex = 87;
-			this.Lbl_b2_diff.Text = "b2";
-			this.Lbl_b2_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.toolTip1.SetToolTip(this.Lbl_b2_diff, "Parts Per Million difference");
 			// 
 			// CmdCalcMagPhaseNOW
 			// 
@@ -657,6 +577,86 @@
 			this.Lbl_PC_b2.Text = "b2";
 			this.Lbl_PC_b2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
+			// Lbl_a1_diff
+			// 
+			this.Lbl_a1_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.Lbl_a1_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_a1_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_a1_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_a1_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_a1_diff.Location = new System.Drawing.Point(107, 56);
+			this.Lbl_a1_diff.Name = "Lbl_a1_diff";
+			this.Lbl_a1_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_a1_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_a1_diff.TabIndex = 91;
+			this.Lbl_a1_diff.Text = "a1";
+			this.Lbl_a1_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip1.SetToolTip(this.Lbl_a1_diff, "Parts Per Million difference");
+			// 
+			// Lbl_a2_diff
+			// 
+			this.Lbl_a2_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.Lbl_a2_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_a2_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_a2_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_a2_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_a2_diff.Location = new System.Drawing.Point(212, 56);
+			this.Lbl_a2_diff.Name = "Lbl_a2_diff";
+			this.Lbl_a2_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_a2_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_a2_diff.TabIndex = 90;
+			this.Lbl_a2_diff.Text = "a2";
+			this.Lbl_a2_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip1.SetToolTip(this.Lbl_a2_diff, "Parts Per Million difference");
+			// 
+			// Lbl_b0_diff
+			// 
+			this.Lbl_b0_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.Lbl_b0_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_b0_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_b0_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_b0_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_b0_diff.Location = new System.Drawing.Point(317, 56);
+			this.Lbl_b0_diff.Name = "Lbl_b0_diff";
+			this.Lbl_b0_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_b0_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_b0_diff.TabIndex = 89;
+			this.Lbl_b0_diff.Text = "b0";
+			this.Lbl_b0_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip1.SetToolTip(this.Lbl_b0_diff, "Parts Per Million difference");
+			// 
+			// Lbl_b1_diff
+			// 
+			this.Lbl_b1_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.Lbl_b1_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_b1_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_b1_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_b1_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_b1_diff.Location = new System.Drawing.Point(422, 56);
+			this.Lbl_b1_diff.Name = "Lbl_b1_diff";
+			this.Lbl_b1_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_b1_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_b1_diff.TabIndex = 88;
+			this.Lbl_b1_diff.Text = "b1";
+			this.Lbl_b1_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip1.SetToolTip(this.Lbl_b1_diff, "Parts Per Million difference");
+			// 
+			// Lbl_b2_diff
+			// 
+			this.Lbl_b2_diff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.Lbl_b2_diff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Lbl_b2_diff.Cursor = System.Windows.Forms.Cursors.Default;
+			this.Lbl_b2_diff.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Lbl_b2_diff.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.Lbl_b2_diff.Location = new System.Drawing.Point(527, 56);
+			this.Lbl_b2_diff.Name = "Lbl_b2_diff";
+			this.Lbl_b2_diff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.Lbl_b2_diff.Size = new System.Drawing.Size(100, 19);
+			this.Lbl_b2_diff.TabIndex = 87;
+			this.Lbl_b2_diff.Text = "b2";
+			this.Lbl_b2_diff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip1.SetToolTip(this.Lbl_b2_diff, "Parts Per Million difference");
+			// 
 			// FrameTuning
 			// 
 			this.FrameTuning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -993,7 +993,7 @@
 			this.cwNumFilterParam0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.cwNumFilterParam0.CoercionInterval = 0.1D;
 			this.cwNumFilterParam0.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cwNumFilterParam0.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(2);
+			this.cwNumFilterParam0.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
 			this.cwNumFilterParam0.Location = new System.Drawing.Point(645, -1);
 			this.cwNumFilterParam0.Name = "cwNumFilterParam0";
 			this.cwNumFilterParam0.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
@@ -1014,7 +1014,7 @@
 			this.cwNumFilterParam4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.cwNumFilterParam4.CoercionInterval = 0.1D;
 			this.cwNumFilterParam4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cwNumFilterParam4.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(2);
+			this.cwNumFilterParam4.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
 			this.cwNumFilterParam4.Location = new System.Drawing.Point(546, 1);
 			this.cwNumFilterParam4.Name = "cwNumFilterParam4";
 			this.cwNumFilterParam4.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
@@ -1035,7 +1035,7 @@
 			this.cwNumFilterParam2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.cwNumFilterParam2.CoercionInterval = 0.1D;
 			this.cwNumFilterParam2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cwNumFilterParam2.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(2);
+			this.cwNumFilterParam2.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
 			this.cwNumFilterParam2.Location = new System.Drawing.Point(439, 2);
 			this.cwNumFilterParam2.Name = "cwNumFilterParam2";
 			this.cwNumFilterParam2.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
@@ -1056,7 +1056,7 @@
 			this.cwNumFilterParam3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.cwNumFilterParam3.CoercionInterval = 0.1D;
 			this.cwNumFilterParam3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cwNumFilterParam3.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(2);
+			this.cwNumFilterParam3.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
 			this.cwNumFilterParam3.Location = new System.Drawing.Point(341, 2);
 			this.cwNumFilterParam3.Name = "cwNumFilterParam3";
 			this.cwNumFilterParam3.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
@@ -1077,7 +1077,7 @@
 			this.cwNumFilterParam1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.cwNumFilterParam1.CoercionInterval = 0.1D;
 			this.cwNumFilterParam1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cwNumFilterParam1.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(2);
+			this.cwNumFilterParam1.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
 			this.cwNumFilterParam1.Location = new System.Drawing.Point(237, 1);
 			this.cwNumFilterParam1.Name = "cwNumFilterParam1";
 			this.cwNumFilterParam1.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;

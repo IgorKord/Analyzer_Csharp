@@ -50,30 +50,36 @@ namespace TMCAnalyzer {
 		//const int PID_P_gain = fGi;	//#define PID_P_gain FilterGain
 		//const int PID_I_gain = f1i;	//#define PID_I_gain freq_1
 		//const int PID_D_gain = f2i;	//#define PID_D_gain freq_2
-		const int PID_P_gain = (int)filt_par.FilterGain;
-		const int PID_I_gain = (int)filt_par.freq_1;
-		const int PID_D_gain = (int)filt_par.freq_2;
+		const int PID_P_gain = ParIndxFG;
+		const int PID_I_gain = ParIndxF1;
+		const int PID_D_gain = ParIndxF2;
 
 		// 10 parameters;
 		// 0 to 5 user accessible: Ftype=0, F1=1, Q1=2, F2=3, Q2=4, Fgain=5,
 		// 6 to 10 accessible only via advanced functions 6=a1, 7=a2, 8=b0, 9=b1, 0xA=b2
 
 		//IK20260103 indexes of fpar[] exactly as in firmware C
-		public enum filt_par {
-			FilterGain = 0,
-			freq_1 = 1,
-			freq_2 = 2,
-			Q_f_1 = 3,
-			Q_f_2 = 4,
-		}
+		//public enum filt_par {
+		//	FilterGain = 0,
+		//	freq_1 = 1,
+		//	freq_2 = 2,
+		//	Q_f_1 = 3,
+		//	Q_f_2 = 4,
+		//}
+		// Indexes for FilterParameters, instead of enum
+		const int ParIndxFG = 0;	// #define FilterGain 0
+		const int ParIndxF1 = 1;	// #define freq_1     1
+		const int ParIndxF2 = 2;	// #define freq_2     2
+		const int ParIndxQ1 = 3;	// #define Q_f_1     1
+		const int ParIndxQ2 = 4;	// #define Q_f_2     2
 
 		// Indexes for OriginalFilterParamArray, CHANGED_FilterParamArray
 		const int fTi = 0;	// FilterType = 0
-		const int fGi = 0;	// #define FilterGain 0
-		const int f1i = 1;	// #define freq_1 1
-		const int f2i = 2;	// #define freq_2 2
-		const int q1i = 3;	// #define Q_f_1  3
-		const int q2i = 4;  // #define Q_f_2  4
+		const int fGi = 1;	// #define FilterGain 0
+		const int f1i = 2;	// #define freq_1 1
+		const int f2i = 3;	// #define freq_2 2
+		const int q1i = 4;	// #define Q_f_1  3
+		const int q2i = 5;  // #define Q_f_2  4
 		// filter coefficients indexes
 		const int b2i = 6;
 		const int b1i = 7;
@@ -81,15 +87,9 @@ namespace TMCAnalyzer {
 		const int a2i = 9;
 		const int a1i = 10;
 
-		//#define PID_P_gain FilterGain
-		//#define PID_I_gain freq_1
-		//#define PID_D_gain freq_2
-
 		const int FILTER_PARAMS_TOTAL = 11; // Indexes 0 to 10
-		const int MAX_PARAMS_IN_FILTER = 6;  // Type F1,F2,Q1,Q2 = 6;
-		//const int USER_PARAM_NUMBER = 5;//USER_PARAM_NUMBER As Long = 5
-										//7 filters (0 to 6) in Axis chain, 10 parameters (0 to 5)-user, 6=a1,7=a2,8=b0,9=b1,0xA=b2
-										//0 to 5 for STACIS
+		const int USER_PARAM_NUMBER = 6;  // Type F1,F2,Q1,Q2 = 6;
+
 		const int MAX_FILTERS_IN_AXIS = 6;
 
 #if true //IK20260103
@@ -98,11 +98,9 @@ namespace TMCAnalyzer {
 #else
 #endif
 		// [0-5, 0-9] read from controller filters
-		filt_prec[,] OriginalFilterParamArray = new filt_prec[MAX_FILTERS_IN_AXIS, FILTER_PARAMS_TOTAL]; //mdr// float -> double
-																										 //editing copy of filters
-		filt_prec[,] CHANGED_FilterParamArray = new filt_prec[MAX_FILTERS_IN_AXIS, FILTER_PARAMS_TOTAL]; //mdr// float -> double
-																										 //check change of 5 params AND FILTER TYPE
-		bool[,] Filter_CHANGED = new bool[MAX_FILTERS_IN_AXIS, MAX_PARAMS_IN_FILTER];
+		filt_prec[,] OriginalFilterParamArray = new filt_prec[MAX_FILTERS_IN_AXIS, FILTER_PARAMS_TOTAL];	//editing copy of filters
+		filt_prec[,] CHANGED_FilterParamArray = new filt_prec[MAX_FILTERS_IN_AXIS, FILTER_PARAMS_TOTAL];	//check change of 5 params AND FILTER TYPE
+		bool[,] Filter_CHANGED = new bool[MAX_FILTERS_IN_AXIS, USER_PARAM_NUMBER];
 
 		//graphical Y coordinate
 		//mdr// int FrameFilterTop;
@@ -244,41 +242,42 @@ namespace TMCAnalyzer {
 
 		// or it will assume all zeros and Filter_FT will be -100 dB and Axis_TF will be -500 dB
 		public void SetDefaultFiltParams() {
-			int f_num = 0;
-			int f_par = 0;
+			int f_num;
+			int f_par;
 			ComboFilterTYPE.ForeColor = Color.Black;                   //artem 060518
 
 			for (f_num = 0; f_num <= MAX_FILTERS_IN_AXIS - 1; f_num++) {
-				OriginalFilterParamArray[f_num, 0] = 0;                //filter type = NO_FILTER
-				OriginalFilterParamArray[f_num, 1] = 1;                //gain
-				OriginalFilterParamArray[f_num, 2] = 1;                //F1
-				OriginalFilterParamArray[f_num, 3] = 0.5;                //F2
-				OriginalFilterParamArray[f_num, 4] = 0.5;                //Q1
-				OriginalFilterParamArray[f_num, 5] = 0.5;                //Q2
-				OriginalFilterParamArray[f_num, 6] = 0;                //a1
-				OriginalFilterParamArray[f_num, 7] = 0;                //a2
-				OriginalFilterParamArray[f_num, 8] = 1;                //b0
-				OriginalFilterParamArray[f_num, 9] = 0;                //b1
-				OriginalFilterParamArray[f_num, 10] = 0;                //b2
+				OriginalFilterParamArray[f_num, fTi] = 0;                //filter type = NO_FILTER
+				OriginalFilterParamArray[f_num, fGi] = 1;                //gain
+				OriginalFilterParamArray[f_num, f1i] = 1;                //F1
+				OriginalFilterParamArray[f_num, f2i] = 0.5;              //F2
+				OriginalFilterParamArray[f_num, q1i] = 0.5;              //Q1
+				OriginalFilterParamArray[f_num, q2i] = 0.5;              //Q2
+				// coefficients below for NO_FILTER or GAIN_ONLY
+				OriginalFilterParamArray[f_num, b2i] = 0;                //b2
+				OriginalFilterParamArray[f_num, b1i] = 0;                //b1
+				OriginalFilterParamArray[f_num, b0i] = 1;                //b0 <== filter gain = 1
+				OriginalFilterParamArray[f_num, a2i] = 0;                //a2
+				OriginalFilterParamArray[f_num, a1i] = 0;                //a1
 				Lbl_FilterType[f_num].Text = ComboFilterTYPE.Items[0].ToString();  //set NO_Filters
 
 				//---
-				Lbl_FilterGain[f_num].Text = string.Format("{0:0.00}", OriginalFilterParamArray[f_num, 1]);
-				Lbl_FilterFreq1[f_num].Text = string.Format("{0:0.00}", OriginalFilterParamArray[f_num, 2]);
-				Lbl_FilterFreq2[f_num].Text = string.Format("{0:0.00}", OriginalFilterParamArray[f_num, 3]);
-				Lbl_FilterQ1[f_num].Text = string.Format("{0:0.00}", OriginalFilterParamArray[f_num, 4]);
-				Lbl_FilterQ2[f_num].Text = string.Format("{0:0.00}", OriginalFilterParamArray[f_num, 5]);
+				Lbl_FilterGain[f_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[f_num,  fGi]);
+				Lbl_FilterFreq1[f_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[f_num, f1i]);
+				Lbl_FilterFreq2[f_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[f_num, f2i]);
+				Lbl_FilterQ1[f_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[f_num,    q1i]);
+				Lbl_FilterQ2[f_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[f_num,    q2i]);
 
-				for (f_par = 0; f_par <= FILTER_PARAMS_TOTAL - 1; f_par++) {
+				for (f_par = 0; f_par < FILTER_PARAMS_TOTAL; f_par++) {
 					CHANGED_FilterParamArray[f_num, f_par] = OriginalFilterParamArray[f_num, f_par];
 
 				}
 				FilterNumberInChain = 0;
-				cwNumFilterParam[(int)filt_par.FilterGain].Value = OriginalFilterParamArray[FilterNumberInChain, 1]; //Gain
-				cwNumFilterParam[(int)filt_par.freq_1].Value = OriginalFilterParamArray[FilterNumberInChain, 2]; //F1
-				cwNumFilterParam[(int)filt_par.freq_2].Value = OriginalFilterParamArray[FilterNumberInChain, 3]; //F2
-				cwNumFilterParam[(int)filt_par.Q_f_1].Value = OriginalFilterParamArray[FilterNumberInChain, 4]; //Q1
-				cwNumFilterParam[(int)filt_par.Q_f_2].Value = OriginalFilterParamArray[FilterNumberInChain, 5]; //Q2
+				cwNumFilterParam[ParIndxFG].Value = OriginalFilterParamArray[FilterNumberInChain, fGi]; //Gain
+				cwNumFilterParam[ParIndxF1].Value = OriginalFilterParamArray[FilterNumberInChain, f1i]; //F1
+				cwNumFilterParam[ParIndxF2].Value = OriginalFilterParamArray[FilterNumberInChain, f2i]; //F2
+				cwNumFilterParam[ParIndxQ1].Value = OriginalFilterParamArray[FilterNumberInChain, q1i]; //Q1
+				cwNumFilterParam[ParIndxQ2].Value = OriginalFilterParamArray[FilterNumberInChain, q2i]; //Q2
 			}
 		}
 		private string response;
@@ -318,7 +317,8 @@ namespace TMCAnalyzer {
 				//  but, refresh  filter chain - there are 20 filter chains
 				return;
 			}
-
+			Program.IsReadingControllerSettings = true;
+			Ready = false; //IK prevent mutiple updates while reading parameters
 			if (demoMode) {
 				SetDefaultFiltParams();                      //Initialize controls again for easier update from file
 				file_filt_params = LoadParamsFromFile();     //Load filter parameters from input file as string List
@@ -364,12 +364,12 @@ namespace TMCAnalyzer {
 					PneumFilterChain = false;
 				}
 			}
-			if (ComboFilterAxis.SelectedIndex > 21) {
+			if (ComboFilterAxis.SelectedIndex > 21) { //-!- IK20260103 NEED fix, above is return if index >20
 				Refresh_FilterParams();
 				return;
 			}
-
-			Program.IsReadingControllerSettings = true;
+			//Ready = true;
+			//Program.IsReadingControllerSettings = true;
 
 
 			//Init_sys_data = true;
@@ -402,11 +402,6 @@ namespace TMCAnalyzer {
 
 		void Refresh_FilterParams() {
 			// //define indexes for float_iir.par[index]
-			// #define FilterGain   0
-			// #define freq_1 1
-			// #define freq_2 2
-			// #define Q_f_1  3
-			// #define Q_f_2  4
 			// #define PID_P_gain FilterGain
 			// #define PID_I_gain freq_1
 			// #define PID_D_gain freq_2
@@ -416,6 +411,7 @@ namespace TMCAnalyzer {
 			// #= filter parameter number [0,1,2,3,4,5] == long ftyp; float par[5];
 			//
 			// #= filter parameter number [0,1,2,3,4,5] == long ftyp; float par[5];
+			Ready = false;
 			int filter_num;
 			FrameFilter.Visible = false;
 			if (!demoMode) {
@@ -426,89 +422,80 @@ namespace TMCAnalyzer {
 			}
 			// disable "echo>verb" to speed up
 			for (filter_num = 0; (filter_num < (MAX_FILTERS_IN_AXIS)); filter_num++) {
-				// 0 to 5 5 params AND FILTER_TYPE
+				// 0 to 5:  5 params AND FILTER_TYPE
 				Fill_in_filter_params(ref filter_num);
-				Lbl_FilterType[filter_num].Text = ComboFilterTYPE.Items[(int)OriginalFilterParamArray[filter_num, 0]].ToString();
+				Lbl_FilterType[filter_num].Text = ComboFilterTYPE.Items[(int)OriginalFilterParamArray[filter_num, fTi]].ToString();
 
-				Lbl_FilterGain[filter_num].Text = string.Format("{0:0.00}", OriginalFilterParamArray[filter_num, 1]);
-				// index=0
-				Lbl_FilterFreq1[filter_num].Text = string.Format("{0:0.00}", OriginalFilterParamArray[filter_num, 2]);
-				// index=1
-				Lbl_FilterFreq2[filter_num].Text = string.Format("{0:0.00}", OriginalFilterParamArray[filter_num, 3]);
-				// index=2
-				Lbl_FilterQ1[filter_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[filter_num, 4]);
-				// index=3
-				Lbl_FilterQ2[filter_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[filter_num, 5]);
-				// index=4
-				CheckIfFilterChanged(filter_num);
+				Lbl_FilterGain[filter_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[filter_num, fGi]);
+				Lbl_FilterFreq1[filter_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[filter_num, f1i]);
+				Lbl_FilterFreq2[filter_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[filter_num, f2i]);
+				Lbl_FilterQ1[filter_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[filter_num, q1i]);
+				Lbl_FilterQ2[filter_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[filter_num, q2i]);
+				CheckIfFilterChangedAndReCalculateTFsAndPrediction(filter_num);
 			}
 			Copy_Params_for_Edit(FilterNumberInChain);
+			Ready = true;
 		}
 
-
 		// '''''''''changes color of control and set/clear Boolean Filter_CHANGED(filt_NUM,, FilterParamNum)
-		void CheckIfFilterChanged(int Filt_num) {
-			int NN;
+		void CheckIfFilterChangedAndReCalculateTFsAndPrediction(int Filt_num) {
+			int Filt_Param_num;
 			bool FilterChanged;
 			FilterChanged = false;
-			for (NN = 0; (NN < (MAX_PARAMS_IN_FILTER - 1)); NN++) {
+			for (Filt_Param_num = 0; (Filt_Param_num < (USER_PARAM_NUMBER - 1)); Filt_Param_num++) {
 				// check params change
-				Filter_CHANGED[Filt_num, NN] = false;
+				Filter_CHANGED[Filt_num, Filt_Param_num] = false;
 			}
 
-			for (NN = 0; (NN < MAX_PARAMS_IN_FILTER); NN++) {
-				// check 5 params change AND FILTER TYPE
-				if ((CHANGED_FilterParamArray[Filt_num, NN] != OriginalFilterParamArray[Filt_num, NN])) {
-					Filter_CHANGED[Filt_num, NN] = true;
+			// check params change [0 to 5] are user accessible:
+			for (Filt_Param_num = 0; (Filt_Param_num < USER_PARAM_NUMBER); Filt_Param_num++) //  Ftype=0, F1=1, Q1=2, F2=3, Q2=4, Fgain=5,
+			{
+				// check changes in 6 params including FILTER TYPE
+				if (CHANGED_FilterParamArray[Filt_num, Filt_Param_num] != OriginalFilterParamArray[Filt_num, Filt_Param_num]) {
+
+					Filter_CHANGED[Filt_num, Filt_Param_num] = true;
 					FilterChanged = true;
-					if (((NN - 1) == (int)filt_par.FilterGain)) {
+					if ((Filt_Param_num - 1) == ParIndxFG) {
 						Lbl_FilterGain[Filt_num].BackColor = Color.LightBlue;
 					}
 
 					//  -1 because we skip FilterTYPE with index 0
-					if (((NN - 1) == (int)filt_par.freq_1)) {
+					else if ((Filt_Param_num - 1) == ParIndxF1) {
 						Lbl_FilterFreq1[Filt_num].BackColor = Color.LightBlue; // 12632319;
 					}
 
-					if (((NN - 1) == (int)filt_par.freq_2)) {
+					else if ((Filt_Param_num - 1) == ParIndxF2) {
 						Lbl_FilterFreq2[Filt_num].BackColor = Color.LightBlue;
 					}
 
-					if (((NN - 1) == (int)filt_par.Q_f_1)) {
+					else if ((Filt_Param_num - 1) == ParIndxQ1) {
 						Lbl_FilterQ1[Filt_num].BackColor = Color.LightBlue;
 					}
 
-					if (((NN - 1) == (int)filt_par.Q_f_2)) {
+					else if ((Filt_Param_num - 1) == ParIndxQ2) {
 						Lbl_FilterQ2[Filt_num].BackColor = Color.LightBlue;
 					}
 				}
 			}
 
-			// NN;
-			if ((FilterChanged == true)) {
-				LblFilter[Filt_num].ForeColor = Color.Red;// 2105599;
-				LblFilter[Filt_num].Text = ("*" + (((Filt_num + 1)).ToString()));
+			if (FilterChanged == true) {
+				CalculateAxis_TF();
+				if(formMain.ChkShowPredictionPlot.Checked)
+					Calc_Prediction();
+				LblFilter[Filt_num].ForeColor = Color.Red;
+				LblFilter[Filt_num].Text = "*" + (Filt_num + 1).ToString();
 			} else {
 				// not changed, restore white color
-				LblFilter[Filt_num].Text = ("  "
-							+ (((Filt_num + 1)).ToString() + " "));
-				LblFilter[Filt_num].ForeColor = Color.Black;//Color.FromArgb(214, 748, 365);//2147483656;
-															// black
-				Lbl_FilterGain[Filt_num].BackColor = Color.White;//Color.FromArgb(214, 748, 365);//2147483653;
-																 // white
-				Lbl_FilterFreq1[Filt_num].BackColor = Color.White;//Color.FromArgb(214, 748, 365);//2147483653;
-																  // white
-				Lbl_FilterFreq2[Filt_num].BackColor = Color.White;//Color.FromArgb(214, 748, 365);// 2147483653;
-																  // white
-				Lbl_FilterQ1[Filt_num].BackColor = Color.White;//Color.FromArgb(214, 748, 365); // 2147483653;
-															   // white
-				Lbl_FilterQ2[Filt_num].BackColor = Color.White;//Color.FromArgb(214, 748, 365);//2147483653;
-															   // white
+				LblFilter[Filt_num].Text = "  " + (Filt_num + 1).ToString() + " ";
+				LblFilter[Filt_num].ForeColor = Color.Black;
+				Lbl_FilterGain[Filt_num].BackColor = Color.White;
+				Lbl_FilterFreq1[Filt_num].BackColor = Color.White;
+				Lbl_FilterFreq2[Filt_num].BackColor = Color.White;
+				Lbl_FilterQ1[Filt_num].BackColor = Color.White;
+				Lbl_FilterQ2[Filt_num].BackColor = Color.White;
 			}
 
-			CalculateFilterTF(Filt_num);
-			if ((ChkShowAxisTF.Checked == true)) {
-				CalculateAxis_TF();
+			if (ChkShowAxisTF.Checked == true) {
 				formMain.ScatterGraphMag.Plots[Axis_TF_Num].Visible = true;
 				formMain.ScatterGraphPhase.Plots[Axis_TF_Num].Visible = true;
 			} else {
@@ -605,7 +592,7 @@ namespace TMCAnalyzer {
 
 		public class double_iir {
 			public int ftyp;
-			public filt_prec[] par = new filt_prec[MAX_PARAMS_IN_FILTER - 1]; // because ftyp is int, rest is filt_prec: 1 + (6 - 1) = 6 == Max parameters
+			public filt_prec[] par = new filt_prec[USER_PARAM_NUMBER - 1]; // because ftyp is int, rest is filt_prec: 1 + (6 - 1) = 6 == Max parameters
 			public filt_prec a1;
 			public filt_prec a2;
 			public filt_prec b0;
@@ -632,11 +619,11 @@ namespace TMCAnalyzer {
 			filt_prec t_float;
 			set_filt_params_from_user_input(Filt_num);
 
-			ThisFilterCoeff.b2 = CHANGED_FilterParamArray[Filt_num, 6];
-			ThisFilterCoeff.b1 = CHANGED_FilterParamArray[Filt_num, 7];
-			ThisFilterCoeff.b0 = CHANGED_FilterParamArray[Filt_num, 8];
-			ThisFilterCoeff.a2 = CHANGED_FilterParamArray[Filt_num, 9];
-			ThisFilterCoeff.a1 = CHANGED_FilterParamArray[Filt_num, 10];
+			ThisFilterCoeff.b2 = CHANGED_FilterParamArray[Filt_num, b2i];
+			ThisFilterCoeff.b1 = CHANGED_FilterParamArray[Filt_num, b1i];
+			ThisFilterCoeff.b0 = CHANGED_FilterParamArray[Filt_num, b0i];
+			ThisFilterCoeff.a2 = CHANGED_FilterParamArray[Filt_num, a2i];
+			ThisFilterCoeff.a1 = CHANGED_FilterParamArray[Filt_num, a1i];
 			// check if frequency array is filled, not zero
 			freq_sum_for_test = 0;
 
@@ -834,18 +821,17 @@ namespace TMCAnalyzer {
 		}
 
 		void set_filt_params_from_user_input(int Filt_Number) {
-			// FilterParams As float_iir)
 			double_iir FilterParams = new double_iir();
 			long param;
 			float testVar = 0;
-			FilterParams.ftyp = (int)CHANGED_FilterParamArray[Filt_Number, 0];
+			FilterParams.ftyp = (int)CHANGED_FilterParamArray[Filt_Number, fTi];
 			// ComboFilterTYPE.ListIndex
-			FilterParams.par[(int)filt_par.FilterGain] = CHANGED_FilterParamArray[Filt_Number, 1];
-			FilterParams.par[(int)filt_par.freq_1] = CHANGED_FilterParamArray[Filt_Number, 2];
-			FilterParams.par[(int)filt_par.freq_2] = CHANGED_FilterParamArray[Filt_Number, 3];
-			FilterParams.par[(int)filt_par.Q_f_1] = CHANGED_FilterParamArray[Filt_Number, 4];
-			FilterParams.par[(int)filt_par.Q_f_2] = CHANGED_FilterParamArray[Filt_Number, 5];
-			for (param = 0; (param < (MAX_PARAMS_IN_FILTER - 1)); param++) {
+			FilterParams.par[ParIndxFG] = CHANGED_FilterParamArray[Filt_Number, fGi];
+			FilterParams.par[ParIndxF1] = CHANGED_FilterParamArray[Filt_Number, f1i];
+			FilterParams.par[ParIndxF2] = CHANGED_FilterParamArray[Filt_Number, f2i];
+			FilterParams.par[ParIndxQ1] = CHANGED_FilterParamArray[Filt_Number, q1i];
+			FilterParams.par[ParIndxQ2] = CHANGED_FilterParamArray[Filt_Number, q2i];
+			for (param = 0; (param < (USER_PARAM_NUMBER - 1)); param++) {
 				if ((FilterParams.par[param] != 0)) {
 					testVar ++;
 				}
@@ -858,23 +844,23 @@ namespace TMCAnalyzer {
 			// all params are zero, not initiated yet. it will cause 'dived by zero' exception
 			//xxx if ((ChkRealTimeUpdateTF.Checked == true))
 			{
-				set_iir(FilterParams);
-				// this recalculates a, b coefficients
+				set_iir(FilterParams);	// this recalculates a, b coefficients
+
 				//  update coefficients so we can re-cal axis TF and re-plot
-				CHANGED_FilterParamArray[Filt_Number, 6] = FilterParams.b2;
-				CHANGED_FilterParamArray[Filt_Number, 7] = FilterParams.b1;
-				CHANGED_FilterParamArray[Filt_Number, 8] = FilterParams.b0;
-				CHANGED_FilterParamArray[Filt_Number, 9] = FilterParams.a2;
-				CHANGED_FilterParamArray[Filt_Number, 10] = FilterParams.a1;
+				CHANGED_FilterParamArray[Filt_Number, b2i] = FilterParams.b2;
+				CHANGED_FilterParamArray[Filt_Number, b1i] = FilterParams.b1;
+				CHANGED_FilterParamArray[Filt_Number, b0i] = FilterParams.b0;
+				CHANGED_FilterParamArray[Filt_Number, a2i] = FilterParams.a2;
+				CHANGED_FilterParamArray[Filt_Number, a1i] = FilterParams.a1;
 			}
 
 			//  update screen
 			if ((Filt_Number == FilterNumberInChain)) {
-				Lbl_PC_a1.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 10]);
-				Lbl_PC_a2.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 9]);
-				Lbl_PC_b0.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 8]);
-				Lbl_PC_b1.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 7]);
-				Lbl_PC_b2.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, 6]);
+				Lbl_PC_b2.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, b2i]);
+				Lbl_PC_b1.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, b1i]);
+				Lbl_PC_b0.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, b0i]);
+				Lbl_PC_a2.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, a2i]);
+				Lbl_PC_a1.Text = string.Format("{0:0.0#######}", CHANGED_FilterParamArray[Filt_Number, a1i]);
 
 				// update difference labels (PPM) if the controls exist in the designer
 				UpdateCoefficientDiffs(Filt_Number);
@@ -911,10 +897,10 @@ namespace TMCAnalyzer {
 				filt_prec omega_1pole = 0;
 				filt_prec omega_2zero = 0;
 				filt_prec testVar = 0;
-				filt_prec f1 = fp.par[(int)filt_par.freq_1];
-				filt_prec f2 = fp.par[(int)filt_par.freq_2];
-				filt_prec q1 = fp.par[(int)filt_par.Q_f_1];
-				filt_prec q2 = fp.par[(int)filt_par.Q_f_2];
+				filt_prec f1 = fp.par[ParIndxF1];
+				filt_prec f2 = fp.par[ParIndxF2];
+				filt_prec q1 = fp.par[ParIndxQ1];
+				filt_prec q2 = fp.par[ParIndxQ2];
 
 				// compute constant
 				PI_x2_OVER_FREQUENCY = (filt_prec)(Math.PI * 2.0 / LOOP_FREQUENCY);
@@ -945,7 +931,7 @@ namespace TMCAnalyzer {
 				if ((double)h1 == 0.0) cotan_of_half_omega_1 = (filt_prec)1e12;
 				else cotan_of_half_omega_1 = (filt_prec)(1.0 / (double)h1);
 
-				t_gain = fp.par[(int)filt_par.FilterGain];
+				t_gain = fp.par[ParIndxFG];
 				// set default parameters as GAIN_ONLY for start (needed gains will be replaced)
 				fp.b2 = 0;
 				fp.b1 = 0;
@@ -958,7 +944,7 @@ namespace TMCAnalyzer {
 					string header = string.Format("=== set_iir RUN: {0:O} ===\r\n", DateTime.UtcNow);
 					string inputs = string.Format("ftyp={0}, FilterGain={1:R}, freq1={2:R}, Q1={3:R}, freq2={4:R}, Q2={5:R}\r\n",
 						fp.ftyp,
-						fp.par[(int)filt_par.FilterGain],
+						fp.par[ParIndxFG],
 						f1,
 						q1,
 						f2,
@@ -1007,7 +993,7 @@ namespace TMCAnalyzer {
 				} // directly enter 2nd order coeffs (b0+b1*z^-1+b2*z^-2)/(1+a1*z^-1+a2*z^-2)
 				else if (fp.ftyp == (filt_prec)filt_types.DIRECT_COEFF) {
 					// direct coefficients: par fields contain coefficients
-					fp.b0 = fp.par[(int)filt_par.FilterGain];
+					fp.b0 = fp.par[ParIndxFG];
 					fp.b1 = f1;
 					fp.b2 = f2;
 					fp.a1 = -q1; // 20260102 fixed bug, need reversion here because a1,a2 are reversed at the end of function
@@ -1311,14 +1297,14 @@ namespace TMCAnalyzer {
 
 		void Copy_Params_for_Edit(int filter_num)  //???
 		{
-			float paramValue;
+			filt_prec paramValue;
 			int selectedIndex = 0;
 
 			if ((Program.ConnectionType == (int)Program.ConnType.ConnDEMO)) {
 				return;
 			}
 
-			FilterNumberInChain = filter_num;
+			FilterNumberInChain = filter_num; //-!- IK20260104 function called with this parameter, simplify!
 			foreach (var item in ComboFilterTYPE.Items) {
 				if ((Lbl_FilterType[filter_num].Text == item.ToString())) {
 					selectedIndex = ComboFilterTYPE.Items.IndexOf(item);
@@ -1329,44 +1315,44 @@ namespace TMCAnalyzer {
 			if (selectedIndex >= (ComboFilterTYPE.Items.Count - 1))
 				selectedIndex = 0;
 			Lbl_FilterType[filter_num].Text = ComboFilterTYPE.Items[selectedIndex].ToString();
-			ComboFilterTYPE.SelectedIndex = selectedIndex;
-			float tryParseVal;
-			if (float.TryParse(Lbl_FilterGain[filter_num].Text, out tryParseVal)) {
-				paramValue = (float)tryParseVal; //.Parse(Lbl_FilterGain[filter_num].Text);
-				cwNumFilterParam[(int)filt_par.FilterGain].Range = new NationalInstruments.UI.Range(-100, 100);// 0.01;
-				cwNumFilterParam[(int)filt_par.FilterGain].Value = (filt_prec)paramValue;
+			if(ComboFilterTYPE.SelectedIndex != selectedIndex) //IK20261014 prevent triggering event ComboFilterTYPE_SelectedIndexChanged()
+				ComboFilterTYPE.SelectedIndex = selectedIndex;
+			filt_prec tryParseVal;
+			if (filt_prec.TryParse(Lbl_FilterGain[filter_num].Text, out tryParseVal)) {
+				paramValue = (filt_prec)tryParseVal; //.Parse(Lbl_FilterGain[filter_num].Text);
+				cwNumFilterParam[ParIndxFG].Range = new NationalInstruments.UI.Range(-100, 100);// 0.01;
+				cwNumFilterParam[ParIndxFG].Value = (filt_prec)paramValue;
 			}
-			if (float.TryParse(Lbl_FilterFreq1[filter_num].Text, out tryParseVal)) {
-				paramValue = (float)tryParseVal; //.float.Parse(Lbl_FilterFreq1[filter_num].Text);
-				cwNumFilterParam[(int)filt_par.freq_1].Range = new NationalInstruments.UI.Range(0.001, 1000);// 0.01;
-				cwNumFilterParam[(int)filt_par.freq_1].Value = (filt_prec)paramValue;
+			if (filt_prec.TryParse(Lbl_FilterFreq1[filter_num].Text, out tryParseVal)) {
+				paramValue = (filt_prec)tryParseVal; //.filt_prec.Parse(Lbl_FilterFreq1[filter_num].Text);
+				cwNumFilterParam[ParIndxF1].Range = new NationalInstruments.UI.Range(0.0001, 1000);// 0.01;
+				cwNumFilterParam[ParIndxF1].Value = (filt_prec)paramValue;
 			}
-			if (float.TryParse(Lbl_FilterFreq2[filter_num].Text, out tryParseVal)) {
-				paramValue = (float)tryParseVal; //.paramValue = float.Parse(Lbl_FilterFreq2[filter_num].Text);
-				cwNumFilterParam[(int)filt_par.freq_2].Range = new NationalInstruments.UI.Range(0.001, 1000);// 0.01;
-				cwNumFilterParam[(int)filt_par.freq_2].Value = (filt_prec)paramValue;
-			}
-
-			if (float.TryParse(Lbl_FilterQ1[filter_num].Text, out tryParseVal)) {
-				paramValue = (float)tryParseVal; //.paramValue = float.Parse(Lbl_FilterQ1[filter_num].Text);
-				cwNumFilterParam[(int)filt_par.Q_f_1].Range = new NationalInstruments.UI.Range(0.01, 1000);// 0.01;
-				cwNumFilterParam[(int)filt_par.Q_f_1].Value = (filt_prec)paramValue;
+			if (filt_prec.TryParse(Lbl_FilterFreq2[filter_num].Text, out tryParseVal)) {
+				paramValue = (filt_prec)tryParseVal; //.paramValue = filt_prec.Parse(Lbl_FilterFreq2[filter_num].Text);
+				cwNumFilterParam[ParIndxF2].Range = new NationalInstruments.UI.Range(0.0001, 1000);// 0.01;
+				cwNumFilterParam[ParIndxF2].Value = (filt_prec)paramValue;
 			}
 
-			if (float.TryParse(Lbl_FilterQ2[filter_num].Text, out tryParseVal)) {
-				paramValue = (float)tryParseVal; //.paramValue = float.Parse(Lbl_FilterQ2[filter_num].Text);
-				cwNumFilterParam[(int)filt_par.Q_f_2].Range = new NationalInstruments.UI.Range(0.01, 1000);// 0.01;
-				cwNumFilterParam[(int)filt_par.Q_f_2].Value = (filt_prec)paramValue;
+			if (filt_prec.TryParse(Lbl_FilterQ1[filter_num].Text, out tryParseVal)) {
+				paramValue = (filt_prec)tryParseVal; //.paramValue = filt_prec.Parse(Lbl_FilterQ1[filter_num].Text);
+				cwNumFilterParam[ParIndxQ1].Range = new NationalInstruments.UI.Range(0.001, 1000);// 0.01;
+				cwNumFilterParam[ParIndxQ1].Value = (filt_prec)paramValue;
 			}
 
-			Lbl_a1.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, 10]);
-			Lbl_a2.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, 9]);
-			Lbl_b0.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, 8]);
-			Lbl_b1.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, 7]);
-			Lbl_b2.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, 6]);
+			if (filt_prec.TryParse(Lbl_FilterQ2[filter_num].Text, out tryParseVal)) {
+				paramValue = (filt_prec)tryParseVal; //.paramValue = filt_prec.Parse(Lbl_FilterQ2[filter_num].Text);
+				cwNumFilterParam[ParIndxQ2].Range = new NationalInstruments.UI.Range(0.001, 1000);// 0.01;
+				cwNumFilterParam[ParIndxQ2].Value = (filt_prec)paramValue;
+			}
 
+			Lbl_b2.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, b2i]);
+			Lbl_b1.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, b1i]);
+			Lbl_b0.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, b0i]);
+			Lbl_a2.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, a2i]);
+			Lbl_a1.Text = string.Format("{0:0.0#######}", OriginalFilterParamArray[filter_num, a1i]);
+			set_filt_params_from_user_input(filter_num);
 			UpdateCoefficientDiffs(filter_num);
-
 		}
 
 
@@ -1390,7 +1376,7 @@ namespace TMCAnalyzer {
 			int sep_pos = 0;
 			string filt_axis_code = null;
 			string filter_param_str = null;
-			float paramValue = 0;
+			filt_prec paramValue = 0;
 			if ((Program.ConnectionType == (int)Program.ConnType.ConnDEMO))
 				return;
 
@@ -1399,7 +1385,7 @@ namespace TMCAnalyzer {
 			//filter_param_str = Analyzer.GetSend("fpar" + filt_axis_code + Convert.ToString(filter_num) + "0", true);
 
 			//Program.ConnectedController.SendInternal("fpar" + filt_axis_code + Convert.ToString(filter_num) + "0", CommandTypes.ResponseExpected, out filter_param_str, CommandAckTypes.AckExpected);
-			formMain.SendInternal("fpar" + filt_axis_code + Convert.ToString(filter_num) + "0", CommandTypes.ResponseExpected, out filter_param_str, CommandAckTypes.AckExpected);
+			formMain.SendInternal("fpar" + filt_axis_code + filter_num.ToString() + "0", CommandTypes.ResponseExpected, out filter_param_str, CommandAckTypes.AckExpected);
 
 			sep_pos = filter_param_str.IndexOf("=") + 1; // Strings.InStr(filter_param_str, "=");
 			if ((sep_pos != 0)) {
@@ -1411,10 +1397,10 @@ namespace TMCAnalyzer {
 				}
 				double tryParseVal;
 				if (double.TryParse(retval, out tryParseVal)) {
-					paramValue = (float)double.Parse(retval);
-					OriginalFilterParamArray[filter_num, 0] = paramValue;
+					paramValue = (filt_prec)double.Parse(retval);
+					OriginalFilterParamArray[filter_num, fTi] = paramValue;
 					//filter type
-					CHANGED_FilterParamArray[filter_num, 0] = paramValue;
+					CHANGED_FilterParamArray[filter_num, fTi] = paramValue;
 					//filter type
 					Filter_CHANGED[filter_num, 0] = false;
 				}
@@ -1422,12 +1408,12 @@ namespace TMCAnalyzer {
 			///''''''''''' end filter type
 			//'fill parameters
 			//0 til 10
-			for (i = 1; i <= FILTER_PARAMS_TOTAL - 1; i++) {
-				filter_param_str = Convert.ToString(i);
+			for (i = 1; i < FILTER_PARAMS_TOTAL; i++) {
+				filter_param_str = i.ToString();
 				//#= filter parameter number [0,1,2,3,4,5], where 0== long ftyp; the rest-> float par[5];
 				if (i == 10)
 					filter_param_str = "A";
-				filter_param_str = Convert.ToString(filter_num) + filter_param_str;
+				filter_param_str = filter_num.ToString() + filter_param_str;
 				filter_param_str = filt_axis_code + filter_param_str;
 				filter_param_str = "fpar" + filter_param_str;
 
@@ -1445,12 +1431,12 @@ namespace TMCAnalyzer {
 
 					double tryParseVal;
 					if (double.TryParse(retval, out tryParseVal)) {
-						paramValue = (float)double.Parse(retval);
+						paramValue = (filt_prec)double.Parse(retval);
 						OriginalFilterParamArray[filter_num, i] = paramValue;
 						// filter parameter as float[0 to 4], coefficient [5 to 9]
 						CHANGED_FilterParamArray[filter_num, i] = paramValue;
 						// make a copy for editing
-						if (i < MAX_PARAMS_IN_FILTER - 1) {
+						if (i < USER_PARAM_NUMBER - 1) {
 							Filter_CHANGED[filter_num, i] = false;
 						}
 					}
@@ -1466,7 +1452,8 @@ namespace TMCAnalyzer {
 			FrameFilter.Top = (LblFilter[FilterNumberInChain].Top);
 			FrameFilter.Visible = true;
 			Copy_Params_for_Edit(FilterNumberInChain);
-			Calc_Prediction();  // mdr 060318 // //CalculateFilterTF(FilterNumberInChain);
+			CheckIfFilterChangedAndReCalculateTFsAndPrediction(FilterNumberInChain);
+			//Calc_Prediction();  // mdr 060318 // //CalculateFilterTF(FilterNumberInChain);
 		}
 
 		private void ChkShowOneFilterTF_CheckedChanged(object sender, EventArgs e) {
@@ -1570,7 +1557,7 @@ namespace TMCAnalyzer {
 			} else {
 				if (!demoMode) {
 					for (Fnum = 0; (Fnum <= (MAX_FILTERS_IN_AXIS - 1)); Fnum++) {
-						for (Fpar = 0; (Fpar < MAX_PARAMS_IN_FILTER); Fpar++) {
+						for (Fpar = 0; (Fpar < USER_PARAM_NUMBER); Fpar++) {
 							// check change of 5 params AND FILTER TYPE
 							if ((Opt_ALLfilters_or_ChangedOnly1.Checked == true)) {
 								//  update only changed filters
@@ -1600,8 +1587,7 @@ namespace TMCAnalyzer {
 						Fill_in_filter_params(ref Fnum);
 						// read back changed filter // update label colors
 						// mdr 060418 // in Demo Mode -  do not call function  below
-						CheckIfFilterChanged(Fnum);
-
+						CheckIfFilterChangedAndReCalculateTFsAndPrediction(Fnum);
 					}
 				}
 
@@ -1627,29 +1613,27 @@ namespace TMCAnalyzer {
 		}
 
 		private void cwNumFilterParam_ValueChanged(int Index) {
-
-			if ((Index == (int)filt_par.FilterGain)) {
-				Lbl_FilterGain[FilterNumberInChain].Text = String.Format("{0:0.00}", cwNumFilterParam[(int)filt_par.FilterGain].Value);
-				CHANGED_FilterParamArray[FilterNumberInChain, 1] = (filt_prec)cwNumFilterParam[(int)filt_par.FilterGain].Value;
+			if (Index == ParIndxFG) {
+				Lbl_FilterGain[FilterNumberInChain].Text = String.Format("{0:0.000}", cwNumFilterParam[ParIndxFG].Value);
+				CHANGED_FilterParamArray[FilterNumberInChain, fGi] = (filt_prec)cwNumFilterParam[ParIndxFG].Value;
 			}
-			if ((Index == (int)filt_par.freq_1)) {
-				Lbl_FilterFreq1[FilterNumberInChain].Text = String.Format("{0:0.00}", cwNumFilterParam[(int)filt_par.freq_1].Value);
-				CHANGED_FilterParamArray[FilterNumberInChain, 2] = (filt_prec)cwNumFilterParam[(int)filt_par.freq_1].Value;
+			else if (Index == ParIndxF1) {
+				Lbl_FilterFreq1[FilterNumberInChain].Text = String.Format("{0:0.000}", cwNumFilterParam[ParIndxF1].Value);
+				CHANGED_FilterParamArray[FilterNumberInChain, f1i] = (filt_prec)cwNumFilterParam[ParIndxF1].Value;
 			}
-			if ((Index == (int)filt_par.freq_2)) {
-				Lbl_FilterFreq2[FilterNumberInChain].Text = String.Format("{0:0.00}", cwNumFilterParam[(int)filt_par.freq_2].Value);
-				CHANGED_FilterParamArray[FilterNumberInChain, 3] = (filt_prec)cwNumFilterParam[(int)filt_par.freq_2].Value;
+			else if (Index == ParIndxF2) {
+				Lbl_FilterFreq2[FilterNumberInChain].Text = String.Format("{0:0.000}", cwNumFilterParam[ParIndxF2].Value);
+				CHANGED_FilterParamArray[FilterNumberInChain, f2i] = (filt_prec)cwNumFilterParam[ParIndxF2].Value;
 			}
-			if ((Index == (int)filt_par.Q_f_1)) {
-				Lbl_FilterQ1[FilterNumberInChain].Text = String.Format("{0:0.00}", cwNumFilterParam[(int)filt_par.Q_f_1].Value);
-				CHANGED_FilterParamArray[FilterNumberInChain, 4] = (filt_prec)cwNumFilterParam[(int)filt_par.Q_f_1].Value;
+			else if (Index == ParIndxQ1) {
+				Lbl_FilterQ1[FilterNumberInChain].Text = String.Format("{0:0.000}", cwNumFilterParam[ParIndxQ1].Value);
+				CHANGED_FilterParamArray[FilterNumberInChain, q1i] = (filt_prec)cwNumFilterParam[ParIndxQ1].Value;
 			}
-			if ((Index == (int)filt_par.Q_f_2)) {
-				Lbl_FilterQ2[FilterNumberInChain].Text = String.Format("{0:0.00}", cwNumFilterParam[(int)filt_par.Q_f_2].Value);
-				CHANGED_FilterParamArray[FilterNumberInChain, 5] = (filt_prec)cwNumFilterParam[(int)filt_par.Q_f_2].Value;
+			else if (Index == ParIndxQ2) {
+				Lbl_FilterQ2[FilterNumberInChain].Text = String.Format("{0:0.000}", cwNumFilterParam[ParIndxQ2].Value);
+				CHANGED_FilterParamArray[FilterNumberInChain, q2i] = (filt_prec)cwNumFilterParam[ParIndxQ2].Value;
 			}
-			CheckIfFilterChanged((FilterNumberInChain));
-			Calc_Prediction();
+			CheckIfFilterChangedAndReCalculateTFsAndPrediction((FilterNumberInChain));
 		}
 
 
@@ -1700,9 +1684,8 @@ namespace TMCAnalyzer {
 		private void ComboFilterTYPE_SelectedIndexChanged(object sender, EventArgs e) {
 			FilterTypeNumber = ComboFilterTYPE.SelectedIndex;
 			CHANGED_FilterParamArray[FilterNumberInChain, 0] = ComboFilterTYPE.SelectedIndex;
-			Lbl_FilterType[FilterNumberInChain].Text = ComboFilterTYPE.Items[FilterTypeNumber].ToString(); //artem 060118                                                                                                                     // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv/
-			CheckIfFilterChanged(FilterNumberInChain);
-			Calc_Prediction();
+			Lbl_FilterType[FilterNumberInChain].Text = ComboFilterTYPE.Items[FilterTypeNumber].ToString(); //artem 060118 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv/
+			CheckIfFilterChangedAndReCalculateTFsAndPrediction(FilterNumberInChain);
 		}
 
 		private void cmdClearFilterHistory_Click(object sender, EventArgs e) {
@@ -1732,7 +1715,6 @@ namespace TMCAnalyzer {
 				PneumFilterChain = false;
 				ChkAuxDamping.Visible = false;
 			}
-
 			Calc_Prediction();
 		}
 
@@ -1749,8 +1731,8 @@ namespace TMCAnalyzer {
 
 
 		private void cwNumAxisGain_ValueChanged(object sender, EventArgs e) {
-			if (Ready)
-				Calc_Prediction();
+			if (Program.IsReadingControllerSettings) return;
+			Calc_Prediction();
 		}
 
 		private void update_damp_controls() {
@@ -1877,8 +1859,8 @@ namespace TMCAnalyzer {
 			}
 			// CHECK 3 - verify that parameters list is completed -> MAX_PARAMS_IN_FILTER x MAX_FILTERS_IN_AXIS
 			// by checking the size of filt_params AND if parameter of that filter has same searchStr pattern (fpar#)
-			if ((filt_params.Count >= paramStartIdx + MAX_PARAMS_IN_FILTER * MAX_FILTERS_IN_AXIS) &&
-						(filt_params[paramStartIdx + MAX_PARAMS_IN_FILTER * MAX_FILTERS_IN_AXIS - 1].Contains(searchStr)))
+			if ((filt_params.Count >= paramStartIdx + USER_PARAM_NUMBER * MAX_FILTERS_IN_AXIS) &&
+						(filt_params[paramStartIdx + USER_PARAM_NUMBER * MAX_FILTERS_IN_AXIS - 1].Contains(searchStr)))
 				updateFilterControls(paramStartIdx, MAX_FILTERS_IN_AXIS, filt_params);        //Now populate filter array and form controls
 			else {
 				MessageBox.Show("Filter Params list is incomplete", "File Import Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1949,7 +1931,7 @@ namespace TMCAnalyzer {
 			for (curIdx = startIdx; curIdx < stopIdx; curIdx++) {
 				filter_params.Add("//// Axis " + currentAxis.axisOptions[curIdx]);
 				for (Fnum = 0; (Fnum <= (MAX_FILTERS_IN_AXIS - 1)); Fnum++) {
-					for (Fpar = 0; (Fpar < MAX_PARAMS_IN_FILTER); Fpar++) {
+					for (Fpar = 0; (Fpar < USER_PARAM_NUMBER); Fpar++) { // 0 t 5
 						//if no filter selected, break out of inner for loop and continue to next filter in array
 						if (CHANGED_FilterParamArray[Fnum, 0] == 0) { break; }
 
@@ -2054,46 +2036,46 @@ namespace TMCAnalyzer {
 		//artem 060718 after parsing data from input parameter file,
 		//time to update labels, arrays and other things to allow filter manipulation later
 		private void updateFilterControls(int start, int numFilters, List<string> filt_params) {
-			filt_prec[] filter;
+			filt_prec[] local_filt_par;
 			int f_num = 0;
 
 			for (f_num = 0; f_num < numFilters; f_num++) {
-				filter = parseFilter(start, start + MAX_PARAMS_IN_FILTER, filt_params);
-				//Console.WriteLine("{0}, {1}, {2}, {3}, {4}, {5}",  filter[0], filter[1], filter[2], filter[3], filter[4], filter[5]);
-				start = start + MAX_PARAMS_IN_FILTER;
+				local_filt_par = parseFilter(start, start + USER_PARAM_NUMBER, filt_params);
+				//Console.WriteLine("{0}, {1}, {2}, {3}, {4}, {5}",  local_filt_par[0], local_filt_par[1], local_filt_par[2], local_filt_par[3], local_filt_par[4], local_filt_par[5]);
+				start += USER_PARAM_NUMBER;
 
 				//Copying filter values to changed array and labels for use later
-				CHANGED_FilterParamArray[f_num, 0] = filter[0];
-				CHANGED_FilterParamArray[f_num, 1] = filter[1];
-				CHANGED_FilterParamArray[f_num, 2] = filter[2];
-				CHANGED_FilterParamArray[f_num, 3] = filter[3];
-				CHANGED_FilterParamArray[f_num, 4] = filter[4];
-				CHANGED_FilterParamArray[f_num, 5] = filter[5];
+				CHANGED_FilterParamArray[f_num, fTi] = local_filt_par[0];
+				CHANGED_FilterParamArray[f_num, fGi] = local_filt_par[1];
+				CHANGED_FilterParamArray[f_num, f1i] = local_filt_par[2];
+				CHANGED_FilterParamArray[f_num, f2i] = local_filt_par[3];
+				CHANGED_FilterParamArray[f_num, q1i] = local_filt_par[4];
+				CHANGED_FilterParamArray[f_num, q2i] = local_filt_par[5];
 				//---vvv mdr 111418  vvv---
-				OriginalFilterParamArray[f_num, 0] = filter[0];
-				OriginalFilterParamArray[f_num, 1] = filter[1];
-				OriginalFilterParamArray[f_num, 2] = filter[2];
-				OriginalFilterParamArray[f_num, 3] = filter[3];
-				OriginalFilterParamArray[f_num, 4] = filter[4];
-				OriginalFilterParamArray[f_num, 5] = filter[5];
+				OriginalFilterParamArray[f_num, fTi] = local_filt_par[0];
+				OriginalFilterParamArray[f_num, fGi] = local_filt_par[1];
+				OriginalFilterParamArray[f_num, f1i] = local_filt_par[2];
+				OriginalFilterParamArray[f_num, f2i] = local_filt_par[3];
+				OriginalFilterParamArray[f_num, q1i] = local_filt_par[4];
+				OriginalFilterParamArray[f_num, q2i] = local_filt_par[5];
 				//---^^^^^^^^^^^^^--------
-				int filtType = (Int32)filter[0];
+				int filtType = (Int32)local_filt_par[0];
 				Lbl_FilterType[f_num].Text = ComboFilterTYPE.Items[filtType].ToString();
-				Lbl_FilterGain[f_num].Text = string.Format("{0:0.00}", CHANGED_FilterParamArray[f_num, 1]);
-				Lbl_FilterFreq1[f_num].Text = string.Format("{0:0.00}", CHANGED_FilterParamArray[f_num, 2]);
-				Lbl_FilterFreq2[f_num].Text = string.Format("{0:0.00}", CHANGED_FilterParamArray[f_num, 3]);
-				Lbl_FilterQ1[f_num].Text = string.Format("{0:0.00}", CHANGED_FilterParamArray[f_num, 4]);
-				Lbl_FilterQ2[f_num].Text = string.Format("{0:0.00}", CHANGED_FilterParamArray[f_num, 5]);
+				Lbl_FilterGain[f_num].Text = string.Format("{0:0.00}", CHANGED_FilterParamArray[f_num, fGi]);
+				Lbl_FilterFreq1[f_num].Text = string.Format("{0:0.00}", CHANGED_FilterParamArray[f_num, f1i]);
+				Lbl_FilterFreq2[f_num].Text = string.Format("{0:0.00}", CHANGED_FilterParamArray[f_num, f2i]);
+				Lbl_FilterQ1[f_num].Text = string.Format("{0:0.00}", CHANGED_FilterParamArray[f_num, q1i]);
+				Lbl_FilterQ2[f_num].Text = string.Format("{0:0.00}", CHANGED_FilterParamArray[f_num, q2i]);
 			}
 			FilterNumberInChain = 0;
 			//Copying filter array values to controls
-			cwNumFilterParam[(int)filt_par.FilterGain].Value = CHANGED_FilterParamArray[FilterNumberInChain, 1]; //Gain
-			cwNumFilterParam[(int)filt_par.freq_1].Value = CHANGED_FilterParamArray[FilterNumberInChain, 2]; //F1
-			cwNumFilterParam[(int)filt_par.freq_2].Value = CHANGED_FilterParamArray[FilterNumberInChain, 3]; //F2
-			cwNumFilterParam[(int)filt_par.Q_f_1].Value = CHANGED_FilterParamArray[FilterNumberInChain, 4]; //Q1
-			cwNumFilterParam[(int)filt_par.Q_f_2].Value = CHANGED_FilterParamArray[FilterNumberInChain, 5]; //Q2
+			cwNumFilterParam[ParIndxFG].Value = CHANGED_FilterParamArray[FilterNumberInChain, fGi]; //Gain
+			cwNumFilterParam[ParIndxF1].Value = CHANGED_FilterParamArray[FilterNumberInChain, f1i]; //F1
+			cwNumFilterParam[ParIndxF2].Value = CHANGED_FilterParamArray[FilterNumberInChain, f2i]; //F2
+			cwNumFilterParam[ParIndxQ1].Value = CHANGED_FilterParamArray[FilterNumberInChain, q1i]; //Q1
+			cwNumFilterParam[ParIndxQ2].Value = CHANGED_FilterParamArray[FilterNumberInChain, q2i]; //Q2
 			Calc_Prediction();                                                              //calculating filter transfer functions
-			ComboFilterTYPE.SelectedIndex = (Int32)CHANGED_FilterParamArray[0, 0];          //Selecting first filter type as active
+			ComboFilterTYPE.SelectedIndex = (int)CHANGED_FilterParamArray[0, 0];          //Selecting first filter type as active
 		}
 
 		//artem 060718  parse filter data from 6 rows of list into filter array for saving into form controls and arrays later
