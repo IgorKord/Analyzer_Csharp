@@ -258,8 +258,8 @@
 			this.cmdConnect.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.cmdConnect.Size = new System.Drawing.Size(310, 73);
 			this.cmdConnect.TabIndex = 28;
-			this.cmdConnect.Text = "                           Connect to Controller";
-			this.cmdConnect.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.cmdConnect.Text = "Connect to Controller";
+			this.cmdConnect.TextAlign = System.Drawing.ContentAlignment.BottomRight;
 			this.ToolTip1.SetToolTip(this.cmdConnect, "Attempt to connect to controller using Port# and Baud Rate");
 			this.cmdConnect.UseVisualStyleBackColor = false;
 			this.cmdConnect.Click += new System.EventHandler(this.cmdConnect_Click);
@@ -366,9 +366,9 @@
 			this._Label1_10.Location = new System.Drawing.Point(12, 33);
 			this._Label1_10.Name = "_Label1_10";
 			this._Label1_10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._Label1_10.Size = new System.Drawing.Size(148, 16);
+			this._Label1_10.Size = new System.Drawing.Size(147, 32);
 			this._Label1_10.TabIndex = 7;
-			this._Label1_10.Text = "V1.1.01 @ 30-Dec-2025";
+			this._Label1_10.Text = "\nV1.1.04 @ 04-Jan-2026";
 			this._Label1_10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
 			// _Label1_8

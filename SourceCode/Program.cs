@@ -367,6 +367,21 @@ namespace TMCAnalyzer {
 			if (ExceptionUnhandledFunction(sender, e.Exception, ErrEventEnum._ThreadEvent))
 				System.Environment.Exit(0);
 		}
+		private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e) {
+			// Break in debugger immediately
+			System.Diagnostics.Debugger.Break();
+
+			// Optional: log to output
+			Debug.WriteLine("ThreadException caught: " + e.Exception.ToString());
+		}
+
+		private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) {
+			Exception ex = e.ExceptionObject as Exception;
+			if (ex != null) {
+				System.Diagnostics.Debugger.Break();
+				Debug.WriteLine("UnhandledException caught: " + ex.ToString());
+			}
+		}
 
 		//===  FIRST CODE TO RUN IN THE PROGRAM
 		[STAThread]     // [STAThread] marks the MAIN program thread so it uses the "Single Threaded Apartment" model.
@@ -376,6 +391,11 @@ namespace TMCAnalyzer {
 		// * It means is that COM objects we consume (message boxes, etc) will only be called from ONE thread, not MANY
 		// * This is necessary because many COM objects are not "thread safe" and can't handle being called from multiple threads
 		static void Main() {
+			Application.ThreadException += Application_ThreadException;
+			AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
 			Tools.TracePrepare();
 			Program.StopWatchFreq = Stopwatch.Frequency; //read only; = 2628291 Hz, or 2.68 MHz (laptop Dell Precision M4700); 2727841 Hz (on desktop Dell 3800)
 			StopWatchTick_to_us = 1.0E6 / Stopwatch.Frequency; //

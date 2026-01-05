@@ -30,82 +30,82 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMain));
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision77 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision78 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision79 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision80 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision81 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision82 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision83 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision84 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision85 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision86 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision87 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision88 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision89 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision90 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision91 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision92 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision93 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision94 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision95 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision96 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision97 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision98 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision99 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision100 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision101 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision102 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision103 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision104 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision105 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision106 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision107 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision108 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision109 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision110 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision111 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision112 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision113 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision114 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision115 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision116 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision117 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision118 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision119 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision120 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision121 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision122 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision123 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision124 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision125 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision126 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision127 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision128 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision129 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision130 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision131 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision132 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision133 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision134 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision135 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision136 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision137 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision138 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision139 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision140 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision141 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision142 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision143 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision144 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision145 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision146 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision147 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision148 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision149 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision150 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision151 = new NationalInstruments.UI.ScaleCustomDivision();
-			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision152 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision1 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision2 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision3 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision4 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision5 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision6 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision7 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision8 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision9 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision10 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision11 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision12 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision13 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision14 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision15 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision16 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision17 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision18 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision19 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision20 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision21 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision22 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision23 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision24 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision25 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision26 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision27 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision28 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision29 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision30 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision31 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision32 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision33 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision34 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision35 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision36 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision37 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision38 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision39 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision40 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision41 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision42 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision43 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision44 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision45 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision46 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision47 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision48 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision49 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision50 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision51 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision52 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision53 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision54 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision55 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision56 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision57 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision58 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision59 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision60 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision61 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision62 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision63 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision64 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision65 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision66 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision67 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision68 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision69 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision70 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision71 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision72 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision73 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision74 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision75 = new NationalInstruments.UI.ScaleCustomDivision();
+			NationalInstruments.UI.ScaleCustomDivision scaleCustomDivision76 = new NationalInstruments.UI.ScaleCustomDivision();
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
 			this.imageListForTabControl = new System.Windows.Forms.ImageList(this.components);
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -831,7 +831,7 @@
 			this._lbl_Part_Number_0.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this._lbl_Part_Number_0.Size = new System.Drawing.Size(180, 35);
 			this._lbl_Part_Number_0.TabIndex = 247;
-			this._lbl_Part_Number_0.Text = "PN 95-38961-02 rev.F \r\nV1.1.01 @ 30-Dec-2025";
+			this._lbl_Part_Number_0.Text = "PN 95-38961-02 rev.F \r\nV1.1.04 @ 04-Jan-2026";
 			this._lbl_Part_Number_0.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.toolTip1.SetToolTip(this._lbl_Part_Number_0, "TMC part number of this software");
 			// 
@@ -7377,160 +7377,160 @@
 			this.cwBNC0select.Caption = "BNC_0";
 			this.cwBNC0select.CaptionFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cwBNC0select.CoercionMode = NationalInstruments.UI.NumericCoercionMode.ToDivisions;
-			scaleCustomDivision77.LabelFormat = new NationalInstruments.UI.FormatString(NationalInstruments.UI.FormatStringMode.Numeric, "F0");
-			scaleCustomDivision77.Text = "Excitation";
-			scaleCustomDivision77.TickLength = 1F;
-			scaleCustomDivision77.Value = 1D;
-			scaleCustomDivision78.Text = "Pos_tY";
-			scaleCustomDivision78.TickLength = 1F;
-			scaleCustomDivision78.Value = 2D;
-			scaleCustomDivision79.Text = "Pos_tX";
-			scaleCustomDivision79.TickLength = 1F;
-			scaleCustomDivision79.Value = 3D;
-			scaleCustomDivision80.Text = "Pos_Z";
-			scaleCustomDivision80.TickLength = 1F;
-			scaleCustomDivision80.Value = 4D;
-			scaleCustomDivision81.Text = "Pos_tZ";
-			scaleCustomDivision81.TickLength = 1F;
-			scaleCustomDivision81.Value = 5D;
-			scaleCustomDivision82.Text = "Pos_Y";
-			scaleCustomDivision82.TickLength = 1F;
-			scaleCustomDivision82.Value = 6D;
-			scaleCustomDivision83.Text = "Pos_X";
-			scaleCustomDivision83.TickLength = 1F;
-			scaleCustomDivision83.Value = 7D;
-			scaleCustomDivision84.Text = "Vel_tY";
-			scaleCustomDivision84.TickLength = 1F;
-			scaleCustomDivision84.Value = 8D;
-			scaleCustomDivision85.Text = "Vel_tX";
-			scaleCustomDivision85.TickLength = 1F;
-			scaleCustomDivision85.Value = 9D;
-			scaleCustomDivision86.Text = "Vel_Z";
-			scaleCustomDivision86.TickLength = 1F;
-			scaleCustomDivision86.Value = 10D;
-			scaleCustomDivision87.Text = "Vel_tZ";
-			scaleCustomDivision87.TickLength = 1F;
-			scaleCustomDivision87.Value = 11D;
-			scaleCustomDivision88.Text = "Vel_Y";
-			scaleCustomDivision88.TickLength = 1F;
-			scaleCustomDivision88.Value = 12D;
-			scaleCustomDivision89.Text = "Vel_X";
-			scaleCustomDivision89.TickLength = 1F;
-			scaleCustomDivision89.Value = 13D;
-			scaleCustomDivision90.Text = "Motor 4Z";
-			scaleCustomDivision90.TickLength = 1F;
-			scaleCustomDivision90.Value = 14D;
-			scaleCustomDivision91.Text = "Motor 3Z";
-			scaleCustomDivision91.TickLength = 1F;
-			scaleCustomDivision91.Value = 15D;
-			scaleCustomDivision92.Text = "Motor 2Z";
-			scaleCustomDivision92.TickLength = 1F;
-			scaleCustomDivision92.Value = 16D;
-			scaleCustomDivision93.Text = "Motor 1Z";
-			scaleCustomDivision93.TickLength = 1F;
-			scaleCustomDivision93.Value = 17D;
-			scaleCustomDivision94.Text = "Motor 4H";
-			scaleCustomDivision94.TickLength = 1F;
-			scaleCustomDivision94.Value = 18D;
-			scaleCustomDivision95.Text = "Motor 3H";
-			scaleCustomDivision95.TickLength = 1F;
-			scaleCustomDivision95.Value = 19D;
-			scaleCustomDivision96.Text = "Motor 2H";
-			scaleCustomDivision96.TickLength = 1F;
-			scaleCustomDivision96.Value = 20D;
-			scaleCustomDivision97.Text = "Motor 1H";
-			scaleCustomDivision97.TickLength = 1F;
-			scaleCustomDivision97.Value = 21D;
-			scaleCustomDivision98.Text = "Geo 3Z";
-			scaleCustomDivision98.TickLength = 1F;
-			scaleCustomDivision98.Value = 22D;
-			scaleCustomDivision99.Text = "Geo 2Z";
-			scaleCustomDivision99.TickLength = 1F;
-			scaleCustomDivision99.Value = 23D;
-			scaleCustomDivision100.Text = "Geo 1Z";
-			scaleCustomDivision100.TickLength = 1F;
-			scaleCustomDivision100.Value = 24D;
-			scaleCustomDivision101.Text = "Geo 3H";
-			scaleCustomDivision101.TickLength = 1F;
-			scaleCustomDivision101.Value = 25D;
-			scaleCustomDivision102.Text = "Geo 2H";
-			scaleCustomDivision102.TickLength = 1F;
-			scaleCustomDivision102.Value = 26D;
-			scaleCustomDivision103.Text = "Geo 1H";
-			scaleCustomDivision103.TickLength = 1F;
-			scaleCustomDivision103.Value = 27D;
-			scaleCustomDivision104.Text = "StFF_Ypos";
-			scaleCustomDivision104.TickLength = 1F;
-			scaleCustomDivision104.Value = 28D;
-			scaleCustomDivision105.Text = "StFF_Xpos";
-			scaleCustomDivision105.TickLength = 1F;
-			scaleCustomDivision105.Value = 29D;
-			scaleCustomDivision106.Text = "StFF_Yacc";
-			scaleCustomDivision106.TickLength = 1F;
-			scaleCustomDivision106.Value = 30D;
-			scaleCustomDivision107.Text = "StFF_Xacc";
-			scaleCustomDivision107.TickLength = 1F;
-			scaleCustomDivision107.Value = 31D;
-			scaleCustomDivision108.Text = "Prx_3Z_um";
-			scaleCustomDivision108.TickLength = 1F;
-			scaleCustomDivision108.Value = 32D;
-			scaleCustomDivision109.Text = "Prx_2Z_um";
-			scaleCustomDivision109.TickLength = 1F;
-			scaleCustomDivision109.Value = 33D;
-			scaleCustomDivision110.Text = "Prx_1Z_um";
-			scaleCustomDivision110.TickLength = 1F;
-			scaleCustomDivision110.Value = 34D;
-			scaleCustomDivision111.Text = "Prx_3H_um";
-			scaleCustomDivision111.TickLength = 1F;
-			scaleCustomDivision111.Value = 35D;
-			scaleCustomDivision112.Text = "Prx_2H_um";
-			scaleCustomDivision112.TickLength = 1F;
-			scaleCustomDivision112.Value = 36D;
-			scaleCustomDivision113.Text = "Prx_1H_um";
-			scaleCustomDivision113.TickLength = 1F;
-			scaleCustomDivision113.Value = 37D;
-			scaleCustomDivision114.Text = "--other--";
-			scaleCustomDivision114.TickLength = 1F;
-			scaleCustomDivision114.Value = 38D;
+			scaleCustomDivision1.LabelFormat = new NationalInstruments.UI.FormatString(NationalInstruments.UI.FormatStringMode.Numeric, "F0");
+			scaleCustomDivision1.Text = "Excitation";
+			scaleCustomDivision1.TickLength = 1F;
+			scaleCustomDivision1.Value = 1D;
+			scaleCustomDivision2.Text = "Pos_tY";
+			scaleCustomDivision2.TickLength = 1F;
+			scaleCustomDivision2.Value = 2D;
+			scaleCustomDivision3.Text = "Pos_tX";
+			scaleCustomDivision3.TickLength = 1F;
+			scaleCustomDivision3.Value = 3D;
+			scaleCustomDivision4.Text = "Pos_Z";
+			scaleCustomDivision4.TickLength = 1F;
+			scaleCustomDivision4.Value = 4D;
+			scaleCustomDivision5.Text = "Pos_tZ";
+			scaleCustomDivision5.TickLength = 1F;
+			scaleCustomDivision5.Value = 5D;
+			scaleCustomDivision6.Text = "Pos_Y";
+			scaleCustomDivision6.TickLength = 1F;
+			scaleCustomDivision6.Value = 6D;
+			scaleCustomDivision7.Text = "Pos_X";
+			scaleCustomDivision7.TickLength = 1F;
+			scaleCustomDivision7.Value = 7D;
+			scaleCustomDivision8.Text = "Vel_tY";
+			scaleCustomDivision8.TickLength = 1F;
+			scaleCustomDivision8.Value = 8D;
+			scaleCustomDivision9.Text = "Vel_tX";
+			scaleCustomDivision9.TickLength = 1F;
+			scaleCustomDivision9.Value = 9D;
+			scaleCustomDivision10.Text = "Vel_Z";
+			scaleCustomDivision10.TickLength = 1F;
+			scaleCustomDivision10.Value = 10D;
+			scaleCustomDivision11.Text = "Vel_tZ";
+			scaleCustomDivision11.TickLength = 1F;
+			scaleCustomDivision11.Value = 11D;
+			scaleCustomDivision12.Text = "Vel_Y";
+			scaleCustomDivision12.TickLength = 1F;
+			scaleCustomDivision12.Value = 12D;
+			scaleCustomDivision13.Text = "Vel_X";
+			scaleCustomDivision13.TickLength = 1F;
+			scaleCustomDivision13.Value = 13D;
+			scaleCustomDivision14.Text = "Motor 4Z";
+			scaleCustomDivision14.TickLength = 1F;
+			scaleCustomDivision14.Value = 14D;
+			scaleCustomDivision15.Text = "Motor 3Z";
+			scaleCustomDivision15.TickLength = 1F;
+			scaleCustomDivision15.Value = 15D;
+			scaleCustomDivision16.Text = "Motor 2Z";
+			scaleCustomDivision16.TickLength = 1F;
+			scaleCustomDivision16.Value = 16D;
+			scaleCustomDivision17.Text = "Motor 1Z";
+			scaleCustomDivision17.TickLength = 1F;
+			scaleCustomDivision17.Value = 17D;
+			scaleCustomDivision18.Text = "Motor 4H";
+			scaleCustomDivision18.TickLength = 1F;
+			scaleCustomDivision18.Value = 18D;
+			scaleCustomDivision19.Text = "Motor 3H";
+			scaleCustomDivision19.TickLength = 1F;
+			scaleCustomDivision19.Value = 19D;
+			scaleCustomDivision20.Text = "Motor 2H";
+			scaleCustomDivision20.TickLength = 1F;
+			scaleCustomDivision20.Value = 20D;
+			scaleCustomDivision21.Text = "Motor 1H";
+			scaleCustomDivision21.TickLength = 1F;
+			scaleCustomDivision21.Value = 21D;
+			scaleCustomDivision22.Text = "Geo 3Z";
+			scaleCustomDivision22.TickLength = 1F;
+			scaleCustomDivision22.Value = 22D;
+			scaleCustomDivision23.Text = "Geo 2Z";
+			scaleCustomDivision23.TickLength = 1F;
+			scaleCustomDivision23.Value = 23D;
+			scaleCustomDivision24.Text = "Geo 1Z";
+			scaleCustomDivision24.TickLength = 1F;
+			scaleCustomDivision24.Value = 24D;
+			scaleCustomDivision25.Text = "Geo 3H";
+			scaleCustomDivision25.TickLength = 1F;
+			scaleCustomDivision25.Value = 25D;
+			scaleCustomDivision26.Text = "Geo 2H";
+			scaleCustomDivision26.TickLength = 1F;
+			scaleCustomDivision26.Value = 26D;
+			scaleCustomDivision27.Text = "Geo 1H";
+			scaleCustomDivision27.TickLength = 1F;
+			scaleCustomDivision27.Value = 27D;
+			scaleCustomDivision28.Text = "StFF_Ypos";
+			scaleCustomDivision28.TickLength = 1F;
+			scaleCustomDivision28.Value = 28D;
+			scaleCustomDivision29.Text = "StFF_Xpos";
+			scaleCustomDivision29.TickLength = 1F;
+			scaleCustomDivision29.Value = 29D;
+			scaleCustomDivision30.Text = "StFF_Yacc";
+			scaleCustomDivision30.TickLength = 1F;
+			scaleCustomDivision30.Value = 30D;
+			scaleCustomDivision31.Text = "StFF_Xacc";
+			scaleCustomDivision31.TickLength = 1F;
+			scaleCustomDivision31.Value = 31D;
+			scaleCustomDivision32.Text = "Prx_3Z_um";
+			scaleCustomDivision32.TickLength = 1F;
+			scaleCustomDivision32.Value = 32D;
+			scaleCustomDivision33.Text = "Prx_2Z_um";
+			scaleCustomDivision33.TickLength = 1F;
+			scaleCustomDivision33.Value = 33D;
+			scaleCustomDivision34.Text = "Prx_1Z_um";
+			scaleCustomDivision34.TickLength = 1F;
+			scaleCustomDivision34.Value = 34D;
+			scaleCustomDivision35.Text = "Prx_3H_um";
+			scaleCustomDivision35.TickLength = 1F;
+			scaleCustomDivision35.Value = 35D;
+			scaleCustomDivision36.Text = "Prx_2H_um";
+			scaleCustomDivision36.TickLength = 1F;
+			scaleCustomDivision36.Value = 36D;
+			scaleCustomDivision37.Text = "Prx_1H_um";
+			scaleCustomDivision37.TickLength = 1F;
+			scaleCustomDivision37.Value = 37D;
+			scaleCustomDivision38.Text = "--other--";
+			scaleCustomDivision38.TickLength = 1F;
+			scaleCustomDivision38.Value = 38D;
 			this.cwBNC0select.CustomDivisions.AddRange(new NationalInstruments.UI.ScaleCustomDivision[] {
-            scaleCustomDivision77,
-            scaleCustomDivision78,
-            scaleCustomDivision79,
-            scaleCustomDivision80,
-            scaleCustomDivision81,
-            scaleCustomDivision82,
-            scaleCustomDivision83,
-            scaleCustomDivision84,
-            scaleCustomDivision85,
-            scaleCustomDivision86,
-            scaleCustomDivision87,
-            scaleCustomDivision88,
-            scaleCustomDivision89,
-            scaleCustomDivision90,
-            scaleCustomDivision91,
-            scaleCustomDivision92,
-            scaleCustomDivision93,
-            scaleCustomDivision94,
-            scaleCustomDivision95,
-            scaleCustomDivision96,
-            scaleCustomDivision97,
-            scaleCustomDivision98,
-            scaleCustomDivision99,
-            scaleCustomDivision100,
-            scaleCustomDivision101,
-            scaleCustomDivision102,
-            scaleCustomDivision103,
-            scaleCustomDivision104,
-            scaleCustomDivision105,
-            scaleCustomDivision106,
-            scaleCustomDivision107,
-            scaleCustomDivision108,
-            scaleCustomDivision109,
-            scaleCustomDivision110,
-            scaleCustomDivision111,
-            scaleCustomDivision112,
-            scaleCustomDivision113,
-            scaleCustomDivision114});
+            scaleCustomDivision1,
+            scaleCustomDivision2,
+            scaleCustomDivision3,
+            scaleCustomDivision4,
+            scaleCustomDivision5,
+            scaleCustomDivision6,
+            scaleCustomDivision7,
+            scaleCustomDivision8,
+            scaleCustomDivision9,
+            scaleCustomDivision10,
+            scaleCustomDivision11,
+            scaleCustomDivision12,
+            scaleCustomDivision13,
+            scaleCustomDivision14,
+            scaleCustomDivision15,
+            scaleCustomDivision16,
+            scaleCustomDivision17,
+            scaleCustomDivision18,
+            scaleCustomDivision19,
+            scaleCustomDivision20,
+            scaleCustomDivision21,
+            scaleCustomDivision22,
+            scaleCustomDivision23,
+            scaleCustomDivision24,
+            scaleCustomDivision25,
+            scaleCustomDivision26,
+            scaleCustomDivision27,
+            scaleCustomDivision28,
+            scaleCustomDivision29,
+            scaleCustomDivision30,
+            scaleCustomDivision31,
+            scaleCustomDivision32,
+            scaleCustomDivision33,
+            scaleCustomDivision34,
+            scaleCustomDivision35,
+            scaleCustomDivision36,
+            scaleCustomDivision37,
+            scaleCustomDivision38});
 			this.cwBNC0select.EditRangeNumericFormatMode = NationalInstruments.UI.NumericFormatMode.CreateGenericMode("F0");
 			this.cwBNC0select.FillColor = System.Drawing.SystemColors.ActiveBorder;
 			this.cwBNC0select.FillMode = NationalInstruments.UI.NumericFillMode.None;
@@ -7550,160 +7550,160 @@
 			this.cwBNC1select.Caption = "BNC_1";
 			this.cwBNC1select.CaptionFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cwBNC1select.CoercionMode = NationalInstruments.UI.NumericCoercionMode.ToDivisions;
-			scaleCustomDivision115.LabelFormat = new NationalInstruments.UI.FormatString(NationalInstruments.UI.FormatStringMode.Numeric, "F0");
-			scaleCustomDivision115.Text = "Excitation";
-			scaleCustomDivision115.TickLength = 1F;
-			scaleCustomDivision115.Value = 1D;
-			scaleCustomDivision116.Text = "Pos_tY";
-			scaleCustomDivision116.TickLength = 1F;
-			scaleCustomDivision116.Value = 2D;
-			scaleCustomDivision117.Text = "Pos_tX";
-			scaleCustomDivision117.TickLength = 1F;
-			scaleCustomDivision117.Value = 3D;
-			scaleCustomDivision118.Text = "Pos_Z";
-			scaleCustomDivision118.TickLength = 1F;
-			scaleCustomDivision118.Value = 4D;
-			scaleCustomDivision119.Text = "Pos_tZ";
-			scaleCustomDivision119.TickLength = 1F;
-			scaleCustomDivision119.Value = 5D;
-			scaleCustomDivision120.Text = "Pos_Y";
-			scaleCustomDivision120.TickLength = 1F;
-			scaleCustomDivision120.Value = 6D;
-			scaleCustomDivision121.Text = "Pos_X";
-			scaleCustomDivision121.TickLength = 1F;
-			scaleCustomDivision121.Value = 7D;
-			scaleCustomDivision122.Text = "Vel_tY";
-			scaleCustomDivision122.TickLength = 1F;
-			scaleCustomDivision122.Value = 8D;
-			scaleCustomDivision123.Text = "Vel_tX";
-			scaleCustomDivision123.TickLength = 1F;
-			scaleCustomDivision123.Value = 9D;
-			scaleCustomDivision124.Text = "Vel_Z";
-			scaleCustomDivision124.TickLength = 1F;
-			scaleCustomDivision124.Value = 10D;
-			scaleCustomDivision125.Text = "Vel_tZ";
-			scaleCustomDivision125.TickLength = 1F;
-			scaleCustomDivision125.Value = 11D;
-			scaleCustomDivision126.Text = "Vel_Y";
-			scaleCustomDivision126.TickLength = 1F;
-			scaleCustomDivision126.Value = 12D;
-			scaleCustomDivision127.Text = "Vel_X";
-			scaleCustomDivision127.TickLength = 1F;
-			scaleCustomDivision127.Value = 13D;
-			scaleCustomDivision128.Text = "Motor 4Z";
-			scaleCustomDivision128.TickLength = 1F;
-			scaleCustomDivision128.Value = 14D;
-			scaleCustomDivision129.Text = "Motor 3Z";
-			scaleCustomDivision129.TickLength = 1F;
-			scaleCustomDivision129.Value = 15D;
-			scaleCustomDivision130.Text = "Motor 2Z";
-			scaleCustomDivision130.TickLength = 1F;
-			scaleCustomDivision130.Value = 16D;
-			scaleCustomDivision131.Text = "Motor 1Z";
-			scaleCustomDivision131.TickLength = 1F;
-			scaleCustomDivision131.Value = 17D;
-			scaleCustomDivision132.Text = "Motor 4H";
-			scaleCustomDivision132.TickLength = 1F;
-			scaleCustomDivision132.Value = 18D;
-			scaleCustomDivision133.Text = "Motor 3H";
-			scaleCustomDivision133.TickLength = 1F;
-			scaleCustomDivision133.Value = 19D;
-			scaleCustomDivision134.Text = "Motor 2H";
-			scaleCustomDivision134.TickLength = 1F;
-			scaleCustomDivision134.Value = 20D;
-			scaleCustomDivision135.Text = "Motor 1H";
-			scaleCustomDivision135.TickLength = 1F;
-			scaleCustomDivision135.Value = 21D;
-			scaleCustomDivision136.Text = "Geo 3Z";
-			scaleCustomDivision136.TickLength = 1F;
-			scaleCustomDivision136.Value = 22D;
-			scaleCustomDivision137.Text = "Geo 2Z";
-			scaleCustomDivision137.TickLength = 1F;
-			scaleCustomDivision137.Value = 23D;
-			scaleCustomDivision138.Text = "Geo 1Z";
-			scaleCustomDivision138.TickLength = 1F;
-			scaleCustomDivision138.Value = 24D;
-			scaleCustomDivision139.Text = "Geo 3H";
-			scaleCustomDivision139.TickLength = 1F;
-			scaleCustomDivision139.Value = 25D;
-			scaleCustomDivision140.Text = "Geo 2H";
-			scaleCustomDivision140.TickLength = 1F;
-			scaleCustomDivision140.Value = 26D;
-			scaleCustomDivision141.Text = "Geo 1H";
-			scaleCustomDivision141.TickLength = 1F;
-			scaleCustomDivision141.Value = 27D;
-			scaleCustomDivision142.Text = "StFF_Ypos";
-			scaleCustomDivision142.TickLength = 1F;
-			scaleCustomDivision142.Value = 28D;
-			scaleCustomDivision143.Text = "StFF_Xpos";
-			scaleCustomDivision143.TickLength = 1F;
-			scaleCustomDivision143.Value = 29D;
-			scaleCustomDivision144.Text = "StFF_Yacc";
-			scaleCustomDivision144.TickLength = 1F;
-			scaleCustomDivision144.Value = 30D;
-			scaleCustomDivision145.Text = "StFF_Xacc";
-			scaleCustomDivision145.TickLength = 1F;
-			scaleCustomDivision145.Value = 31D;
-			scaleCustomDivision146.Text = "Prx_3Z_um";
-			scaleCustomDivision146.TickLength = 1F;
-			scaleCustomDivision146.Value = 32D;
-			scaleCustomDivision147.Text = "Prx_2Z_um";
-			scaleCustomDivision147.TickLength = 1F;
-			scaleCustomDivision147.Value = 33D;
-			scaleCustomDivision148.Text = "Prx_1Z_um";
-			scaleCustomDivision148.TickLength = 1F;
-			scaleCustomDivision148.Value = 34D;
-			scaleCustomDivision149.Text = "Prx_3H_um";
-			scaleCustomDivision149.TickLength = 1F;
-			scaleCustomDivision149.Value = 35D;
-			scaleCustomDivision150.Text = "Prx_2H_um";
-			scaleCustomDivision150.TickLength = 1F;
-			scaleCustomDivision150.Value = 36D;
-			scaleCustomDivision151.Text = "Prx_1H_um";
-			scaleCustomDivision151.TickLength = 1F;
-			scaleCustomDivision151.Value = 37D;
-			scaleCustomDivision152.Text = "--other--";
-			scaleCustomDivision152.TickLength = 1F;
-			scaleCustomDivision152.Value = 38D;
+			scaleCustomDivision39.LabelFormat = new NationalInstruments.UI.FormatString(NationalInstruments.UI.FormatStringMode.Numeric, "F0");
+			scaleCustomDivision39.Text = "Excitation";
+			scaleCustomDivision39.TickLength = 1F;
+			scaleCustomDivision39.Value = 1D;
+			scaleCustomDivision40.Text = "Pos_tY";
+			scaleCustomDivision40.TickLength = 1F;
+			scaleCustomDivision40.Value = 2D;
+			scaleCustomDivision41.Text = "Pos_tX";
+			scaleCustomDivision41.TickLength = 1F;
+			scaleCustomDivision41.Value = 3D;
+			scaleCustomDivision42.Text = "Pos_Z";
+			scaleCustomDivision42.TickLength = 1F;
+			scaleCustomDivision42.Value = 4D;
+			scaleCustomDivision43.Text = "Pos_tZ";
+			scaleCustomDivision43.TickLength = 1F;
+			scaleCustomDivision43.Value = 5D;
+			scaleCustomDivision44.Text = "Pos_Y";
+			scaleCustomDivision44.TickLength = 1F;
+			scaleCustomDivision44.Value = 6D;
+			scaleCustomDivision45.Text = "Pos_X";
+			scaleCustomDivision45.TickLength = 1F;
+			scaleCustomDivision45.Value = 7D;
+			scaleCustomDivision46.Text = "Vel_tY";
+			scaleCustomDivision46.TickLength = 1F;
+			scaleCustomDivision46.Value = 8D;
+			scaleCustomDivision47.Text = "Vel_tX";
+			scaleCustomDivision47.TickLength = 1F;
+			scaleCustomDivision47.Value = 9D;
+			scaleCustomDivision48.Text = "Vel_Z";
+			scaleCustomDivision48.TickLength = 1F;
+			scaleCustomDivision48.Value = 10D;
+			scaleCustomDivision49.Text = "Vel_tZ";
+			scaleCustomDivision49.TickLength = 1F;
+			scaleCustomDivision49.Value = 11D;
+			scaleCustomDivision50.Text = "Vel_Y";
+			scaleCustomDivision50.TickLength = 1F;
+			scaleCustomDivision50.Value = 12D;
+			scaleCustomDivision51.Text = "Vel_X";
+			scaleCustomDivision51.TickLength = 1F;
+			scaleCustomDivision51.Value = 13D;
+			scaleCustomDivision52.Text = "Motor 4Z";
+			scaleCustomDivision52.TickLength = 1F;
+			scaleCustomDivision52.Value = 14D;
+			scaleCustomDivision53.Text = "Motor 3Z";
+			scaleCustomDivision53.TickLength = 1F;
+			scaleCustomDivision53.Value = 15D;
+			scaleCustomDivision54.Text = "Motor 2Z";
+			scaleCustomDivision54.TickLength = 1F;
+			scaleCustomDivision54.Value = 16D;
+			scaleCustomDivision55.Text = "Motor 1Z";
+			scaleCustomDivision55.TickLength = 1F;
+			scaleCustomDivision55.Value = 17D;
+			scaleCustomDivision56.Text = "Motor 4H";
+			scaleCustomDivision56.TickLength = 1F;
+			scaleCustomDivision56.Value = 18D;
+			scaleCustomDivision57.Text = "Motor 3H";
+			scaleCustomDivision57.TickLength = 1F;
+			scaleCustomDivision57.Value = 19D;
+			scaleCustomDivision58.Text = "Motor 2H";
+			scaleCustomDivision58.TickLength = 1F;
+			scaleCustomDivision58.Value = 20D;
+			scaleCustomDivision59.Text = "Motor 1H";
+			scaleCustomDivision59.TickLength = 1F;
+			scaleCustomDivision59.Value = 21D;
+			scaleCustomDivision60.Text = "Geo 3Z";
+			scaleCustomDivision60.TickLength = 1F;
+			scaleCustomDivision60.Value = 22D;
+			scaleCustomDivision61.Text = "Geo 2Z";
+			scaleCustomDivision61.TickLength = 1F;
+			scaleCustomDivision61.Value = 23D;
+			scaleCustomDivision62.Text = "Geo 1Z";
+			scaleCustomDivision62.TickLength = 1F;
+			scaleCustomDivision62.Value = 24D;
+			scaleCustomDivision63.Text = "Geo 3H";
+			scaleCustomDivision63.TickLength = 1F;
+			scaleCustomDivision63.Value = 25D;
+			scaleCustomDivision64.Text = "Geo 2H";
+			scaleCustomDivision64.TickLength = 1F;
+			scaleCustomDivision64.Value = 26D;
+			scaleCustomDivision65.Text = "Geo 1H";
+			scaleCustomDivision65.TickLength = 1F;
+			scaleCustomDivision65.Value = 27D;
+			scaleCustomDivision66.Text = "StFF_Ypos";
+			scaleCustomDivision66.TickLength = 1F;
+			scaleCustomDivision66.Value = 28D;
+			scaleCustomDivision67.Text = "StFF_Xpos";
+			scaleCustomDivision67.TickLength = 1F;
+			scaleCustomDivision67.Value = 29D;
+			scaleCustomDivision68.Text = "StFF_Yacc";
+			scaleCustomDivision68.TickLength = 1F;
+			scaleCustomDivision68.Value = 30D;
+			scaleCustomDivision69.Text = "StFF_Xacc";
+			scaleCustomDivision69.TickLength = 1F;
+			scaleCustomDivision69.Value = 31D;
+			scaleCustomDivision70.Text = "Prx_3Z_um";
+			scaleCustomDivision70.TickLength = 1F;
+			scaleCustomDivision70.Value = 32D;
+			scaleCustomDivision71.Text = "Prx_2Z_um";
+			scaleCustomDivision71.TickLength = 1F;
+			scaleCustomDivision71.Value = 33D;
+			scaleCustomDivision72.Text = "Prx_1Z_um";
+			scaleCustomDivision72.TickLength = 1F;
+			scaleCustomDivision72.Value = 34D;
+			scaleCustomDivision73.Text = "Prx_3H_um";
+			scaleCustomDivision73.TickLength = 1F;
+			scaleCustomDivision73.Value = 35D;
+			scaleCustomDivision74.Text = "Prx_2H_um";
+			scaleCustomDivision74.TickLength = 1F;
+			scaleCustomDivision74.Value = 36D;
+			scaleCustomDivision75.Text = "Prx_1H_um";
+			scaleCustomDivision75.TickLength = 1F;
+			scaleCustomDivision75.Value = 37D;
+			scaleCustomDivision76.Text = "--other--";
+			scaleCustomDivision76.TickLength = 1F;
+			scaleCustomDivision76.Value = 38D;
 			this.cwBNC1select.CustomDivisions.AddRange(new NationalInstruments.UI.ScaleCustomDivision[] {
-            scaleCustomDivision115,
-            scaleCustomDivision116,
-            scaleCustomDivision117,
-            scaleCustomDivision118,
-            scaleCustomDivision119,
-            scaleCustomDivision120,
-            scaleCustomDivision121,
-            scaleCustomDivision122,
-            scaleCustomDivision123,
-            scaleCustomDivision124,
-            scaleCustomDivision125,
-            scaleCustomDivision126,
-            scaleCustomDivision127,
-            scaleCustomDivision128,
-            scaleCustomDivision129,
-            scaleCustomDivision130,
-            scaleCustomDivision131,
-            scaleCustomDivision132,
-            scaleCustomDivision133,
-            scaleCustomDivision134,
-            scaleCustomDivision135,
-            scaleCustomDivision136,
-            scaleCustomDivision137,
-            scaleCustomDivision138,
-            scaleCustomDivision139,
-            scaleCustomDivision140,
-            scaleCustomDivision141,
-            scaleCustomDivision142,
-            scaleCustomDivision143,
-            scaleCustomDivision144,
-            scaleCustomDivision145,
-            scaleCustomDivision146,
-            scaleCustomDivision147,
-            scaleCustomDivision148,
-            scaleCustomDivision149,
-            scaleCustomDivision150,
-            scaleCustomDivision151,
-            scaleCustomDivision152});
+            scaleCustomDivision39,
+            scaleCustomDivision40,
+            scaleCustomDivision41,
+            scaleCustomDivision42,
+            scaleCustomDivision43,
+            scaleCustomDivision44,
+            scaleCustomDivision45,
+            scaleCustomDivision46,
+            scaleCustomDivision47,
+            scaleCustomDivision48,
+            scaleCustomDivision49,
+            scaleCustomDivision50,
+            scaleCustomDivision51,
+            scaleCustomDivision52,
+            scaleCustomDivision53,
+            scaleCustomDivision54,
+            scaleCustomDivision55,
+            scaleCustomDivision56,
+            scaleCustomDivision57,
+            scaleCustomDivision58,
+            scaleCustomDivision59,
+            scaleCustomDivision60,
+            scaleCustomDivision61,
+            scaleCustomDivision62,
+            scaleCustomDivision63,
+            scaleCustomDivision64,
+            scaleCustomDivision65,
+            scaleCustomDivision66,
+            scaleCustomDivision67,
+            scaleCustomDivision68,
+            scaleCustomDivision69,
+            scaleCustomDivision70,
+            scaleCustomDivision71,
+            scaleCustomDivision72,
+            scaleCustomDivision73,
+            scaleCustomDivision74,
+            scaleCustomDivision75,
+            scaleCustomDivision76});
 			this.cwBNC1select.EditRangeNumericFormatMode = NationalInstruments.UI.NumericFormatMode.CreateGenericMode("F0");
 			this.cwBNC1select.FillColor = System.Drawing.SystemColors.ActiveBorder;
 			this.cwBNC1select.FillMode = NationalInstruments.UI.NumericFillMode.None;
