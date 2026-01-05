@@ -67,11 +67,36 @@ namespace TMCAnalyzer {
 		public bool Test_in_progress = false;
 		public string Buffer;
 		private int BNC_0_index;
-		public static bool HasFloorFF;
 		public static bool AirIsoPresent;
+		//Converted bool HasFloorFF into property + event
+		private static bool _hasFloorFF;
+		public static bool HasFloorFF {
+			get => _hasFloorFF;
+			set {
+				if (_hasFloorFF != value) {
+					_hasFloorFF = value;
+					// Raise change event (null sender because it's a static event)
+					HasFloorFFChanged?.Invoke(null, EventArgs.Empty);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Raised when HasFloorFF value is changed.
+		/// Handlers (UI) must marshal to UI thread if needed.
+		/// </summary>
+		public static event EventHandler HasFloorFFChanged;
 
 		frmDrivingOutput frmDrivingOutput = new frmDrivingOutput();
 		frmSensorInput frmSensorInput = new frmSensorInput();
+
+		//private T EnsureForm<T>(ref T formRef) where T : Form, new() {
+		//	if (formRef == null || formRef.IsDisposed) {
+		//		formRef = new T();
+		//		formRef.FormClosed += (s, e) => { formRef = null; };
+		//	}
+		//	return formRef;
+		//}
 
 		/**********************************************************************************************************************/
 		//*** FIRES WHEN FORM-INSTANCE IS CREATED
@@ -6135,11 +6160,23 @@ end_conv:
 			OpenCloseGainsForm();
 		}
 
+		private frmFloorFF FrmFloorFF;
+		private formGains FormGains;
+		private void FrmFloorFF_FormClosed(object sender, FormClosedEventArgs e) {
+			// release reference so next time a new instance will be created
+			FrmFloorFF.FormClosed -= FrmFloorFF_FormClosed;
+			FrmFloorFF = null;
+		}
+
+		private void FrmGains_FormClosed(object sender, FormClosedEventArgs e) {
+			FormGains.FormClosed -= FrmGains_FormClosed;
+			FormGains = null;
+		}
 		/**********************************************************************************************************************/
 		public void OpenCloseGainsForm(bool isVisible = true) {
 			if (HasFloorFF) {
-				if (/*form already active?*/ Program.FrmFloorFF != null) {
-					if (!Program.FrmFloorFF.Visible && !Program.FrmFloorFF.FormTerminalVisible) {
+				if (/*form already active?*/ Program.FrmFloorFF != null && !Program.FrmFloorFF.IsDisposed) {
+					if (!Program.FrmFloorFF.Visible && !Program.FrmFloorFF.FormTerminalVisible ) {
 						LblFB_FF_Gains.Font = new Font("Tahoma", 9.0F, FontStyle.Bold);
 						LblFB_FF_Gains.ForeColor = Color.Maroon;
 						Program.FrmFloorFF.Show();
@@ -6153,7 +6190,7 @@ end_conv:
 						Program.FrmFloorFF.Hide();
 						Program.FrmFloorFF.FormTerminalVisible = false;
 					}
-				} else {
+				} else { // form was not created or was disposed
 					LblFB_FF_Gains.Font = new Font("Tahoma", 9.0F, FontStyle.Bold);
 					LblFB_FF_Gains.ForeColor = Color.Maroon;
 					Program.FrmFloorFF = new frmFloorFF(this);
@@ -6162,7 +6199,7 @@ end_conv:
 					Program.FrmFloorFF.FormTerminalVisible = true;
 				}
 				} else {
-				if (/*form already active?*/ Program.FormGains != null) {
+				if (/*form already active?*/ Program.FormGains != null && !Program.FormGains.IsDisposed) {
 					if (!Program.FormGains.Visible && !Program.FormGains.FormTerminalVisible) {
 						LblFB_FF_Gains.Font = new Font("Tahoma", 9.0F, FontStyle.Bold);
 						LblFB_FF_Gains.ForeColor = Color.Maroon;
@@ -6177,7 +6214,7 @@ end_conv:
 						Program.FormGains.Hide();
 						Program.FormGains.FormTerminalVisible = false;
 					}
-				} else {
+				} else {// form was not created or was disposed
 					LblFB_FF_Gains.Font = new Font("Tahoma", 9.0F, FontStyle.Bold);
 					LblFB_FF_Gains.ForeColor = Color.Maroon;
 					Program.FormGains = new formGains(this);

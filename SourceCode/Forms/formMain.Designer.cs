@@ -3773,6 +3773,7 @@
 			// 
 			this.xAxis1.MajorDivisions.GridVisible = true;
 			this.xAxis1.MinorDivisions.GridVisible = true;
+			this.xAxis1.Mode = NationalInstruments.UI.AxisMode.Fixed;
 			this.xAxis1.Range = new NationalInstruments.UI.Range(0.1D, 1000D);
 			this.xAxis1.ScaleType = NationalInstruments.UI.ScaleType.Logarithmic;
 			// 

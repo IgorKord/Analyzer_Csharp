@@ -147,6 +147,19 @@ namespace TMCAnalyzer {
 				if (CheckPneumFilters != null) CheckPneumFilters.Checked = true;
 			} catch { }
 			fill_Freq_array();
+			ApplyHasFloorFFUI();
+			try {
+				// Mirror VB6: FramePneumatic / CheckPneumFilters according to AirIsoPresent
+				if (formMain != null && formMain.AirIsoPresent) {
+					FramePneumatic.Enabled = true;
+					CheckPneumFilters.Checked = true;
+				} else {
+					FramePneumatic.Enabled = false;
+					CheckPneumFilters.Checked = false;
+				}
+			} catch (Exception) {
+				// Keep form load resilient if something unexpected occurs (designer mismatch, nulls).
+			}
 		}
 
 		private void InitializeLocalControls() {
@@ -201,8 +214,82 @@ namespace TMCAnalyzer {
 				cwNumFilterParam4  // Q2
 			});
 
-			// Any other initialization you'd previously had can follow here.
-			//mdr 010618// enough in frmFilters()//Ready = true;
+			formMain.HasFloorFFChanged += OnHasFloorFFChanged;
+		}
+
+		private void OnHasFloorFFChanged(object sender, EventArgs e) {
+			// If we're on a non-UI thread, marshal to UI thread.
+			if (this.IsHandleCreated && this.InvokeRequired) {
+				this.BeginInvoke(new Action(ApplyHasFloorFFUI));
+			} else {
+				ApplyHasFloorFFUI();
+			}
+		}
+		private int GetActiveFilterCount()
+		{
+			// If controller supports Floor FF then all MAX_FILTERS_IN_AXIS filters are active;
+			// otherwise reserve last slot for adaptive-FF and treat it as not present.
+			// formMain.HasFloorFF is the public static bool defined in frmMain.
+			// Use the static directly (frmMain.HasFloorFF) so this works even if instance isn't set.
+			return (formMain.HasFloorFF) ? MAX_FILTERS_IN_AXIS : (MAX_FILTERS_IN_AXIS - 1);
+		}
+
+		private int GetActiveFilterMaxIndex()
+		{
+			// return the max index (inclusive) for loops that use <= maxIndex
+			return GetActiveFilterCount() - 1;
+		}
+
+		private void ApplyHasFloorFFUI()
+		{
+			try
+			{
+				int active = GetActiveFilterCount();
+				// Show/hide UI rows for filter slots according to active count
+				for (int i = 0; i < MAX_FILTERS_IN_AXIS; i++)
+				{
+					bool visible = i < active;
+					// Attempt to hide all per-row controls if they exist.
+					if (LblFilter.Count > i) LblFilter[i].Visible = visible;
+					if (Lbl_FilterType.Count > i) Lbl_FilterType[i].Visible = visible;
+					if (Lbl_FilterFreq1.Count > i) Lbl_FilterFreq1[i].Visible = visible;
+					if (Lbl_FilterFreq2.Count > i) Lbl_FilterFreq2[i].Visible = visible;
+					if (Lbl_FilterQ1.Count > i) Lbl_FilterQ1[i].Visible = visible;
+					if (Lbl_FilterQ2.Count > i) Lbl_FilterQ2[i].Visible = visible;
+					if (Lbl_FilterGain.Count > i) Lbl_FilterGain[i].Visible = visible;
+				}
+				// Update axis names 12..21 depending on firmware mode (HasFloorFF).
+				// Ensure ComboFilterAxis has at least 22 entries (0..21)
+				if (ComboFilterAxis != null && ComboFilterAxis.Items.Count >= 22) {
+					if (formMain != null && formMain.HasFloorFF) {
+						ComboFilterAxis.Items[12] = "ZfloorFF";
+						ComboFilterAxis.Items[13] = "XfloorFF";
+						ComboFilterAxis.Items[14] = "YfloorFF";
+						ComboFilterAxis.Items[15] = "UnusedFF";
+						ComboFilterAxis.Items[16] = "UnusedV1";
+						ComboFilterAxis.Items[17] = "UnusedV2";
+						ComboFilterAxis.Items[18] = "UnusedV3";
+						ComboFilterAxis.Items[19] = "UnusedV4";
+						ComboFilterAxis.Items[20] = "UnusedBal";
+						ComboFilterAxis.Items[21] = "Aux Filters";
+					} else {
+						ComboFilterAxis.Items[12] = "FF X acc";
+						ComboFilterAxis.Items[13] = "FF Y acc";
+						ComboFilterAxis.Items[14] = "FF X pos";
+						ComboFilterAxis.Items[15] = "FF Y pos";
+						ComboFilterAxis.Items[16] = "pressure V1";
+						ComboFilterAxis.Items[17] = "pressure V2";
+						ComboFilterAxis.Items[18] = "pressure V3";
+						ComboFilterAxis.Items[19] = "pressure V4";
+						ComboFilterAxis.Items[20] = "pressure Bal";
+						ComboFilterAxis.Items[21] = "Aux Filters";
+					}
+				}
+			} catch
+			{
+				// keep silent if designer differs; do not throw on visibility adjustments
+				MessageBox.Show("Not enough DropDownControl FilterTypes in colection", "Fiter Type Selection problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 
 		private void UpdateCoefficientDiffs(int filtNum) {
@@ -248,7 +335,7 @@ namespace TMCAnalyzer {
 			int f_par;
 			ComboFilterTYPE.ForeColor = Color.Black;                   //artem 060518
 
-			for (f_num = 0; f_num <= MAX_FILTERS_IN_AXIS - 1; f_num++) {
+			for (f_num = 0; f_num < MAX_FILTERS_IN_AXIS; f_num++) {
 				OriginalFilterParamArray[f_num, fTi] = 0;                //filter type = NO_FILTER
 				OriginalFilterParamArray[f_num, fGi] = 1;                //gain
 				OriginalFilterParamArray[f_num, f1i] = 1;                //F1
@@ -309,16 +396,16 @@ namespace TMCAnalyzer {
 			int sep_pos;
 			List<string> file_filt_params = new List<string>();
 			if (Program.formTerminal != null) Program.formTerminal.OnQuitMenuCommand();
-			if ((ComboFilterAxis.SelectedIndex > 20)) // Parameter "$": index of axis : position Xp=0,Yp=1,tZp=2,Zp=3,tXp=4,tYp=5; velocity Xv=6,Yv=7,tZv=8,Zv=9,tXv=A,tYv=B; damping Zd=C,tXd=D,tYd=E, balance diagonal=F
-			{
-				// error, there are only 12 axis gains, gain#$, #=0,1,2,3, $=0-A
-				cwNumAxisGain.BackColor = Color.Red;// 12632319;
-				cwNumAxisGain.Value = 0;
-				cwNumAxisGain.Enabled = false;
-				// mdr 060318 // Refresh_FilterParams();
-				//  but, refresh  filter chain - there are 20 filter chains
-				return;
-			}
+			//if ((ComboFilterAxis.SelectedIndex > 20)) // Parameter "$": index of axis : position Xp=0,Yp=1,tZp=2,Zp=3,tXp=4,tYp=5; velocity Xv=6,Yv=7,tZv=8,Zv=9,tXv=A,tYv=B; damping Zd=C,tXd=D,tYd=E, balance diagonal=F
+			//{
+			//	// error, there are only 12 axis gains, gain#$, #=0,1,2,3, $=0-A
+			//	cwNumAxisGain.BackColor = Color.Red;// 12632319;
+			//	cwNumAxisGain.Value = 0;
+			//	cwNumAxisGain.Enabled = false;
+			//	// mdr 060318 // Refresh_FilterParams();
+			//	//  but, refresh  filter chain - there are 20 filter chains
+			//	return;
+			//}
 			Program.IsReadingControllerSettings = true;
 			ReadyForUserChange = false; //IK prevent mutiple updates while reading parameters
 			if (demoMode) {
@@ -414,7 +501,7 @@ namespace TMCAnalyzer {
 			//
 			// #= filter parameter number [0,1,2,3,4,5] == long ftyp; float par[5];
 			ReadyForUserChange = false;
-			int filter_num;
+			int Filt_num;
 			FrameFilter.Visible = false;
 			if (!demoMode) {
 				// retval = Analyzer.GetSend("echo>enab", true);
@@ -423,17 +510,21 @@ namespace TMCAnalyzer {
 				formMain.SendInternal("echo>enab", CommandTypes.ResponseExpected, out response, CommandAckTypes.AckExpected);
 			}
 			// disable "echo>verb" to speed up
-			for (filter_num = 0; (filter_num < (MAX_FILTERS_IN_AXIS)); filter_num++) {
-				// 0 to 5:  5 params AND FILTER_TYPE
-				Fill_in_filter_params(ref filter_num);
-				Lbl_FilterType[filter_num].Text = ComboFilterTYPE.Items[(int)OriginalFilterParamArray[filter_num, fTi]].ToString();
+			// >>>>>>>>> CoPilot 20260104 suggested
+			// but IK20260104 s not agree - it is just refreshing labels, not calculating
+			// IK int maxCount = GetActiveFilterCount();
+			// IK for (Filt_num = 0; Filt_num < maxCount; Filt_num++)
+			for (Filt_num = 0; Filt_num < MAX_FILTERS_IN_AXIS; Filt_num++)       // 0 to 5:  5 params AND FILTER_TYPE
+			{
+				Fill_in_filter_params(ref Filt_num);
+				Lbl_FilterType[Filt_num].Text = ComboFilterTYPE.Items[(int)OriginalFilterParamArray[Filt_num, fTi]].ToString();
 
-				Lbl_FilterGain[filter_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[filter_num, fGi]);
-				Lbl_FilterFreq1[filter_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[filter_num, f1i]);
-				Lbl_FilterFreq2[filter_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[filter_num, f2i]);
-				Lbl_FilterQ1[filter_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[filter_num, q1i]);
-				Lbl_FilterQ2[filter_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[filter_num, q2i]);
-				CheckIfFilterChangedAndReCalculateTFsAndPrediction(filter_num);
+				Lbl_FilterGain[Filt_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[Filt_num, fGi]);
+				Lbl_FilterFreq1[Filt_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[Filt_num, f1i]);
+				Lbl_FilterFreq2[Filt_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[Filt_num, f2i]);
+				Lbl_FilterQ1[Filt_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[Filt_num, q1i]);
+				Lbl_FilterQ2[Filt_num].Text = string.Format("{0:0.000}", OriginalFilterParamArray[Filt_num, q2i]);
+				CheckIfFilterChangedAndReCalculateTFsAndPrediction(Filt_num);
 			}
 			Copy_Params_for_Edit(FilterNumberInChain);
 			ReadyForUserChange = true;
@@ -441,7 +532,7 @@ namespace TMCAnalyzer {
 
 		/// <summary>
 		/// function checks all user params in the current filter associated with CHANGING_FilterParamArray[Filt_num, *]
-		/// compares them with OriginalFilterParamArray[Filt_num, *] 
+		/// compares them with OriginalFilterParamArray[Filt_num, *]
 		/// and updates array Filter_CHANGED[Filt_num, *]
 		/// </summary>
 		/// <param name="Filt_num"> 0 to 5, either Editing Frame position or when checking whole filter chain</param>
@@ -474,7 +565,7 @@ namespace TMCAnalyzer {
 							Lbl_FilterQ1[Filt_num].BackColor = ChangedColor;
 						} else if ((Filt_Param_num - 1) == ParIndxQ2) {
 							Lbl_FilterQ2[Filt_num].BackColor = ChangedColor;
-						} 
+						}
 					}
 				} else // no change
 				  {
@@ -505,7 +596,7 @@ namespace TMCAnalyzer {
 
 		// '''''''''changes color of control and set/clear Boolean Filter_CHANGED(filt_NUM,, FilterParamNum)
 		void CheckIfFilterChangedAndReCalculateTFsAndPrediction(int Filt_num) {
-			
+
 			bool FilterChanged = CheckIfFilterChanged(Filt_num, true);
 
 			if (FilterChanged == true) {
@@ -560,7 +651,10 @@ namespace TMCAnalyzer {
 			}
 
 			//  calculation "horizontally"
-			for (Filt_num = 0; (Filt_num <= FB_FILTERS_IN_AXIS); Filt_num++) {
+			//for (Filt_num = 0; (Filt_num <= FB_FILTERS_IN_AXIS); Filt_num++)// CoPilot 20260104
+			int maxFiltIdx = GetActiveFilterMaxIndex(); // inclusive
+			for (Filt_num = 0; Filt_num <= maxFiltIdx; Filt_num++) // CoPilot 20260104
+			{
 				// 0 to 4, the 5th filter in ElectroDamp is for stage FF adaptive algorithm
 				//mdr 053118//if ((ChkRealTimeUpdateTF.Checked == true))
 				//mdr 053118// should be done prior and w/o ref. to ChkRealTimeUpdateTF//set_filt_params_from_user_input(Filt_num);
@@ -1517,7 +1611,7 @@ namespace TMCAnalyzer {
 			freq_sum_for_test = 0;
 			for (freq_pt = 0; (freq_pt < TEST_LTF_ARRAY_LENGTH); freq_pt++) {
 				// 0 to 200
-				if ((formMain.LTFreferenceFreq[freq_pt] > 0)) {
+				if (formMain.LTFreferenceFreq[freq_pt] > 0) {
 					// prepare test array for axis OLTF calculation
 					prev_freq = formMain.LTFreferenceFreq[freq_pt];
 				}
@@ -1548,7 +1642,7 @@ namespace TMCAnalyzer {
 				Predicted_Phase[freq_pt] = Phase_Limit_TF_plus_minus_180((formMain.LTFreferencePhase[freq_pt] + Axis_Phase[freq_pt]));
 			}
 
-			freq_pt = (freq_pt - 1);
+			//freq_pt --;
 
 			formMain.ScatterGraphMag.Plots[Prediction_TF_Num].PlotXY(Freq_points, Predicted_Mag);
 			formMain.ScatterGraphPhase.Plots[Prediction_TF_Num].PlotXY(Freq_points, Predicted_Phase);
@@ -1576,7 +1670,7 @@ namespace TMCAnalyzer {
 				return;
 			} else {
 				if (!demoMode) {
-					for (Fnum = 0; (Fnum <= (MAX_FILTERS_IN_AXIS - 1)); Fnum++) {
+					for (Fnum = 0; Fnum < MAX_FILTERS_IN_AXIS; Fnum++) {
 						for (Fpar = 0; (Fpar < USER_PARAM_NUMBER); Fpar++) {
 							// check change of 5 params AND FILTER TYPE
 							if ((Opt_ALLfilters_or_ChangedOnly1.Checked == true)) {
@@ -1815,6 +1909,7 @@ namespace TMCAnalyzer {
 		}
 		private void frmFilters_Activated(object sender, EventArgs e) {
 			updateDemoStatus();             //Run this only once per activation time
+			ApplyHasFloorFFUI();
 		}
 
 		//artem 060718 function that loads filter parameters from .param file, a lot of parsing and string operations

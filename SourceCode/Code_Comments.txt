@@ -1,3 +1,8 @@
+20260104 IK
+Using CoPilot, updated Filters, Splash, Main
+Using git and GitHub
+work in progress but it getting better. See dialogs in Backup\Chat folder
+
 20251228 IK
 spent another 5 hours trying to make Grok what I want - replace NumericEdit with ScientificNumericUpDown.
 time and time again, it modifies form designer so all controls look wrong, loosing size and content (ON-OFF images)
