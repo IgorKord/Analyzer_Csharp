@@ -47,7 +47,7 @@ namespace TMCAnalyzer {
 		string retval;
 		// from the privious line to detect jump
 		filt_prec Prev_Phase;
-
+		int PreviousFiltNumber; //IK20260105 if user clicks on another filter line (LblFilter) allows to detect filter number change and re-calculate TF
 		//filt type, 5 params, 5 coefficients
 		//const int PID_P_gain = fGi;	//#define PID_P_gain FilterGain
 		//const int PID_I_gain = f1i;	//#define PID_I_gain freq_1
@@ -487,6 +487,7 @@ namespace TMCAnalyzer {
 			}
 			Program.IsReadingControllerSettings = false;
 			Refresh_FilterParams();
+			ReadyForUserChange = true;
 		}
 
 		void Refresh_FilterParams() {
@@ -596,10 +597,12 @@ namespace TMCAnalyzer {
 
 		// '''''''''changes color of control and set/clear Boolean Filter_CHANGED(filt_NUM,, FilterParamNum)
 		void CheckIfFilterChangedAndReCalculateTFsAndPrediction(int Filt_num) {
-
+			if (Program.IsReadingControllerSettings || !ReadyForUserChange)
+				return;
 			bool FilterChanged = CheckIfFilterChanged(Filt_num, true);
-
-			if (FilterChanged == true) {
+			bool FilterNumberChanged = (PreviousFiltNumber != Filt_num);
+			if (FilterChanged  || FilterNumberChanged) {
+				PreviousFiltNumber = Filt_num;
 				CalculateAxis_TF();
 				if(formMain.ChkShowPredictionPlot.Checked)
 					Calc_Prediction();
@@ -628,7 +631,7 @@ namespace TMCAnalyzer {
 			filt_prec[] TMpFiltPlot_Phase = new filt_prec[TEST_LTF_ARRAY_LENGTH];
 			int phase_reversal;
 
-			if ((reverse_Ph == true)) {
+			if (reverse_Ph == true) {
 				phase_reversal = 180;
 			} else {
 				phase_reversal = 0;
@@ -639,7 +642,7 @@ namespace TMCAnalyzer {
 			for (i = 0; (i < TEST_LTF_ARRAY_LENGTH); i++) {
 				//  0 to 200
 				TMpFiltPlot_Phase[i] = 0;
-				if ((cwNumAxisGain.Value > 0)) {
+				if (cwNumAxisGain.Value > 0) {
 					// means it was updated
 					TMpFiltPlot_Mag[i] = (20 * (Math.Log(cwNumAxisGain.Value) / Math.Log(10)));
 					// convert Axis gain to dB
@@ -1566,8 +1569,8 @@ namespace TMCAnalyzer {
 			FrameFilter.Visible = true;
 			ReadyForUserChange = false; // prevent multiple re-painting On ValueChange
 			Copy_Params_for_Edit(FilterNumberInChain);
-			CheckIfFilterChangedAndReCalculateTFsAndPrediction(FilterNumberInChain);
 			ReadyForUserChange = true;
+			CheckIfFilterChangedAndReCalculateTFsAndPrediction(FilterNumberInChain);
 		}
 
 		private void ChkShowOneFilterTF_CheckedChanged(object sender, EventArgs e) {

@@ -895,7 +895,7 @@
 			this._lblAxis_1.Margin = new System.Windows.Forms.Padding(0);
 			this._lblAxis_1.Name = "_lblAxis_1";
 			this._lblAxis_1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this._lblAxis_1.Size = new System.Drawing.Size(208, 300);
+			this._lblAxis_1.Size = new System.Drawing.Size(208, 345);
 			this._lblAxis_1.TabIndex = 87;
 			this._lblAxis_1.Text = "Velocity";
 			this.toolTip1.SetToolTip(this._lblAxis_1, "Suppress payload motion by using geophones (velocity sensors) and linear motors");
