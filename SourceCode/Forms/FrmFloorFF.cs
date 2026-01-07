@@ -456,7 +456,7 @@ namespace TMCAnalyzer {
 
 		private void NumericFFgain_AfterChangeValue(object sender, EventArgs e) {
 			ScientificNumericUpDown numFFgain = (ScientificNumericUpDown)sender;
-			numFFgain.UpdateEditText();
+			numFFgain.UpdateScientificText();
 		}
 
 		private void numFFgain_KeyPress(object sender, KeyPressEventArgs e) {
@@ -476,7 +476,7 @@ namespace TMCAnalyzer {
 
 		private void numAxisFBgain_AfterChangeValue(object sender, EventArgs e) {
 			ScientificNumericUpDown numFBgain = (ScientificNumericUpDown)sender;
-			numFBgain.UpdateEditText();
+			numFBgain.UpdateScientificText();
 		}
 
 		private void numAxisFBgain_KeyPress(object sender, KeyPressEventArgs e) {

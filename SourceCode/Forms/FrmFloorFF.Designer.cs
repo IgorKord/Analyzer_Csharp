@@ -26,34 +26,62 @@ namespace TMCAnalyzer {
 		private void InitializeComponent() {
 			this.components = new System.ComponentModel.Container();
 			this.FrameVelocityFB = new System.Windows.Forms.GroupBox();
+			this.numAxisFBgain_5 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numAxisFBgain_4 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numAxisFBgain_3 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numAxisFBgain_2 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numAxisFBgain_1 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numAxisFBgain_0 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.ToggleAllFBaxes = new TMCAnalyzer.StateButton();
+			this.AxisEn5 = new TMCAnalyzer.StateButton();
 			this.AxisFBgain_5 = new NationalInstruments.UI.WindowsForms.NumericEdit();
 			this.label5 = new System.Windows.Forms.Label();
+			this.AxisEn4 = new TMCAnalyzer.StateButton();
 			this.AxisFBgain_4 = new NationalInstruments.UI.WindowsForms.NumericEdit();
 			this.label6 = new System.Windows.Forms.Label();
+			this.AxisEn3 = new TMCAnalyzer.StateButton();
 			this.AxisFBgain_3 = new NationalInstruments.UI.WindowsForms.NumericEdit();
 			this.label3 = new System.Windows.Forms.Label();
+			this.AxisEn2 = new TMCAnalyzer.StateButton();
 			this.AxisFBgain_2 = new NationalInstruments.UI.WindowsForms.NumericEdit();
 			this.label4 = new System.Windows.Forms.Label();
+			this.AxisEn1 = new TMCAnalyzer.StateButton();
 			this.AxisFBgain_1 = new NationalInstruments.UI.WindowsForms.NumericEdit();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label0 = new System.Windows.Forms.Label();
+			this.AxisEn0 = new TMCAnalyzer.StateButton();
 			this.AxisFBgain_0 = new NationalInstruments.UI.WindowsForms.NumericEdit();
 			this._Label1_0 = new System.Windows.Forms.Label();
 			this._Label1_13 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
 			this.FrameFF = new System.Windows.Forms.GroupBox();
+			this.numFFgain3 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numFFgain1 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numFFgain2 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
+			this.numFFgain0 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
 			this.FFgain1 = new NationalInstruments.UI.WindowsForms.NumericEdit();
 			this.label12 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
 			this.lblFFgain_1 = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
 			this.cmdRefresh = new System.Windows.Forms.Button();
+			this.ToggleFFmotors = new TMCAnalyzer.StateButton();
 			this.label9 = new System.Windows.Forms.Label();
+			this.ToggleFFmotAdaptive = new TMCAnalyzer.StateButton();
 			this.label8 = new System.Windows.Forms.Label();
+			this.ToggleFFall = new TMCAnalyzer.StateButton();
 			this.label7 = new System.Windows.Forms.Label();
+			this.Adaptive0 = new TMCAnalyzer.StateButton();
+			this.Working0 = new TMCAnalyzer.StateButton();
 			this.FFgain0 = new NationalInstruments.UI.WindowsForms.NumericEdit();
+			this.Adaptive2 = new TMCAnalyzer.StateButton();
+			this.Working2 = new TMCAnalyzer.StateButton();
 			this.FFgain2 = new NationalInstruments.UI.WindowsForms.NumericEdit();
+			this.Adaptive1 = new TMCAnalyzer.StateButton();
+			this.Working1 = new TMCAnalyzer.StateButton();
+			this.Adaptive3 = new TMCAnalyzer.StateButton();
+			this.Working3 = new TMCAnalyzer.StateButton();
 			this.ImageGains = new System.Windows.Forms.PictureBox();
 			this.lblFFgain_0 = new System.Windows.Forms.Label();
 			this.FFgain3 = new NationalInstruments.UI.WindowsForms.NumericEdit();
@@ -65,35 +93,13 @@ namespace TMCAnalyzer {
 			this._Label1_18 = new System.Windows.Forms.Label();
 			this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.cmdPulse = new System.Windows.Forms.Button();
-			this.numAxisFBgain_5 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numAxisFBgain_4 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numAxisFBgain_3 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numAxisFBgain_2 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numAxisFBgain_1 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numAxisFBgain_0 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.ToggleAllFBaxes = new TMCAnalyzer.StateButton();
-			this.AxisEn5 = new TMCAnalyzer.StateButton();
-			this.AxisEn4 = new TMCAnalyzer.StateButton();
-			this.AxisEn3 = new TMCAnalyzer.StateButton();
-			this.AxisEn2 = new TMCAnalyzer.StateButton();
-			this.AxisEn1 = new TMCAnalyzer.StateButton();
-			this.AxisEn0 = new TMCAnalyzer.StateButton();
-			this.numFFgain3 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numFFgain1 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numFFgain2 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.numFFgain0 = new TMCAnalyzer.CustomClasses.ScientificNumericUpDown();
-			this.ToggleFFmotors = new TMCAnalyzer.StateButton();
-			this.ToggleFFmotAdaptive = new TMCAnalyzer.StateButton();
-			this.ToggleFFall = new TMCAnalyzer.StateButton();
-			this.Adaptive0 = new TMCAnalyzer.StateButton();
-			this.Working0 = new TMCAnalyzer.StateButton();
-			this.Adaptive2 = new TMCAnalyzer.StateButton();
-			this.Working2 = new TMCAnalyzer.StateButton();
-			this.Adaptive1 = new TMCAnalyzer.StateButton();
-			this.Working1 = new TMCAnalyzer.StateButton();
-			this.Adaptive3 = new TMCAnalyzer.StateButton();
-			this.Working3 = new TMCAnalyzer.StateButton();
 			this.FrameVelocityFB.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_0)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_3)).BeginInit();
@@ -101,21 +107,15 @@ namespace TMCAnalyzer {
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_0)).BeginInit();
 			this.FrameFF.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain0)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain0)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ImageGains)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_5)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_0)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain0)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// FrameVelocityFB
@@ -160,6 +160,276 @@ namespace TMCAnalyzer {
 			this.FrameVelocityFB.TabIndex = 144;
 			this.FrameVelocityFB.TabStop = false;
 			// 
+			// numAxisFBgain_5
+			// 
+			this.numAxisFBgain_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.numAxisFBgain_5.CoercionInterval = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_5.DecimalPlaces = 2;
+			this.numAxisFBgain_5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numAxisFBgain_5.FormatMode = TMCAnalyzer.CustomClasses.ScientificNumericUpDown.NumericFormatMode.Regular;
+			this.numAxisFBgain_5.Location = new System.Drawing.Point(701, 1);
+			this.numAxisFBgain_5.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_5.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+			this.numAxisFBgain_5.Name = "numAxisFBgain_5";
+			this.numAxisFBgain_5.Size = new System.Drawing.Size(88, 26);
+			this.numAxisFBgain_5.TabIndex = 347;
+			this.numAxisFBgain_5.Tag = "gain0B";
+			this.numAxisFBgain_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ToolTip1.SetToolTip(this.numAxisFBgain_5, "Gain of the tY velocity FB axis");
+			this.numAxisFBgain_5.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numAxisFBgain_5.Value = new decimal(new int[] {
+            666,
+            0,
+            0,
+            131072});
+			// 
+			// numAxisFBgain_4
+			// 
+			this.numAxisFBgain_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.numAxisFBgain_4.CoercionInterval = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_4.DecimalPlaces = 2;
+			this.numAxisFBgain_4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numAxisFBgain_4.FormatMode = TMCAnalyzer.CustomClasses.ScientificNumericUpDown.NumericFormatMode.Regular;
+			this.numAxisFBgain_4.Location = new System.Drawing.Point(602, 1);
+			this.numAxisFBgain_4.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_4.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+			this.numAxisFBgain_4.Name = "numAxisFBgain_4";
+			this.numAxisFBgain_4.Size = new System.Drawing.Size(88, 26);
+			this.numAxisFBgain_4.TabIndex = 346;
+			this.numAxisFBgain_4.Tag = "gain0A";
+			this.numAxisFBgain_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ToolTip1.SetToolTip(this.numAxisFBgain_4, "Gain of the tX velocity FB axis");
+			this.numAxisFBgain_4.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numAxisFBgain_4.Value = new decimal(new int[] {
+            555,
+            0,
+            0,
+            131072});
+			// 
+			// numAxisFBgain_3
+			// 
+			this.numAxisFBgain_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.numAxisFBgain_3.CoercionInterval = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_3.DecimalPlaces = 2;
+			this.numAxisFBgain_3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numAxisFBgain_3.FormatMode = TMCAnalyzer.CustomClasses.ScientificNumericUpDown.NumericFormatMode.Regular;
+			this.numAxisFBgain_3.Location = new System.Drawing.Point(502, 1);
+			this.numAxisFBgain_3.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_3.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+			this.numAxisFBgain_3.Name = "numAxisFBgain_3";
+			this.numAxisFBgain_3.Size = new System.Drawing.Size(88, 26);
+			this.numAxisFBgain_3.TabIndex = 345;
+			this.numAxisFBgain_3.Tag = "gain09";
+			this.numAxisFBgain_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ToolTip1.SetToolTip(this.numAxisFBgain_3, "Gain of the Z velocity FB axis");
+			this.numAxisFBgain_3.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numAxisFBgain_3.Value = new decimal(new int[] {
+            444,
+            0,
+            0,
+            131072});
+			// 
+			// numAxisFBgain_2
+			// 
+			this.numAxisFBgain_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.numAxisFBgain_2.CoercionInterval = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_2.DecimalPlaces = 2;
+			this.numAxisFBgain_2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numAxisFBgain_2.FormatMode = TMCAnalyzer.CustomClasses.ScientificNumericUpDown.NumericFormatMode.Regular;
+			this.numAxisFBgain_2.Location = new System.Drawing.Point(402, 1);
+			this.numAxisFBgain_2.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_2.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+			this.numAxisFBgain_2.Name = "numAxisFBgain_2";
+			this.numAxisFBgain_2.Size = new System.Drawing.Size(88, 26);
+			this.numAxisFBgain_2.TabIndex = 344;
+			this.numAxisFBgain_2.Tag = "gain08";
+			this.numAxisFBgain_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ToolTip1.SetToolTip(this.numAxisFBgain_2, "Gain of the tZ velocity FB axis");
+			this.numAxisFBgain_2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numAxisFBgain_2.Value = new decimal(new int[] {
+            333,
+            0,
+            0,
+            131072});
+			// 
+			// numAxisFBgain_1
+			// 
+			this.numAxisFBgain_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.numAxisFBgain_1.CoercionInterval = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_1.DecimalPlaces = 2;
+			this.numAxisFBgain_1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numAxisFBgain_1.FormatMode = TMCAnalyzer.CustomClasses.ScientificNumericUpDown.NumericFormatMode.Regular;
+			this.numAxisFBgain_1.Location = new System.Drawing.Point(301, 1);
+			this.numAxisFBgain_1.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_1.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+			this.numAxisFBgain_1.Name = "numAxisFBgain_1";
+			this.numAxisFBgain_1.Size = new System.Drawing.Size(88, 26);
+			this.numAxisFBgain_1.TabIndex = 343;
+			this.numAxisFBgain_1.Tag = "gain07";
+			this.numAxisFBgain_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ToolTip1.SetToolTip(this.numAxisFBgain_1, "Gain of the Y velocity FB axis");
+			this.numAxisFBgain_1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numAxisFBgain_1.Value = new decimal(new int[] {
+            222,
+            0,
+            0,
+            131072});
+			// 
+			// numAxisFBgain_0
+			// 
+			this.numAxisFBgain_0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.numAxisFBgain_0.CoercionInterval = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_0.DecimalPlaces = 2;
+			this.numAxisFBgain_0.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numAxisFBgain_0.FormatMode = TMCAnalyzer.CustomClasses.ScientificNumericUpDown.NumericFormatMode.Regular;
+			this.numAxisFBgain_0.Location = new System.Drawing.Point(201, 1);
+			this.numAxisFBgain_0.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.numAxisFBgain_0.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+			this.numAxisFBgain_0.Name = "numAxisFBgain_0";
+			this.numAxisFBgain_0.Size = new System.Drawing.Size(88, 26);
+			this.numAxisFBgain_0.TabIndex = 342;
+			this.numAxisFBgain_0.Tag = "gain06";
+			this.numAxisFBgain_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ToolTip1.SetToolTip(this.numAxisFBgain_0, "Gain of the X velocity FB axis");
+			this.numAxisFBgain_0.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numAxisFBgain_0.Value = new decimal(new int[] {
+            111,
+            0,
+            0,
+            131072});
+			// 
+			// ToggleAllFBaxes
+			// 
+			this.ToggleAllFBaxes.Appearance = System.Windows.Forms.Appearance.Button;
+			this.ToggleAllFBaxes.AutoCheck = false;
+			this.ToggleAllFBaxes.BackColor = System.Drawing.Color.Silver;
+			this.ToggleAllFBaxes.BackgroundImage = global::TMCAnalyzer.Properties.Resources.ON_blue_slider;
+			this.ToggleAllFBaxes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ToggleAllFBaxes.Checked = true;
+			this.ToggleAllFBaxes.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.ToggleAllFBaxes.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ToggleAllFBaxes.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.ToggleAllFBaxes.Location = new System.Drawing.Point(15, 47);
+			this.ToggleAllFBaxes.Name = "ToggleAllFBaxes";
+			this.ToggleAllFBaxes.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.ToggleAllFBaxes.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ToggleAllFBaxes.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_gray_slider;
+			this.ToggleAllFBaxes.OffText = "";
+			this.ToggleAllFBaxes.OffTextColor = System.Drawing.Color.Black;
+			this.ToggleAllFBaxes.OnColor = System.Drawing.Color.Silver;
+			this.ToggleAllFBaxes.OnImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ToggleAllFBaxes.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_blue_slider;
+			this.ToggleAllFBaxes.OnText = "";
+			this.ToggleAllFBaxes.OnTextColor = System.Drawing.SystemColors.WindowText;
+			this.ToggleAllFBaxes.Size = new System.Drawing.Size(103, 41);
+			this.ToggleAllFBaxes.TabIndex = 295;
+			this.ToggleAllFBaxes.Tag = "loop_fba";
+			this.ToggleAllFBaxes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ToolTip1.SetToolTip(this.ToggleAllFBaxes, "Switch enables / disables all FB axes");
+			this.ToggleAllFBaxes.UseVisualStyleBackColor = false;
+			this.ToggleAllFBaxes.CheckedChanged += new System.EventHandler(this.ToggleAllFBaxes_CheckedChanged);
+			// 
+			// AxisEn5
+			// 
+			this.AxisEn5.Appearance = System.Windows.Forms.Appearance.Button;
+			this.AxisEn5.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.AxisEn5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.AxisEn5.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.AxisEn5.Cursor = System.Windows.Forms.Cursors.Default;
+			this.AxisEn5.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AxisEn5.Location = new System.Drawing.Point(701, 29);
+			this.AxisEn5.Name = "AxisEn5";
+			this.AxisEn5.OffColor = System.Drawing.Color.Empty;
+			this.AxisEn5.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.AxisEn5.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.AxisEn5.OffText = null;
+			this.AxisEn5.OffTextColor = System.Drawing.Color.Empty;
+			this.AxisEn5.OnColor = System.Drawing.Color.Empty;
+			this.AxisEn5.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.AxisEn5.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
+			this.AxisEn5.OnText = null;
+			this.AxisEn5.OnTextColor = System.Drawing.Color.Empty;
+			this.AxisEn5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.AxisEn5.Size = new System.Drawing.Size(66, 28);
+			this.AxisEn5.TabIndex = 293;
+			this.AxisEn5.Tag = "loop_FB_B";
+			this.AxisEn5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.ToolTip1.SetToolTip(this.AxisEn5, "Individual axis ON/OFF, when ALL AXES switch is ON");
+			this.AxisEn5.UseVisualStyleBackColor = false;
+			this.AxisEn5.CheckedChanged += new System.EventHandler(this.AxisEn_CheckedChanged);
+			// 
 			// AxisFBgain_5
 			// 
 			this.AxisFBgain_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -195,6 +465,35 @@ namespace TMCAnalyzer {
 			this.label5.Text = "tY";
 			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.ToolTip1.SetToolTip(this.label5, "Individual axis ON/OFF, when ALL FB AXES switch is ON");
+			// 
+			// AxisEn4
+			// 
+			this.AxisEn4.Appearance = System.Windows.Forms.Appearance.Button;
+			this.AxisEn4.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.AxisEn4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.AxisEn4.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.AxisEn4.Cursor = System.Windows.Forms.Cursors.Default;
+			this.AxisEn4.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AxisEn4.Location = new System.Drawing.Point(601, 29);
+			this.AxisEn4.Name = "AxisEn4";
+			this.AxisEn4.OffColor = System.Drawing.Color.Empty;
+			this.AxisEn4.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.AxisEn4.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.AxisEn4.OffText = null;
+			this.AxisEn4.OffTextColor = System.Drawing.Color.Empty;
+			this.AxisEn4.OnColor = System.Drawing.Color.Empty;
+			this.AxisEn4.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.AxisEn4.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
+			this.AxisEn4.OnText = null;
+			this.AxisEn4.OnTextColor = System.Drawing.Color.Empty;
+			this.AxisEn4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.AxisEn4.Size = new System.Drawing.Size(66, 28);
+			this.AxisEn4.TabIndex = 290;
+			this.AxisEn4.Tag = "loop_FB_A";
+			this.AxisEn4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.ToolTip1.SetToolTip(this.AxisEn4, "Individual axis ON/OFF, when ALL AXES switch is ON");
+			this.AxisEn4.UseVisualStyleBackColor = false;
+			this.AxisEn4.CheckedChanged += new System.EventHandler(this.AxisEn_CheckedChanged);
 			// 
 			// AxisFBgain_4
 			// 
@@ -232,6 +531,35 @@ namespace TMCAnalyzer {
 			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.ToolTip1.SetToolTip(this.label6, "Individual axis ON/OFF, when ALL FB AXES switch is ON");
 			// 
+			// AxisEn3
+			// 
+			this.AxisEn3.Appearance = System.Windows.Forms.Appearance.Button;
+			this.AxisEn3.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.AxisEn3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.AxisEn3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.AxisEn3.Cursor = System.Windows.Forms.Cursors.Default;
+			this.AxisEn3.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AxisEn3.Location = new System.Drawing.Point(501, 29);
+			this.AxisEn3.Name = "AxisEn3";
+			this.AxisEn3.OffColor = System.Drawing.Color.Empty;
+			this.AxisEn3.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.AxisEn3.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.AxisEn3.OffText = null;
+			this.AxisEn3.OffTextColor = System.Drawing.Color.Empty;
+			this.AxisEn3.OnColor = System.Drawing.Color.Empty;
+			this.AxisEn3.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.AxisEn3.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
+			this.AxisEn3.OnText = null;
+			this.AxisEn3.OnTextColor = System.Drawing.Color.Empty;
+			this.AxisEn3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.AxisEn3.Size = new System.Drawing.Size(66, 28);
+			this.AxisEn3.TabIndex = 287;
+			this.AxisEn3.Tag = "loop_FB_9";
+			this.AxisEn3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.ToolTip1.SetToolTip(this.AxisEn3, "Individual axis ON/OFF, when ALL AXES switch is ON");
+			this.AxisEn3.UseVisualStyleBackColor = false;
+			this.AxisEn3.CheckedChanged += new System.EventHandler(this.AxisEn_CheckedChanged);
+			// 
 			// AxisFBgain_3
 			// 
 			this.AxisFBgain_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -268,6 +596,35 @@ namespace TMCAnalyzer {
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.ToolTip1.SetToolTip(this.label3, "Individual axis ON/OFF, when ALL FB AXES switch is ON");
 			// 
+			// AxisEn2
+			// 
+			this.AxisEn2.Appearance = System.Windows.Forms.Appearance.Button;
+			this.AxisEn2.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.AxisEn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.AxisEn2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.AxisEn2.Cursor = System.Windows.Forms.Cursors.Default;
+			this.AxisEn2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AxisEn2.Location = new System.Drawing.Point(401, 29);
+			this.AxisEn2.Name = "AxisEn2";
+			this.AxisEn2.OffColor = System.Drawing.Color.Empty;
+			this.AxisEn2.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.AxisEn2.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.AxisEn2.OffText = null;
+			this.AxisEn2.OffTextColor = System.Drawing.Color.Empty;
+			this.AxisEn2.OnColor = System.Drawing.Color.Empty;
+			this.AxisEn2.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.AxisEn2.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
+			this.AxisEn2.OnText = null;
+			this.AxisEn2.OnTextColor = System.Drawing.Color.Empty;
+			this.AxisEn2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.AxisEn2.Size = new System.Drawing.Size(66, 28);
+			this.AxisEn2.TabIndex = 284;
+			this.AxisEn2.Tag = "loop_FB_8";
+			this.AxisEn2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.ToolTip1.SetToolTip(this.AxisEn2, "Individual axis ON/OFF, when ALL AXES switch is ON");
+			this.AxisEn2.UseVisualStyleBackColor = false;
+			this.AxisEn2.CheckedChanged += new System.EventHandler(this.AxisEn_CheckedChanged);
+			// 
 			// AxisFBgain_2
 			// 
 			this.AxisFBgain_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -303,6 +660,35 @@ namespace TMCAnalyzer {
 			this.label4.Text = "tZ";
 			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.ToolTip1.SetToolTip(this.label4, "Individual axis ON/OFF, when ALL FB AXES switch is ON");
+			// 
+			// AxisEn1
+			// 
+			this.AxisEn1.Appearance = System.Windows.Forms.Appearance.Button;
+			this.AxisEn1.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.AxisEn1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.AxisEn1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.AxisEn1.Cursor = System.Windows.Forms.Cursors.Default;
+			this.AxisEn1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AxisEn1.Location = new System.Drawing.Point(301, 29);
+			this.AxisEn1.Name = "AxisEn1";
+			this.AxisEn1.OffColor = System.Drawing.Color.Empty;
+			this.AxisEn1.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.AxisEn1.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.AxisEn1.OffText = null;
+			this.AxisEn1.OffTextColor = System.Drawing.Color.Empty;
+			this.AxisEn1.OnColor = System.Drawing.Color.Empty;
+			this.AxisEn1.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.AxisEn1.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
+			this.AxisEn1.OnText = null;
+			this.AxisEn1.OnTextColor = System.Drawing.Color.Empty;
+			this.AxisEn1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.AxisEn1.Size = new System.Drawing.Size(66, 28);
+			this.AxisEn1.TabIndex = 281;
+			this.AxisEn1.Tag = "loop_FB_7";
+			this.AxisEn1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.ToolTip1.SetToolTip(this.AxisEn1, "Individual axis ON/OFF, when ALL AXES switch is ON");
+			this.AxisEn1.UseVisualStyleBackColor = false;
+			this.AxisEn1.CheckedChanged += new System.EventHandler(this.AxisEn_CheckedChanged);
 			// 
 			// AxisFBgain_1
 			// 
@@ -355,6 +741,35 @@ namespace TMCAnalyzer {
 			this.label0.Text = "ALL FB AXES";
 			this.label0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.ToolTip1.SetToolTip(this.label0, "Individual axis ON/OFF, when ALL FB AXES switch is ON");
+			// 
+			// AxisEn0
+			// 
+			this.AxisEn0.Appearance = System.Windows.Forms.Appearance.Button;
+			this.AxisEn0.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.AxisEn0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.AxisEn0.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.AxisEn0.Cursor = System.Windows.Forms.Cursors.Default;
+			this.AxisEn0.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AxisEn0.Location = new System.Drawing.Point(201, 29);
+			this.AxisEn0.Name = "AxisEn0";
+			this.AxisEn0.OffColor = System.Drawing.Color.Empty;
+			this.AxisEn0.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.AxisEn0.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.AxisEn0.OffText = null;
+			this.AxisEn0.OffTextColor = System.Drawing.Color.Empty;
+			this.AxisEn0.OnColor = System.Drawing.Color.Empty;
+			this.AxisEn0.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.AxisEn0.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
+			this.AxisEn0.OnText = null;
+			this.AxisEn0.OnTextColor = System.Drawing.Color.Empty;
+			this.AxisEn0.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.AxisEn0.Size = new System.Drawing.Size(66, 28);
+			this.AxisEn0.TabIndex = 277;
+			this.AxisEn0.Tag = "loop_FB_6";
+			this.AxisEn0.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.ToolTip1.SetToolTip(this.AxisEn0, "Individual axis ON/OFF, when ALL AXES switch is ON");
+			this.AxisEn0.UseVisualStyleBackColor = false;
+			this.AxisEn0.CheckedChanged += new System.EventHandler(this.AxisEn_CheckedChanged);
 			// 
 			// AxisFBgain_0
 			// 
@@ -480,6 +895,124 @@ namespace TMCAnalyzer {
 			this.FrameFF.TabIndex = 143;
 			this.FrameFF.TabStop = false;
 			// 
+			// numFFgain3
+			// 
+			this.numFFgain3.CoercionInterval = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numFFgain3.DecimalPlaces = 4;
+			this.numFFgain3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numFFgain3.FormatMode = TMCAnalyzer.CustomClasses.ScientificNumericUpDown.NumericFormatMode.Scientific;
+			this.numFFgain3.Location = new System.Drawing.Point(64, 25);
+			this.numFFgain3.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numFFgain3.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+			this.numFFgain3.Name = "numFFgain3";
+			this.numFFgain3.Size = new System.Drawing.Size(80, 26);
+			this.numFFgain3.TabIndex = 344;
+			this.numFFgain3.Tag = "g_ff40";
+			this.ToolTip1.SetToolTip(this.numFFgain3, "Adaptive Learning Rate");
+			this.numFFgain3.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numFFgain3.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            196608});
+			this.numFFgain3.ValueChanged += new System.EventHandler(this.numFFgain_ValueChanged);
+			// 
+			// numFFgain1
+			// 
+			this.numFFgain1.CoercionInterval = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numFFgain1.DecimalPlaces = 4;
+			this.numFFgain1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numFFgain1.FormatMode = TMCAnalyzer.CustomClasses.ScientificNumericUpDown.NumericFormatMode.Regular;
+			this.numFFgain1.Location = new System.Drawing.Point(64, 56);
+			this.numFFgain1.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+			this.numFFgain1.Name = "numFFgain1";
+			this.numFFgain1.Size = new System.Drawing.Size(80, 26);
+			this.numFFgain1.TabIndex = 343;
+			this.numFFgain1.Tag = "g_fff1";
+			this.ToolTip1.SetToolTip(this.numFFgain1, "Feed Forward Input to Axis Coupling Gain");
+			this.numFFgain1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numFFgain1.Value = new decimal(new int[] {
+            77777,
+            0,
+            0,
+            196608});
+			// 
+			// numFFgain2
+			// 
+			this.numFFgain2.CoercionInterval = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numFFgain2.DecimalPlaces = 4;
+			this.numFFgain2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numFFgain2.FormatMode = TMCAnalyzer.CustomClasses.ScientificNumericUpDown.NumericFormatMode.Scientific;
+			this.numFFgain2.Location = new System.Drawing.Point(64, 87);
+			this.numFFgain2.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+			this.numFFgain2.Name = "numFFgain2";
+			this.numFFgain2.Size = new System.Drawing.Size(80, 26);
+			this.numFFgain2.TabIndex = 342;
+			this.numFFgain2.Tag = "g_fff2";
+			this.ToolTip1.SetToolTip(this.numFFgain2, "Feed Forward Input to Axis Coupling Gain");
+			this.numFFgain2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numFFgain2.Value = new decimal(new int[] {
+            67777,
+            0,
+            0,
+            196608});
+			// 
+			// numFFgain0
+			// 
+			this.numFFgain0.CoercionInterval = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numFFgain0.DecimalPlaces = 4;
+			this.numFFgain0.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+			this.numFFgain0.FormatMode = TMCAnalyzer.CustomClasses.ScientificNumericUpDown.NumericFormatMode.Regular;
+			this.numFFgain0.Location = new System.Drawing.Point(64, 117);
+			this.numFFgain0.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+			this.numFFgain0.Name = "numFFgain0";
+			this.numFFgain0.Size = new System.Drawing.Size(80, 26);
+			this.numFFgain0.TabIndex = 341;
+			this.numFFgain0.Tag = "g_fff0";
+			this.ToolTip1.SetToolTip(this.numFFgain0, "Feed Forward Input to Axis Coupling Gain");
+			this.numFFgain0.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+			this.numFFgain0.Value = new decimal(new int[] {
+            77777,
+            0,
+            0,
+            196608});
+			// 
 			// FFgain1
 			// 
 			this.FFgain1.BackColor = System.Drawing.Color.White;
@@ -575,6 +1108,35 @@ namespace TMCAnalyzer {
 			this.cmdRefresh.UseVisualStyleBackColor = false;
 			this.cmdRefresh.Click += new System.EventHandler(this.cmdRefresh_Click);
 			// 
+			// ToggleFFmotors
+			// 
+			this.ToggleFFmotors.Appearance = System.Windows.Forms.Appearance.Button;
+			this.ToggleFFmotors.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.ToggleFFmotors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.ToggleFFmotors.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.ToggleFFmotors.Cursor = System.Windows.Forms.Cursors.Default;
+			this.ToggleFFmotors.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ToggleFFmotors.Location = new System.Drawing.Point(672, 106);
+			this.ToggleFFmotors.Name = "ToggleFFmotors";
+			this.ToggleFFmotors.OffColor = System.Drawing.Color.Empty;
+			this.ToggleFFmotors.OffImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.ToggleFFmotors.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.ToggleFFmotors.OffText = null;
+			this.ToggleFFmotors.OffTextColor = System.Drawing.Color.Empty;
+			this.ToggleFFmotors.OnColor = System.Drawing.Color.Empty;
+			this.ToggleFFmotors.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.ToggleFFmotors.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
+			this.ToggleFFmotors.OnText = null;
+			this.ToggleFFmotors.OnTextColor = System.Drawing.Color.Empty;
+			this.ToggleFFmotors.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.ToggleFFmotors.Size = new System.Drawing.Size(70, 30);
+			this.ToggleFFmotors.TabIndex = 333;
+			this.ToggleFFmotors.Tag = "loop_FFM";
+			this.ToggleFFmotors.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.ToolTip1.SetToolTip(this.ToggleFFmotors, "FF coupling to Linear Motors ON/OFF, when ALL FF switch is ON");
+			this.ToggleFFmotors.UseVisualStyleBackColor = false;
+			this.ToggleFFmotors.CheckedChanged += new System.EventHandler(this.ToggleFFmotors_CheckedChanged);
+			// 
 			// label9
 			// 
 			this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -589,6 +1151,35 @@ namespace TMCAnalyzer {
 			this.label9.Text = "FF to Motors";
 			this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.ToolTip1.SetToolTip(this.label9, "FF coupling to Linear Motors ON/OFF, when ALL FF switch is ON");
+			// 
+			// ToggleFFmotAdaptive
+			// 
+			this.ToggleFFmotAdaptive.Appearance = System.Windows.Forms.Appearance.Button;
+			this.ToggleFFmotAdaptive.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.ToggleFFmotAdaptive.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ToggleFFmotAdaptive.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.ToggleFFmotAdaptive.Cursor = System.Windows.Forms.Cursors.Default;
+			this.ToggleFFmotAdaptive.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ToggleFFmotAdaptive.Location = new System.Drawing.Point(672, 22);
+			this.ToggleFFmotAdaptive.Name = "ToggleFFmotAdaptive";
+			this.ToggleFFmotAdaptive.OffColor = System.Drawing.Color.Empty;
+			this.ToggleFFmotAdaptive.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ToggleFFmotAdaptive.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
+			this.ToggleFFmotAdaptive.OffText = null;
+			this.ToggleFFmotAdaptive.OffTextColor = System.Drawing.Color.Empty;
+			this.ToggleFFmotAdaptive.OnColor = System.Drawing.Color.Empty;
+			this.ToggleFFmotAdaptive.OnImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ToggleFFmotAdaptive.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
+			this.ToggleFFmotAdaptive.OnText = null;
+			this.ToggleFFmotAdaptive.OnTextColor = System.Drawing.Color.Empty;
+			this.ToggleFFmotAdaptive.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.ToggleFFmotAdaptive.Size = new System.Drawing.Size(66, 28);
+			this.ToggleFFmotAdaptive.TabIndex = 331;
+			this.ToggleFFmotAdaptive.Tag = "loop_mad";
+			this.ToggleFFmotAdaptive.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.ToolTip1.SetToolTip(this.ToggleFFmotAdaptive, "Motor FF loops Adaptive");
+			this.ToggleFFmotAdaptive.UseVisualStyleBackColor = false;
+			this.ToggleFFmotAdaptive.CheckedChanged += new System.EventHandler(this.ToggleFFmotAdaptive_CheckedChanged);
 			// 
 			// label8
 			// 
@@ -605,6 +1196,36 @@ namespace TMCAnalyzer {
 			this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.ToolTip1.SetToolTip(this.label8, "Motor FF loops Adaptive");
 			// 
+			// ToggleFFall
+			// 
+			this.ToggleFFall.Appearance = System.Windows.Forms.Appearance.Button;
+			this.ToggleFFall.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_gray_slider;
+			this.ToggleFFall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ToggleFFall.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.ToggleFFall.Cursor = System.Windows.Forms.Cursors.Default;
+			this.ToggleFFall.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ToggleFFall.ImageIndex = 0;
+			this.ToggleFFall.Location = new System.Drawing.Point(672, 57);
+			this.ToggleFFall.Name = "ToggleFFall";
+			this.ToggleFFall.OffColor = System.Drawing.Color.Empty;
+			this.ToggleFFall.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ToggleFFall.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_gray_slider;
+			this.ToggleFFall.OffText = null;
+			this.ToggleFFall.OffTextColor = System.Drawing.Color.Empty;
+			this.ToggleFFall.OnColor = System.Drawing.Color.Empty;
+			this.ToggleFFall.OnImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ToggleFFall.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_blue_slider;
+			this.ToggleFFall.OnText = null;
+			this.ToggleFFall.OnTextColor = System.Drawing.Color.Empty;
+			this.ToggleFFall.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.ToggleFFall.Size = new System.Drawing.Size(103, 41);
+			this.ToggleFFall.TabIndex = 329;
+			this.ToggleFFall.Tag = "loop_ffa";
+			this.ToggleFFall.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.ToolTip1.SetToolTip(this.ToggleFFall, "Controls All Feed Forward loops");
+			this.ToggleFFall.UseVisualStyleBackColor = false;
+			this.ToggleFFall.CheckedChanged += new System.EventHandler(this.ToggleFF_ALL_CheckedChanged);
+			// 
 			// label7
 			// 
 			this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -620,6 +1241,68 @@ namespace TMCAnalyzer {
 			this.label7.Text = "ALL FF Loops";
 			this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.ToolTip1.SetToolTip(this.label7, "Controls All Feed Forward loops");
+			// 
+			// Adaptive0
+			// 
+			this.Adaptive0.Appearance = System.Windows.Forms.Appearance.Button;
+			this.Adaptive0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
+			this.Adaptive0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Adaptive0.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Adaptive0.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.Adaptive0.Location = new System.Drawing.Point(485, 117);
+			this.Adaptive0.Margin = new System.Windows.Forms.Padding(0);
+			this.Adaptive0.Name = "Adaptive0";
+			this.Adaptive0.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
+			this.Adaptive0.OffImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Adaptive0.OffPicture = null;
+			this.Adaptive0.OffText = "Not adapt";
+			this.Adaptive0.OffTextColor = System.Drawing.SystemColors.ControlText;
+			this.Adaptive0.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.Adaptive0.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Adaptive0.OnPicture = null;
+			this.Adaptive0.OnText = "Adaptive";
+			this.Adaptive0.OnTextColor = System.Drawing.SystemColors.ControlText;
+			this.Adaptive0.Size = new System.Drawing.Size(70, 25);
+			this.Adaptive0.TabIndex = 295;
+			this.Adaptive0.Tag = "N";
+			this.Adaptive0.Text = "Not adapt";
+			this.Adaptive0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ToolTip1.SetToolTip(this.Adaptive0, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
+        " FF gain goes to Axis");
+			this.Adaptive0.UseVisualStyleBackColor = false;
+			this.Adaptive0.CheckedChanged += new System.EventHandler(this.Adaptive_CheckedChanged);
+			// 
+			// Working0
+			// 
+			this.Working0.Appearance = System.Windows.Forms.Appearance.Button;
+			this.Working0.BackColor = System.Drawing.Color.LightGreen;
+			this.Working0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Working0.Checked = true;
+			this.Working0.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.Working0.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Working0.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.Working0.Location = new System.Drawing.Point(423, 117);
+			this.Working0.Margin = new System.Windows.Forms.Padding(0);
+			this.Working0.Name = "Working0";
+			this.Working0.OffColor = System.Drawing.Color.LightPink;
+			this.Working0.OffImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Working0.OffPicture = null;
+			this.Working0.OffText = "No Work";
+			this.Working0.OffTextColor = System.Drawing.SystemColors.ControlText;
+			this.Working0.OnColor = System.Drawing.Color.LightGreen;
+			this.Working0.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Working0.OnPicture = null;
+			this.Working0.OnText = "Working";
+			this.Working0.OnTextColor = System.Drawing.SystemColors.ControlText;
+			this.Working0.Size = new System.Drawing.Size(60, 25);
+			this.Working0.TabIndex = 294;
+			this.Working0.Tag = "W";
+			this.Working0.Text = "Working";
+			this.Working0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ToolTip1.SetToolTip(this.Working0, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
+        " FF gain goes to Axis");
+			this.Working0.UseVisualStyleBackColor = false;
+			this.Working0.CheckedChanged += new System.EventHandler(this.Working_CheckedChanged);
 			// 
 			// FFgain0
 			// 
@@ -642,6 +1325,68 @@ namespace TMCAnalyzer {
 			this.FFgain0.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.NumericFFgain_AfterChangeValue);
 			this.FFgain0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FFgain_KeyPress);
 			// 
+			// Adaptive2
+			// 
+			this.Adaptive2.Appearance = System.Windows.Forms.Appearance.Button;
+			this.Adaptive2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
+			this.Adaptive2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Adaptive2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Adaptive2.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.Adaptive2.Location = new System.Drawing.Point(485, 87);
+			this.Adaptive2.Margin = new System.Windows.Forms.Padding(0);
+			this.Adaptive2.Name = "Adaptive2";
+			this.Adaptive2.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
+			this.Adaptive2.OffImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Adaptive2.OffPicture = null;
+			this.Adaptive2.OffText = "Not adapt";
+			this.Adaptive2.OffTextColor = System.Drawing.SystemColors.ControlText;
+			this.Adaptive2.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.Adaptive2.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Adaptive2.OnPicture = null;
+			this.Adaptive2.OnText = "Adaptive";
+			this.Adaptive2.OnTextColor = System.Drawing.SystemColors.ControlText;
+			this.Adaptive2.Size = new System.Drawing.Size(70, 25);
+			this.Adaptive2.TabIndex = 289;
+			this.Adaptive2.Tag = "N";
+			this.Adaptive2.Text = "Not adapt";
+			this.Adaptive2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ToolTip1.SetToolTip(this.Adaptive2, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
+        " FF gain goes to Axis");
+			this.Adaptive2.UseVisualStyleBackColor = false;
+			this.Adaptive2.CheckedChanged += new System.EventHandler(this.Adaptive_CheckedChanged);
+			// 
+			// Working2
+			// 
+			this.Working2.Appearance = System.Windows.Forms.Appearance.Button;
+			this.Working2.BackColor = System.Drawing.Color.LightGreen;
+			this.Working2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Working2.Checked = true;
+			this.Working2.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.Working2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Working2.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.Working2.Location = new System.Drawing.Point(423, 87);
+			this.Working2.Margin = new System.Windows.Forms.Padding(0);
+			this.Working2.Name = "Working2";
+			this.Working2.OffColor = System.Drawing.Color.LightPink;
+			this.Working2.OffImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Working2.OffPicture = null;
+			this.Working2.OffText = "No Work";
+			this.Working2.OffTextColor = System.Drawing.SystemColors.ControlText;
+			this.Working2.OnColor = System.Drawing.Color.LightGreen;
+			this.Working2.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Working2.OnPicture = null;
+			this.Working2.OnText = "Working";
+			this.Working2.OnTextColor = System.Drawing.SystemColors.ControlText;
+			this.Working2.Size = new System.Drawing.Size(60, 25);
+			this.Working2.TabIndex = 288;
+			this.Working2.Tag = "W";
+			this.Working2.Text = "Working";
+			this.Working2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ToolTip1.SetToolTip(this.Working2, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
+        " FF gain goes to Axis");
+			this.Working2.UseVisualStyleBackColor = false;
+			this.Working2.CheckedChanged += new System.EventHandler(this.Working_CheckedChanged);
+			// 
 			// FFgain2
 			// 
 			this.FFgain2.BackColor = System.Drawing.Color.White;
@@ -662,6 +1407,128 @@ namespace TMCAnalyzer {
 			this.FFgain2.ValueChanged += new System.EventHandler(this.FFgain_ValueChanged);
 			this.FFgain2.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.NumericFFgain_AfterChangeValue);
 			this.FFgain2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FFgain_KeyPress);
+			// 
+			// Adaptive1
+			// 
+			this.Adaptive1.Appearance = System.Windows.Forms.Appearance.Button;
+			this.Adaptive1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
+			this.Adaptive1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Adaptive1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Adaptive1.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.Adaptive1.Location = new System.Drawing.Point(485, 57);
+			this.Adaptive1.Margin = new System.Windows.Forms.Padding(0);
+			this.Adaptive1.Name = "Adaptive1";
+			this.Adaptive1.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
+			this.Adaptive1.OffImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Adaptive1.OffPicture = null;
+			this.Adaptive1.OffText = "Not adapt";
+			this.Adaptive1.OffTextColor = System.Drawing.SystemColors.ControlText;
+			this.Adaptive1.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.Adaptive1.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Adaptive1.OnPicture = null;
+			this.Adaptive1.OnText = "Adaptive";
+			this.Adaptive1.OnTextColor = System.Drawing.SystemColors.ControlText;
+			this.Adaptive1.Size = new System.Drawing.Size(70, 25);
+			this.Adaptive1.TabIndex = 283;
+			this.Adaptive1.Tag = "N";
+			this.Adaptive1.Text = "Not adapt";
+			this.Adaptive1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ToolTip1.SetToolTip(this.Adaptive1, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
+        " FF gain goes to Axis");
+			this.Adaptive1.UseVisualStyleBackColor = false;
+			this.Adaptive1.CheckedChanged += new System.EventHandler(this.Adaptive_CheckedChanged);
+			// 
+			// Working1
+			// 
+			this.Working1.Appearance = System.Windows.Forms.Appearance.Button;
+			this.Working1.BackColor = System.Drawing.Color.LightGreen;
+			this.Working1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Working1.Checked = true;
+			this.Working1.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.Working1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Working1.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.Working1.Location = new System.Drawing.Point(423, 57);
+			this.Working1.Margin = new System.Windows.Forms.Padding(0);
+			this.Working1.Name = "Working1";
+			this.Working1.OffColor = System.Drawing.Color.LightPink;
+			this.Working1.OffImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Working1.OffPicture = null;
+			this.Working1.OffText = "No Work";
+			this.Working1.OffTextColor = System.Drawing.SystemColors.ControlText;
+			this.Working1.OnColor = System.Drawing.Color.LightGreen;
+			this.Working1.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Working1.OnPicture = null;
+			this.Working1.OnText = "Working";
+			this.Working1.OnTextColor = System.Drawing.SystemColors.ControlText;
+			this.Working1.Size = new System.Drawing.Size(60, 25);
+			this.Working1.TabIndex = 282;
+			this.Working1.Tag = "W";
+			this.Working1.Text = "Working";
+			this.Working1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ToolTip1.SetToolTip(this.Working1, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
+        " FF gain goes to Axis");
+			this.Working1.UseVisualStyleBackColor = false;
+			this.Working1.CheckedChanged += new System.EventHandler(this.Working_CheckedChanged);
+			// 
+			// Adaptive3
+			// 
+			this.Adaptive3.Appearance = System.Windows.Forms.Appearance.Button;
+			this.Adaptive3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
+			this.Adaptive3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Adaptive3.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Adaptive3.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.Adaptive3.Location = new System.Drawing.Point(485, 26);
+			this.Adaptive3.Margin = new System.Windows.Forms.Padding(0);
+			this.Adaptive3.Name = "Adaptive3";
+			this.Adaptive3.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
+			this.Adaptive3.OffImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Adaptive3.OffPicture = null;
+			this.Adaptive3.OffText = "Not adapt";
+			this.Adaptive3.OffTextColor = System.Drawing.SystemColors.ControlText;
+			this.Adaptive3.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.Adaptive3.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Adaptive3.OnPicture = null;
+			this.Adaptive3.OnText = "Adaptive";
+			this.Adaptive3.OnTextColor = System.Drawing.SystemColors.ControlText;
+			this.Adaptive3.Size = new System.Drawing.Size(70, 25);
+			this.Adaptive3.TabIndex = 277;
+			this.Adaptive3.Tag = "N";
+			this.Adaptive3.Text = "Not adapt";
+			this.Adaptive3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ToolTip1.SetToolTip(this.Adaptive3, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
+        " FF gain goes to Axis");
+			this.Adaptive3.UseVisualStyleBackColor = false;
+			this.Adaptive3.CheckedChanged += new System.EventHandler(this.Adaptive_CheckedChanged);
+			// 
+			// Working3
+			// 
+			this.Working3.Appearance = System.Windows.Forms.Appearance.Button;
+			this.Working3.BackColor = System.Drawing.Color.LightPink;
+			this.Working3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Working3.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Working3.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.Working3.Location = new System.Drawing.Point(423, 26);
+			this.Working3.Margin = new System.Windows.Forms.Padding(0);
+			this.Working3.Name = "Working3";
+			this.Working3.OffColor = System.Drawing.Color.LightPink;
+			this.Working3.OffImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Working3.OffPicture = null;
+			this.Working3.OffText = "No Work";
+			this.Working3.OffTextColor = System.Drawing.SystemColors.ControlText;
+			this.Working3.OnColor = System.Drawing.Color.LightGreen;
+			this.Working3.OnImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.Working3.OnPicture = null;
+			this.Working3.OnText = "Working";
+			this.Working3.OnTextColor = System.Drawing.SystemColors.ControlText;
+			this.Working3.Size = new System.Drawing.Size(60, 25);
+			this.Working3.TabIndex = 276;
+			this.Working3.Tag = "W";
+			this.Working3.Text = "No Work";
+			this.Working3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ToolTip1.SetToolTip(this.Working3, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
+        " FF gain goes to Axis");
+			this.Working3.UseVisualStyleBackColor = false;
+			this.Working3.CheckedChanged += new System.EventHandler(this.Working_CheckedChanged);
 			// 
 			// ImageGains
 			// 
@@ -878,783 +1745,6 @@ namespace TMCAnalyzer {
 			this.cmdPulse.UseVisualStyleBackColor = false;
 			this.cmdPulse.Click += new System.EventHandler(this.cmdPulse_Click);
 			// 
-			// numAxisFBgain_5
-			// 
-			this.numAxisFBgain_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.numAxisFBgain_5.DecimalPlaces = 2;
-			this.numAxisFBgain_5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numAxisFBgain_5.Location = new System.Drawing.Point(701, 1);
-			this.numAxisFBgain_5.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-			this.numAxisFBgain_5.Name = "numAxisFBgain_5";
-			this.numAxisFBgain_5.Size = new System.Drawing.Size(88, 26);
-			this.numAxisFBgain_5.TabIndex = 347;
-			this.numAxisFBgain_5.Tag = "gain0B";
-			this.numAxisFBgain_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.ToolTip1.SetToolTip(this.numAxisFBgain_5, "Gain of the tY velocity FB axis");
-			this.numAxisFBgain_5.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numAxisFBgain_5.Value = new decimal(new int[] {
-            666,
-            0,
-            0,
-            131072});
-			// 
-			// numAxisFBgain_4
-			// 
-			this.numAxisFBgain_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.numAxisFBgain_4.DecimalPlaces = 2;
-			this.numAxisFBgain_4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numAxisFBgain_4.Location = new System.Drawing.Point(602, 1);
-			this.numAxisFBgain_4.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-			this.numAxisFBgain_4.Name = "numAxisFBgain_4";
-			this.numAxisFBgain_4.Size = new System.Drawing.Size(88, 26);
-			this.numAxisFBgain_4.TabIndex = 346;
-			this.numAxisFBgain_4.Tag = "gain0A";
-			this.numAxisFBgain_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.ToolTip1.SetToolTip(this.numAxisFBgain_4, "Gain of the tX velocity FB axis");
-			this.numAxisFBgain_4.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numAxisFBgain_4.Value = new decimal(new int[] {
-            555,
-            0,
-            0,
-            131072});
-			// 
-			// numAxisFBgain_3
-			// 
-			this.numAxisFBgain_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.numAxisFBgain_3.DecimalPlaces = 2;
-			this.numAxisFBgain_3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numAxisFBgain_3.Location = new System.Drawing.Point(502, 1);
-			this.numAxisFBgain_3.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-			this.numAxisFBgain_3.Name = "numAxisFBgain_3";
-			this.numAxisFBgain_3.Size = new System.Drawing.Size(88, 26);
-			this.numAxisFBgain_3.TabIndex = 345;
-			this.numAxisFBgain_3.Tag = "gain09";
-			this.numAxisFBgain_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.ToolTip1.SetToolTip(this.numAxisFBgain_3, "Gain of the Z velocity FB axis");
-			this.numAxisFBgain_3.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numAxisFBgain_3.Value = new decimal(new int[] {
-            444,
-            0,
-            0,
-            131072});
-			// 
-			// numAxisFBgain_2
-			// 
-			this.numAxisFBgain_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.numAxisFBgain_2.DecimalPlaces = 2;
-			this.numAxisFBgain_2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numAxisFBgain_2.Location = new System.Drawing.Point(402, 1);
-			this.numAxisFBgain_2.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-			this.numAxisFBgain_2.Name = "numAxisFBgain_2";
-			this.numAxisFBgain_2.Size = new System.Drawing.Size(88, 26);
-			this.numAxisFBgain_2.TabIndex = 344;
-			this.numAxisFBgain_2.Tag = "gain08";
-			this.numAxisFBgain_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.ToolTip1.SetToolTip(this.numAxisFBgain_2, "Gain of the tZ velocity FB axis");
-			this.numAxisFBgain_2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numAxisFBgain_2.Value = new decimal(new int[] {
-            333,
-            0,
-            0,
-            131072});
-			// 
-			// numAxisFBgain_1
-			// 
-			this.numAxisFBgain_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.numAxisFBgain_1.DecimalPlaces = 2;
-			this.numAxisFBgain_1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numAxisFBgain_1.Location = new System.Drawing.Point(301, 1);
-			this.numAxisFBgain_1.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-			this.numAxisFBgain_1.Name = "numAxisFBgain_1";
-			this.numAxisFBgain_1.Size = new System.Drawing.Size(88, 26);
-			this.numAxisFBgain_1.TabIndex = 343;
-			this.numAxisFBgain_1.Tag = "gain07";
-			this.numAxisFBgain_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.ToolTip1.SetToolTip(this.numAxisFBgain_1, "Gain of the Y velocity FB axis");
-			this.numAxisFBgain_1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numAxisFBgain_1.Value = new decimal(new int[] {
-            222,
-            0,
-            0,
-            131072});
-			// 
-			// numAxisFBgain_0
-			// 
-			this.numAxisFBgain_0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.numAxisFBgain_0.DecimalPlaces = 2;
-			this.numAxisFBgain_0.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numAxisFBgain_0.Location = new System.Drawing.Point(201, 1);
-			this.numAxisFBgain_0.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-			this.numAxisFBgain_0.Name = "numAxisFBgain_0";
-			this.numAxisFBgain_0.Size = new System.Drawing.Size(88, 26);
-			this.numAxisFBgain_0.TabIndex = 342;
-			this.numAxisFBgain_0.Tag = "gain06";
-			this.numAxisFBgain_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.ToolTip1.SetToolTip(this.numAxisFBgain_0, "Gain of the X velocity FB axis");
-			this.numAxisFBgain_0.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numAxisFBgain_0.Value = new decimal(new int[] {
-            111,
-            0,
-            0,
-            131072});
-			// 
-			// ToggleAllFBaxes
-			// 
-			this.ToggleAllFBaxes.Appearance = System.Windows.Forms.Appearance.Button;
-			this.ToggleAllFBaxes.AutoCheck = false;
-			this.ToggleAllFBaxes.BackColor = System.Drawing.Color.Silver;
-			this.ToggleAllFBaxes.BackgroundImage = global::TMCAnalyzer.Properties.Resources.ON_blue_slider;
-			this.ToggleAllFBaxes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ToggleAllFBaxes.Checked = true;
-			this.ToggleAllFBaxes.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.ToggleAllFBaxes.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ToggleAllFBaxes.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.ToggleAllFBaxes.Location = new System.Drawing.Point(15, 47);
-			this.ToggleAllFBaxes.Name = "ToggleAllFBaxes";
-			this.ToggleAllFBaxes.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.ToggleAllFBaxes.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ToggleAllFBaxes.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_gray_slider;
-			this.ToggleAllFBaxes.OffText = "";
-			this.ToggleAllFBaxes.OffTextColor = System.Drawing.Color.Black;
-			this.ToggleAllFBaxes.OnColor = System.Drawing.Color.Silver;
-			this.ToggleAllFBaxes.OnImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ToggleAllFBaxes.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_blue_slider;
-			this.ToggleAllFBaxes.OnText = "";
-			this.ToggleAllFBaxes.OnTextColor = System.Drawing.SystemColors.WindowText;
-			this.ToggleAllFBaxes.Size = new System.Drawing.Size(103, 41);
-			this.ToggleAllFBaxes.TabIndex = 295;
-			this.ToggleAllFBaxes.Tag = "loop_fba";
-			this.ToggleAllFBaxes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ToolTip1.SetToolTip(this.ToggleAllFBaxes, "Switch enables / disables all FB axes");
-			this.ToggleAllFBaxes.UseVisualStyleBackColor = false;
-			this.ToggleAllFBaxes.CheckedChanged += new System.EventHandler(this.ToggleAllFBaxes_CheckedChanged);
-			// 
-			// AxisEn5
-			// 
-			this.AxisEn5.Appearance = System.Windows.Forms.Appearance.Button;
-			this.AxisEn5.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.AxisEn5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn5.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.AxisEn5.Cursor = System.Windows.Forms.Cursors.Default;
-			this.AxisEn5.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AxisEn5.Location = new System.Drawing.Point(701, 29);
-			this.AxisEn5.Name = "AxisEn5";
-			this.AxisEn5.OffColor = System.Drawing.Color.Empty;
-			this.AxisEn5.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn5.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.AxisEn5.OffText = null;
-			this.AxisEn5.OffTextColor = System.Drawing.Color.Empty;
-			this.AxisEn5.OnColor = System.Drawing.Color.Empty;
-			this.AxisEn5.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.AxisEn5.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
-			this.AxisEn5.OnText = null;
-			this.AxisEn5.OnTextColor = System.Drawing.Color.Empty;
-			this.AxisEn5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.AxisEn5.Size = new System.Drawing.Size(66, 28);
-			this.AxisEn5.TabIndex = 293;
-			this.AxisEn5.Tag = "loop_FB_B";
-			this.AxisEn5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.ToolTip1.SetToolTip(this.AxisEn5, "Individual axis ON/OFF, when ALL AXES switch is ON");
-			this.AxisEn5.UseVisualStyleBackColor = false;
-			this.AxisEn5.CheckedChanged += new System.EventHandler(this.AxisEn_CheckedChanged);
-			// 
-			// AxisEn4
-			// 
-			this.AxisEn4.Appearance = System.Windows.Forms.Appearance.Button;
-			this.AxisEn4.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.AxisEn4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn4.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.AxisEn4.Cursor = System.Windows.Forms.Cursors.Default;
-			this.AxisEn4.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AxisEn4.Location = new System.Drawing.Point(601, 29);
-			this.AxisEn4.Name = "AxisEn4";
-			this.AxisEn4.OffColor = System.Drawing.Color.Empty;
-			this.AxisEn4.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn4.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.AxisEn4.OffText = null;
-			this.AxisEn4.OffTextColor = System.Drawing.Color.Empty;
-			this.AxisEn4.OnColor = System.Drawing.Color.Empty;
-			this.AxisEn4.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.AxisEn4.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
-			this.AxisEn4.OnText = null;
-			this.AxisEn4.OnTextColor = System.Drawing.Color.Empty;
-			this.AxisEn4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.AxisEn4.Size = new System.Drawing.Size(66, 28);
-			this.AxisEn4.TabIndex = 290;
-			this.AxisEn4.Tag = "loop_FB_A";
-			this.AxisEn4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.ToolTip1.SetToolTip(this.AxisEn4, "Individual axis ON/OFF, when ALL AXES switch is ON");
-			this.AxisEn4.UseVisualStyleBackColor = false;
-			this.AxisEn4.CheckedChanged += new System.EventHandler(this.AxisEn_CheckedChanged);
-			// 
-			// AxisEn3
-			// 
-			this.AxisEn3.Appearance = System.Windows.Forms.Appearance.Button;
-			this.AxisEn3.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.AxisEn3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.AxisEn3.Cursor = System.Windows.Forms.Cursors.Default;
-			this.AxisEn3.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AxisEn3.Location = new System.Drawing.Point(501, 29);
-			this.AxisEn3.Name = "AxisEn3";
-			this.AxisEn3.OffColor = System.Drawing.Color.Empty;
-			this.AxisEn3.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn3.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.AxisEn3.OffText = null;
-			this.AxisEn3.OffTextColor = System.Drawing.Color.Empty;
-			this.AxisEn3.OnColor = System.Drawing.Color.Empty;
-			this.AxisEn3.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.AxisEn3.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
-			this.AxisEn3.OnText = null;
-			this.AxisEn3.OnTextColor = System.Drawing.Color.Empty;
-			this.AxisEn3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.AxisEn3.Size = new System.Drawing.Size(66, 28);
-			this.AxisEn3.TabIndex = 287;
-			this.AxisEn3.Tag = "loop_FB_9";
-			this.AxisEn3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.ToolTip1.SetToolTip(this.AxisEn3, "Individual axis ON/OFF, when ALL AXES switch is ON");
-			this.AxisEn3.UseVisualStyleBackColor = false;
-			this.AxisEn3.CheckedChanged += new System.EventHandler(this.AxisEn_CheckedChanged);
-			// 
-			// AxisEn2
-			// 
-			this.AxisEn2.Appearance = System.Windows.Forms.Appearance.Button;
-			this.AxisEn2.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.AxisEn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.AxisEn2.Cursor = System.Windows.Forms.Cursors.Default;
-			this.AxisEn2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AxisEn2.Location = new System.Drawing.Point(401, 29);
-			this.AxisEn2.Name = "AxisEn2";
-			this.AxisEn2.OffColor = System.Drawing.Color.Empty;
-			this.AxisEn2.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn2.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.AxisEn2.OffText = null;
-			this.AxisEn2.OffTextColor = System.Drawing.Color.Empty;
-			this.AxisEn2.OnColor = System.Drawing.Color.Empty;
-			this.AxisEn2.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.AxisEn2.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
-			this.AxisEn2.OnText = null;
-			this.AxisEn2.OnTextColor = System.Drawing.Color.Empty;
-			this.AxisEn2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.AxisEn2.Size = new System.Drawing.Size(66, 28);
-			this.AxisEn2.TabIndex = 284;
-			this.AxisEn2.Tag = "loop_FB_8";
-			this.AxisEn2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.ToolTip1.SetToolTip(this.AxisEn2, "Individual axis ON/OFF, when ALL AXES switch is ON");
-			this.AxisEn2.UseVisualStyleBackColor = false;
-			this.AxisEn2.CheckedChanged += new System.EventHandler(this.AxisEn_CheckedChanged);
-			// 
-			// AxisEn1
-			// 
-			this.AxisEn1.Appearance = System.Windows.Forms.Appearance.Button;
-			this.AxisEn1.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.AxisEn1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.AxisEn1.Cursor = System.Windows.Forms.Cursors.Default;
-			this.AxisEn1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AxisEn1.Location = new System.Drawing.Point(301, 29);
-			this.AxisEn1.Name = "AxisEn1";
-			this.AxisEn1.OffColor = System.Drawing.Color.Empty;
-			this.AxisEn1.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn1.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.AxisEn1.OffText = null;
-			this.AxisEn1.OffTextColor = System.Drawing.Color.Empty;
-			this.AxisEn1.OnColor = System.Drawing.Color.Empty;
-			this.AxisEn1.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.AxisEn1.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
-			this.AxisEn1.OnText = null;
-			this.AxisEn1.OnTextColor = System.Drawing.Color.Empty;
-			this.AxisEn1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.AxisEn1.Size = new System.Drawing.Size(66, 28);
-			this.AxisEn1.TabIndex = 281;
-			this.AxisEn1.Tag = "loop_FB_7";
-			this.AxisEn1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.ToolTip1.SetToolTip(this.AxisEn1, "Individual axis ON/OFF, when ALL AXES switch is ON");
-			this.AxisEn1.UseVisualStyleBackColor = false;
-			this.AxisEn1.CheckedChanged += new System.EventHandler(this.AxisEn_CheckedChanged);
-			// 
-			// AxisEn0
-			// 
-			this.AxisEn0.Appearance = System.Windows.Forms.Appearance.Button;
-			this.AxisEn0.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.AxisEn0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn0.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.AxisEn0.Cursor = System.Windows.Forms.Cursors.Default;
-			this.AxisEn0.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.AxisEn0.Location = new System.Drawing.Point(201, 29);
-			this.AxisEn0.Name = "AxisEn0";
-			this.AxisEn0.OffColor = System.Drawing.Color.Empty;
-			this.AxisEn0.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AxisEn0.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.AxisEn0.OffText = null;
-			this.AxisEn0.OffTextColor = System.Drawing.Color.Empty;
-			this.AxisEn0.OnColor = System.Drawing.Color.Empty;
-			this.AxisEn0.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.AxisEn0.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
-			this.AxisEn0.OnText = null;
-			this.AxisEn0.OnTextColor = System.Drawing.Color.Empty;
-			this.AxisEn0.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.AxisEn0.Size = new System.Drawing.Size(66, 28);
-			this.AxisEn0.TabIndex = 277;
-			this.AxisEn0.Tag = "loop_FB_6";
-			this.AxisEn0.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.ToolTip1.SetToolTip(this.AxisEn0, "Individual axis ON/OFF, when ALL AXES switch is ON");
-			this.AxisEn0.UseVisualStyleBackColor = false;
-			this.AxisEn0.CheckedChanged += new System.EventHandler(this.AxisEn_CheckedChanged);
-			// 
-			// numFFgain3
-			// 
-			this.numFFgain3.DecimalPlaces = 4;
-			this.numFFgain3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numFFgain3.Location = new System.Drawing.Point(64, 25);
-			this.numFFgain3.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.numFFgain3.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-			this.numFFgain3.Name = "numFFgain3";
-			this.numFFgain3.Size = new System.Drawing.Size(80, 26);
-			this.numFFgain3.TabIndex = 344;
-			this.numFFgain3.Tag = "g_ff40";
-			this.ToolTip1.SetToolTip(this.numFFgain3, "Adaptive Learning Rate");
-			this.numFFgain3.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numFFgain3.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            196608});
-			this.numFFgain3.ValueChanged += new System.EventHandler(this.numFFgain_ValueChanged);
-			// 
-			// numFFgain1
-			// 
-			this.numFFgain1.DecimalPlaces = 4;
-			this.numFFgain1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numFFgain1.Location = new System.Drawing.Point(64, 56);
-			this.numFFgain1.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-			this.numFFgain1.Name = "numFFgain1";
-			this.numFFgain1.Size = new System.Drawing.Size(80, 26);
-			this.numFFgain1.TabIndex = 343;
-			this.numFFgain1.Tag = "g_fff1";
-			this.ToolTip1.SetToolTip(this.numFFgain1, "Feed Forward Input to Axis Coupling Gain");
-			this.numFFgain1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numFFgain1.Value = new decimal(new int[] {
-            77777,
-            0,
-            0,
-            196608});
-			// 
-			// numFFgain2
-			// 
-			this.numFFgain2.DecimalPlaces = 4;
-			this.numFFgain2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numFFgain2.Location = new System.Drawing.Point(64, 87);
-			this.numFFgain2.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-			this.numFFgain2.Name = "numFFgain2";
-			this.numFFgain2.Size = new System.Drawing.Size(80, 26);
-			this.numFFgain2.TabIndex = 342;
-			this.numFFgain2.Tag = "g_fff2";
-			this.ToolTip1.SetToolTip(this.numFFgain2, "Feed Forward Input to Axis Coupling Gain");
-			this.numFFgain2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numFFgain2.Value = new decimal(new int[] {
-            77777,
-            0,
-            0,
-            196608});
-			// 
-			// numFFgain0
-			// 
-			this.numFFgain0.DecimalPlaces = 4;
-			this.numFFgain0.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-			this.numFFgain0.Location = new System.Drawing.Point(64, 117);
-			this.numFFgain0.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-			this.numFFgain0.Name = "numFFgain0";
-			this.numFFgain0.Size = new System.Drawing.Size(80, 26);
-			this.numFFgain0.TabIndex = 341;
-			this.numFFgain0.Tag = "g_fff0";
-			this.ToolTip1.SetToolTip(this.numFFgain0, "Feed Forward Input to Axis Coupling Gain");
-			this.numFFgain0.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-			this.numFFgain0.Value = new decimal(new int[] {
-            77777,
-            0,
-            0,
-            196608});
-			// 
-			// ToggleFFmotors
-			// 
-			this.ToggleFFmotors.Appearance = System.Windows.Forms.Appearance.Button;
-			this.ToggleFFmotors.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.ToggleFFmotors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ToggleFFmotors.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.ToggleFFmotors.Cursor = System.Windows.Forms.Cursors.Default;
-			this.ToggleFFmotors.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ToggleFFmotors.Location = new System.Drawing.Point(672, 106);
-			this.ToggleFFmotors.Name = "ToggleFFmotors";
-			this.ToggleFFmotors.OffColor = System.Drawing.Color.Empty;
-			this.ToggleFFmotors.OffImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ToggleFFmotors.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.ToggleFFmotors.OffText = null;
-			this.ToggleFFmotors.OffTextColor = System.Drawing.Color.Empty;
-			this.ToggleFFmotors.OnColor = System.Drawing.Color.Empty;
-			this.ToggleFFmotors.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ToggleFFmotors.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
-			this.ToggleFFmotors.OnText = null;
-			this.ToggleFFmotors.OnTextColor = System.Drawing.Color.Empty;
-			this.ToggleFFmotors.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.ToggleFFmotors.Size = new System.Drawing.Size(70, 30);
-			this.ToggleFFmotors.TabIndex = 333;
-			this.ToggleFFmotors.Tag = "loop_FFM";
-			this.ToggleFFmotors.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.ToolTip1.SetToolTip(this.ToggleFFmotors, "FF coupling to Linear Motors ON/OFF, when ALL FF switch is ON");
-			this.ToggleFFmotors.UseVisualStyleBackColor = false;
-			this.ToggleFFmotors.CheckedChanged += new System.EventHandler(this.ToggleFFmotors_CheckedChanged);
-			// 
-			// ToggleFFmotAdaptive
-			// 
-			this.ToggleFFmotAdaptive.Appearance = System.Windows.Forms.Appearance.Button;
-			this.ToggleFFmotAdaptive.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.ToggleFFmotAdaptive.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ToggleFFmotAdaptive.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.ToggleFFmotAdaptive.Cursor = System.Windows.Forms.Cursors.Default;
-			this.ToggleFFmotAdaptive.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ToggleFFmotAdaptive.Location = new System.Drawing.Point(672, 22);
-			this.ToggleFFmotAdaptive.Name = "ToggleFFmotAdaptive";
-			this.ToggleFFmotAdaptive.OffColor = System.Drawing.Color.Empty;
-			this.ToggleFFmotAdaptive.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ToggleFFmotAdaptive.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_olive_small_switch;
-			this.ToggleFFmotAdaptive.OffText = null;
-			this.ToggleFFmotAdaptive.OffTextColor = System.Drawing.Color.Empty;
-			this.ToggleFFmotAdaptive.OnColor = System.Drawing.Color.Empty;
-			this.ToggleFFmotAdaptive.OnImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ToggleFFmotAdaptive.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_green_small_switch;
-			this.ToggleFFmotAdaptive.OnText = null;
-			this.ToggleFFmotAdaptive.OnTextColor = System.Drawing.Color.Empty;
-			this.ToggleFFmotAdaptive.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.ToggleFFmotAdaptive.Size = new System.Drawing.Size(66, 28);
-			this.ToggleFFmotAdaptive.TabIndex = 331;
-			this.ToggleFFmotAdaptive.Tag = "loop_mad";
-			this.ToggleFFmotAdaptive.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.ToolTip1.SetToolTip(this.ToggleFFmotAdaptive, "Motor FF loops Adaptive");
-			this.ToggleFFmotAdaptive.UseVisualStyleBackColor = false;
-			this.ToggleFFmotAdaptive.CheckedChanged += new System.EventHandler(this.ToggleFFmotAdaptive_CheckedChanged);
-			// 
-			// ToggleFFall
-			// 
-			this.ToggleFFall.Appearance = System.Windows.Forms.Appearance.Button;
-			this.ToggleFFall.BackgroundImage = global::TMCAnalyzer.Properties.Resources.OFF_gray_slider;
-			this.ToggleFFall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ToggleFFall.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.ToggleFFall.Cursor = System.Windows.Forms.Cursors.Default;
-			this.ToggleFFall.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ToggleFFall.ImageIndex = 0;
-			this.ToggleFFall.Location = new System.Drawing.Point(672, 57);
-			this.ToggleFFall.Name = "ToggleFFall";
-			this.ToggleFFall.OffColor = System.Drawing.Color.Empty;
-			this.ToggleFFall.OffImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ToggleFFall.OffPicture = global::TMCAnalyzer.Properties.Resources.OFF_gray_slider;
-			this.ToggleFFall.OffText = null;
-			this.ToggleFFall.OffTextColor = System.Drawing.Color.Empty;
-			this.ToggleFFall.OnColor = System.Drawing.Color.Empty;
-			this.ToggleFFall.OnImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ToggleFFall.OnPicture = global::TMCAnalyzer.Properties.Resources.ON_blue_slider;
-			this.ToggleFFall.OnText = null;
-			this.ToggleFFall.OnTextColor = System.Drawing.Color.Empty;
-			this.ToggleFFall.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.ToggleFFall.Size = new System.Drawing.Size(103, 41);
-			this.ToggleFFall.TabIndex = 329;
-			this.ToggleFFall.Tag = "loop_ffa";
-			this.ToggleFFall.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.ToolTip1.SetToolTip(this.ToggleFFall, "Controls All Feed Forward loops");
-			this.ToggleFFall.UseVisualStyleBackColor = false;
-			this.ToggleFFall.CheckedChanged += new System.EventHandler(this.ToggleFF_ALL_CheckedChanged);
-			// 
-			// Adaptive0
-			// 
-			this.Adaptive0.Appearance = System.Windows.Forms.Appearance.Button;
-			this.Adaptive0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
-			this.Adaptive0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Adaptive0.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Adaptive0.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.Adaptive0.Location = new System.Drawing.Point(485, 117);
-			this.Adaptive0.Margin = new System.Windows.Forms.Padding(0);
-			this.Adaptive0.Name = "Adaptive0";
-			this.Adaptive0.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
-			this.Adaptive0.OffImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Adaptive0.OffPicture = null;
-			this.Adaptive0.OffText = "Not adapt";
-			this.Adaptive0.OffTextColor = System.Drawing.SystemColors.ControlText;
-			this.Adaptive0.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-			this.Adaptive0.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Adaptive0.OnPicture = null;
-			this.Adaptive0.OnText = "Adaptive";
-			this.Adaptive0.OnTextColor = System.Drawing.SystemColors.ControlText;
-			this.Adaptive0.Size = new System.Drawing.Size(70, 25);
-			this.Adaptive0.TabIndex = 295;
-			this.Adaptive0.Tag = "N";
-			this.Adaptive0.Text = "Not adapt";
-			this.Adaptive0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ToolTip1.SetToolTip(this.Adaptive0, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
-        " FF gain goes to Axis");
-			this.Adaptive0.UseVisualStyleBackColor = false;
-			this.Adaptive0.CheckedChanged += new System.EventHandler(this.Adaptive_CheckedChanged);
-			// 
-			// Working0
-			// 
-			this.Working0.Appearance = System.Windows.Forms.Appearance.Button;
-			this.Working0.BackColor = System.Drawing.Color.LightGreen;
-			this.Working0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Working0.Checked = true;
-			this.Working0.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.Working0.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Working0.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.Working0.Location = new System.Drawing.Point(423, 117);
-			this.Working0.Margin = new System.Windows.Forms.Padding(0);
-			this.Working0.Name = "Working0";
-			this.Working0.OffColor = System.Drawing.Color.LightPink;
-			this.Working0.OffImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Working0.OffPicture = null;
-			this.Working0.OffText = "No Work";
-			this.Working0.OffTextColor = System.Drawing.SystemColors.ControlText;
-			this.Working0.OnColor = System.Drawing.Color.LightGreen;
-			this.Working0.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Working0.OnPicture = null;
-			this.Working0.OnText = "Working";
-			this.Working0.OnTextColor = System.Drawing.SystemColors.ControlText;
-			this.Working0.Size = new System.Drawing.Size(60, 25);
-			this.Working0.TabIndex = 294;
-			this.Working0.Tag = "W";
-			this.Working0.Text = "Working";
-			this.Working0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ToolTip1.SetToolTip(this.Working0, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
-        " FF gain goes to Axis");
-			this.Working0.UseVisualStyleBackColor = false;
-			this.Working0.CheckedChanged += new System.EventHandler(this.Working_CheckedChanged);
-			// 
-			// Adaptive2
-			// 
-			this.Adaptive2.Appearance = System.Windows.Forms.Appearance.Button;
-			this.Adaptive2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
-			this.Adaptive2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Adaptive2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Adaptive2.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.Adaptive2.Location = new System.Drawing.Point(485, 87);
-			this.Adaptive2.Margin = new System.Windows.Forms.Padding(0);
-			this.Adaptive2.Name = "Adaptive2";
-			this.Adaptive2.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
-			this.Adaptive2.OffImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Adaptive2.OffPicture = null;
-			this.Adaptive2.OffText = "Not adapt";
-			this.Adaptive2.OffTextColor = System.Drawing.SystemColors.ControlText;
-			this.Adaptive2.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-			this.Adaptive2.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Adaptive2.OnPicture = null;
-			this.Adaptive2.OnText = "Adaptive";
-			this.Adaptive2.OnTextColor = System.Drawing.SystemColors.ControlText;
-			this.Adaptive2.Size = new System.Drawing.Size(70, 25);
-			this.Adaptive2.TabIndex = 289;
-			this.Adaptive2.Tag = "N";
-			this.Adaptive2.Text = "Not adapt";
-			this.Adaptive2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ToolTip1.SetToolTip(this.Adaptive2, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
-        " FF gain goes to Axis");
-			this.Adaptive2.UseVisualStyleBackColor = false;
-			this.Adaptive2.CheckedChanged += new System.EventHandler(this.Adaptive_CheckedChanged);
-			// 
-			// Working2
-			// 
-			this.Working2.Appearance = System.Windows.Forms.Appearance.Button;
-			this.Working2.BackColor = System.Drawing.Color.LightGreen;
-			this.Working2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Working2.Checked = true;
-			this.Working2.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.Working2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Working2.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.Working2.Location = new System.Drawing.Point(423, 87);
-			this.Working2.Margin = new System.Windows.Forms.Padding(0);
-			this.Working2.Name = "Working2";
-			this.Working2.OffColor = System.Drawing.Color.LightPink;
-			this.Working2.OffImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Working2.OffPicture = null;
-			this.Working2.OffText = "No Work";
-			this.Working2.OffTextColor = System.Drawing.SystemColors.ControlText;
-			this.Working2.OnColor = System.Drawing.Color.LightGreen;
-			this.Working2.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Working2.OnPicture = null;
-			this.Working2.OnText = "Working";
-			this.Working2.OnTextColor = System.Drawing.SystemColors.ControlText;
-			this.Working2.Size = new System.Drawing.Size(60, 25);
-			this.Working2.TabIndex = 288;
-			this.Working2.Tag = "W";
-			this.Working2.Text = "Working";
-			this.Working2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ToolTip1.SetToolTip(this.Working2, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
-        " FF gain goes to Axis");
-			this.Working2.UseVisualStyleBackColor = false;
-			this.Working2.CheckedChanged += new System.EventHandler(this.Working_CheckedChanged);
-			// 
-			// Adaptive1
-			// 
-			this.Adaptive1.Appearance = System.Windows.Forms.Appearance.Button;
-			this.Adaptive1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
-			this.Adaptive1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Adaptive1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Adaptive1.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.Adaptive1.Location = new System.Drawing.Point(485, 57);
-			this.Adaptive1.Margin = new System.Windows.Forms.Padding(0);
-			this.Adaptive1.Name = "Adaptive1";
-			this.Adaptive1.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
-			this.Adaptive1.OffImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Adaptive1.OffPicture = null;
-			this.Adaptive1.OffText = "Not adapt";
-			this.Adaptive1.OffTextColor = System.Drawing.SystemColors.ControlText;
-			this.Adaptive1.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-			this.Adaptive1.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Adaptive1.OnPicture = null;
-			this.Adaptive1.OnText = "Adaptive";
-			this.Adaptive1.OnTextColor = System.Drawing.SystemColors.ControlText;
-			this.Adaptive1.Size = new System.Drawing.Size(70, 25);
-			this.Adaptive1.TabIndex = 283;
-			this.Adaptive1.Tag = "N";
-			this.Adaptive1.Text = "Not adapt";
-			this.Adaptive1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ToolTip1.SetToolTip(this.Adaptive1, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
-        " FF gain goes to Axis");
-			this.Adaptive1.UseVisualStyleBackColor = false;
-			this.Adaptive1.CheckedChanged += new System.EventHandler(this.Adaptive_CheckedChanged);
-			// 
-			// Working1
-			// 
-			this.Working1.Appearance = System.Windows.Forms.Appearance.Button;
-			this.Working1.BackColor = System.Drawing.Color.LightGreen;
-			this.Working1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Working1.Checked = true;
-			this.Working1.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.Working1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Working1.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.Working1.Location = new System.Drawing.Point(423, 57);
-			this.Working1.Margin = new System.Windows.Forms.Padding(0);
-			this.Working1.Name = "Working1";
-			this.Working1.OffColor = System.Drawing.Color.LightPink;
-			this.Working1.OffImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Working1.OffPicture = null;
-			this.Working1.OffText = "No Work";
-			this.Working1.OffTextColor = System.Drawing.SystemColors.ControlText;
-			this.Working1.OnColor = System.Drawing.Color.LightGreen;
-			this.Working1.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Working1.OnPicture = null;
-			this.Working1.OnText = "Working";
-			this.Working1.OnTextColor = System.Drawing.SystemColors.ControlText;
-			this.Working1.Size = new System.Drawing.Size(60, 25);
-			this.Working1.TabIndex = 282;
-			this.Working1.Tag = "W";
-			this.Working1.Text = "Working";
-			this.Working1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ToolTip1.SetToolTip(this.Working1, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
-        " FF gain goes to Axis");
-			this.Working1.UseVisualStyleBackColor = false;
-			this.Working1.CheckedChanged += new System.EventHandler(this.Working_CheckedChanged);
-			// 
-			// Adaptive3
-			// 
-			this.Adaptive3.Appearance = System.Windows.Forms.Appearance.Button;
-			this.Adaptive3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
-			this.Adaptive3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Adaptive3.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Adaptive3.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.Adaptive3.Location = new System.Drawing.Point(485, 26);
-			this.Adaptive3.Margin = new System.Windows.Forms.Padding(0);
-			this.Adaptive3.Name = "Adaptive3";
-			this.Adaptive3.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
-			this.Adaptive3.OffImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Adaptive3.OffPicture = null;
-			this.Adaptive3.OffText = "Not adapt";
-			this.Adaptive3.OffTextColor = System.Drawing.SystemColors.ControlText;
-			this.Adaptive3.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-			this.Adaptive3.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Adaptive3.OnPicture = null;
-			this.Adaptive3.OnText = "Adaptive";
-			this.Adaptive3.OnTextColor = System.Drawing.SystemColors.ControlText;
-			this.Adaptive3.Size = new System.Drawing.Size(70, 25);
-			this.Adaptive3.TabIndex = 277;
-			this.Adaptive3.Tag = "N";
-			this.Adaptive3.Text = "Not adapt";
-			this.Adaptive3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ToolTip1.SetToolTip(this.Adaptive3, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
-        " FF gain goes to Axis");
-			this.Adaptive3.UseVisualStyleBackColor = false;
-			this.Adaptive3.CheckedChanged += new System.EventHandler(this.Adaptive_CheckedChanged);
-			// 
-			// Working3
-			// 
-			this.Working3.Appearance = System.Windows.Forms.Appearance.Button;
-			this.Working3.BackColor = System.Drawing.Color.LightPink;
-			this.Working3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Working3.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Working3.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.Working3.Location = new System.Drawing.Point(423, 26);
-			this.Working3.Margin = new System.Windows.Forms.Padding(0);
-			this.Working3.Name = "Working3";
-			this.Working3.OffColor = System.Drawing.Color.LightPink;
-			this.Working3.OffImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Working3.OffPicture = null;
-			this.Working3.OffText = "No Work";
-			this.Working3.OffTextColor = System.Drawing.SystemColors.ControlText;
-			this.Working3.OnColor = System.Drawing.Color.LightGreen;
-			this.Working3.OnImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.Working3.OnPicture = null;
-			this.Working3.OnText = "Working";
-			this.Working3.OnTextColor = System.Drawing.SystemColors.ControlText;
-			this.Working3.Size = new System.Drawing.Size(60, 25);
-			this.Working3.TabIndex = 276;
-			this.Working3.Tag = "W";
-			this.Working3.Text = "No Work";
-			this.Working3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ToolTip1.SetToolTip(this.Working3, "If \'ALL FF Loops ON\' and \'FF to Motors ON\' and \'Working\': FF signal multiplied by" +
-        " FF gain goes to Axis");
-			this.Working3.UseVisualStyleBackColor = false;
-			this.Working3.CheckedChanged += new System.EventHandler(this.Working_CheckedChanged);
-			// 
 			// frmFloorFF
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1671,6 +1761,12 @@ namespace TMCAnalyzer {
 			this.Name = "frmFloorFF";
 			this.Text = "FormFloorFF";
 			this.FrameVelocityFB.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_0)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_5)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_3)).EndInit();
@@ -1678,21 +1774,15 @@ namespace TMCAnalyzer {
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.AxisFBgain_0)).EndInit();
 			this.FrameFF.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numFFgain0)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain0)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.ImageGains)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_5)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_4)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_0)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numFFgain0)).EndInit();
 			this.ResumeLayout(false);
 
 		}
