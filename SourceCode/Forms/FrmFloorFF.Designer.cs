@@ -93,6 +93,7 @@ namespace TMCAnalyzer {
 			this._Label1_18 = new System.Windows.Forms.Label();
 			this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.cmdPulse = new System.Windows.Forms.Button();
+			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.FrameVelocityFB.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numAxisFBgain_4)).BeginInit();
@@ -116,6 +117,7 @@ namespace TMCAnalyzer {
 			((System.ComponentModel.ISupportInitialize)(this.FFgain2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ImageGains)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// FrameVelocityFB
@@ -1745,11 +1747,25 @@ namespace TMCAnalyzer {
 			this.cmdPulse.UseVisualStyleBackColor = false;
 			this.cmdPulse.Click += new System.EventHandler(this.cmdPulse_Click);
 			// 
+			// numericUpDown1
+			// 
+			this.numericUpDown1.Location = new System.Drawing.Point(253, 265);
+			this.numericUpDown1.Name = "numericUpDown1";
+			this.numericUpDown1.Size = new System.Drawing.Size(104, 20);
+			this.numericUpDown1.TabIndex = 148;
+			this.numericUpDown1.Value = new decimal(new int[] {
+            55,
+            0,
+            0,
+            0});
+			this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+			// 
 			// frmFloorFF
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(814, 341);
+			this.Controls.Add(this.numericUpDown1);
 			this.Controls.Add(this.FrameVelocityFB);
 			this.Controls.Add(this.FrameFF);
 			this.Controls.Add(this.cmdPulse);
@@ -1783,6 +1799,7 @@ namespace TMCAnalyzer {
 			((System.ComponentModel.ISupportInitialize)(this.FFgain2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.ImageGains)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.FFgain3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -1857,5 +1874,6 @@ namespace TMCAnalyzer {
 		private CustomClasses.ScientificNumericUpDown numFFgain3;
 		private CustomClasses.ScientificNumericUpDown numFFgain1;
 		private CustomClasses.ScientificNumericUpDown numFFgain2;
+		private System.Windows.Forms.NumericUpDown numericUpDown1;
 	}
 }

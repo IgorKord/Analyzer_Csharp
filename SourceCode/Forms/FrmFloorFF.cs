@@ -499,6 +499,11 @@ namespace TMCAnalyzer {
 		private void formGains_VisibleChanged(object sender, EventArgs e) {
 			if (this.Visible) Refresh_gains();
 		}
+
+		private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+		{
+
+		}
 	}
 
 }
